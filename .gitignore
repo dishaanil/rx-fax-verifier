@@ -12,6 +12,7 @@ backend/uploads/
 # Node
 node_modules/
 dist/
+*.tsbuildinfo
 
 # OS
 .DS_Store
