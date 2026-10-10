@@ -325,7 +325,7 @@
  {
   "id": "demo_D",
   "template": "pad",
-  "tier": "moderate",
+  "tier": "clean",
   "patient": {
    "name": "Zainab Hjelmstad",
    "dob": "1936-03-22",
@@ -337,7 +337,7 @@
    "strength": "25 mg",
    "form": "tablet"
   },
-  "sig_as_written": "1 tab po tid prn itching",
+  "sig_as_written": "1 TAB PO TID",
   "sig_normalized": null,
   "quantity": 30,
   "refills": 0,
@@ -365,75 +365,75 @@
   },
   "case": "D",
   "title": "Hydroxyzine / hydralazine ambiguity",
-  "expected": "REVIEW_REQUIRED: cross-pass disagreement + LASA pair + ambiguous reference",
+  "expected": "REVIEW_REQUIRED: AMBIGUOUS_DRUG only (hydroxyzine vs hydralazine; everything else clean)",
   "file": "faxes/demo_D.png",
   "clean_file": "clean/demo_D.png",
   "boxes": {
    "patient_name": [
-    454,
-    517,
-    803,
-    590
+    447,
+    531,
+    796,
+    602
    ],
    "patient_dob": [
-    1101,
-    521,
-    1271,
-    576
+    1094,
+    528,
+    1264,
+    582
    ],
    "drug": [
-    524,
-    890,
-    880,
-    974
+    522,
+    903,
+    877,
+    985
    ],
    "strength": [
-    893,
-    897,
-    1044,
-    967
+    891,
+    907,
+    1041,
+    975
    ],
    "sig": [
-    613,
-    1004,
-    1066,
-    1087
+    612,
+    1017,
+    898,
+    1069
    ],
    "quantity": [
-    648,
-    1141,
-    743,
-    1184
+    645,
+    1152,
+    739,
+    1196
    ],
    "refills": [
-    460,
-    1441,
-    532,
-    1489
+    464,
+    1462,
+    535,
+    1509
    ],
    "prescriber_name": [
-    652,
-    262,
-    1086,
-    322
+    642,
+    274,
+    1076,
+    330
    ],
    "npi": [
-    399,
-    444,
-    562,
-    476
+    391,
+    459,
+    554,
+    490
    ],
    "date_written": [
-    1104,
-    610,
-    1240,
-    661
+    1098,
+    617,
+    1233,
+    668
    ],
    "signature": [
-    872,
-    1491,
-    1159,
-    1566
+    876,
+    1500,
+    1158,
+    1567
    ]
   }
  },
