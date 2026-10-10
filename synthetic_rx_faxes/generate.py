@@ -374,7 +374,8 @@ def tpl_pad(p):
     y += 46
     xe = p.hand(hx, y, "Disp:", 48)
     if r["quantity"] is not None:
-        p.hand(xe + 14, y, f'#{r["quantity"]}', 50, "quantity")
+        q = r["quantity"]  # a string (e.g. "50 mL") is drawn as written; counts get the usual "#"
+        p.hand(xe + 14, y, q if isinstance(q, str) else f'#{q}', 50, "quantity")
     yb = y1 - 250
     xx = p.t(x0 + 40, yb, "Refills", R(28)); p.hline(xx + 10, yb + 34, x0 + 330)
     rw = refills_written(p)
