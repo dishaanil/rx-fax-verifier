@@ -58,6 +58,8 @@ class NicrronExtraction(RawPrescriptionExtraction):
     models: dict[str, str] = Field(default_factory=dict)
     # Non-fatal problems, e.g. the secondary read failed. Never silently dropped.
     errors: list[str] = Field(default_factory=list)
+    # PRISM evidence (observe/detect/flag only), copied into audit_events by the pipeline.
+    prism_events: list[dict] = Field(default_factory=list)
 
 
 _FIELD_GUIDE = """\

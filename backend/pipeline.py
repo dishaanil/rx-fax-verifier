@@ -90,6 +90,9 @@ def process(
     )
     append_event(rx, clock, "SYSTEM", "DOCUMENT_RECEIVED")
     append_event(rx, clock, "AI", "FIELDS_EXTRACTED")
+    # PRISM evidence is audit-only: it never touches status, decisions or exceptions.
+    for prism_event in getattr(raw, "prism_events", None) or []:
+        append_event(rx, clock, "PRISM", prism_event["event"], detail=prism_event.get("detail"))
 
     duplicate = validate_duplicate(sha256, seen_hashes)
     if duplicate.status is SignalStatus.FAIL:
