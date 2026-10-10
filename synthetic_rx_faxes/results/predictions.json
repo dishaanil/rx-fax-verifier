@@ -88,6 +88,7 @@
   "npi": "1752917033",
   "date_written": "2026-10-10",
   "flags": [
+   "prescriber_name",
    "sig"
   ]
  },
@@ -133,6 +134,7 @@
   "flags": [
    "drug",
    "npi",
+   "quantity",
    "strength"
   ]
  },
@@ -313,7 +315,9 @@
   "prescriber_name": "Linnea Hargreave, MD",
   "npi": "1632122333",
   "date_written": "2026-10-06",
-  "flags": []
+  "flags": [
+   "patient_name"
+  ]
  },
  "rx_022": {
   "patient_name": "Sunniva Birdwhistle",
@@ -554,6 +558,7 @@
   "date_written": "2024-10-07",
   "flags": [
    "drug",
+   "patient_name",
    "sig"
   ]
  },
