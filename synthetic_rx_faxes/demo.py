@@ -25,7 +25,7 @@ CASES = {
               drug="Amoxicillin", strength="250 mg/5 mL", fabbr="susp", form="suspension",
               sig="10 mL po tid for 10 days", qty="50 mL", refills=0,
               expected="REVIEW_REQUIRED: POSSIBLE_QUANTITY_CONFLICT (directions imply 300 mL, source says 50 mL)"),
-    "D": dict(title="Hydroxyzine / hydralazine ambiguity", tier="moderate",
+    "D": dict(title="Hydroxyzine / hydralazine ambiguity", tier="clean",
               drug="Hydroxyzine HCl", strength="25 mg", fabbr="tab", form="tablet",
               sig="1 TAB PO TID", qty=30, refills=0, damage="drug_middle",
               expected="REVIEW_REQUIRED: AMBIGUOUS_DRUG only (hydroxyzine vs hydralazine; everything else clean)"),
