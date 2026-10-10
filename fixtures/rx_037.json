@@ -1,0 +1,174 @@
+{
+  "prescription_id": "rx_037",
+  "status": "REVIEW_REQUIRED",
+
+  "source": {
+    "type": "fax_image",
+    "original_path": "faxes/rx_037.png",
+    "processed_path": "processed/rx_037.png",
+    "sha256": "3f1c9a0b7e2d4856a1b0c3d2e4f5061728394a5b6c7d8e9f0a1b2c3d4e5f6071"
+  },
+
+  "fields": {
+    "patient": {
+      "raw_value": "James Peterson",
+      "normalized_value": "James Peterson",
+      "source_quality": "CLEAR",
+      "reads": [{ "source": "primary", "value": "James Peterson" }],
+      "evidence": { "page": 1, "bbox": [96, 142, 384, 172] },
+      "signals": [
+        { "type": "REQUIRED_FIELD", "status": "PASS", "detail": null },
+        { "type": "PATIENT_IDENTITY", "status": "PASS", "detail": "Header and prescription block agree." }
+      ],
+      "candidates": ["James Peterson"],
+      "decision": "VERIFIED",
+      "reason": "Read clearly and consistent across the document.",
+      "resolution": null
+    },
+
+    "drug": {
+      "raw_value": "hydroxy?ine HCl",
+      "normalized_value": null,
+      "source_quality": "PARTIAL",
+      "reads": [
+        { "source": "primary", "value": "hydroxyzine HCl" },
+        { "source": "secondary", "value": "hydralazine HCl" }
+      ],
+      "evidence": { "page": 1, "bbox": [412, 288, 760, 324] },
+      "signals": [
+        { "type": "CROSS_PASS", "status": "FAIL", "detail": "Extraction reads disagree." },
+        { "type": "RXNORM", "status": "AMBIGUOUS", "detail": "Two candidates within scoring range." },
+        { "type": "LASA", "status": "FAIL", "detail": "Known look-alike pair." }
+      ],
+      "candidates": ["hydroxyzine HCl", "hydralazine HCl"],
+      "decision": "REVIEW_REQUIRED",
+      "reason": "Two visual reads disagree and both correspond to plausible similar drug names.",
+      "resolution": null
+    },
+
+    "strength": {
+      "raw_value": "25 mg",
+      "normalized_value": "25 mg",
+      "source_quality": "CLEAR",
+      "reads": [
+        { "source": "primary", "value": "25 mg" },
+        { "source": "secondary", "value": "25 mg" }
+      ],
+      "evidence": { "page": 1, "bbox": [764, 288, 880, 324] },
+      "signals": [
+        { "type": "CROSS_PASS", "status": "PASS", "detail": "Both reads agree." },
+        { "type": "MARKETED_STRENGTH", "status": "PASS", "detail": "25 mg is a marketed strength." }
+      ],
+      "candidates": ["25 mg"],
+      "decision": "VERIFIED",
+      "reason": "Both reads agree and the strength is a marketed product.",
+      "resolution": null
+    },
+
+    "sig": {
+      "raw_value": "1 TAB PO TID",
+      "normalized_value": "Take 1 tablet by mouth three times daily.",
+      "source_quality": "CLEAR",
+      "reads": [{ "source": "primary", "value": "1 TAB PO TID" }],
+      "evidence": { "page": 1, "bbox": [96, 338, 620, 370] },
+      "signals": [
+        { "type": "SIG_VOCABULARY", "status": "PASS", "detail": "All tokens recognised." }
+      ],
+      "candidates": ["Take 1 tablet by mouth three times daily."],
+      "decision": "VERIFIED",
+      "reason": "All directions tokens are in the known vocabulary.",
+      "resolution": null
+    },
+
+    "quantity": {
+      "raw_value": "30",
+      "normalized_value": "30",
+      "source_quality": "CLEAR",
+      "reads": [{ "source": "primary", "value": "30" }],
+      "evidence": { "page": 1, "bbox": [96, 386, 240, 416] },
+      "signals": [
+        { "type": "QUANTITY_SIG", "status": "FAIL", "detail": "1 tablet TID over 30 days implies 90; source says 30." }
+      ],
+      "candidates": ["30"],
+      "decision": "REVIEW_REQUIRED",
+      "reason": "The quantity does not match what the directions and days supply imply.",
+      "resolution": null
+    },
+
+    "prescriber": {
+      "raw_value": "Dr. A. Whitfield",
+      "normalized_value": "Dr. A. Whitfield",
+      "source_quality": "CLEAR",
+      "reads": [{ "source": "primary", "value": "Dr. A. Whitfield" }],
+      "evidence": { "page": 1, "bbox": [96, 612, 420, 644] },
+      "signals": [{ "type": "REQUIRED_FIELD", "status": "PASS", "detail": null }],
+      "candidates": ["Dr. A. Whitfield"],
+      "decision": "VERIFIED",
+      "reason": "Read clearly.",
+      "resolution": null
+    },
+
+    "prescriber_identifier": {
+      "raw_value": "1234567893",
+      "normalized_value": "1234567893",
+      "source_quality": "CLEAR",
+      "reads": [{ "source": "primary", "value": "1234567893" }],
+      "evidence": { "page": 1, "bbox": [424, 612, 616, 644] },
+      "signals": [
+        { "type": "IDENTIFIER_CHECKSUM", "status": "PASS", "detail": "NPI Luhn check passes." }
+      ],
+      "candidates": ["1234567893"],
+      "decision": "VERIFIED",
+      "reason": "Identifier checksum is valid.",
+      "resolution": null
+    },
+
+    "signature_present": {
+      "raw_value": null,
+      "normalized_value": null,
+      "source_quality": "UNREADABLE",
+      "reads": [{ "source": "primary", "value": null }],
+      "evidence": { "page": 1, "bbox": [96, 660, 420, 700] },
+      "signals": [
+        { "type": "REQUIRED_FIELD", "status": "WARNING", "detail": "Optional field missing or unreadable." }
+      ],
+      "candidates": [],
+      "decision": "MISSING",
+      "reason": "No signature could be read. Shown as a warning; does not block approval.",
+      "resolution": null
+    }
+  },
+
+  "exceptions": [
+    {
+      "exception_id": "exc_01",
+      "type": "AMBIGUOUS_DRUG",
+      "field": "drug",
+      "severity": "CRITICAL",
+      "reason": "Two visual reads disagree and both map to plausible drug candidates.",
+      "source_evidence": { "bbox": [412, 288, 760, 324] },
+      "candidate_values": ["hydroxyzine HCl", "hydralazine HCl"],
+      "required_action": "HUMAN_SELECTION_OR_CLARIFICATION"
+    },
+    {
+      "exception_id": "exc_02",
+      "type": "POSSIBLE_QUANTITY_CONFLICT",
+      "field": "quantity",
+      "severity": "CRITICAL",
+      "reason": "Directions imply 90 tablets but the prescription states 30.",
+      "source_evidence": { "bbox": [96, 386, 240, 416] },
+      "candidate_values": ["30", "90"],
+      "required_action": "HUMAN_SELECTION_OR_CLARIFICATION"
+    }
+  ],
+
+  "clarifications": [],
+  "approved_by": null,
+
+  "audit_events": [
+    { "ts": "2026-10-10T14:02:11Z", "actor": "SYSTEM", "event": "DOCUMENT_RECEIVED" },
+    { "ts": "2026-10-10T14:02:19Z", "actor": "AI", "event": "FIELDS_EXTRACTED" },
+    { "ts": "2026-10-10T14:02:21Z", "actor": "SYSTEM", "event": "EXCEPTION_CREATED", "exception_id": "exc_01" },
+    { "ts": "2026-10-10T14:02:21Z", "actor": "SYSTEM", "event": "EXCEPTION_CREATED", "exception_id": "exc_02" }
+  ]
+}
