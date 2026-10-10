@@ -3,6 +3,7 @@
 import hashlib
 import logging
 import re
+from collections.abc import Callable
 from pathlib import Path
 
 from backend.extraction import ExtractionProvider
@@ -22,7 +23,7 @@ def safe_filename(filename: str | None) -> str:
 
 def intake(
     store: MemoryStore,
-    extractor: ExtractionProvider,
+    extractor_factory: Callable[[], ExtractionProvider],
     filename: str | None,
     data: bytes,
     upload_dir: Path | None,
@@ -30,8 +31,9 @@ def intake(
 ) -> Prescription:
     """Assign an id from the filename stem (suffixing _2, _3, ... if taken), save
     the upload under upload_dir/<id>/, extract, process and store. Extractor
-    failure yields an UNPROCESSABLE prescription, not an error. When upload_dir
-    is None (seeding) nothing is written to disk."""
+    failure, including failure to construct the extractor (e.g. missing
+    provider configuration), yields an UNPROCESSABLE prescription, not an
+    error. When upload_dir is None (seeding) nothing is written to disk."""
     name = safe_filename(filename)
     prescription_id = store.reserve_id(Path(name).stem or "upload")
     sha256 = hashlib.sha256(data).hexdigest()
@@ -44,8 +46,8 @@ def intake(
         original_path = str(target.resolve())
 
     try:
-        raw = extractor.extract(original_path or name, prescription_id)
-    except Exception as exc:  # any provider failure becomes UNPROCESSABLE
+        raw = extractor_factory().extract(original_path or name, prescription_id)
+    except Exception as exc:  # any provider construction or extraction failure becomes UNPROCESSABLE
         log.warning("Extraction failed for %s: %s", prescription_id, exc)
         rx = _unprocessable(prescription_id, sha256, original_path, str(exc), clock)
         store.save(rx)

@@ -33,6 +33,7 @@ REASON_IDENTIFIER = "The prescriber identifier fails its checksum."
 REASON_SIG = "The directions contain a term outside the supported vocabulary."
 REASON_QUANTITY = "The quantity does not match what the directions and days supply imply."
 REASON_UNREADABLE = "The source for this critical field is unreadable."
+REASON_PARTIAL = "Part of the source for this critical field is illegible, so the value cannot be accepted as read."
 REASON_NO_EVIDENCE = "No source location supports this value."
 REASON_VERIFIED = "Read clearly and every check on it passed."
 REASON_OPTIONAL_MISSING = "Optional field missing; shown as a warning and does not block approval."
@@ -96,6 +97,9 @@ def _evaluate_critical(name: str, field: FieldResult) -> FieldRoute:
     # 8. Critical source marked unreadable.
     if field.source_quality is SourceQuality.UNREADABLE:
         return FieldRoute(review, REASON_UNREADABLE, "UNREADABLE_SOURCE")
+    # 8b. Critical source only partly legible: a plausible reading is not evidence.
+    if field.source_quality is SourceQuality.PARTIAL:
+        return FieldRoute(review, REASON_PARTIAL, "PARTIAL_SOURCE")
     # 9. Insufficient provenance (a page with no bbox is enough today).
     if field.evidence is None or field.evidence.page is None:
         return FieldRoute(review, REASON_NO_EVIDENCE, "MISSING_EVIDENCE")
