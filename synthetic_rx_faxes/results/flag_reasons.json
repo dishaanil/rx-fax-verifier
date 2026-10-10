@@ -39,6 +39,9 @@
   ],
   "days_supply": [
    "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ],
+  "prescriber": [
+   "REVIEW_REQUIRED: Part of the source for this critical field is illegible, so the value cannot be accepted as read."
   ]
  },
  "rx_007": {},
@@ -53,6 +56,9 @@
   ],
   "strength": [
    "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "quantity": [
+   "REVIEW_REQUIRED: Part of the source for this critical field is illegible, so the value cannot be accepted as read."
   ],
   "prescriber_identifier": [
    "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
@@ -128,7 +134,11 @@
    "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
- "rx_021": {},
+ "rx_021": {
+  "patient": [
+   "REVIEW_REQUIRED: Part of the source for this critical field is illegible, so the value cannot be accepted as read."
+  ]
+ },
  "rx_022": {
   "strength": [
    "INVALID: This strength is not a marketed strength for this drug."
@@ -225,6 +235,9 @@
  },
  "rx_036": {},
  "rx_037": {
+  "patient": [
+   "REVIEW_REQUIRED: Part of the source for this critical field is illegible, so the value cannot be accepted as read."
+  ],
   "drug": [
    "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
