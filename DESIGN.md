@@ -307,6 +307,8 @@ frontend/src/
 | `POST /api/exceptions/{id}/resolve` | `{action: SELECT_VALUE, value}` or `{action: MARK_UNREADABLE}`; always revalidates |
 | `POST /api/prescriptions/{id}/approve` | valid only from `READY_FOR_VERIFICATION` |
 
+> **Implementation note:** the backend also exposes two additive UI-support routes — `POST /api/prescriptions/{id}/reject` and `GET /api/prescriptions/{id}/source`.
+
 ```
 backend/
   main.py
