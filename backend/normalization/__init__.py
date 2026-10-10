@@ -1,3 +1,3 @@
-from backend.normalization.sig import NormalizedSig, normalize_sig
+from backend.normalization.sig import NormalizedSig, normalize_sig, render_sig
 
-__all__ = ["NormalizedSig", "normalize_sig"]
+__all__ = ["NormalizedSig", "normalize_sig", "render_sig"]

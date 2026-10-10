@@ -120,3 +120,50 @@ def _extract_dose(tokens: list[str]) -> tuple[float | None, str | None]:
         if _NUMBER_RE.match(number) and unit in DOSE_UNITS:
             return float(number), unit
     return None, None
+
+
+_UNIT_WORDS = {"TAB": ("tablet", "tablets"), "CAP": ("capsule", "capsules"), "ML": ("mL", "mL")}
+_ROUTE_WORDS = {"PO": "by mouth", "PR": "rectally", "SL": "under the tongue", "IM": "intramuscularly", "IV": "intravenously"}
+_FREQUENCY_WORDS = {
+    "QD": "once daily",
+    "BID": "twice daily",
+    "TID": "three times daily",
+    "QID": "four times daily",
+    "QHS": "at bedtime",
+    "QAM": "every morning",
+    "Q4H": "every 4 hours",
+    "Q6H": "every 6 hours",
+    "Q8H": "every 8 hours",
+    "Q12H": "every 12 hours",
+}
+
+
+def render_sig(sig: NormalizedSig) -> str | None:
+    """Plain-English directions, e.g. 'Take 1 tablet by mouth three times daily.'
+
+    Returns the canonical token string when a token has no fixed wording, and
+    None when the SIG has unknown tokens or no dose. Never invents content.
+    """
+    if sig.unknown or sig.dose is None or sig.dose_unit is None:
+        return None
+
+    dose_text = str(int(sig.dose)) if sig.dose.is_integer() else f"{sig.dose:g}"
+    singular, plural = _UNIT_WORDS[sig.dose_unit]
+    parts = ["Take", dose_text, singular if sig.dose == 1 else plural]
+
+    consumed = 2  # dose number + unit
+    for token in sig.tokens:
+        if token in _ROUTE_WORDS:
+            parts.append(_ROUTE_WORDS[token])
+            consumed += 1
+    if sig.frequency_token:
+        parts.append(_FREQUENCY_WORDS[sig.frequency_token])
+        consumed += 1
+    if sig.as_needed:
+        parts.append("as needed")
+        consumed += 1
+    if consumed != len(sig.tokens):
+        return " ".join(sig.tokens)
+    if sig.days is not None:
+        parts.append(f"for {sig.days} day" + ("" if sig.days == 1 else "s"))
+    return " ".join(parts) + "."

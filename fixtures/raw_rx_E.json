@@ -1,0 +1,174 @@
+{
+  "prescription_id": "rx_E",
+  "source": {
+    "type": "fax_image",
+    "original_path": "faxes/rx_E.png"
+  },
+  "patient_identity": {
+    "header_name": "Linda Okafor",
+    "block_name": "Linda Okafor",
+    "dob_values": []
+  },
+  "fields": {
+    "patient": {
+      "raw_value": "Linda Okafor",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "Linda Okafor"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          142,
+          384,
+          172
+        ]
+      }
+    },
+    "drug": {
+      "raw_value": "lisinopril",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "lisinopril"
+        },
+        {
+          "source": "secondary",
+          "value": "lisinopril"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          412,
+          288,
+          760,
+          324
+        ]
+      }
+    },
+    "strength": {
+      "raw_value": "10 mg",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "10 mg"
+        },
+        {
+          "source": "secondary",
+          "value": "10 mg"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          764,
+          288,
+          880,
+          324
+        ]
+      }
+    },
+    "sig": {
+      "raw_value": "1 TAB PO QD",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "1 TAB PO QD"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          338,
+          620,
+          370
+        ]
+      }
+    },
+    "quantity": {
+      "raw_value": "30",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "30"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          386,
+          240,
+          416
+        ]
+      }
+    },
+    "days_supply": {
+      "raw_value": "30",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "30"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          260,
+          386,
+          420,
+          416
+        ]
+      }
+    },
+    "prescriber": {
+      "raw_value": "Dr. A. Whitfield",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "Dr. A. Whitfield"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          612,
+          420,
+          644
+        ]
+      }
+    },
+    "prescriber_identifier": {
+      "raw_value": "1234567894",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "1234567894"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          424,
+          612,
+          616,
+          644
+        ]
+      }
+    }
+  }
+}

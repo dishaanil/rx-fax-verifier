@@ -32,29 +32,41 @@ def validate_quantity(
     quantity_unit: str | None = None,
     as_needed: bool = False,
 ) -> Signal | None:
-    if as_needed:
+    if as_needed or stated_qty is None:
         return None
-    if dose is None or days is None or stated_qty is None:
-        return None
-    per_day = FREQUENCY_PER_DAY.get(frequency_token) if frequency_token else None
-    if per_day is None:
+    expected = implied_quantity(dose, frequency_token, days)
+    if expected is None:
         return None
     if not _units_compatible(dose_unit, quantity_unit):
         return None
 
-    expected = dose * per_day * days
-    suffix = " mL" if dose_unit == "ML" else ""
+    implied_text = format_quantity(expected, dose_unit)
+    stated_text = format_quantity(stated_qty, dose_unit)
     if math.isclose(expected, stated_qty):
         return Signal(
             type=SIGNAL_TYPE,
             status=SignalStatus.PASS,
-            detail=f"Directions imply {_fmt(expected)}{suffix}; prescription states {_fmt(stated_qty)}{suffix}.",
+            detail=f"Directions imply {implied_text}; prescription states {stated_text}.",
         )
     return Signal(
         type=SIGNAL_TYPE,
         status=SignalStatus.FAIL,
-        detail=f"Directions imply {_fmt(expected)}{suffix} but prescription states {_fmt(stated_qty)}{suffix}.",
+        detail=f"Directions imply {implied_text} but prescription states {stated_text}.",
     )
+
+
+def implied_quantity(dose: float | None, frequency_token: str | None, days: int | None) -> float | None:
+    """dose x frequency/day x days, or None when any input is missing or unsupported."""
+    per_day = FREQUENCY_PER_DAY.get(frequency_token) if frequency_token else None
+    if dose is None or days is None or per_day is None:
+        return None
+    return dose * per_day * days
+
+
+def format_quantity(value: float, dose_unit: str | None = None) -> str:
+    """'90', '2.5', or '300 mL' for volume doses."""
+    number = str(int(value)) if float(value).is_integer() else f"{value:g}"
+    return f"{number} mL" if dose_unit == "ML" else number
 
 
 def _units_compatible(dose_unit: str | None, quantity_unit: str | None) -> bool:
@@ -69,7 +81,3 @@ def _units_compatible(dose_unit: str | None, quantity_unit: str | None) -> bool:
     if dose_unit in _COUNT_UNITS:
         return canonical == dose_unit
     return canonical == "ML" and dose_unit == "ML"
-
-
-def _fmt(value: float) -> str:
-    return str(int(value)) if float(value).is_integer() else f"{value:g}"

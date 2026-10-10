@@ -16,16 +16,26 @@ def validate_required(fields: dict[str, object | None]) -> list[Signal]:
     for name in sorted(CRITICAL_FIELDS):
         if name not in fields:
             signals.append(_signal(SignalStatus.FAIL, f"Critical field {name!r} is absent."))
-        elif _is_empty(fields[name]):
-            signals.append(_signal(SignalStatus.FAIL, f"Critical field {name!r} is empty."))
         else:
-            signals.append(_signal(SignalStatus.PASS, f"Critical field {name!r} is present."))
+            signals.append(check_required(name, fields[name]))
 
     for name in sorted(fields.keys() - CRITICAL_FIELDS):
-        if _is_empty(fields[name]):
-            signals.append(_signal(SignalStatus.WARNING, f"Optional field {name!r} is missing or unreadable."))
+        signal = check_required(name, fields[name])
+        if signal is not None:
+            signals.append(signal)
 
     return signals
+
+
+def check_required(name: str, value: object | None) -> Signal | None:
+    """Signal for one present field: PASS/FAIL if critical; WARNING or None if optional."""
+    if name in CRITICAL_FIELDS:
+        if _is_empty(value):
+            return _signal(SignalStatus.FAIL, f"Critical field {name!r} is empty.")
+        return _signal(SignalStatus.PASS, f"Critical field {name!r} is present.")
+    if _is_empty(value):
+        return _signal(SignalStatus.WARNING, f"Optional field {name!r} is missing or unreadable.")
+    return None
 
 
 def _is_empty(value: object | None) -> bool:
