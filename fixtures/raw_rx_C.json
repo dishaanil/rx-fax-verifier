@@ -1,0 +1,174 @@
+{
+  "prescription_id": "rx_C",
+  "source": {
+    "type": "fax_image",
+    "original_path": "faxes/rx_C.png"
+  },
+  "patient_identity": {
+    "header_name": "Maria Gonzalez",
+    "block_name": "Maria Gonzalez",
+    "dob_values": []
+  },
+  "fields": {
+    "patient": {
+      "raw_value": "Maria Gonzalez",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "Maria Gonzalez"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          142,
+          384,
+          172
+        ]
+      }
+    },
+    "drug": {
+      "raw_value": "amoxicillin",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "amoxicillin"
+        },
+        {
+          "source": "secondary",
+          "value": "amoxicillin"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          412,
+          288,
+          760,
+          324
+        ]
+      }
+    },
+    "strength": {
+      "raw_value": "250 mg/5 mL",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "250 mg/5 mL"
+        },
+        {
+          "source": "secondary",
+          "value": "250 mg/5 mL"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          764,
+          288,
+          880,
+          324
+        ]
+      }
+    },
+    "sig": {
+      "raw_value": "Take 10 mL three times daily for 10 days",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "Take 10 mL three times daily for 10 days"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          338,
+          620,
+          370
+        ]
+      }
+    },
+    "quantity": {
+      "raw_value": "50 mL",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "50 mL"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          386,
+          240,
+          416
+        ]
+      }
+    },
+    "prescriber": {
+      "raw_value": "Dr. A. Whitfield",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "Dr. A. Whitfield"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          96,
+          612,
+          420,
+          644
+        ]
+      }
+    },
+    "prescriber_identifier": {
+      "raw_value": "1234567893",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "1234567893"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          424,
+          612,
+          616,
+          644
+        ]
+      }
+    },
+    "form": {
+      "raw_value": "suspension",
+      "source_quality": "CLEAR",
+      "reads": [
+        {
+          "source": "primary",
+          "value": "suspension"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "bbox": [
+          764,
+          250,
+          880,
+          280
+        ]
+      }
+    }
+  }
+}
