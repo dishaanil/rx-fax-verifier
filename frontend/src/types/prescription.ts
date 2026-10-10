@@ -47,7 +47,7 @@ export type Exception = {
 export type Prescription = {
   prescription_id: string
   status: PrescriptionStatus
-  source: { type: string; original_path: string; processed_path: string; sha256: string }
+  source: { type: string; original_path: string; processed_path: string; sha256: string; untrusted_text?: string[] }
   fields: Record<string, FieldResult>
   exceptions: Exception[]
   clarifications: unknown[]

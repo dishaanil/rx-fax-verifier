@@ -15,7 +15,7 @@ export function ExceptionPanel({ exception, field, selectedCandidate, onCandidat
   documentUrl: string
 }) {
   if (!exception || !field) {
-    return <section className="panel exception-panel"><div className="panel__heading"><span>Review action</span></div><p>{field?.reason ?? 'Select a field to inspect its evidence.'}</p>{field?.signals.map((signal, index) => <p key={index}>{signal.type}: {signal.detail ?? signal.status}</p>)}</section>
+    return <section className="panel exception-panel"><div className="panel__heading"><span>Review action</span></div><p>{exception?.reason ?? field?.reason ?? 'Select a field to inspect its evidence.'}</p>{exception?.required_action === 'REJECT' && <ReviewActions disabled={!apiReady} rejectOnly onAction={onAction} />}{field?.signals.map((signal, index) => <p key={index}>{signal.type}: {signal.detail ?? signal.status}</p>)}</section>
   }
   const cropEvidence = exception.source_evidence?.bbox
     ? { page: exception.source_evidence.page ?? field.evidence?.page ?? 1, bbox: exception.source_evidence.bbox }
@@ -32,10 +32,12 @@ export function ExceptionPanel({ exception, field, selectedCandidate, onCandidat
         <strong>Competing reads</strong>
         {field.reads.map((read) => <span key={`${read.source}-${read.value}`}>{read.source}: {read.value ?? 'No reading'}</span>)}
       </div>
-      <CandidateSelector values={exception.candidate_values} selectedValue={selectedCandidate} onChange={onCandidate} />
-      <label className="correction-label">Corrected value<input value={correction} disabled={!apiReady} onChange={(event) => onCorrection(event.target.value)} placeholder="Enter the value supported by the source" /></label>
-      <ReviewActions disabled={!apiReady} canConfirm={Boolean(selectedCandidate || (exception.candidate_values.length <= 1 && (field.normalized_value ?? field.raw_value)))} canCorrect={Boolean(correction.trim())} onAction={onAction} />
-      <p className="fixture-note">Clarification and rejection open a draft form. Submission awaits the backend action contracts.</p>
+      {exception.required_action === 'REJECT' ? <ReviewActions disabled={!apiReady} rejectOnly onAction={onAction} /> : <>
+        <CandidateSelector values={exception.candidate_values} selectedValue={selectedCandidate} onChange={onCandidate} />
+        <label className="correction-label">Corrected value<input value={correction} disabled={!apiReady} onChange={(event) => onCorrection(event.target.value)} placeholder="Enter the value supported by the source" /></label>
+        <ReviewActions disabled={!apiReady} canSelect={Boolean(selectedCandidate)} canConfirm={Boolean(field.normalized_value ?? field.raw_value)} canCorrect={Boolean(correction.trim())} onAction={onAction} />
+      </>}
+      <p className="fixture-note">The backend validates each pharmacist action and returns the resulting prescription state.</p>
       {!apiReady && <p className="fixture-note">Fixture preview: resolution is disabled until the policy API is connected. The backend revalidates every action.</p>}
     </section>
   )

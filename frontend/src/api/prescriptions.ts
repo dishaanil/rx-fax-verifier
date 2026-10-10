@@ -1,6 +1,6 @@
 import type { Prescription } from '../types/prescription'
 const base = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
-export type ResolutionAction = 'SELECT_VALUE' | 'MARK_UNREADABLE'
+export type ResolutionAction = 'SELECT_VALUE' | 'CORRECT' | 'CONFIRM' | 'MARK_UNREADABLE' | 'REQUEST_CLARIFICATION'
 async function request(path: string, options?: RequestInit): Promise<unknown> {
   const response = await fetch(`${base}${path}`, options)
   if (response.status === 204) return null
@@ -38,7 +38,7 @@ export async function intakePrescription(file: File): Promise<Prescription> {
 export async function resolveException(id: string, exceptionId: string, action: ResolutionAction, value?: string): Promise<Prescription> {
   await request(`/api/exceptions/${encodeURIComponent(exceptionId)}/resolve`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(action === 'SELECT_VALUE' ? { action, value } : { action }),
+    body: JSON.stringify(action === 'SELECT_VALUE' || action === 'CORRECT' ? { action, value } : { action }),
   })
   return getPrescription(id)
 }
@@ -46,6 +46,10 @@ export async function approvePrescription(id: string): Promise<Prescription> {
   await request(`/api/prescriptions/${encodeURIComponent(id)}/approve`, { method: 'POST' })
   return getPrescription(id)
 }
-export function sourceUrl(path: string): string {
-  return /^(https?:|blob:|data:)/.test(path) ? path : `${base}/${path.replace(/^\//, '')}`
+export async function rejectPrescription(id: string): Promise<Prescription> {
+  await request(`/api/prescriptions/${encodeURIComponent(id)}/reject`, { method: 'POST' })
+  return getPrescription(id)
+}
+export function prescriptionSourceUrl(id: string): string {
+  return `${base}/api/prescriptions/${encodeURIComponent(id)}/source`
 }
