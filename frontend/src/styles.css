@@ -14,6 +14,7 @@
 .document-controls button:disabled { color: #94a0a5; cursor: not-allowed; }
 .prism-evidence { background: #f7faf9; border: 1px solid #dce5e8; border-radius: 10px; color: #53616b; margin-top: 16px; padding: 14px 16px; }
 .prism-evidence > div { align-items: baseline; display: flex; gap: 10px; }.prism-evidence > div span, .prism-evidence p, .prism-evidence li span { font-size: .8rem; }.prism-evidence p { margin: 8px 0 0; }.prism-evidence ul { display: grid; gap: 8px; list-style: none; margin: 10px 0 0; padding: 0; }.prism-evidence li { display: grid; gap: 2px; }
+.untrusted-text { background: #fff6e6; border: 1px solid #efd39c; border-radius: 10px; color: #573f12; margin-top: 16px; padding: 14px 16px; }.untrusted-text h2 { font-size: 1rem; margin: 0; }.untrusted-text p { line-height: 1.45; margin: 8px 0; }.untrusted-text ul { display: grid; gap: 6px; list-style: none; margin: 10px 0 0; padding: 0; }.untrusted-text li { background: #fff; border-left: 3px solid #d99721; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; padding: 8px 10px; }
 .source-crop canvas { max-width: 100%; height: auto; }
 .correction-label { display: grid; gap: 8px; margin: 16px 0; font-weight: 700; }
 .correction-label input { width: 100%; padding: 10px; border: 1px solid #cbd6d8; border-radius: 7px; font: inherit; }

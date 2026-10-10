@@ -7,6 +7,7 @@ import { PrismEvidencePanel } from '../components/PrismEvidencePanel'
 import { PrescriptionFields } from '../components/PrescriptionFields'
 import { ReviewHistory } from '../components/ReviewHistory'
 import { StatusBadge } from '../components/StatusBadge'
+import { UntrustedTextPanel } from '../components/UntrustedTextPanel'
 import type { Prescription } from '../types/prescription'
 
 export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBack }: { prescription: Prescription; apiReady: boolean; onRefresh: (value: Prescription) => void; onBack: () => void }) {
@@ -61,6 +62,7 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
         <ExceptionPanel exception={exception} field={field} selectedCandidate={candidate} onCandidate={setCandidate} onAction={handleAction} apiReady={apiReady && !busy && !['PROCESSING', 'APPROVED', 'REJECTED', 'UNPROCESSABLE'].includes(prescription.status)} correction={correction} onCorrection={setCorrection} documentUrl={documentUrl} />
       </div>
       <ApprovalBar prescription={prescription} onApprove={handleApprove} apiReady={apiReady && !busy} />
+      {prescription.source.untrusted_text?.length ? <UntrustedTextPanel text={prescription.source.untrusted_text} /> : null}
       <PrismEvidencePanel prescriptionId={prescription.prescription_id} events={prescription.audit_events} />
       <ReviewHistory prescription={prescription} />
     </main>
