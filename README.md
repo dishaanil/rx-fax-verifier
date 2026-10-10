@@ -24,6 +24,55 @@ RxBridge turns messy prescription inputs into verified structured drafts or prec
 
 ## Structure
 
+### Frontend development
+
+Run `npm install` and `npm run dev` from `frontend/`. Vite proxies `/api`,
+`/faxes`, and `/processed` to FastAPI at `http://127.0.0.1:8000`.
+For a different backend, set `VITE_API_BASE_URL` before starting or building Vite;
+that backend must allow the frontend origin via CORS and serve source images.
+
+When the API is unavailable, the queue displays the contract fixture as a labeled,
+read-only preview. Uploads never fall back to example data. The original fixture
+image is not included, so its viewer reports that the source image is unavailable.
+
+Frontend integration expects:
+
+- `POST /api/intake`: multipart form field `file`, returning the full prescription
+  contract (including a `PROCESSING` status for asynchronous extraction).
+- `GET /api/prescriptions`: an array of full prescriptions or queue summaries
+  containing `prescription_id`; summaries are hydrated through the detail endpoint.
+- `GET /api/prescriptions/{id}`: the full current contract, also polled during processing.
+- `POST /api/exceptions/{id}/resolve`: `{action: "SELECT_VALUE", value}` for
+  confirmation/correction or `{action: "MARK_UNREADABLE"}`. The UI fetches the
+  prescription again after successful revalidation.
+- `POST /api/prescriptions/{id}/approve`: explicit pharmacist approval, followed
+  by a fresh prescription read. Backend must enforce readiness and pharmacist authority.
+
+Mutation responses accept JSON or HTTP 204. Request clarification and reject remain
+disabled until their backend contracts are defined. Source highlighting and crops
+use pixel bounding boxes on the original, single-page image; multipage viewing
+needs page-specific image URLs.
+
+### Backend data still needed
+
+The UI is connector-ready but deliberately does not call PRISM from the browser.
+The backend owns PRISM and should append asynchronous `audit_events` to the
+prescription response. Every event needs `ts`, `actor`, `event`, and a concise
+`detail`; an optional primitive-only `data` map can carry identifiers. The UI
+will display these events without letting them alter prescription status:
+
+- `PRISM_TRACE_RECORDED`: `data.session_id` must equal `prescription_id`, with
+  `data.step` set to `extract_primary`, `extract_secondary`, or `normalize_sig`.
+- `PRISM_GUARDRAIL_FLAGGED`: detail must state the untrusted extracted text was
+  flagged; policy—not PRISM or the UI—remains responsible for routing.
+- `PRISM_EVALUATOR_COMPLETED`: detail must state the independent evaluation
+  result. It is evidence only and must not delay the live route.
+
+For the image viewer, `source.original_path` must resolve to the original image
+bytes, and each field/exception bbox must use that image's pixel coordinate
+system. The current viewer supports page 1; provide page-specific image URLs
+before sending multi-page documents to the review workspace.
+
 ```
 backend/
   main.py
