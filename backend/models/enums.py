@@ -1,0 +1,36 @@
+"""State enums from DESIGN.md §5. Values serialize exactly as written."""
+
+from enum import StrEnum
+
+
+class PrescriptionStatus(StrEnum):
+    PROCESSING = "PROCESSING"
+    REVIEW_REQUIRED = "REVIEW_REQUIRED"
+    UNPROCESSABLE = "UNPROCESSABLE"
+    AWAITING_CLARIFICATION = "AWAITING_CLARIFICATION"
+    READY_FOR_VERIFICATION = "READY_FOR_VERIFICATION"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+
+
+class FieldDecision(StrEnum):
+    EXTRACTED = "EXTRACTED"
+    VERIFIED = "VERIFIED"
+    REVIEW_REQUIRED = "REVIEW_REQUIRED"
+    INVALID = "INVALID"
+    MISSING = "MISSING"
+    UNREADABLE = "UNREADABLE"
+    HUMAN_VERIFIED = "HUMAN_VERIFIED"
+
+
+class SourceQuality(StrEnum):
+    CLEAR = "CLEAR"
+    PARTIAL = "PARTIAL"
+    UNREADABLE = "UNREADABLE"
+
+
+class SignalStatus(StrEnum):
+    PASS = "PASS"
+    FAIL = "FAIL"
+    WARNING = "WARNING"
+    AMBIGUOUS = "AMBIGUOUS"

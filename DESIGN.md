@@ -231,7 +231,7 @@ DEA (if used): (d1+d3+d5) + 2*(d2+d4+d6) mod 10 == d7
 
 A single misread digit fails with ~90% probability. Never guess the corrected identifier.
 
-**Marketed-strength check.** A strength that is a real number but not a manufactured product for that drug (metoprolol tartrate at 30 mg — it exists only as 25/50/100) is `INVALID`. Store the strength list beside each catalog drug. This is transcription fidelity, not clinical judgment, and it replaces the cut dose-range table.
+**Marketed-strength check.** A strength that is a real number but not a manufactured product for that drug (atorvastatin at 30 mg — marketed tablet strengths are 10/20/40/80 mg) is `INVALID`. Store the strength list beside each catalog drug. This is transcription fidelity, not clinical judgment, and it replaces the cut dose-range table.
 
 **SIG vocabulary.** Closed set; a token outside it is flagged, never guessed.
 
