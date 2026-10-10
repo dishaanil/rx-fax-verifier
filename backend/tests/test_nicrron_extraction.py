@@ -205,3 +205,42 @@ def test_gateway_rejects_unknown_step_and_survives_tracer_failure(monkeypatch):
     assert gw.call("extract_primary", "rx_1", "m", []) == "ok"
     with pytest.raises(ValueError):
         gw.call("approve_order", "rx_1", "m", [])
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        b"not json",
+        b"[]",
+        b"{}",
+        b'{"choices": []}',
+        b'{"choices": null}',
+        b'{"choices": ["text"]}',
+        b'{"choices": [{}]}',
+        b'{"choices": [{"message": null}]}',
+        b'{"choices": [{"message": "hi"}]}',
+        b'{"choices": [{"message": {"content": ["a", "b"]}}]}',
+    ],
+)
+def test_malformed_provider_response_fails_closed(monkeypatch, payload):
+    import httpx
+
+    def fake_post(*_args, **_kwargs):
+        return httpx.Response(200, content=payload, request=httpx.Request("POST", "https://example.invalid"))
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    gw = NicrronGateway(api_key="k", base_url="https://example.invalid/v1")
+    with pytest.raises(NicrronError, match="malformed response"):
+        gw.call("extract_primary", "rx_1", "m", [])
+
+
+def test_well_formed_provider_response_still_parses(monkeypatch):
+    import httpx
+
+    body = b'{"choices": [{"message": {"content": "{\\"a\\": 1}"}, "finish_reason": "stop"}]}'
+    monkeypatch.setattr(
+        httpx, "post",
+        lambda *_a, **_k: httpx.Response(200, content=body, request=httpx.Request("POST", "https://example.invalid")),
+    )
+    gw = NicrronGateway(api_key="k", base_url="https://example.invalid/v1")
+    assert gw.call("extract_primary", "rx_1", "m", []) == '{"a": 1}'

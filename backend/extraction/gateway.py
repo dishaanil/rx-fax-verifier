@@ -89,8 +89,7 @@ class NicrronGateway:
                 continue
             if resp.status_code != 200:
                 raise NicrronError(f"HTTP {resp.status_code}: {resp.text[:300]}")
-            choice = resp.json()["choices"][0]
-            content = choice["message"].get("content") or ""
+            choice, content = _parse_choice(resp, body["model"])
             if choice.get("finish_reason") == "length":
                 # Reasoning models can spend the budget before finishing the answer: never parse a cut-off reply.
                 raise NicrronError(f"Model {body['model']} hit max_tokens before finishing its reply.")
@@ -106,6 +105,20 @@ class NicrronGateway:
             self.tracer(event)
         except Exception:  # tracing must never break the live path
             log.exception("Tracer failed for step %s", event.get("step"))
+
+
+def _parse_choice(resp: httpx.Response, model: str) -> tuple[dict, str]:
+    """First choice and its text content. Any unexpected response shape fails closed as NicrronError."""
+    try:
+        choice = resp.json()["choices"][0]
+        if not isinstance(choice, dict):
+            raise TypeError(f"choice is {type(choice).__name__}, not an object")
+        content = choice["message"].get("content") or ""
+        if not isinstance(content, str):
+            raise TypeError(f"content is {type(content).__name__}, not str")
+    except (ValueError, IndexError, KeyError, TypeError, AttributeError) as exc:
+        raise NicrronError(f"Model {model} returned a malformed response: {exc!r}") from exc
+    return choice, content
 
 
 def image_content(image: Image.Image) -> dict:
