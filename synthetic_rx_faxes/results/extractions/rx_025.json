@@ -2,11 +2,15 @@
  "prescription_id": "rx_025",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_025.png",
-  "processed_path": "",
-  "sha256": "0426c6f90e8015b088f1a04da0e872bac4e1b126f5b3764df37cfff2e6ca6f0e"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_025.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "Hartley Sabbagh",
+  "dob_values": [
+   "1970-02-19"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Hartley Sabbagh",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     388,
-     521,
-     780,
+     366,
+     525,
+     742,
      564
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "2/19/1970",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     634,
-     522,
-     788,
+     649,
+     525,
+     835,
      559
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Methotrexate",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     471,
-     884,
-     742,
-     924
+     510,
+     870,
+     773,
+     912
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "2.5 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     742,
-     884,
-     896,
-     924
+     773,
+     870,
+     927,
+     912
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     896,
-     884,
-     974,
-     924
+     927,
+     870,
+     1020,
+     912
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "3 tabs po once weekly",
@@ -129,12 +128,11 @@
     "page": 1,
     "bbox": [
      510,
-     986,
-     958,
+     989,
+     1005,
      1027
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "#12",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     665,
-     1081,
-     742,
-     1120
+     572,
+     1112,
+     680,
+     1151
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "2",
@@ -170,11 +167,10 @@
     "bbox": [
      379,
      1475,
-     410,
-     1506
+     417,
+     1511
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Mei-Lin Castellanos, PA-C",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     522,
-     255,
-     1102,
-     298
+     515,
+     263,
+     1082,
+     301
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1423667124",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     311,
-     437,
-     513,
+     301,
+     433,
+     502,
      463
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/8/2026",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     634,
-     587,
-     788,
-     626
+     649,
+     593,
+     819,
+     627
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,28 +241,21 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     955,
+     958,
      1491,
      1345,
      1545
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Hartley Sabbagh"
- ],
- "patient_dob_occurrences": [
-  "2/19/1970"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "OCT 08 2026 13:07 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0150",
+  "Fax header: OCT 08 2026 13:07 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 000-0100",
   "State Lic. 571007",
-  "Dispense as written (checkbox unchecked)",
-  "Substitution permissible (checkbox unchecked)",
-  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Address: 552 Tallow St",
+  "Dispense as written (checkbox, unchecked)",
+  "Substitution permissible (checkbox, unchecked)",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION (footer)",
   "Sig: 3 tabs po once weekly",
   "Disp: #12",
   "Refills: 2"

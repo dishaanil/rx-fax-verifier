@@ -2,11 +2,15 @@
  "prescription_id": "rx_039",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_039.png",
-  "processed_path": "",
-  "sha256": "c8e6864404d521ccad7fcd7228e7fb0f0a44fd6a583bf97e98f045d035c85e8d"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_039.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Malcolm Volkonsky",
+  "block_name": null,
+  "dob_values": [
+   "1972-07-15"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Malcolm Volkonsky",
@@ -23,18 +27,17 @@
      185,
      471,
      618,
-     502
+     510
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
-   "raw_value": "07-15-197?",
-   "source_quality": "PARTIAL",
+   "raw_value": "07-15-1972",
+   "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": "07-15-1978"
+     "value": "07-15-1972"
     }
    ],
    "evidence": {
@@ -43,10 +46,9 @@
      1020,
      471,
      1267,
-     502
+     510
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Glipizide",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     232,
+     247,
      711,
-     495,
-     742
+     541,
+     757
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "10 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1151,
+     1159,
      711,
-     1298,
-     742
+     1314,
+     757
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tablet",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     278,
-     831,
-     433,
-     862
+     294,
+     827,
+     464,
+     865
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "Take 1 tablet by mouth every morning before breakfast",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     216,
-     912,
+     185,
+     904,
      1005,
-     1012
+     1020
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     946,
-     831,
-     1020,
-     862
+     943,
+     834,
+     1005,
+     865
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "3",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     456,
-     1128,
-     495,
-     1162
+     680,
+     1136,
+     726,
+     1174
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Gideon Praetorius, DO",
@@ -188,33 +184,31 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     247,
-     1298,
-     649,
-     1332
+     240,
+     1326,
+     680,
+     1360
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
-   "raw_value": "1697971144",
+   "raw_value": "1697971146",
    "source_quality": "PARTIAL",
    "reads": [
     {
      "source": "primary",
-     "value": "1697971144"
+     "value": "1697971146"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     1151,
-     1298,
-     1399,
-     1332
+     1159,
+     1326,
+     1391,
+     1360
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/8/2026",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     170,
+     224,
      343,
-     332,
-     374
+     386,
+     379
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,36 +241,21 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     240,
+     247,
      1414,
-     618,
+     695,
      1460
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Malcolm Volkonsky"
- ],
- "patient_dob_occurrences": [
-  "07-15-197?"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "PRESCRIPTION FAX ORDER FORM",
-  "TO: Corner Test Pharmacy Fax (212) 555-0199",
-  "FROM: Orrin Vale Internal Medicine Tel (201) 555-0118 Fax (201) 555-0119",
-  "Pages (incl. cover): 1",
-  "Phone: (646) 555-0165",
-  "Allergies: NKDA",
   "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "Fax header text at top of page: '04-08-2026 10:02 FROM: ORRIN VALE INTERNAL MEDICI (201) 555-0119 TO: (212) 555-0199 P.001/001'",
-  "Dosage form: tablet",
+  "Fax header: FROM: Omin Vale Internal Medicine (201) 555-0119 TO: (212) 555-0199 P.001/001",
+  "Take 1 tablet by mouth every morning before breakfast",
   "Quantity: 30",
-  "Directions (Sig): Take 1 tablet by mouth every morning before breakfast",
-  "Refills (circle one): 3"
+  "Refills: 3"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

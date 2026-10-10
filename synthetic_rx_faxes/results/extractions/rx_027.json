@@ -2,11 +2,15 @@
  "prescription_id": "rx_027",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_027.png",
-  "processed_path": "",
-  "sha256": "4444158edbb36bbddb17b785c27ee8f37ab72d2c2116245756ed88171fab8fa7"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_027.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Priya Nakashima",
+  "block_name": null,
+  "dob_values": [
+   "1946-03-21"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Priya Nakashima",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     281,
+     363,
      482,
-     618,
+     665,
      518
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "3/21/1946",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     742,
-     484,
-     896,
-     514
+     819,
+     482,
+     1005,
+     518
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Omeprazole",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     281,
-     754,
-     525,
-     785
+     301,
+     752,
+     510,
+     783
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "?",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1048,
-     754,
-     1113,
-     785
+     1051,
+     752,
+     1097,
+     783
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "capsule",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     281,
+     301,
      839,
-     417,
-     870
+     448,
+     868
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 cap po qam ac",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     281,
+     301,
      939,
      742,
-     970
+     973
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     876,
+     881,
      839,
      927,
-     870
+     868
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "0",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     352,
-     1148,
-     389,
-     1182
+     371,
+     1149,
+     405,
+     1183
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Gideon Praetorius, DO",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     281,
-     1341,
-     618,
-     1372
+     348,
+     1302,
+     665,
+     1332
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1597971196",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     927,
-     1341,
-     1082,
-     1372
+     858,
+     1302,
+     1020,
+     1332
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/10/26",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     232,
-     337,
+     201,
      340,
-     368
+     309,
+     366
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,29 +241,21 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     278,
-     1434,
-     541,
-     1475
+     348,
+     1441,
+     618,
+     1477
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Priya Nakashima"
- ],
- "patient_dob_occurrences": [
-  "3/21/1946"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "Allergies: NKDA",
-  "Phone: (646) 555-0158",
-  "CONFIDENTIALITY NOTICE: This facsimile contains personal health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "Header fax text: ORRIN VALE INTERNAL MEDICI (201) 555-0119 TO: (212) 555-0199 P 001/001",
-  "1 cap po qam ac"
+  "Dosage form: capsule",
+  "Quantity: 30",
+  "Directions (sig): 1 cap po qam ac",
+  "Refills (circle one): 0"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

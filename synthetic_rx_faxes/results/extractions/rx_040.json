@@ -2,11 +2,15 @@
  "prescription_id": "rx_040",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_040.png",
-  "processed_path": "",
-  "sha256": "76754ba96f46e1cfd06fca4e2cc5ae940db589e0f53dd75c8d923f460da4220e"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_040.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "GRETA CASTELLANE",
+  "block_name": null,
+  "dob_values": [
+   "1947-01-03"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "GRETA CASTELLANE",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     236,
-     286,
-     464,
+     235,
+     283,
+     541,
      306
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "01/03/1947",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     175,
-     334,
-     303,
-     354
+     185,
+     329,
+     340,
+     351
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Methotrexate",
@@ -58,27 +60,26 @@
     },
     {
      "source": "secondary",
-     "value": "Metoprolol"
+     "value": "Metoprololate"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     252,
+     278,
      603,
-     410,
-     624
+     448,
+     627
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
-   "raw_value": "2.5 mg",
+   "raw_value": "25 mg",
    "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": "2.5 mg"
+     "value": "25 mg"
     },
     {
      "source": "secondary",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     252,
-     643,
-     348,
-     664
+     278,
+     649,
+     371,
+     674
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     348,
-     643,
-     394,
-     664
+     371,
+     649,
+     417,
+     674
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "3 tabs po once weekly",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     892,
+     893,
      603,
-     1144,
-     624
+     1205,
+     627
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "12",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1360,
+     1329,
      603,
-     1391,
-     624
+     1375,
+     627
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "2",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1487,
+     1468,
      603,
-     1515,
-     624
+     1499,
+     627
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "DORIAN VASQUEZ-THORNE, DO",
@@ -188,53 +184,50 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     649,
-     355,
+     665,
+     352,
      1005,
-     375
+     374
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
-   "raw_value": "1792440269",
-   "source_quality": "CLEAR",
+   "raw_value": "1702440269",
+   "source_quality": "PARTIAL",
    "reads": [
     {
      "source": "primary",
-     "value": "1792440269"
+     "value": "1702440269"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     1399,
-     1622,
-     1545,
-     1642
+     1020,
+     1630,
+     1221,
+     1653
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
-   "raw_value": "10/26/16",
+   "raw_value": "10/6/16",
    "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": "10/26/16"
+     "value": "10/6/16"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     124,
+     147,
      603,
-     201,
-     624
+     232,
+     627
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,33 +241,26 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     317,
-     1591,
+     301,
+     1599,
      711,
      1645
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "GRETA CASTELLANE"
- ],
- "patient_dob_occurrences": [
-  "01/03/1947"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "OCT 06 2020 11:21 FROM: FENNIMORE GLEN NURSING & R (516) 555-0157 TO: (212) 555-0199 P.001/001",
-  "Send to: Corner Test Pharmacy (712) 555-0199",
+  "Fax header: OCT 06 2020 11:21 FROM: FENNIMORE GLEN NURSING & R (516) 555-0157 TO: (212) 555-0199 P.001/001",
+  "Fennimore Glen Nursing & Rehab, Tel (516) 555-0156 Fax (516) 555-0157",
+  "PHYSICIAN ORDER FORM, Send to: Corner Test Pharmacy (712) 555-0199",
+  "ROOM/BED: 301-A, MRN: 701316",
   "ALLERGIES: NKDA",
-  "ROOM/BED: 301-A",
-  "MRN: 701316",
-  "Telephone order (unchecked), Verbal order (unchecked), Written order (checked)",
+  "Checkbox marked: Written order (Telephone order and Verbal order unchecked)",
   "Noted by (nurse): T Branagan RN",
   "Orders must be signed by the attending physician within the period required by facility policy",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "1 tab po once nightly"
+  "1 tab po each morning",
+  "Written order"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

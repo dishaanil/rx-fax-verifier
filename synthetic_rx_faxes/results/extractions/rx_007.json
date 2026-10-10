@@ -2,11 +2,15 @@
  "prescription_id": "rx_007",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_007.png",
-  "processed_path": "",
-  "sha256": "c64a25cff70f6e8051fecf3421a759c319a2a3baaa18d5e0bdc3d33a70c60995"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_007.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Winifred Larkspur",
+  "block_name": null,
+  "dob_values": [
+   "2002-03-14"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Winifred Larkspur",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     507,
-     617,
-     539
+     252,
+     502,
+     618,
+     541
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "03-14-2002",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1011,
-     507,
-     1178,
-     536
+     1080,
+     502,
+     1267,
+     538
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Hydralazine",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     780,
-     499,
+     260,
+     772,
+     533,
      819
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "50mg",
@@ -78,7 +79,7 @@
    "reads": [
     {
      "source": "primary",
-     "value": "50mg"
+     "value": "50 mg"
     },
     {
      "source": "secondary",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1178,
-     768,
-     1286,
-     806
+     1171,
+     772,
+     1283,
+     811
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tablet",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     286,
-     865,
-     399,
-     899
+     260,
+     878,
+     394,
+     915
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po tid",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     267,
-     956,
-     498,
-     993
+     301,
+     961,
+     618,
+     1001
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "90",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     949,
-     865,
-     984,
-     899
+     1026,
+     878,
+     1097,
+     915
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "2",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     637,
-     1157,
-     672,
-     1193
+     725,
+     1162,
+     768,
+     1197
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Linnea Hargreave, MD",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     1329,
-     663,
-     1360
+     334,
+     1332,
+     688,
+     1369
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1632122333",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1048,
+     1137,
      1329,
-     1229,
-     1360
+     1360,
+     1367
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/9/2026",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     253,
-     369,
-     410,
-     402
+     235,
+     355,
+     448,
+     394
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,28 +241,19 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     1445,
-     626,
-     1491
+     255,
+     1437,
+     649,
+     1499
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Winifred Larkspur"
- ],
- "patient_dob_occurrences": [
-  "03-14-2002"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-09-2026 09:14 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
   "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "1 tab po tid",
-  "SYNTHETIC TEST DATA. NOT A VALID PRESCRIPTION."
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

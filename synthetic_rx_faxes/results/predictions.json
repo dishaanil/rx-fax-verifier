@@ -25,7 +25,9 @@
   "prescriber_name": "Gideon Praetorius, DO",
   "npi": "1597971146",
   "date_written": "2026-10-10",
-  "flags": []
+  "flags": [
+   "drug"
+  ]
  },
  "rx_003": {
   "patient_name": "Beatrix Oosterhuis",
@@ -36,9 +38,11 @@
   "quantity": "90",
   "refills": "2",
   "prescriber_name": "Augustin Belrose, MD",
-  "npi": "1752917033",
+  "npi": "175297033",
   "date_written": "2026-10-06",
-  "flags": []
+  "flags": [
+   "npi"
+  ]
  },
  "rx_004": {
   "patient_name": "IMANI ASANTE",
@@ -67,6 +71,7 @@
   "npi": "1276018953",
   "date_written": "2026-10-10",
   "flags": [
+   "drug",
    "quantity",
    "sig"
   ]
@@ -97,9 +102,7 @@
   "prescriber_name": "Linnea Hargreave, MD",
   "npi": "1632122333",
   "date_written": "2026-10-09",
-  "flags": [
-   "npi"
-  ]
+  "flags": []
  },
  "rx_008": {
   "patient_name": "CORMAC STAVROS",
@@ -109,7 +112,7 @@
   "sig": "1 tab po bid w/ meals",
   "quantity": "180",
   "refills": "5",
-  "prescriber_name": "Gideon Praetorius, DO",
+  "prescriber_name": "GIDEON PRAETORIUS, DO",
   "npi": "1597971146",
   "date_written": "2026-10-09",
   "flags": [
@@ -120,7 +123,7 @@
   "patient_name": "Ingrid Wojcik",
   "patient_dob": "1965-04-04",
   "drug": "Montelukast",
-  "strength": "???",
+  "strength": "?",
   "sig": "1 tab po qhs",
   "quantity": "30",
   "refills": "5",
@@ -128,6 +131,7 @@
   "npi": "110497858",
   "date_written": "2026-10-07",
   "flags": [
+   "drug",
    "npi",
    "strength"
   ]
@@ -158,10 +162,9 @@
   "quantity": "30",
   "refills": "1",
   "prescriber_name": "Shirin Talebpour, NP",
-  "npi": "1104974658",
+  "npi": "110497658",
   "date_written": "10/?/2026",
   "flags": [
-   "date_written",
    "npi"
   ]
  },
@@ -220,7 +223,7 @@
   "refills": "3",
   "prescriber_name": "Dorian Vasquez-Thorne, DO",
   "npi": "1792440269",
-  "date_written": "2024-10-09",
+  "date_written": "2026-10-09",
   "flags": [
    "drug"
   ]
@@ -236,7 +239,9 @@
   "prescriber_name": "DORIAN VASQUEZ-THORNE, DO",
   "npi": "1792440269",
   "date_written": "2026-10-07",
-  "flags": []
+  "flags": [
+   "drug"
+  ]
  },
  "rx_017": {
   "patient_name": "Leilani Boateng",
@@ -278,6 +283,7 @@
   "npi": "1104974658",
   "date_written": "2026-10-10",
   "flags": [
+   "drug",
    "quantity"
   ]
  },
@@ -307,11 +313,7 @@
   "prescriber_name": "Linnea Hargreave, MD",
   "npi": "1632122333",
   "date_written": "2026-10-06",
-  "flags": [
-   "patient_dob",
-   "patient_name",
-   "strength"
-  ]
+  "flags": []
  },
  "rx_022": {
   "patient_name": "Sunniva Birdwhistle",
@@ -325,12 +327,13 @@
   "npi": "1276018953",
   "date_written": "2026-10-10",
   "flags": [
-   "sig"
+   "sig",
+   "strength"
   ]
  },
  "rx_023": {
   "patient_name": "Rafael Haddadin",
-  "patient_dob": "1964-05-15",
+  "patient_dob": "5/15/19?1",
   "drug": "Amlodipine",
   "strength": "5 mg",
   "sig": "1 tab po daily",
@@ -339,9 +342,7 @@
   "prescriber_name": "Dorian Vasquez-Thorne, DO",
   "npi": "1792440269",
   "date_written": "2026-10-09",
-  "flags": [
-   "patient_dob"
-  ]
+  "flags": []
  },
  "rx_024": {
   "patient_name": "MIREILLE DARWISH",
@@ -355,6 +356,7 @@
   "npi": "1104974658",
   "date_written": "2026-10-01",
   "flags": [
+   "drug",
    "signature"
   ]
  },
@@ -370,6 +372,7 @@
   "npi": "1423667124",
   "date_written": "2026-10-08",
   "flags": [
+   "drug",
    "sig"
   ]
  },
@@ -385,7 +388,7 @@
   "npi": "1423667124",
   "date_written": "2026-10-06",
   "flags": [
-   "signature"
+   "drug"
   ]
  },
  "rx_027": {
@@ -400,6 +403,7 @@
   "npi": "1597971196",
   "date_written": "2026-10-10",
   "flags": [
+   "drug",
    "npi",
    "strength"
   ]
@@ -421,19 +425,17 @@
   ]
  },
  "rx_029": {
-  "patient_name": "Lazaro Thistlewood",
+  "patient_name": "LAZARO Thistlewood",
   "patient_dob": "1950-08-22",
   "drug": "Lamotrigine",
   "strength": "25 mg",
   "sig": "1 tab po bid",
-  "quantity": "*60",
+  "quantity": "#60",
   "refills": "2",
   "prescriber_name": "Dorian Vasquez-Thorne, DO",
   "npi": "1792440269",
   "date_written": "2026-10-07",
-  "flags": [
-   "quantity"
-  ]
+  "flags": []
  },
  "rx_030": {
   "patient_name": "Saoirse Montenegro",
@@ -447,6 +449,7 @@
   "npi": "1104974658",
   "date_written": "2026-10-10",
   "flags": [
+   "drug",
    "sig"
   ]
  },
@@ -459,10 +462,9 @@
   "quantity": "90",
   "refills": "5",
   "prescriber_name": "Dorian Vasquez-Thorne, DO",
-  "npi": "792440269",
+  "npi": "1792440269",
   "date_written": "2026-10-07",
   "flags": [
-   "npi",
    "strength"
   ]
  },
@@ -506,16 +508,16 @@
   "npi": "1104974658",
   "date_written": "2026-10-09",
   "flags": [
+   "drug",
    "refills",
-   "sig",
-   "signature"
+   "sig"
   ]
  },
  "rx_035": {
   "patient_name": "Petra Drummond",
   "patient_dob": "1958-11-28",
   "drug": "Sertraline",
-  "strength": "50 mg",
+  "strength": "50mg",
   "sig": "Take 1 tablet by mouth once daily",
   "quantity": "30",
   "refills": "1",
@@ -523,7 +525,6 @@
   "npi": "1632122333",
   "date_written": "2026-10-07",
   "flags": [
-   "npi",
    "strength"
   ]
  },
@@ -541,9 +542,9 @@
   "flags": []
  },
  "rx_037": {
-  "patient_name": "Tobias Rahimzadeh",
-  "patient_dob": "1951-09-07",
-  "drug": "Hyd????e",
+  "patient_name": "Tobias R?himz-adeh",
+  "patient_dob": "9/7/19?1",
+  "drug": "Hyd?????e",
   "strength": "25mg",
   "sig": "1 tab po tid prn itching",
   "quantity": "#30",
@@ -553,16 +554,14 @@
   "date_written": "2024-10-07",
   "flags": [
    "drug",
-   "patient_dob",
-   "patient_name",
    "sig"
   ]
  },
  "rx_038": {
   "patient_name": "Hollis Featherstone",
   "patient_dob": "1993-12-17",
-  "drug": "OHEPRAZOLE",
-  "strength": null,
+  "drug": "OMEPRAZOLE",
+  "strength": "????",
   "sig": "Take 1 capsule by mouth every morning before breakfast",
   "quantity": "30",
   "refills": "0",
@@ -577,18 +576,17 @@
  },
  "rx_039": {
   "patient_name": "Malcolm Volkonsky",
-  "patient_dob": "07-15-197?",
+  "patient_dob": "1972-07-15",
   "drug": "Glipizide",
   "strength": "10 mg",
   "sig": "Take 1 tablet by mouth every morning before breakfast",
   "quantity": "30",
   "refills": "3",
   "prescriber_name": "Gideon Praetorius, DO",
-  "npi": "1697971144",
+  "npi": "1697971146",
   "date_written": "2026-10-08",
   "flags": [
    "npi",
-   "patient_dob",
    "sig"
   ]
  },
@@ -596,17 +594,17 @@
   "patient_name": "GRETA CASTELLANE",
   "patient_dob": "1947-01-03",
   "drug": "Methotrexate",
-  "strength": "2.5 mg",
+  "strength": "25 mg",
   "sig": "3 tabs po once weekly",
   "quantity": "12",
   "refills": "2",
   "prescriber_name": "DORIAN VASQUEZ-THORNE, DO",
-  "npi": "1792440269",
-  "date_written": "2016-10-26",
+  "npi": "1702440269",
+  "date_written": "2016-10-06",
   "flags": [
    "drug",
-   "sig",
-   "strength"
+   "npi",
+   "sig"
   ]
  }
 }

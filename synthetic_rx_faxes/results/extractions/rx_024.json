@@ -2,11 +2,15 @@
  "prescription_id": "rx_024",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_024.png",
-  "processed_path": "",
-  "sha256": "56c0e34b7dcd3eb050009c1f84ca42b8b81b17301bd2226d31d95fb56cb08770"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_024.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "MIREILLE DARWISH",
+  "block_name": null,
+  "dob_values": [
+   "1942-07-03"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "MIREILLE DARWISH",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     185,
-     263,
-     587,
+     260,
+     264,
+     618,
      294
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "07/03/1942",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     147,
-     314,
-     340,
-     340
+     198,
+     312,
+     355,
+     337
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Hydrochlorothiazide",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     201,
-     579,
-     556,
-     618
+     185,
+     578,
+     495,
+     609
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "25 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     201,
-     641,
-     325,
-     680
+     185,
+     630,
+     309,
+     661
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     332,
-     641,
-     402,
-     680
+     317,
+     630,
+     386,
+     661
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po qam",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     904,
-     584,
-     1198,
-     615
+     876,
+     578,
+     1144,
+     609
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1368,
-     595,
-     1422,
-     626
+     1267,
+     584,
+     1314,
+     615
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "5",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1507,
-     595,
-     1545,
-     626
+     1491,
+     584,
+     1522,
+     615
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "SHIRIN TALEBPOUR, NP",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     714,
-     362,
-     1136,
-     389
+     847,
+     358,
+     1236,
+     386
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1104974658",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1066,
-     1712,
-     1252,
-     1733
+     1063,
+     1723,
+     1236,
+     1750
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/01/2026",
@@ -229,12 +223,11 @@
     "page": 1,
     "bbox": [
      93,
-     584,
+     578,
      216,
-     615
+     609
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": null,
@@ -248,35 +241,24 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     147,
-     1707,
-     742,
-     1738
+     340,
+     1715,
+     896,
+     1750
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "MIREILLE DARWISH"
- ],
- "patient_dob_occurrences": [
-  "07/03/1942"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "Alderwick Care Center - Tel (914) 555-0131 Fax (914) 555-0132",
-  "PHYSICIAN ORDER FORM",
+  "FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001 (fax header)",
   "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ALLERGIES: NKDA",
   "ROOM/BED: 230-A",
   "MRN: 289247",
-  "ALLERGIES: NKDA",
-  "ATTENDING: SHIRIN TALEBPOUR, NP",
-  "Telephone order / Verbal order / Written order checkboxes - 'Written order' is checked",
+  "Written order checkbox marked (X)",
   "Noted by (nurse): T. Brannigan RN",
   "Orders must be signed by the attending physician within the period required by facility policy",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "Fax header text: FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
   "1 tab po qam"
  ],
  "models": {

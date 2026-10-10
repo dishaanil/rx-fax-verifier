@@ -2,11 +2,15 @@
  "prescription_id": "rx_016",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_016.png",
-  "processed_path": "",
-  "sha256": "f376b7b812395ad4f8cf83973d0db9a7145256b026f6479b23e7887922829205"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_016.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "THADDEUS CHARPENTIER",
+  "block_name": null,
+  "dob_values": [
+   "1932-07-11"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "THADDEUS CHARPENTIER",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     277,
-     289,
-     643,
-     312
+     267,
+     298,
+     649,
+     324
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "07/11/1932",
@@ -41,12 +44,11 @@
     "page": 1,
     "bbox": [
      218,
-     338,
-     366,
-     360
+     348,
+     399,
+     371
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Methotrexate",
@@ -58,19 +60,18 @@
     },
     {
      "source": "secondary",
-     "value": "methotrexate"
+     "value": "Methotrexate"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     599,
-     501,
-     624
+     303,
+     592,
+     522,
+     623
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "2.5mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     640,
-     399,
-     664
+     303,
+     654,
+     402,
+     683
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -102,19 +102,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "tablet"
+     "value": "tab"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
      410,
-     640,
+     654,
      464,
-     664
+     683
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po qd",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     861,
-     599,
-     1035,
-     624
+     853,
+     592,
+     1051,
+     623
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1354,
+     1312,
      599,
-     1386,
-     624
+     1360,
+     630
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "2",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1493,
+     1501,
      599,
-     1511,
-     624
+     1530,
+     630
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "DORIAN VASQUEZ-THORNE, DO",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     607,
-     394,
-     972,
-     416
+     556,
+     391,
+     943,
+     414
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1792440269",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     933,
-     1684,
-     1074,
-     1706
+     1005,
+     1695,
+     1144,
+     1718
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/7/26",
@@ -222,19 +216,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "10/07/2026"
+     "value": "10/7/26"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     218,
-     599,
-     281,
-     624
+     133,
+     595,
+     216,
+     618
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,31 +241,26 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     312,
+     286,
      1661,
-     862,
-     1712
+     742,
+     1715
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "THADDEUS CHARPENTIER"
- ],
- "patient_dob_occurrences": [
-  "07/11/1932"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-07-2026 13:22 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
   "ALLERGIES: NKDA",
   "ROOM/BED: 336-A",
   "MRN: 194421",
-  "Noted by (nurse): T Brannigan RN",
+  "Noted by (nurse): T. Brannigan RN",
+  "Written order (checkbox checked)",
   "Orders must be signed by the attending physician within the period required by facility policy.",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "Written order checkbox marked"
+  "1 tab po qd",
+  "Written order"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

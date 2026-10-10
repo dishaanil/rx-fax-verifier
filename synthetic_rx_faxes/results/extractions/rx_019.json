@@ -2,11 +2,15 @@
  "prescription_id": "rx_019",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_019.png",
-  "processed_path": "",
-  "sha256": "0275070524462719c8843c8805663d01a01893a886f28372ce4529683fdb1451"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_019.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Ezekiel Okonkwo",
+  "block_name": null,
+  "dob_values": [
+   "2008-12-08"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Ezekiel Okonkwo",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     297,
-     479,
-     638,
+     317,
+     477,
+     640,
      507
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "12-08-2008",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1204,
-     479,
-     1423,
+     1125,
+     477,
+     1388,
      507
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Losartan",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     297,
-     742,
-     533,
-     772
+     301,
+     738,
+     498,
+     768
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "100mg",
@@ -78,7 +79,7 @@
    "reads": [
     {
      "source": "primary",
-     "value": "100 mg"
+     "value": "100mg"
     },
     {
      "source": "secondary",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1193,
-     742,
-     1337,
-     772
+     1182,
+     738,
+     1326,
+     768
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tablet",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     297,
+     301,
      834,
      464,
-     865
+     864
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po qd",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     312,
+     301,
      924,
-     603,
-     955
+     564,
+     953
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": null,
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     875,
+     1028,
      834,
      1576,
-     865
+     864
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "3",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     793,
-     1131,
-     827,
-     1165
+     745,
+     1151,
+     777,
+     1180
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Shirin Talebpour, NP",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     247,
-     1298,
-     624,
-     1326
+     278,
+     1299,
+     643,
+     1329
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1104974658",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1116,
-     1298,
-     1345,
-     1326
+     1093,
+     1299,
+     1314,
+     1329
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/10/26",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     185,
-     343,
-     332,
-     371
+     196,
+     348,
+     329,
+     377
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,22 +241,14 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     297,
+     267,
      1421,
-     649,
-     1468
+     665,
+     1475
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Ezekiel Okonkwo"
- ],
- "patient_dob_occurrences": [
-  "12-08-2008"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-10-2026 15:34 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
   "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",

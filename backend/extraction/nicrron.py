@@ -1,116 +1,25 @@
-"""Nicrron gateway (DESIGN.md §15). Every model call goes through `NicrronGateway.call`.
+"""NicrronExtractor: the real ExtractionProvider, selected with RXBRIDGE_EXTRACTOR=nicrron.
 
-Nicrron exposes an OpenAI-compatible API. Business logic never touches
-provider-specific details. `tracer` is the PRISM hook: it receives every call
-(session = prescription_id) and must never block or break extraction.
+Imported lazily by backend.extraction.stub.get_extractor so the stub path
+never needs the AI dependencies.
 """
 
-import base64
-import io
-import logging
 import os
-import time
-from collections.abc import Callable
-from typing import Any
+from pathlib import Path
 
-import httpx
-from PIL import Image
+from dotenv import load_dotenv
 
-log = logging.getLogger(__name__)
+from backend.extraction.extractor import NicrronExtraction, extract
+from backend.extraction.gateway import NicrronGateway, Tracer
 
-STEPS = frozenset({"extract_primary", "extract_secondary", "normalize_sig"})
-
-Tracer = Callable[[dict[str, Any]], None]
+_ROOT = Path(__file__).resolve().parents[2]
 
 
-class NicrronError(RuntimeError):
-    pass
+class NicrronExtractor:
+    def __init__(self, tracer: Tracer | None = None, processed_dir: str | Path | None = None) -> None:
+        load_dotenv(_ROOT / ".env")
+        self.gateway = NicrronGateway(tracer=tracer)  # raises if the key/base URL is not configured
+        self.processed_dir = processed_dir or os.environ.get("RXBRIDGE_PROCESSED_DIR")
 
-
-class NicrronGateway:
-    def __init__(
-        self,
-        api_key: str | None = None,
-        base_url: str | None = None,
-        timeout: float = 90.0,
-        tracer: Tracer | None = None,
-    ):
-        self.api_key = api_key or os.environ.get("NICRRON_API_KEY", "")
-        self.base_url = (base_url or os.environ.get("NICRRON_BASE_URL", "")).strip().rstrip("/")
-        if not self.api_key or not self.base_url:
-            raise NicrronError("NICRRON_API_KEY and NICRRON_BASE_URL must be set (see .env.example).")
-        self.timeout = timeout
-        self.tracer = tracer
-
-    def call(self, step: str, prescription_id: str, model: str, messages: list[dict], max_tokens: int = 8000) -> str:
-        if step not in STEPS:
-            raise ValueError(f"Unknown step {step!r}; expected one of {sorted(STEPS)}.")
-
-        # No `temperature`: current Anthropic models reject it.
-        body = {"model": model, "messages": messages, "max_tokens": max_tokens}
-        started = time.monotonic()
-        output: str | None = None
-        error: str | None = None
-        try:
-            output = self._post(body)
-            return output
-        except NicrronError as exc:
-            error = str(exc)
-            raise
-        finally:
-            self._trace(
-                {
-                    "session_id": prescription_id,
-                    "step": step,
-                    "model": model,
-                    "messages": messages,
-                    "output": output,
-                    "error": error,
-                    "latency_s": round(time.monotonic() - started, 3),
-                }
-            )
-
-    def _post(self, body: dict, attempts: int = 2) -> str:
-        last: Exception | None = None
-        for attempt in range(attempts):
-            try:
-                resp = httpx.post(
-                    f"{self.base_url}/chat/completions",
-                    json=body,
-                    headers={"Authorization": f"Bearer {self.api_key}"},
-                    timeout=self.timeout,
-                )
-            except httpx.HTTPError as exc:
-                last = exc
-                continue
-            if resp.status_code >= 500 or resp.status_code == 429:
-                last = NicrronError(f"HTTP {resp.status_code}: {resp.text[:200]}")
-                time.sleep(1 + attempt)
-                continue
-            if resp.status_code != 200:
-                raise NicrronError(f"HTTP {resp.status_code}: {resp.text[:300]}")
-            choice = resp.json()["choices"][0]
-            content = choice["message"].get("content") or ""
-            if choice.get("finish_reason") == "length":
-                # Reasoning models can spend the budget before finishing the answer: never parse a cut-off reply.
-                raise NicrronError(f"Model {body['model']} hit max_tokens before finishing its reply.")
-            if not content.strip():
-                raise NicrronError(f"Model {body['model']} returned an empty response.")
-            return content
-        raise NicrronError(f"Nicrron call failed after {attempts} attempts: {last}")
-
-    def _trace(self, event: dict[str, Any]) -> None:
-        if self.tracer is None:
-            return
-        try:
-            self.tracer(event)
-        except Exception:  # tracing must never break the live path
-            log.exception("Tracer failed for step %s", event.get("step"))
-
-
-def image_content(image: Image.Image) -> dict:
-    """OpenAI-style image content part (PNG data URL)."""
-    buf = io.BytesIO()
-    image.save(buf, format="PNG", optimize=True)
-    data = base64.b64encode(buf.getvalue()).decode()
-    return {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{data}"}}
+    def extract(self, path: str, prescription_id: str) -> NicrronExtraction:
+        return extract(path, prescription_id, gateway=self.gateway, processed_dir=self.processed_dir)

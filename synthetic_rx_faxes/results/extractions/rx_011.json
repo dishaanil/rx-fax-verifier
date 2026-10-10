@@ -2,11 +2,15 @@
  "prescription_id": "rx_011",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_011.png",
-  "processed_path": "",
-  "sha256": "4ba09634ca51e5d2fa65ddb6f2c6b1a232c32e1acd5405fb247803cb8a331452"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_011.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Evander Villaverde",
+  "block_name": null,
+  "dob_values": [
+   "1959-08-20"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Evander Villaverde",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     255,
-     463,
+     252,
+     482,
      649,
-     494
+     518
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "8/20/1959",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     927,
-     463,
-     1082,
-     494
+     892,
+     479,
+     1035,
+     513
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Sertraline",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     255,
-     734,
-     541,
-     772
+     261,
+     738,
+     495,
+     776
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "50 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1066,
-     734,
-     1205,
+     1267,
+     738,
+     1391,
      772
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tablet",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     255,
+     263,
      831,
      402,
-     862
+     865
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po qd",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     255,
-     912,
-     541,
+     270,
+     915,
+     510,
      950
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     927,
+     924,
      831,
      1005,
-     862
+     865
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "1",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     440,
-     1136,
-     479,
+     496,
+     1131,
+     533,
      1166
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Shirin Talebpour, NP",
@@ -188,16 +184,15 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     278,
-     1267,
-     618,
-     1305
+     311,
+     1288,
+     649,
+     1322
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
-   "raw_value": "1104974658",
+   "raw_value": "110497?658",
    "source_quality": "PARTIAL",
    "reads": [
     {
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     773,
-     1267,
-     1005,
-     1305
+     819,
+     1287,
+     1020,
+     1322
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/?/2026",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     185,
-     340,
-     340,
-     371
+     252,
+     341,
+     402,
+     375
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,27 +241,22 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     232,
-     1414,
-     618,
+     301,
+     1409,
+     680,
      1468
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Evander Villaverde"
- ],
- "patient_dob_occurrences": [
-  "8/20/1959"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "Header text partially cut off at top: 'MARSH PRIMARY CARE (203) 555 0162 TO: (212) 555 0199 P 001/001'",
+  "PELHAM MARSH PRIMARY CARE (203) 555-6163 TO: (212) 555-0199 P 001/001",
+  "Allergies: NKDA",
   "CONFIDENTIALITY NOTICE: This fax may contain protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
-  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION (footer text)",
-  "1 tab po qd",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Dosage form: tablet",
+  "Quantity: 30",
+  "Directions (SIG): 1 tab po qd",
   "Refills: 1"
  ],
  "models": {

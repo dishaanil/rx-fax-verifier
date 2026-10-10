@@ -1,256 +1,268 @@
 {
  "rx_001": {
   "sig": [
-   "unknown SIG tokens ['x']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
- "rx_002": {},
- "rx_003": {},
+ "rx_002": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_003": {
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ },
  "rx_004": {
   "sig": [
-   "unknown SIG tokens ['x']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
  "rx_005": {
-  "quantity": [
-   "missing critical field"
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
   ],
   "sig": [
-   "unknown SIG tokens ['then', 'x']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "quantity": [
+   "MISSING: No usable value for this critical field was found on the source."
   ]
  },
  "rx_006": {
   "sig": [
-   "unknown SIG tokens ['on', 'an', 'empty', 'stomach']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
- "rx_007": {
-  "prescriber_identifier": [
-   "source PARTIAL"
-  ]
- },
+ "rx_007": {},
  "rx_008": {
   "sig": [
-   "unknown SIG tokens ['w/', 'meals']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
  "rx_009": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
   "strength": [
-   "source UNREADABLE",
-   "cross-pass disagreement"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "prescriber_identifier": [
-   "source PARTIAL",
-   "NPI checksum fails"
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
   ]
  },
  "rx_010": {
   "drug": [
-   "cross-pass disagreement"
-  ],
-  "signature_present": [
-   "missing (warning)"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "sig": [
-   "unknown SIG tokens ['Inhale', 'puffs', 'every', 'to', 'hours', 'wheezing']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "signature_present": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
  "rx_011": {
   "prescriber_identifier": [
-   "source PARTIAL"
-  ],
-  "date_written": [
-   "source PARTIAL"
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
   ]
  },
  "rx_012": {
   "patient_dob": [
-   "source UNREADABLE",
-   "missing (warning)"
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ],
   "drug": [
-   "cross-pass disagreement",
-   "LASA pair with uncertain read"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ]
  },
  "rx_013": {
   "strength": [
-   "cross-pass disagreement",
-   "not a marketed strength"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "sig": [
-   "unknown SIG tokens ['on', 'empty', 'stomach']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
- "rx_014": {},
+ "rx_014": {
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
  "rx_015": {
   "drug": [
-   "cross-pass disagreement"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ]
  },
- "rx_016": {},
+ "rx_016": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ]
+ },
  "rx_017": {
   "strength": [
-   "altered on source: ['40']"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ]
  },
- "rx_018": {},
+ "rx_018": {
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
  "rx_019": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
   "quantity": [
-   "missing critical field"
+   "MISSING: No usable value for this critical field was found on the source."
   ]
  },
  "rx_020": {
   "sig": [
-   "unknown SIG tokens ['itching']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
- "rx_021": {
-  "patient": [
-   "source PARTIAL"
-  ],
-  "patient_dob": [
-   "source PARTIAL"
-  ],
-  "strength": [
-   "cross-pass disagreement"
-  ]
- },
+ "rx_021": {},
  "rx_022": {
+  "strength": [
+   "INVALID: This strength is not a marketed strength for this drug."
+  ],
   "sig": [
-   "unknown SIG tokens ['with', 'meals']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
- "rx_023": {
-  "patient_dob": [
-   "source PARTIAL"
-  ]
- },
+ "rx_023": {},
  "rx_024": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
   "signature_present": [
-   "missing (warning)"
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
  "rx_025": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
   "sig": [
-   "unknown SIG tokens ['once', 'weekly']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
  "rx_026": {
-  "signature_present": [
-   "missing (warning)"
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
  "rx_027": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
   "strength": [
-   "source UNREADABLE",
-   "cross-pass disagreement"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "prescriber_identifier": [
-   "NPI checksum fails"
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
   ]
  },
  "rx_028": {
   "patient_dob": [
-   "missing (warning)"
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ],
   "sig": [
-   "unknown SIG tokens ['x']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
- "rx_029": {
-  "quantity": [
-   "source PARTIAL"
-  ]
- },
+ "rx_029": {},
  "rx_030": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
   "sig": [
-   "unknown SIG tokens ['every', 'evening']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
  "rx_031": {
-  "prescriber_identifier": [
-   "source PARTIAL",
-   "NPI checksum fails"
-  ],
   "strength": [
-   "not a marketed strength"
+   "INVALID: This strength is not a marketed strength for this drug."
   ]
  },
  "rx_032": {},
  "rx_033": {
   "sig": [
-   "unknown SIG tokens ['itching']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
  "rx_034": {
-  "refills": [
-   "missing (warning)"
-  ],
-  "signature_present": [
-   "missing (warning)"
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "sig": [
-   "unknown SIG tokens ['Inhale', 'puffs', 'every', 'to', 'hours', 'wheezing']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ],
+  "refills": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
  "rx_035": {
   "strength": [
-   "altered on source: ['25']"
-  ],
-  "prescriber_identifier": [
-   "source PARTIAL"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ]
  },
  "rx_036": {},
  "rx_037": {
-  "patient": [
-   "source PARTIAL"
-  ],
-  "patient_dob": [
-   "source PARTIAL"
-  ],
   "drug": [
-   "source UNREADABLE",
-   "cross-pass disagreement"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "sig": [
-   "unknown SIG tokens ['itching']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ]
  },
  "rx_038": {
   "drug": [
-   "source PARTIAL"
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
   ],
   "strength": [
-   "source UNREADABLE",
-   "missing critical field"
+   "REVIEW_REQUIRED: The source for this critical field is unreadable."
   ],
   "sig": [
-   "unknown SIG tokens ['before', 'breakfast']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
   ]
  },
  "rx_039": {
-  "patient_dob": [
-   "source PARTIAL"
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
   ],
   "prescriber_identifier": [
-   "source PARTIAL",
-   "NPI checksum fails"
-  ],
-  "sig": [
-   "unknown SIG tokens ['before', 'breakfast']"
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
   ]
  },
  "rx_040": {
   "drug": [
-   "cross-pass disagreement"
-  ],
-  "strength": [
-   "cross-pass disagreement"
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
   ],
   "sig": [
-   "unknown SIG tokens ['once', 'weekly']"
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
   ]
  }
 }

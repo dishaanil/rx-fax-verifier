@@ -1,5 +1,13 @@
-from backend.extraction.extractor import extract
-from backend.extraction.interface import RawField, RawPrescriptionExtraction
-from backend.extraction.nicrron import NicrronError, NicrronGateway
+from backend.extraction.interface import ExtractionError, ExtractionProvider
+from backend.extraction.raw import PatientIdentity, RawField, RawPrescriptionExtraction
+from backend.extraction.stub import StubExtractor, get_extractor
 
-__all__ = ["NicrronError", "NicrronGateway", "RawField", "RawPrescriptionExtraction", "extract"]
+__all__ = [
+    "ExtractionError",
+    "ExtractionProvider",
+    "PatientIdentity",
+    "RawField",
+    "RawPrescriptionExtraction",
+    "StubExtractor",
+    "get_extractor",
+]

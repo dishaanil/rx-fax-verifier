@@ -37,9 +37,19 @@ _STRENGTH_RE = re.compile(
 )
 
 
+DRUG_NAMES: tuple[str, ...] = tuple(_MARKETED_STRENGTHS_RAW)
+
+_SALT_SUFFIX_RE = re.compile(r"\s+hcl$")
+
+
 def normalize_drug_name(name: str) -> str:
     key = _WS_RE.sub(" ", name.strip()).casefold()
     return _HYDROCHLORIDE_RE.sub("hcl", key)
+
+
+def drug_base_key(name: str) -> str:
+    """normalize_drug_name with a trailing HCl/hydrochloride removed (matching only)."""
+    return _SALT_SUFFIX_RE.sub("", normalize_drug_name(name))
 
 
 def normalize_strength(strength: str) -> str | None:

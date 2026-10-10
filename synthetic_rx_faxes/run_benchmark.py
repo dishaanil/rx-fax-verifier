@@ -4,9 +4,10 @@
     .venv/bin/python synthetic_rx_faxes/run_benchmark.py            # uses cached extractions
     .venv/bin/python synthetic_rx_faxes/run_benchmark.py --refresh  # re-extract every fax
 
-Pipeline: extract() on faxes/ only -> flag fields -> field-name adapter ->
-score with the RxBridge scoring policy, plus the original score.py for
-transparency. truth.json is read only here, at the scoring boundary; the
+Pipeline: NicrronExtractor on faxes/ only -> the backend's real process()
+(validators + routing policy) -> field-name adapter -> score with the RxBridge
+scoring policy, plus the original score.py for transparency. A field counts as
+flagged when its decision is anything but VERIFIED, i.e. a pharmacist sees it. truth.json is read only here, at the scoring boundary; the
 product never sees it (and never sees the scoring bounding boxes).
 
 Scoring policy (DESIGN.md §18, stated in the README):
@@ -14,9 +15,6 @@ Scoring policy (DESIGN.md §18, stated in the README):
   signature are non-blocking warnings, reported in a "warnings surfaced" column.
 - rx_016 (methotrexate written daily) is excluded from the planted-problem count:
   "methotrexate is weekly" is indication-specific dosing, outside the product (§4).
-
-Flagging: until backend.policy.router lands, `flag_fields` below applies the
-§10 routing rules with the shared validators. It lives here, not in the product.
 """
 
 import argparse
@@ -36,16 +34,10 @@ sys.path.insert(0, str(HERE))
 
 from dotenv import load_dotenv  # noqa: E402
 
-from backend.extraction import RawPrescriptionExtraction, extract  # noqa: E402
-from backend.models import CRITICAL_FIELDS  # noqa: E402
-from backend.normalization import normalize_sig  # noqa: E402
-from backend.validators import (  # noqa: E402
-    validate_marketed_strength,
-    validate_npi,
-    validate_patient_identity,
-    validate_quantity,
-    validate_sig_tokens,
-)
+from backend.extraction.extractor import NicrronExtraction  # noqa: E402
+from backend.extraction.nicrron import NicrronExtractor  # noqa: E402
+from backend.models import CRITICAL_FIELDS, FieldDecision, Prescription  # noqa: E402
+from backend.pipeline import process  # noqa: E402
 import score  # noqa: E402  (the original score.py, for its matching rules)
 
 RESULTS = HERE / "results"
@@ -61,25 +53,18 @@ CONTRACT_TO_SCORE = {v: k for k, v in SCORE_TO_CONTRACT.items()}
 CRITICAL_SCORED = sorted(CONTRACT_TO_SCORE[f] for f in CRITICAL_FIELDS)
 WARNING_SCORED = ["patient_dob", "refills", "signature"]
 
-LASA = {frozenset(p) for p in [
-    ("hydralazine", "hydroxyzine"), ("metformin", "metronidazole"), ("prednisone", "prednisolone"),
-    ("clonidine", "klonopin"), ("tramadol", "trazodone"), ("lamotrigine", "levothyroxine"),
-    ("glipizide", "glyburide"), ("cycloserine", "cyclosporine"), ("chlorpromazine", "chlorpropamide"),
-    ("buprenorphine", "bupropion"),
-]}
-LASA_NAMES = {n for p in LASA for n in p}
-
 
 # ------------------------------------------------------------------ extraction
-def run_extractions(truth: list[dict], refresh: bool, workers: int) -> dict[str, RawPrescriptionExtraction]:
+def run_extractions(truth: list[dict], refresh: bool, workers: int) -> dict[str, NicrronExtraction]:
     EXTRACTIONS.mkdir(parents=True, exist_ok=True)
+    extractor = NicrronExtractor()
 
     def one(t):
         out = EXTRACTIONS / f"{t['id']}.json"
         if out.exists() and not refresh:
-            return t["id"], RawPrescriptionExtraction.model_validate_json(out.read_text())
+            return t["id"], NicrronExtraction.model_validate_json(out.read_text())
         try:
-            rx = extract(HERE / t["file"], t["id"])
+            rx = extractor.extract(str(HERE / t["file"]), t["id"])
         except Exception as exc:  # one bad fax must not sink the run; it scores as all-silent
             print(f"  {t['id']}: extraction failed: {exc}", file=sys.stderr)
             return t["id"], None
@@ -91,66 +76,30 @@ def run_extractions(truth: list[dict], refresh: bool, workers: int) -> dict[str,
         return {rid: rx for rid, rx in pool.map(one, truth) if rx is not None}
 
 
-# ------------------------------------------------------------------ interim routing (§10)
-def flag_fields(rx: RawPrescriptionExtraction) -> tuple[set[str], dict[str, list[str]]]:
-    """Contract field names that would go to a pharmacist, with the reasons."""
-    reasons: dict[str, list[str]] = defaultdict(list)
-    f = rx.fields
-    raw = lambda name: f[name].raw_value if name in f else None  # noqa: E731
+# ------------------------------------------------------------------ the product's routing
+RESOLVED = {FieldDecision.VERIFIED, FieldDecision.HUMAN_VERIFIED}
 
-    for name, field in f.items():
-        if field.source_quality != "CLEAR":
-            reasons[name].append(f"source {field.source_quality}")
-        values = {_cmp(r.value) for r in field.reads}
-        if len(field.reads) > 1 and len(values) > 1:
-            reasons[name].append("cross-pass disagreement")
-        if field.alterations:
-            reasons[name].append(f"altered on source: {field.alterations}")
-    for name in CRITICAL_FIELDS:
-        if not raw(name):
-            reasons[name].append("missing critical field")
-    for name in ("patient_dob", "refills", "signature_present"):
-        if name in f and not raw(name):
-            reasons[name].append("missing (warning)")
 
-    drug, strength = raw("drug"), raw("strength")
-    if drug and _cmp(drug.split()[0]) in LASA_NAMES and reasons.get("drug"):
-        reasons["drug"].append("LASA pair with uncertain read")
-    if drug and strength and "?" not in drug + strength:
-        if validate_marketed_strength(drug, strength).status == "FAIL":
-            reasons["strength"].append("not a marketed strength")
-    if raw("prescriber_identifier") and validate_npi(re.sub(r"\D", "", raw("prescriber_identifier"))).status == "FAIL":
-        reasons["prescriber_identifier"].append("NPI checksum fails")
-
-    sig = normalize_sig(raw("sig"))
-    if raw("sig") and validate_sig_tokens(sig.unknown).status == "FAIL":
-        reasons["sig"].append(f"unknown SIG tokens {sig.unknown}")
-    qty, qty_unit = _quantity(raw("quantity"))
-    days = _int(raw("days_supply")) or sig.days
-    q = validate_quantity(sig.dose, sig.dose_unit, sig.frequency_token, days, qty, qty_unit, sig.as_needed)
-    if q is not None and q.status == "FAIL":
-        reasons["quantity"].append(q.detail)
-
-    names = list(dict.fromkeys(rx.patient_name_occurrences))
-    dobs = [d for d in (iso_date(x, dob=True) for x in rx.patient_dob_occurrences) if d]
-    ident = validate_patient_identity(names[0] if names else None, names[1] if len(names) > 1 else None, dobs)
-    if ident.status == "FAIL" or rx.prescription_block_count > 1:
-        reasons["patient"].append("patient identity conflict")
-
-    return {k for k, v in reasons.items() if v}, dict(reasons)
+def route(rx: NicrronExtraction) -> tuple[Prescription, set[str], dict[str, list[str]]]:
+    """Run the backend pipeline. Flagged = every field a pharmacist is shown as not verified."""
+    prescription = process(rx, seen_hashes=set(), sha256=rx.prescription_id)
+    flagged = {n for n, f in prescription.fields.items() if f.decision not in RESOLVED}
+    flagged |= {e.field for e in prescription.exceptions}
+    reasons = {n: [f"{f.decision}: {f.reason}"] for n, f in prescription.fields.items() if n in flagged}
+    return prescription, flagged, reasons
 
 
 # ------------------------------------------------------------------ adapter: contract -> score.py predictions
-def to_prediction(rx: RawPrescriptionExtraction, flags: set[str]) -> dict:
+def to_prediction(rx: NicrronExtraction, flags: set[str]) -> dict:
     f = rx.fields
     raw = lambda name: f[name].raw_value if name in f else None  # noqa: E731
     pred = {}
     for s_name in score.FIELDS:
         value = raw(SCORE_TO_CONTRACT[s_name])
         if s_name == "patient_dob":
-            value = iso_date(value, dob=True) or value
-        elif s_name == "date_written":
             value = iso_date(value) or value
+        elif s_name == "date_written":
+            value = iso_date(value, two_digit_year=True) or value
         elif s_name == "refills" and value and value.strip().lower() in {"nr", "none", "no", "zero"}:
             value = "0"
         elif s_name == "npi" and value:
@@ -216,7 +165,7 @@ def rxbridge_score(truth: list[dict], preds: dict) -> str:
 _DATE_RES = [r"^(\d{1,2})[/-](\d{1,2})[/-](\d{2,4})$", r"^(\d{4})-(\d{1,2})-(\d{1,2})$"]
 
 
-def iso_date(text: str | None, dob: bool = False) -> str | None:
+def iso_date(text: str | None, two_digit_year: bool = False) -> str | None:
     """'9/7/1958', '09-07-1958', '10/7/26' -> ISO. Format conversion only; None if unsure."""
     if not text:
         return None
@@ -227,29 +176,13 @@ def iso_date(text: str | None, dob: bool = False) -> str | None:
         if m := re.match(_DATE_RES[0], text):
             year = int(m[3])
             if year < 100:
-                if dob:
-                    return None  # a two-digit birth year is ambiguous
+                if not two_digit_year:
+                    return None  # e.g. a two-digit birth year is ambiguous
                 year += 2000
             return dt.date(year, int(m[1]), int(m[2])).isoformat()
     except ValueError:
         return None
     return None
-
-
-def _quantity(text: str | None) -> tuple[float | None, str | None]:
-    if not text:
-        return None, None
-    m = re.search(r"(\d+(?:\.\d+)?)\s*([a-zA-Z]+)?", text)
-    return (float(m[1]), m[2]) if m else (None, None)
-
-
-def _int(text: str | None) -> int | None:
-    m = re.search(r"\d+", text or "")
-    return int(m[0]) if m else None
-
-
-def _cmp(value: str | None) -> str:
-    return re.sub(r"[^a-z0-9.?]", "", (value or "").lower())
 
 
 def main():
@@ -263,8 +196,10 @@ def main():
     extractions = run_extractions(truth, a.refresh, a.workers)
 
     preds, reasons = {}, {}
+    statuses = defaultdict(list)
     for rid, rx in extractions.items():
-        flags, why = flag_fields(rx)
+        prescription, flags, why = route(rx)
+        statuses[str(prescription.status)].append(rid)
         preds[rid] = to_prediction(rx, flags)
         reasons[rid] = why
     # Extraction failure -> UNPROCESSABLE in the product: every field goes to a human, nothing is accepted.
@@ -283,6 +218,10 @@ def main():
         f"{len(extractions)}/{len(truth)} faxes extracted"
         + (f"; UNPROCESSABLE (routed to a human): {', '.join(unprocessable)}" if unprocessable else "")
         + ". Synthetic data; results do not establish production safety.",
+        "",
+        "## Routing outcome",
+        "",
+        *[f"- **{k}**: {len(v)} ({', '.join(sorted(v))})" for k, v in sorted(statuses.items())],
         "",
         "## RxBridge scoring policy",
         "",

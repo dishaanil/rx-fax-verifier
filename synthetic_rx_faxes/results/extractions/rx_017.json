@@ -2,11 +2,15 @@
  "prescription_id": "rx_017",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_017.png",
-  "processed_path": "",
-  "sha256": "209c2a9ef5659a975c0528f1c8c68871de1d1bc7ab5682c149b913649ec4de0b"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_017.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "Leilani Boateng",
+  "dob_values": [
+   "1960-09-17"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Leilani Boateng",
@@ -21,12 +25,11 @@
     "page": 1,
     "bbox": [
      471,
-     548,
-     804,
+     550,
+     808,
      584
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "09-17-1960",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1093,
-     548,
-     1326,
+     1107,
+     550,
+     1303,
      584
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Atorvastatin",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     505,
+     518,
      915,
-     742,
-     958
+     816,
+     955
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "20 mg",
@@ -83,20 +84,21 @@
     {
      "source": "secondary",
      "value": "20 mg"
+    },
+    {
+     "source": "crossed_out",
+     "value": "40 mg"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     935,
+     961,
      915,
-     1028,
-     958
+     1074,
+     955
     ]
-   },
-   "alterations": [
-    "40"
-   ]
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -104,19 +106,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "tablet"
+     "value": "tab"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     1066,
+     1082,
      915,
-     1136,
-     958
+     1144,
+     955
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po qhs",
@@ -130,13 +131,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     505,
-     1032,
-     904,
-     1074
+     518,
+     1027,
+     896,
+     1069
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "#90",
@@ -152,11 +152,10 @@
     "bbox": [
      618,
      1151,
-     726,
-     1193
+     734,
+     1194
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "1",
@@ -173,10 +172,9 @@
      453,
      1468,
      479,
-     1496
+     1494
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Mei-Lin Castellanos, PA-C",
@@ -190,13 +188,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     564,
-     275,
-     1105,
-     314
+     572,
+     278,
+     1111,
+     312
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1423667124",
@@ -212,11 +209,10 @@
     "bbox": [
      349,
      463,
-     502,
+     474,
      488
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/7/26",
@@ -230,13 +226,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1097,
+     1093,
      633,
-     1267,
+     1221,
      667
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -250,27 +245,16 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     873,
+     870,
      1522,
-     1360,
+     1314,
      1576
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Leilani Boateng"
- ],
- "patient_dob_occurrences": [
-  "09-17-1960"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-07-2026 16:28 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0199 P.001/001",
-  "State Lic. 571007",
-  "Dispense as written (checkbox, unchecked)",
-  "Substitution permissible (checkbox, unchecked)",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
   "Sig: 1 tab po qhs",
   "Disp: #90",

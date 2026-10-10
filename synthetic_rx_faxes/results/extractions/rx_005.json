@@ -2,11 +2,15 @@
  "prescription_id": "rx_005",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_005.png",
-  "processed_path": "",
-  "sha256": "c91fa829545a5def72db6cf923f68c871474b36a4d2f3acc6d0628f5f5ae53a4"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_005.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Clement Wetherby",
+  "block_name": null,
+  "dob_values": [
+   "1976-08-09"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Clement Wetherby",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     471,
-     544,
-     974,
+     468,
+     545,
+     944,
      584
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "08-09-1976",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1069,
-     544,
-     1329,
+     1082,
+     545,
+     1303,
      584
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Azithromycin",
@@ -65,12 +67,11 @@
     "page": 1,
     "bbox": [
      524,
-     908,
-     804,
-     949
+     899,
+     836,
+     939
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "250 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     804,
-     908,
-     935,
-     949
+     836,
+     899,
+     958,
+     939
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     935,
-     908,
-     1020,
-     949
+     1012,
+     899,
+     1074,
+     939
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "2 tabs po day 1, then 1 tab qd x 4 days",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     524,
-     1024,
-     1275,
-     1139
+     580,
+     1020,
+     1273,
+     1136
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": null,
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     524,
-     1217,
+     525,
+     1225,
      773,
-     1258
+     1267
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "none",
@@ -169,12 +166,11 @@
     "page": 1,
     "bbox": [
      453,
-     1462,
+     1463,
      618,
      1502
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Renata Okafor-Lindh, MD",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     559,
-     278,
-     1105,
-     314
+     553,
+     275,
+     1150,
+     307
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1276018953",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     343,
+     352,
      459,
-     533,
-     488
+     521,
+     482
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/10/2026",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1035,
-     613,
-     1290,
+     1080,
+     610,
+     1303,
      649
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,31 +241,23 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     927,
-     1545,
-     1360,
+     932,
+     1542,
+     1366,
      1599
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Clement Wetherby"
- ],
- "patient_dob_occurrences": [
-  "08-09-1976"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-10-2026 17:54 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0199 P.001/001",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "State Lic. 456644",
-  "Dispense as written (checkbox, unchecked)",
-  "Substitution permissible (checkbox, unchecked)",
   "Sig: 2 tabs po day 1, then 1 tab qd x 4 days",
+  "Disp:",
   "Refills none",
-  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+  "Dispense as written",
+  "Substitution permissible",
+  "SYNTHETIC TEST DATA. NOT A VALID PRESCRIPTION"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

@@ -2,11 +2,15 @@
  "prescription_id": "rx_035",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_035.png",
-  "processed_path": "",
-  "sha256": "f55faf9211813aff9ce7b934321a9592344c95369f5bc6a0af6923be4a630279"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_035.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Petra Drummond",
+  "block_name": null,
+  "dob_values": [
+   "1958-11-28"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Petra Drummond",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     278,
+     317,
      510,
      711,
-     548
+     556
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "11/28/1958",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     958,
-     510,
-     1175,
-     548
+     1012,
+     513,
+     1205,
+     553
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Sertraline",
@@ -64,17 +66,16 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     240,
+     286,
      738,
-     618,
-     780
+     610,
+     785
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
-   "raw_value": "50 mg",
-   "source_quality": "CLEAR",
+   "raw_value": "50mg",
+   "source_quality": "PARTIAL",
    "reads": [
     {
      "source": "primary",
@@ -83,20 +84,21 @@
     {
      "source": "secondary",
      "value": "50mg"
+    },
+    {
+     "source": "crossed_out",
+     "value": "25"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     1144,
+     1020,
      738,
-     1422,
-     780
+     1236,
+     785
     ]
-   },
-   "alterations": [
-    "25"
-   ]
+   }
   },
   "form": {
    "raw_value": "tablet",
@@ -110,13 +112,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     286,
-     847,
-     479,
-     885
+     294,
+     857,
+     495,
+     904
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "Take 1 tablet by mouth once daily",
@@ -130,13 +131,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     340,
-     942,
-     1051,
-     986
+     348,
+     939,
+     1082,
+     996
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -150,13 +150,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     989,
-     847,
-     1082,
-     885
+     873,
+     857,
+     943,
+     904
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "1",
@@ -170,13 +169,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     527,
-     1149,
-     558,
-     1180
+     512,
+     1146,
+     544,
+     1177
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Linnea Hargreave, MD",
@@ -190,17 +188,16 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     1295,
-     726,
-     1332
+     289,
+     1282,
+     695,
+     1326
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1632122333",
-   "source_quality": "PARTIAL",
+   "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
@@ -210,13 +207,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     943,
-     1295,
+     989,
+     1282,
      1221,
-     1332
+     1326
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/7/26",
@@ -230,13 +226,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     240,
-     348,
-     402,
-     386
+     232,
+     358,
+     371,
+     399
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -250,31 +245,20 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     301,
-     1421,
-     711,
-     1475
+     325,
+     1398,
+     680,
+     1460
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Petra Drummond"
- ],
- "patient_dob_occurrences": [
-  "11/28/1958"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-07-2026 14:38 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
-  "TO: Corner Test Pharmacy Fax (212) 555-0199",
-  "FROM: Kestrel Row Medical Group Tel (718) 555-0177 Fax (718) 555-0178",
-  "Pages (incl. cover): 1",
-  "Phone: (646) 555-0116",
-  "Allergies: NKDA",
   "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
-  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Allergies: NKDA",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

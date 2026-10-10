@@ -2,11 +2,13 @@
  "prescription_id": "rx_028",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_028.png",
-  "processed_path": "",
-  "sha256": "af3672c88654885f4e53378071c3973565e83301f994e160253e5acf4e3aa362"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_028.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "DEVON FITZWILLIAM",
+  "block_name": null,
+  "dob_values": []
+ },
  "fields": {
   "patient": {
    "raw_value": "DEVON FITZWILLIAM",
@@ -20,13 +22,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     260,
-     239,
-     586,
-     263
+     252,
+     252,
+     603,
+     273
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": null,
@@ -41,12 +42,11 @@
     "page": 1,
     "bbox": [
      121,
-     297,
-     371,
-     321
+     298,
+     309,
+     320
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Amoxicillin",
@@ -64,13 +64,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     287,
-     573,
-     479,
-     599
+     291,
+     569,
+     464,
+     592
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "500mg",
@@ -88,13 +87,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     287,
-     616,
-     386,
-     643
+     291,
+     618,
+     394,
+     640
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "cap",
@@ -108,13 +106,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     389,
-     616,
-     448,
-     643
+     399,
+     618,
+     464,
+     640
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 cap po tid x 10 days",
@@ -128,13 +125,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     856,
-     573,
-     1113,
+     855,
+     562,
+     1020,
      649
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -149,12 +145,11 @@
     "page": 1,
     "bbox": [
      1328,
-     603,
-     1366,
-     629
+     610,
+     1357,
+     633
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "0",
@@ -168,13 +163,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1457,
-     603,
-     1484,
-     629
+     1476,
+     610,
+     1491,
+     633
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "RENATA OKAFOR-LINDH, MD",
@@ -188,13 +182,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     648,
-     365,
-     998,
-     388
+     634,
+     343,
+     967,
+     365
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1276018953",
@@ -208,13 +201,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     950,
-     1664,
-     1097,
-     1687
+     1022,
+     1665,
+     1175,
+     1684
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/7/26",
@@ -229,12 +221,11 @@
     "page": 1,
     "bbox": [
      121,
-     573,
-     193,
-     599
+     569,
+     198,
+     590
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,28 +239,28 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     308,
+     260,
      1645,
-     542,
-     1689
+     556,
+     1684
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "DEVON FITZWILLIAM"
- ],
- "patient_dob_occurrences": [],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "OCT 07 2026 14:05 FROM ALDERWICK CARE CENTER (914) 565-0132 TO (212) 555-0199 P.001/001",
-  "Send to: Comer Test Pharmacy (212) 555-0199",
+  "OCT 07 2026 14:05 FROM ALDERWICK CARE CENTER (914) 555-0132 TO (212) 555-0199 P.001/001",
+  "Alderwick Care Center Tel (914) 555-0131 Fax (914) 555-0132",
+  "PHYSICIAN ORDER FORM Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED 289 B",
+  "MRN 837844",
+  "ALLERGIES: NKDA",
+  "X Written order (checkbox marked)",
   "Noted by (nurse): S. Dellacroce RN",
-  "Notes must be signed by the attending physician within the period required by facility policy",
+  "Orders must be signed by the attending physician within the period required by facility policy",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "Written order checkbox marked with X",
-  "1 cap po tid x 10 days"
+  "1 cap po tid x 10 days",
+  "30",
+  "0"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

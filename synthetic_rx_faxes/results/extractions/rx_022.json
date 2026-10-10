@@ -2,11 +2,15 @@
  "prescription_id": "rx_022",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_022.png",
-  "processed_path": "",
-  "sha256": "22b46285d4a5f322b4c1dce45216486fdf7a625304c54760a98b0e23a034be8d"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_022.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Sunniva Birdwhistle",
+  "block_name": null,
+  "dob_values": [
+   "1973-07-06"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Sunniva Birdwhistle",
@@ -22,11 +26,10 @@
     "bbox": [
      161,
      445,
-     464,
-     470
+     479,
+     467
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "07/06/1973",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     912,
+     901,
      445,
-     1032,
-     470
+     1035,
+     467
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "METFORMIN",
@@ -66,11 +68,10 @@
     "bbox": [
      161,
      777,
-     351,
-     803
+     371,
+     800
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "5000 MG",
@@ -78,7 +79,7 @@
    "reads": [
     {
      "source": "primary",
-     "value": "5000 MG"
+     "value": "5000 mg"
     },
     {
      "source": "secondary",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     355,
+     371,
      777,
-     533,
-     803
+     556,
+     800
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "TABLET",
@@ -102,19 +102,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "TABLET"
+     "value": "tablet"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     541,
+     556,
      777,
-     665,
-     803
+     695,
+     800
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "Take 1 tablet by mouth twice daily with meals",
@@ -129,12 +128,11 @@
     "page": 1,
     "bbox": [
      161,
-     887,
+     890,
      835,
      913
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "60",
@@ -149,32 +147,30 @@
     "page": 1,
     "bbox": [
      161,
-     1012,
-     193,
-     1037
+     1013,
+     201,
+     1035
     ]
-   },
-   "alterations": []
+   }
   },
   "days_supply": {
-   "raw_value": null,
+   "raw_value": "--",
    "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": null
+     "value": "--"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     1252,
-     1012,
+     1250,
+     1013,
      1275,
-     1037
+     1035
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "1",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     525,
-     1012,
-     544,
-     1037
+     522,
+     1013,
+     541,
+     1035
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Renata Okafor-Lindh, MD",
@@ -209,12 +204,11 @@
     "page": 1,
     "bbox": [
      161,
-     1373,
-     448,
-     1398
+     1378,
+     495,
+     1401
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1276018953",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     912,
-     1373,
-     1066,
-     1398
+     901,
+     1378,
+     1082,
+     1401
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/10/2026",
@@ -248,13 +241,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1298,
-     252,
-     1430,
-     275
+     1391,
+     232,
+     1545,
+     255
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -271,33 +263,22 @@
      161,
      1557,
      1005,
-     1582
+     1579
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Sunniva Birdwhistle"
- ],
- "patient_dob_occurrences": [
-  "07/06/1973"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT 10 2026 08:36 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0199 P.001/001",
   "Rx ref: 7849890",
-  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
-  "SYNTHETIC TEST DATA NOT A VALID PRESCRIPTION",
-  "Drug / Strength / form",
-  "TABLET",
-  "Take 1 tablet by mouth twice daily with meals",
-  "Quantity 60",
-  "Refills 1",
-  "Substitution Permitted",
-  "Days supply --",
+  "Pharmacy: Corner Test Pharmacy Fax (212) 555-0199",
   "Electronically signed by Renata Okafor-Lindh, MD on 10/10/2026 14:49",
-  "This prescription was generated from the electronic health record and transmitted by fax service. If you received it in error, notify the sender and destroy all copies."
+  "This prescription was generated from the electronic health record and transmitted by facsimile",
+  "If you received it in error, notify the sender and destroy all copies",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Take 1 tablet by mouth twice daily with meals",
+  "This prescription was generated from the electronic health record and transmitted by fax only. If you received it in error, notify the sender and destroy all copies.",
+  "CONFIDENTIAL DATA FOR AUTHORIZED RECIPIENT ONLY"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

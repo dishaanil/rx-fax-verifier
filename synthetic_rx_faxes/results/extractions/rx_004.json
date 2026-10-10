@@ -2,11 +2,15 @@
  "prescription_id": "rx_004",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_004.png",
-  "processed_path": "",
-  "sha256": "03028029f444276b74d5140060adfdd97ddca59db6a603731b395357ff7f20e7"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_004.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "IMANI ASANTE",
+  "block_name": null,
+  "dob_values": [
+   "1949-09-25"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "IMANI ASANTE",
@@ -14,19 +18,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "Imani Asante"
+     "value": "IMANI ASANTE"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     236,
-     303,
-     474,
-     329
+     240,
+     306,
+     456,
+     340
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "09/25/1949",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     182,
-     341,
-     351,
-     366
+     202,
+     352,
+     371,
+     380
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Metronidazole",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     343,
-     592,
-     559,
-     623
+     329,
+     590,
+     544,
+     621
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "500 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     343,
-     663,
-     464,
-     695
+     329,
+     630,
+     451,
+     661
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -102,19 +102,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "tablet"
+     "value": "tab"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     471,
-     663,
-     525,
-     695
+     459,
+     630,
+     507,
+     661
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po bid x 7 days",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     889,
+     896,
      587,
-     1290,
-     623
+     1244,
+     621
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "14",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1355,
-     607,
+     1348,
+     626,
      1388,
-     640
+     657
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "0",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1504,
-     607,
-     1522,
-     640
+     1519,
+     626,
+     1545,
+     657
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "BARTHOLOMEW NKEMELU, MD",
@@ -182,19 +178,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "Bartholomew Nkemelu, MD"
+     "value": "BARTHOLOMEW NKEMELU, MD"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     869,
-     383,
-     1195,
-     406
+     573,
+     391,
+     955,
+     414
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1684268463",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1280,
-     1676,
-     1430,
-     1699
+     1314,
+     1684,
+     1453,
+     1707
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/9/26",
@@ -222,19 +216,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "10/9/2026"
+     "value": "10/9/26"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     114,
+     116,
      592,
-     201,
-     623
+     198,
+     618
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,32 +241,25 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     471,
-     1645,
-     726,
-     1699
+     433,
+     1653,
+     773,
+     1707
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "IMANI ASANTE"
- ],
- "patient_dob_occurrences": [
-  "09/25/1949"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-09-2026 10:07 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
-  "Alderwick Care Center Tel (914) 555-0131 Fax (914) 555-0132",
-  "PHYSICIAN ORDER FORM Send to: Corner Test Pharmacy (212) 555-0199",
-  "ROOM/BED: 308-A MRN: 680112",
-  "ALLERGIES: NKDA ATTENDING: BARTHOLOMEW NKEMELU, MD",
-  "Telephone order / Verbal order / Written order (Written order checked)",
+  "Alderwick Care Center - Tel (914) 555-0131 Fax (914) 555-0132",
+  "PHYSICIAN ORDER FORM - Send to: Corner Test Pharmacy (212) 555-0199",
+  "ALLERGIES: NKDA",
+  "ATTENDING: BARTHOLOMEW NKEMELU, MD",
+  "Written order checkbox is checked (X)",
   "Noted by (nurse): S. Dellacroce RN",
   "Orders must be signed by the attending physician within the period required by facility policy.",
-  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po bid x 7 days"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

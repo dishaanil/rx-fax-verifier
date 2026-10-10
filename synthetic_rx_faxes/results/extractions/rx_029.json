@@ -2,14 +2,18 @@
  "prescription_id": "rx_029",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_029.png",
-  "processed_path": "",
-  "sha256": "5b88e3a01ee7a3f63564dc26dbd7167fe502e71a320d8df29756c9189a1d3d59"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_029.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "LAZARO Thistlewood",
+  "dob_values": [
+   "1950-08-22"
+  ]
+ },
  "fields": {
   "patient": {
-   "raw_value": "Lazaro Thistlewood",
+   "raw_value": "LAZARO Thistlewood",
    "source_quality": "CLEAR",
    "reads": [
     {
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     471,
-     552,
-     904,
-     587
+     437,
+     550,
+     869,
+     590
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "8/22/1950",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1069,
+     1023,
      552,
      1236,
-     587
+     589
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Lamotrigine",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     533,
-     912,
-     773,
-     950
+     552,
+     915,
+     754,
+     958
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "25 mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     780,
-     912,
-     896,
-     950
+     773,
+     915,
+     889,
+     958
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     927,
-     912,
-     1020,
-     950
+     899,
+     915,
+     966,
+     958
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po bid",
@@ -128,17 +127,16 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     533,
-     1043,
-     896,
+     549,
+     1038,
+     884,
      1081
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
-   "raw_value": "*60",
-   "source_quality": "PARTIAL",
+   "raw_value": "#60",
+   "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
@@ -149,12 +147,11 @@
     "page": 1,
     "bbox": [
      603,
-     1159,
-     711,
-     1197
+     1151,
+     672,
+     1193
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "2",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     471,
+     495,
      1475,
-     510,
-     1511
+     525,
+     1509
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Dorian Vasquez-Thorne, DO",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     529,
-     275,
-     1230,
+     510,
+     273,
+     1224,
      314
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1792440269",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     346,
-     468,
-     533,
-     502
+     355,
+     471,
+     513,
+     494
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/7/26",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1082,
-     635,
-     1221,
-     672
+     1051,
+     627,
+     1178,
+     661
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,34 +241,23 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     966,
+     958,
      1522,
-     1399,
-     1576
+     1391,
+     1573
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Lazaro Thistlewood"
- ],
- "patient_dob_occurrences": [
-  "8/22/1950"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-07-2026 17:20 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
   "State Lic: 660559",
-  "Dispense as written (unchecked checkbox)",
-  "Substitution permissible (unchecked checkbox)",
-  "Prescriber signature (label)",
+  "Dispense as written (checkbox unchecked)",
+  "Substitution permissible (checkbox unchecked)",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
   "Sig. 1 tab po bid",
   "Disp. #60",
   "Refills 2",
-  "Dispense as written",
-  "Substitution permissible",
   "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
  ],
  "models": {

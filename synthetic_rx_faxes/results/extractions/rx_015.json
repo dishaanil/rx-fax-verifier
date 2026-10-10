@@ -2,11 +2,15 @@
  "prescription_id": "rx_015",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_015.png",
-  "processed_path": "",
-  "sha256": "4eadd2460cd7fc905eceaa0401772a18045d69a5df186a3c3243435f1101c397"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_015.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Calista Ashgrove",
+  "block_name": null,
+  "dob_values": [
+   "1969-03-23"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Calista Ashgrove",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     331,
-     479,
-     680,
-     518
+     332,
+     491,
+     665,
+     528
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "3/23/1969",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     975,
-     480,
-     1105,
-     518
+     896,
+     491,
+     1028,
+     528
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "Metoprolol succinate ER",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     252,
-     757,
-     858,
-     796
+     312,
+     742,
+     842,
+     780
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "25mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1069,
-     757,
-     1190,
-     793
+     1156,
+     746,
+     1255,
+     780
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tablet",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     252,
-     831,
-     386,
+     301,
+     834,
+     402,
      868
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po qd",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     314,
-     936,
+     325,
+     927,
      618,
-     973
+     961
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     946,
-     831,
-     1005,
+     986,
+     834,
+     1035,
      868
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "3",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     751,
-     1163,
-     794,
-     1200
+     618,
+     1115,
+     652,
+     1153
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Dorian Vasquez-Thorne, DO",
@@ -188,17 +184,16 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     334,
-     1292,
-     773,
-     1329
+     332,
+     1244,
+     742,
+     1279
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1792440269",
-   "source_quality": "CLEAR",
+   "source_quality": "PARTIAL",
    "reads": [
     {
      "source": "primary",
@@ -208,33 +203,31 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     918,
-     1290,
-     1113,
-     1327
+     997,
+     1244,
+     1151,
+     1279
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
-   "raw_value": "10/9/24",
+   "raw_value": "10/9/26",
    "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": "10/9/24"
+     "value": "10/9/2026"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     189,
-     341,
+     216,
+     337,
      309,
-     377
+     371
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,26 +241,20 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     294,
-     1445,
-     726,
-     1491
+     247,
+     1313,
+     618,
+     1356
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Calista Ashgrove"
- ],
- "patient_dob_occurrences": [
-  "3/23/1969"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "OCT-09-2026 16:56 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001:001",
+  "OCT-09-2026 16:56 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
   "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
   "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Allergies: NKDA",
+  "Phone: (416) 555-0144",
   "ER",
   "tablet",
   "Quantity 30",

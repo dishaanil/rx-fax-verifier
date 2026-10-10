@@ -1,6 +1,25 @@
-"""Primary + secondary visual extraction through Nicrron (DESIGN.md §8–9)."""
+"""Primary + secondary visual extraction through Nicrron (DESIGN.md §8–9).
 
-import hashlib
+Output follows the backend's raw contract (`backend/extraction/raw.py`):
+the extractor owns only raw_value, source_quality, reads and evidence per
+field, plus patient_identity. Conventions:
+
+- `raw_value` is verbatim; illegible characters are `?` (e.g. "Hydr???ine").
+  It is never a guess.
+- `reads[].value` is each pass's best full reading. `drug` and `strength` get a
+  `secondary` read from a different model on a differently preprocessed image.
+  A value crossed out at the same location is added as a `crossed_out` read, so
+  a corrected strength surfaces as a disagreement instead of disappearing.
+- `source_quality`: CLEAR = fully legible (or clearly left blank);
+  PARTIAL = some characters illegible; UNREADABLE = written but unreadable.
+- A field on the form but left blank is present with raw_value None; a field
+  the form does not have at all is omitted.
+- `evidence.bbox` is [x0, y0, x1, y1] in pixels of the processed image.
+- `untrusted_text` (extra attribute, ignored by the pipeline) is non-field text
+  on the page, e.g. an injected instruction, for the PRISM Guardrail. It is data.
+"""
+
+import datetime as dt
 import json
 import os
 import re
@@ -8,15 +27,13 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
-from backend.extraction.interface import (
-    DUAL_READ_FIELDS,
-    EXTRACTED_FIELDS,
-    RawField,
-    RawPrescriptionExtraction,
-)
-from backend.extraction.nicrron import NicrronError, NicrronGateway, image_content
-from backend.models.enums import SourceQuality
-from backend.models.evidence import Evidence, Read
+from pydantic import Field
+from PIL import Image
+
+from backend.extraction.gateway import NicrronError, NicrronGateway, image_content
+from backend.extraction.interface import ExtractionError
+from backend.extraction.raw import PatientIdentity, RawField, RawPrescriptionExtraction
+from backend.models import Evidence, Read, SourceQuality
 from backend.preprocessing.image import ProcessedImage, preprocess
 
 DEFAULT_PRIMARY_MODEL = "anthropic/claude-sonnet-5"
@@ -25,6 +42,23 @@ DEFAULT_SECONDARY_MODEL = "openai/gpt-5.6-terra"
 # The primary image is sent at this width; models report boxes in its pixel
 # coordinates far more accurately than on a normalised scale.
 MODEL_IMAGE_WIDTH = 1100
+
+EXTRACTED_FIELDS: tuple[str, ...] = (
+    "patient", "patient_dob", "drug", "strength", "form", "sig", "quantity",
+    "days_supply", "refills", "prescriber", "prescriber_identifier", "date_written",
+    "signature_present",
+)
+DUAL_READ_FIELDS: tuple[str, ...] = ("drug", "strength")
+
+
+class NicrronExtraction(RawPrescriptionExtraction):
+    """The raw contract plus extractor-side context the pipeline ignores."""
+
+    untrusted_text: list[str] = Field(default_factory=list)
+    models: dict[str, str] = Field(default_factory=dict)
+    # Non-fatal problems, e.g. the secondary read failed. Never silently dropped.
+    errors: list[str] = Field(default_factory=list)
+
 
 _FIELD_GUIDE = """\
 patient: patient full name as written in the prescription
@@ -67,8 +101,11 @@ JSON shape:
 {{
   "is_prescription": bool,
   "fields": {{"<field>": {_FIELD_SCHEMA}, ...one entry for every field above...}},
-  "patient_name_occurrences": [every distinct way the patient name appears on the page],
-  "patient_dob_occurrences": [every date of birth that appears on the page],
+  "patient_identity": {{
+    "header_name": patient name in the header / patient label area, or null,
+    "block_name": patient name inside the prescription block, if written separately, else null,
+    "dob_values": [every date of birth that appears on the page]
+  }},
   "prescription_block_count": int (number of separate prescriptions on the page),
   "other_text": [str]
 }}"""
@@ -95,44 +132,51 @@ def extract(
     prescription_id: str,
     gateway: NicrronGateway | None = None,
     processed_dir: str | Path | None = None,
-) -> RawPrescriptionExtraction:
+) -> NicrronExtraction:
+    """Raises ExtractionError when the document cannot be read (-> UNPROCESSABLE)."""
     document = Path(document)
-    gateway = gateway or NicrronGateway()
     primary_model = os.environ.get("NICRRON_PRIMARY_MODEL") or DEFAULT_PRIMARY_MODEL
     secondary_model = os.environ.get("NICRRON_SECONDARY_MODEL") or DEFAULT_SECONDARY_MODEL
-
-    processed = preprocess(document)
+    try:
+        gateway = gateway or NicrronGateway()
+        processed = preprocess(document)
+    except (NicrronError, OSError) as exc:
+        raise ExtractionError(str(exc)) from exc
     processed_path = _save_processed(processed, prescription_id, processed_dir)
 
+    errors: list[str] = []
     with ThreadPoolExecutor(max_workers=2) as pool:
         primary_job = pool.submit(_read, gateway, "extract_primary", prescription_id, primary_model,
                                   PRIMARY_PROMPT, processed, use_alternate=False)
         secondary_job = pool.submit(_read, gateway, "extract_secondary", prescription_id, secondary_model,
                                     SECONDARY_PROMPT, processed, use_alternate=True)
-        primary = primary_job.result()  # primary failure is fatal: nothing to verify
-        errors: list[str] = []
+        try:
+            primary = primary_job.result()  # primary failure is fatal: nothing to verify
+        except (NicrronError, ValueError) as exc:
+            raise ExtractionError(f"Primary read failed: {exc}") from exc
         try:
             secondary = secondary_job.result()
         except (NicrronError, ValueError) as exc:
             secondary = {}
             errors.append(f"Secondary read failed: {exc}")
 
-    fields = _build_fields(primary.get("fields") or {}, (secondary.get("fields") or {}),
-                           model_image(processed).size, processed.primary.size, errors)
+    if primary.get("is_prescription") is False:
+        raise ExtractionError("The document does not appear to be a prescription.")
+    if _int(primary.get("prescription_block_count"), default=1) > 1:
+        # Blocks cannot be reliably separated: never merge them into one order (§11).
+        raise ExtractionError("The document contains more than one prescription block.")
 
-    return RawPrescriptionExtraction(
+    fields = _build_fields(primary.get("fields") or {}, secondary.get("fields") or {},
+                           model_image(processed).size, processed.primary.size, errors)
+    source = {"type": "fax_image", "original_path": str(document)}
+    if processed_path:
+        source["processed_path"] = str(processed_path)
+
+    return NicrronExtraction(
         prescription_id=prescription_id,
-        source={
-            "type": "fax_image",
-            "original_path": str(document),
-            "processed_path": str(processed_path) if processed_path else "",
-            "sha256": hashlib.sha256(document.read_bytes()).hexdigest(),
-        },
-        is_prescription=bool(primary.get("is_prescription", True)),
+        source=source,
+        patient_identity=_identity(primary.get("patient_identity")),
         fields=fields,
-        patient_name_occurrences=_str_list(primary.get("patient_name_occurrences")),
-        patient_dob_occurrences=_str_list(primary.get("patient_dob_occurrences")),
-        prescription_block_count=_int(primary.get("prescription_block_count"), default=1),
         untrusted_text=_dedupe(_str_list(primary.get("other_text")) + _str_list(secondary.get("other_text"))),
         models={"extract_primary": primary_model, "extract_secondary": secondary_model},
         errors=errors,
@@ -150,7 +194,7 @@ def _read(gateway: NicrronGateway, step: str, prescription_id: str, model: str, 
         return parse_json(gateway.call(step, prescription_id, model, messages))
 
 
-def model_image(processed: ProcessedImage):
+def model_image(processed: ProcessedImage) -> Image.Image:
     im = processed.primary
     if im.width <= MODEL_IMAGE_WIDTH:
         return im
@@ -185,16 +229,29 @@ def _build_fields(primary: dict, secondary: dict, model_size: tuple[int, int], o
                     quality = _worse(quality, SourceQuality.PARTIAL)
             elif secondary:
                 errors.append(f"Secondary read returned no entry for {name!r}.")
+        reads += [Read(source="crossed_out", value=v) for v in _str_list(p.get("crossed_out"))]
 
         bbox = to_pixel_bbox(p.get("bbox"), model_size, out_size)
         fields[name] = RawField(
             raw_value=raw,
             source_quality=quality,
             reads=reads,
-            evidence=Evidence(page=1, bbox=bbox) if bbox else None,
-            alterations=_str_list(p.get("crossed_out")),
+            # Page-level provenance always holds; the box is best-effort (§8).
+            evidence=Evidence(page=1, bbox=bbox),
         )
     return fields
+
+
+def _identity(value: Any) -> PatientIdentity | None:
+    if not isinstance(value, dict):
+        return None
+    # Same date printed two ways is not a conflict: compare dates, not strings.
+    dobs = [iso_date(d) or d for d in _str_list(value.get("dob_values"))]
+    return PatientIdentity(
+        header_name=_clean(value.get("header_name")),
+        block_name=_clean(value.get("block_name")),
+        dob_values=_dedupe(dobs),
+    )
 
 
 def _quality(status: str, raw: str | None) -> SourceQuality:
@@ -226,6 +283,24 @@ def to_pixel_bbox(bbox: Any, model_size: tuple[int, int], out_size: tuple[int, i
         return None
     sx, sy = w / mw, h / mh
     return (round(x0 * sx), round(y0 * sy), round(x1 * sx), round(y1 * sy))
+
+
+_DATE_RES = (re.compile(r"^(\d{4})-(\d{1,2})-(\d{1,2})$"), re.compile(r"^(\d{1,2})[/-](\d{1,2})[/-](\d{4})$"))
+
+
+def iso_date(text: str | None) -> str | None:
+    """'9/7/1958' or '09-07-1958' -> '1958-09-07' (US month-first). None if not a full, valid date."""
+    if not text:
+        return None
+    text = text.strip()
+    try:
+        if m := _DATE_RES[0].match(text):
+            return dt.date(int(m[1]), int(m[2]), int(m[3])).isoformat()
+        if m := _DATE_RES[1].match(text):
+            return dt.date(int(m[3]), int(m[1]), int(m[2])).isoformat()
+    except ValueError:
+        return None
+    return None
 
 
 def parse_json(text: str) -> dict[str, Any]:

@@ -2,11 +2,15 @@
  "prescription_id": "rx_010",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_010.png",
-  "processed_path": "",
-  "sha256": "6ec05b19a84f3dcdce5ded520b715ea15711a11ada15396e71f923d9920cfbe8"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_010.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Dmitri Gallagher",
+  "block_name": null,
+  "dob_values": [
+   "2007-07-27"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Dmitri Gallagher",
@@ -21,12 +25,11 @@
     "page": 1,
     "bbox": [
      121,
-     470,
-     371,
-     491
+     457,
+     355,
+     482
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "07/27/2007",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     875,
-     470,
+     870,
+     457,
      1020,
-     491
+     482
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "ALBUTEROL HFA",
@@ -54,7 +56,7 @@
    "reads": [
     {
      "source": "primary",
-     "value": "ALBUTEROL HFA"
+     "value": "albuterol HFA"
     },
     {
      "source": "secondary",
@@ -65,12 +67,11 @@
     "page": 1,
     "bbox": [
      121,
-     783,
-     479,
-     806
+     780,
+     464,
+     811
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "90 MCG",
@@ -78,7 +79,7 @@
    "reads": [
     {
      "source": "primary",
-     "value": "90 MCG"
+     "value": "90 mcg"
     },
     {
      "source": "secondary",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     479,
-     783,
+     464,
+     780,
      618,
-     806
+     811
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "INHALER",
@@ -102,19 +102,18 @@
    "reads": [
     {
      "source": "primary",
-     "value": "INHALER"
+     "value": "inhaler"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
      618,
-     783,
+     780,
      773,
-     806
+     811
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
@@ -129,12 +128,11 @@
     "page": 1,
     "bbox": [
      121,
-     915,
-     819,
-     936
+     908,
+     773,
+     933
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "1",
@@ -149,32 +147,30 @@
     "page": 1,
     "bbox": [
      121,
-     1038,
+     1032,
      139,
-     1060
+     1057
     ]
-   },
-   "alterations": []
+   }
   },
   "days_supply": {
-   "raw_value": null,
+   "raw_value": "--",
    "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": null
+     "value": "--"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     1326,
-     1038,
-     1352,
-     1060
+     1241,
+     1032,
+     1267,
+     1057
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "1",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     479,
-     1038,
-     498,
-     1060
+     481,
+     1032,
+     499,
+     1057
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Bartholomew Nkemelu, MD",
@@ -209,12 +204,11 @@
     "page": 1,
     "bbox": [
      121,
-     1324,
+     1372,
      433,
-     1346
+     1397
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1684268463",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     875,
-     1324,
+     870,
+     1372,
      1020,
-     1346
+     1397
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/07/2026",
@@ -248,13 +241,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1460,
-     284,
-     1592,
-     306
+     1434,
+     275,
+     1561,
+     294
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": null,
@@ -269,31 +261,20 @@
     "page": 1,
     "bbox": [
      121,
-     1588,
-     649,
-     1610
+     1591,
+     618,
+     1616
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Dmitri Gallagher"
- ],
- "patient_dob_occurrences": [
-  "07/27/2007"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "7 97 2026 14:01 FROM ORRIN VALE INTERNAL MEDICI (201) 555-0119 TO: (212) 555-0199 P 001/001",
+  "T 97 2026 14 01 FROM ORRIN VALE INTERNAL MEDICI (201) 555-0119 TO: (212) 555-0199 P 001/001",
   "Rx ref: 1992027",
-  "Corner Test Pharmacy  Fax (212) 555-0199",
   "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
-  "SYNTHETIC TEST DATA. NOT A VALID PRESCRIPTION",
+  "SYNTHETIC TEST DATA NOT A VALID PRESCRIPTION",
   "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
-  "Quantity: 1",
-  "Refills: 1",
-  "Substitution: Permitted"
+  "Permitted"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

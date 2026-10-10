@@ -2,11 +2,15 @@
  "prescription_id": "rx_034",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_034.png",
-  "processed_path": "",
-  "sha256": "b1abf1ff887130798542ae3fb513a7de28ae98c6062fc5a89ac371f8679b6f6f"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_034.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": "Lucinda Underhill",
+  "block_name": null,
+  "dob_values": [
+   "1975-07-17"
+  ]
+ },
  "fields": {
   "patient": {
    "raw_value": "Lucinda Underhill",
@@ -20,13 +24,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     161,
+     130,
      437,
-     422,
-     459
+     399,
+     460
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
    "raw_value": "07/17/1975",
@@ -40,13 +43,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     913,
+     901,
      437,
-     1057,
-     459
+     1077,
+     460
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
    "raw_value": "ALBUTEROL HFA",
@@ -58,19 +60,18 @@
     },
     {
      "source": "secondary",
-     "value": "ALBUTEROL HFA"
+     "value": "ALBUTEROL"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     161,
+     130,
      765,
-     518,
-     791
+     533,
+     796
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "90 MCG",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     518,
+     541,
      765,
-     665,
-     791
+     680,
+     796
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "INHALER",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     665,
+     688,
      765,
-     804,
-     791
+     835,
+     796
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     161,
+     130,
      885,
-     966,
-     907
+     989,
+     912
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "1",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     161,
-     1006,
-     173,
-     1026
+     130,
+     1004,
+     155,
+     1029
     ]
-   },
-   "alterations": []
+   }
   },
   "days_supply": {
    "raw_value": null,
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1272,
-     1006,
+     1263,
+     1004,
      1298,
-     1026
+     1029
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": null,
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     516,
-     981,
-     649,
-     1001
+     471,
+     1004,
+     556,
+     1029
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Shirin Talebpour, NP",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     161,
-     1366,
-     456,
-     1387
+     130,
+     1375,
+     461,
+     1398
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1104974658",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     913,
-     1366,
+     901,
+     1375,
      1082,
-     1387
+     1398
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/09/2026",
@@ -248,47 +241,40 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     1460,
-     255,
-     1592,
-     275
+     1468,
+     229,
+     1623,
+     252
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
-   "raw_value": null,
+   "raw_value": "yes",
    "source_quality": "CLEAR",
    "reads": [
     {
      "source": "primary",
-     "value": "no"
+     "value": "yes"
     }
    ],
    "evidence": {
     "page": 1,
     "bbox": [
-     161,
-     1550,
-     835,
-     1576
+     130,
+     1514,
+     958,
+     1537
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Lucinda Underhill"
- ],
- "patient_dob_occurrences": [
-  "07/17/1975"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
   "OCT-09-2026 08:20 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "Rx ref: 2671016",
+  "License 123658",
+  "Electronically signed by Shirin Talebpour, NP on 10/09/2026 08:44",
   "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
-  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
-  "Electronically signed by Shirin Talebpour, NP on 10/09/2026 08:44"
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",

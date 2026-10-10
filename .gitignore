@@ -6,6 +6,9 @@ __pycache__/
 .env
 .pytest_cache/
 
+# Uploaded demo files
+backend/uploads/
+
 # Node
 node_modules/
 dist/

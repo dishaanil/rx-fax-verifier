@@ -2,14 +2,18 @@
  "prescription_id": "rx_037",
  "source": {
   "type": "fax_image",
-  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_037.png",
-  "processed_path": "",
-  "sha256": "8b8a1c2dadd52410c6c5702db2fe926da449e5e8f7271cd15372323371a33787"
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_037.png"
  },
- "is_prescription": true,
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "Tobias R?himz-adeh",
+  "dob_values": [
+   "9/7/19?1"
+  ]
+ },
  "fields": {
   "patient": {
-   "raw_value": "Tobias Rahimzadeh",
+   "raw_value": "Tobias R?himz-adeh",
    "source_quality": "PARTIAL",
    "reads": [
     {
@@ -20,16 +24,15 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     371,
-     510,
+     368,
+     522,
      835,
-     556
+     559
     ]
-   },
-   "alterations": []
+   }
   },
   "patient_dob": {
-   "raw_value": "9/7/1951",
+   "raw_value": "9/7/19?1",
    "source_quality": "PARTIAL",
    "reads": [
     {
@@ -40,21 +43,20 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     665,
-     510,
-     835,
-     553
+     955,
+     522,
+     1175,
+     559
     ]
-   },
-   "alterations": []
+   }
   },
   "drug": {
-   "raw_value": "Hyd????e",
+   "raw_value": "Hyd?????e",
    "source_quality": "UNREADABLE",
    "reads": [
     {
      "source": "primary",
-     "value": "Hydroxyzine"
+     "value": "Hyd?????e"
     },
     {
      "source": "secondary",
@@ -64,13 +66,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     461,
-     857,
-     773,
-     927
+     510,
+     865,
+     788,
+     935
     ]
-   },
-   "alterations": []
+   }
   },
   "strength": {
    "raw_value": "25mg",
@@ -88,13 +89,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     773,
-     865,
-     865,
+     796,
+     878,
+     889,
      919
     ]
-   },
-   "alterations": []
+   }
   },
   "form": {
    "raw_value": "tab",
@@ -108,13 +108,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     865,
-     865,
-     943,
+     896,
+     878,
+     966,
      919
     ]
-   },
-   "alterations": []
+   }
   },
   "sig": {
    "raw_value": "1 tab po tid prn itching",
@@ -128,13 +127,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     461,
+     510,
      1004,
-     1005,
-     1058
+     1082,
+     1051
     ]
-   },
-   "alterations": []
+   }
   },
   "quantity": {
    "raw_value": "#30",
@@ -148,13 +146,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     461,
-     1136,
+     510,
+     1120,
      618,
-     1182
+     1159
     ]
-   },
-   "alterations": []
+   }
   },
   "refills": {
    "raw_value": "1",
@@ -168,13 +165,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     368,
+     386,
      1445,
-     417,
-     1491
+     433,
+     1483
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber": {
    "raw_value": "Dorian Vasquez-Thorne, DO",
@@ -188,13 +184,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     519,
-     247,
-     1144,
-     294
+     505,
+     244,
+     1236,
+     286
     ]
-   },
-   "alterations": []
+   }
   },
   "prescriber_identifier": {
    "raw_value": "1792440269",
@@ -208,13 +203,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     317,
+     309,
      405,
-     464,
-     433
+     510,
+     436
     ]
-   },
-   "alterations": []
+   }
   },
   "date_written": {
    "raw_value": "10/7/24",
@@ -228,13 +222,12 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     924,
-     603,
-     1051,
-     641
+     986,
+     607,
+     1175,
+     643
     ]
-   },
-   "alterations": []
+   }
   },
   "signature_present": {
    "raw_value": "yes",
@@ -248,29 +241,22 @@
    "evidence": {
     "page": 1,
     "bbox": [
-     946,
-     1491,
-     1422,
+     943,
+     1499,
+     1468,
      1560
     ]
-   },
-   "alterations": []
+   }
   }
  },
- "patient_name_occurrences": [
-  "Tobias Rahimzadeh"
- ],
- "patient_dob_occurrences": [
-  "9/7/1951"
- ],
- "prescription_block_count": 1,
  "untrusted_text": [
-  "Header fax line text: 'PELHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001'",
-  "Footer text: 'SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION'",
-  "State Lic. 660559 printed near prescriber header",
-  "Checkboxes for 'Dispense as written' and 'Substitution permissible' both unchecked",
+  "PELHAM MARSH PRIMARY CARE (203) 555-0163  TO: (212) 555-0199  P.001/001",
+  "Pelham Marsh Primary Care, 22 Saltgrass Way, Pelham Marsh, CT 06099, Tel (203) 555-0162 Fax (203) 555-0163",
+  "State Lic. 060559",
+  "Dispense as written [ ]   Substitution permissible [ ]",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
   "Sig 1 tab po tid prn itching",
-  "Disp 90"
+  "Disp #90"
  ],
  "models": {
   "extract_primary": "anthropic/claude-sonnet-5",
