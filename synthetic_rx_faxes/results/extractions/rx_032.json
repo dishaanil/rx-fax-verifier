@@ -1,0 +1,288 @@
+{
+ "prescription_id": "rx_032",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_032.png",
+  "processed_path": "",
+  "sha256": "7daf3dfe6aadcc202bf6de733df02740c2470ebda9b3b66ada385fac72db7634"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "ZAINAB VANDERMEER",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "ZAINAB VANDERMEER"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     235,
+     283,
+     539,
+     306
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "10/03/1934",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/03/1934"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     175,
+     340,
+     325,
+     360
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Atorvastatin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Atorvastatin"
+    },
+    {
+     "source": "secondary",
+     "value": "Atorvastatin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     233,
+     584,
+     433,
+     610
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "80mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "80 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "80mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     233,
+     657,
+     332,
+     683
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     332,
+     657,
+     402,
+     683
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qhs",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qhs"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     930,
+     587,
+     1113,
+     612
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1324,
+     596,
+     1363,
+     623
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1474,
+     596,
+     1494,
+     623
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "AUGUSTIN BELROSE, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "AUGUSTIN BELROSE, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     660,
+     358,
+     910,
+     380
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     889,
+     1684,
+     1039,
+     1706
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     99,
+     589,
+     173,
+     610
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     320,
+     1645,
+     649,
+     1692
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "ZAINAB VANDERMEER"
+ ],
+ "patient_dob_occurrences": [
+  "10/03/1934"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-09-2026 16:00 FROM: FENNIMORE GLEN NURSING & R (516) 555-0157 TO: (212) 555-0199 P.001/001",
+  "Fennimore Glen Nursing & Rehab",
+  "PHYSICIAN ORDER FORM",
+  "Tel (516) 555-0156 Fax (516) 555-0157",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED: 134-B",
+  "MRN: 129336",
+  "ALLERGIES: NKDA",
+  "Written order (checkbox checked)",
+  "Noted by (nurse): O. Achterberg LPN",
+  "Orders must be signed by the attending physician within the period required by facility policy",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po qhs",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

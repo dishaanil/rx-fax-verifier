@@ -36,7 +36,7 @@ sig: directions exactly as written (e.g. "1 tab po tid prn itching")
 quantity: quantity to dispense, as written (e.g. "#30", "50 mL")
 days_supply: days supply, only if the form has a separate field for it
 refills: number of refills
-prescriber: prescriber name
+prescriber: prescriber full name as printed in the header or stamp (not the signature), with credential if printed
 prescriber_identifier: NPI or DEA number
 date_written: date the prescription was written
 signature_present: "yes" if a prescriber signature is present"""
@@ -146,7 +146,7 @@ def _read(gateway: NicrronGateway, step: str, prescription_id: str, model: str, 
     messages = [{"role": "user", "content": [{"type": "text", "text": prompt}, image_content(image)]}]
     try:
         return parse_json(gateway.call(step, prescription_id, model, messages))
-    except ValueError:  # malformed JSON (JSONDecodeError is a ValueError): one retry
+    except (ValueError, NicrronError):  # malformed, empty or cut-off reply: one retry
         return parse_json(gateway.call(step, prescription_id, model, messages))
 
 

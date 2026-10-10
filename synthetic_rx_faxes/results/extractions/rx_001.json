@@ -1,0 +1,283 @@
+{
+ "prescription_id": "rx_001",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_001.png",
+  "processed_path": "",
+  "sha256": "78e542d59321f4c5f1d1ca4e5162aabaa25d514360207f13d0951b715de64ccb"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Kwame Raghunathan",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Kwame Raghunathan"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     419,
+     533,
+     831,
+     572
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "6/20/1953",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "6/20/1953"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1083,
+     535,
+     1258,
+     569
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Prednisone",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Prednisone"
+    },
+    {
+     "source": "secondary",
+     "value": "Prednisone"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     524,
+     899,
+     776,
+     936
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "10 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "10 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     776,
+     899,
+     896,
+     936
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     920,
+     899,
+     1005,
+     936
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "2 tabs po qd x 5 days",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2 tabs po qd x 5 days"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     524,
+     1012,
+     1059,
+     1055
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "#10",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#10"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     634,
+     1143,
+     719,
+     1179
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "none",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "none"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     471,
+     1452,
+     587,
+     1486
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Shirin Talebpour, NP",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Shirin Talebpour, NP"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     627,
+     269,
+     1079,
+     306
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "NPI 1104974658",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1104974658"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     343,
+     453,
+     563,
+     479
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/6/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1086,
+     626,
+     1221,
+     657
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     901,
+     1514,
+     1366,
+     1576
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Kwame Raghunathan"
+ ],
+ "patient_dob_occurrences": [
+  "6/20/1953"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-06-2026 16:01 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "State Lic. 123658",
+  "Address: 37 Quarry Bend Rd",
+  "Dispense as written (checkbox, unchecked)",
+  "Substitution permissible (checkbox, unchecked)",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Sig: 2 tabs po qd x 5 days",
+  "Disp: #10",
+  "Refills none"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -1,0 +1,256 @@
+{
+ "rx_001": {
+  "sig": [
+   "unknown SIG tokens ['x']"
+  ]
+ },
+ "rx_002": {},
+ "rx_003": {},
+ "rx_004": {
+  "sig": [
+   "unknown SIG tokens ['x']"
+  ]
+ },
+ "rx_005": {
+  "quantity": [
+   "missing critical field"
+  ],
+  "sig": [
+   "unknown SIG tokens ['then', 'x']"
+  ]
+ },
+ "rx_006": {
+  "sig": [
+   "unknown SIG tokens ['on', 'an', 'empty', 'stomach']"
+  ]
+ },
+ "rx_007": {
+  "prescriber_identifier": [
+   "source PARTIAL"
+  ]
+ },
+ "rx_008": {
+  "sig": [
+   "unknown SIG tokens ['w/', 'meals']"
+  ]
+ },
+ "rx_009": {
+  "strength": [
+   "source UNREADABLE",
+   "cross-pass disagreement"
+  ],
+  "prescriber_identifier": [
+   "source PARTIAL",
+   "NPI checksum fails"
+  ]
+ },
+ "rx_010": {
+  "drug": [
+   "cross-pass disagreement"
+  ],
+  "signature_present": [
+   "missing (warning)"
+  ],
+  "sig": [
+   "unknown SIG tokens ['Inhale', 'puffs', 'every', 'to', 'hours', 'wheezing']"
+  ]
+ },
+ "rx_011": {
+  "prescriber_identifier": [
+   "source PARTIAL"
+  ],
+  "date_written": [
+   "source PARTIAL"
+  ]
+ },
+ "rx_012": {
+  "patient_dob": [
+   "source UNREADABLE",
+   "missing (warning)"
+  ],
+  "drug": [
+   "cross-pass disagreement",
+   "LASA pair with uncertain read"
+  ]
+ },
+ "rx_013": {
+  "strength": [
+   "cross-pass disagreement",
+   "not a marketed strength"
+  ],
+  "sig": [
+   "unknown SIG tokens ['on', 'empty', 'stomach']"
+  ]
+ },
+ "rx_014": {},
+ "rx_015": {
+  "drug": [
+   "cross-pass disagreement"
+  ]
+ },
+ "rx_016": {},
+ "rx_017": {
+  "strength": [
+   "altered on source: ['40']"
+  ]
+ },
+ "rx_018": {},
+ "rx_019": {
+  "quantity": [
+   "missing critical field"
+  ]
+ },
+ "rx_020": {
+  "sig": [
+   "unknown SIG tokens ['itching']"
+  ]
+ },
+ "rx_021": {
+  "patient": [
+   "source PARTIAL"
+  ],
+  "patient_dob": [
+   "source PARTIAL"
+  ],
+  "strength": [
+   "cross-pass disagreement"
+  ]
+ },
+ "rx_022": {
+  "sig": [
+   "unknown SIG tokens ['with', 'meals']"
+  ]
+ },
+ "rx_023": {
+  "patient_dob": [
+   "source PARTIAL"
+  ]
+ },
+ "rx_024": {
+  "signature_present": [
+   "missing (warning)"
+  ]
+ },
+ "rx_025": {
+  "sig": [
+   "unknown SIG tokens ['once', 'weekly']"
+  ]
+ },
+ "rx_026": {
+  "signature_present": [
+   "missing (warning)"
+  ]
+ },
+ "rx_027": {
+  "strength": [
+   "source UNREADABLE",
+   "cross-pass disagreement"
+  ],
+  "prescriber_identifier": [
+   "NPI checksum fails"
+  ]
+ },
+ "rx_028": {
+  "patient_dob": [
+   "missing (warning)"
+  ],
+  "sig": [
+   "unknown SIG tokens ['x']"
+  ]
+ },
+ "rx_029": {
+  "quantity": [
+   "source PARTIAL"
+  ]
+ },
+ "rx_030": {
+  "sig": [
+   "unknown SIG tokens ['every', 'evening']"
+  ]
+ },
+ "rx_031": {
+  "prescriber_identifier": [
+   "source PARTIAL",
+   "NPI checksum fails"
+  ],
+  "strength": [
+   "not a marketed strength"
+  ]
+ },
+ "rx_032": {},
+ "rx_033": {
+  "sig": [
+   "unknown SIG tokens ['itching']"
+  ]
+ },
+ "rx_034": {
+  "refills": [
+   "missing (warning)"
+  ],
+  "signature_present": [
+   "missing (warning)"
+  ],
+  "sig": [
+   "unknown SIG tokens ['Inhale', 'puffs', 'every', 'to', 'hours', 'wheezing']"
+  ]
+ },
+ "rx_035": {
+  "strength": [
+   "altered on source: ['25']"
+  ],
+  "prescriber_identifier": [
+   "source PARTIAL"
+  ]
+ },
+ "rx_036": {},
+ "rx_037": {
+  "patient": [
+   "source PARTIAL"
+  ],
+  "patient_dob": [
+   "source PARTIAL"
+  ],
+  "drug": [
+   "source UNREADABLE",
+   "cross-pass disagreement"
+  ],
+  "sig": [
+   "unknown SIG tokens ['itching']"
+  ]
+ },
+ "rx_038": {
+  "drug": [
+   "source PARTIAL"
+  ],
+  "strength": [
+   "source UNREADABLE",
+   "missing critical field"
+  ],
+  "sig": [
+   "unknown SIG tokens ['before', 'breakfast']"
+  ]
+ },
+ "rx_039": {
+  "patient_dob": [
+   "source PARTIAL"
+  ],
+  "prescriber_identifier": [
+   "source PARTIAL",
+   "NPI checksum fails"
+  ],
+  "sig": [
+   "unknown SIG tokens ['before', 'breakfast']"
+  ]
+ },
+ "rx_040": {
+  "drug": [
+   "cross-pass disagreement"
+  ],
+  "strength": [
+   "cross-pass disagreement"
+  ],
+  "sig": [
+   "unknown SIG tokens ['once', 'weekly']"
+  ]
+ }
+}

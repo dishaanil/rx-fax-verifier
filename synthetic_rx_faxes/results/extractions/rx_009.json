@@ -1,0 +1,282 @@
+{
+ "prescription_id": "rx_009",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_009.png",
+  "processed_path": "",
+  "sha256": "d57a43e74742d82b5a16012de1f119dac32f5c203bfd6fc4534e936bb17b8396"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Ingrid Wojcik",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Ingrid Wojcik"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     471,
+     521,
+     711,
+     552
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "4/4/1965",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "4/4/1965"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1105,
+     521,
+     1236,
+     552
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Montelukast",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Montelukast"
+    },
+    {
+     "source": "secondary",
+     "value": "Montelukast"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     881,
+     742,
+     919
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "???",
+   "source_quality": "UNREADABLE",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "???"
+    },
+    {
+     "source": "secondary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     742,
+     878,
+     927,
+     927
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     943,
+     884,
+     1005,
+     915
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qhs",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qhs"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     533,
+     1027,
+     896,
+     1066
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     603,
+     1136,
+     711,
+     1166
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "5",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     464,
+     1414,
+     495,
+     1445
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Shirin Talebpour, NP",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Shirin Talebpour, NP"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     638,
+     270,
+     1066,
+     301
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "110497858",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "110497858"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     352,
+     445,
+     495,
+     463
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/7/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1113,
+     613,
+     1252,
+     644
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     912,
+     1537,
+     1267,
+     1591
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Ingrid Wojcik"
+ ],
+ "patient_dob_occurrences": [
+  "4/4/1965"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "Fax header: OCT-07-2026 15:32 FROM PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (217) 555-0199 P.001/001",
+  "Address field: 268 Tallow St",
+  "State Lic: 123658",
+  "Checkbox options: 'Dispense as written' and 'Substitution permissible' (both unchecked)",
+  "Footer text: SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Strength portion of drug line obscured by black scribble/redaction mark",
+  "Sig 1 tab po qhs",
+  "Disp #30"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

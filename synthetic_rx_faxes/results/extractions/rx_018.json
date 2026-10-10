@@ -1,0 +1,299 @@
+{
+ "prescription_id": "rx_018",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_018.png",
+  "processed_path": "",
+  "sha256": "b0b8bb9538a566b863fe646d4d5d45b1784c99711e7b0fc6cf8a8b3723d6d6f3"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Kofi Echeverria",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Kofi Echeverria"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     436,
+     340,
+     460
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "05/03/1952",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "05/03/1952"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     901,
+     436,
+     1035,
+     460
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "LAMOTRIGINE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "LAMOTRIGINE"
+    },
+    {
+     "source": "secondary",
+     "value": "LAMOTRIGINE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     799,
+     340,
+     823
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "25 MG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 MG"
+    },
+    {
+     "source": "secondary",
+     "value": "25 MG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     348,
+     799,
+     464,
+     823
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "TABLET",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "TABLET"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     471,
+     799,
+     587,
+     823
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth twice daily",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth twice daily"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     878,
+     618,
+     902
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "60",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "60"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     996,
+     170,
+     1020
+    ]
+   },
+   "alterations": []
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1236,
+     996,
+     1283,
+     1020
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     996,
+     533,
+     1020
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Mei-Lin Castellanos, PA-C",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Mei-Lin Castellanos, PA-C"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1313,
+     464,
+     1338
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1423667124",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1423667124"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     847,
+     1313,
+     1005,
+     1338
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/10/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1437,
+     219,
+     1576,
+     244
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1506,
+     1005,
+     1537
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Kofi Echeverria"
+ ],
+ "patient_dob_occurrences": [
+  "05/03/1952"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-10-2026 17:18 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0199 P.001/001",
+  "Electronically signed by Mei-Lin Castellanos, PA-C on 10/10/2026 11:18",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Take 1 tablet by mouth twice daily"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -42,7 +42,7 @@ class NicrronGateway:
         self.timeout = timeout
         self.tracer = tracer
 
-    def call(self, step: str, prescription_id: str, model: str, messages: list[dict], max_tokens: int = 2000) -> str:
+    def call(self, step: str, prescription_id: str, model: str, messages: list[dict], max_tokens: int = 8000) -> str:
         if step not in STEPS:
             raise ValueError(f"Unknown step {step!r}; expected one of {sorted(STEPS)}.")
 
@@ -89,7 +89,11 @@ class NicrronGateway:
                 continue
             if resp.status_code != 200:
                 raise NicrronError(f"HTTP {resp.status_code}: {resp.text[:300]}")
-            content = resp.json()["choices"][0]["message"].get("content") or ""
+            choice = resp.json()["choices"][0]
+            content = choice["message"].get("content") or ""
+            if choice.get("finish_reason") == "length":
+                # Reasoning models can spend the budget before finishing the answer: never parse a cut-off reply.
+                raise NicrronError(f"Model {body['model']} hit max_tokens before finishing its reply.")
             if not content.strip():
                 raise NicrronError(f"Model {body['model']} returned an empty response.")
             return content

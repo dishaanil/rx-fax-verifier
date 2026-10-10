@@ -1,0 +1,301 @@
+{
+ "prescription_id": "rx_014",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_014.png",
+  "processed_path": "",
+  "sha256": "fb4db3fe626feb911bfadb21c15c1ac53ce1069aad2d2668615a37e1d473b8b0"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Noor Mbeki",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Noor Mbeki"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     437,
+     355,
+     460
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "03/23/1956",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "03/23/1956"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     909,
+     437,
+     1074,
+     460
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "METRONIDAZOLE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "METRONIDAZOLE"
+    },
+    {
+     "source": "secondary",
+     "value": "METRONIDAZOLE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     772,
+     533,
+     799
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "500 MG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "500 MG"
+    },
+    {
+     "source": "secondary",
+     "value": "500 MG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     533,
+     772,
+     680,
+     799
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "TABLET",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "TABLET"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     680,
+     772,
+     814,
+     799
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth twice daily for 7 days",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth twice daily for 7 days"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     868,
+     757,
+     893
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "14",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "14"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     1004,
+     178,
+     1027
+    ]
+   },
+   "alterations": []
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1303,
+     1004,
+     1329,
+     1027
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "0",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "0"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     541,
+     1004,
+     564,
+     1027
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Augustin Belrose, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Augustin Belrose, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     1389,
+     464,
+     1414
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     909,
+     1389,
+     1100,
+     1414
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/08/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/08/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1394,
+     244,
+     1545,
+     267
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     1491,
+     1082,
+     1522
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Noor Mbeki"
+ ],
+ "patient_dob_occurrences": [
+  "03/23/1956"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-08-2026 10:11 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA NOT A VALID PRESCRIPTION",
+  "Electronically signed by Augustin Beirose, MD on 10/08/2026 11:47",
+  "Take 1 tablet by mouth twice daily for 7 days",
+  "This prescription was generated from the electronic health record and transmitted by faxSure. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

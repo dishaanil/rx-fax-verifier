@@ -1,0 +1,282 @@
+{
+ "prescription_id": "rx_016",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_016.png",
+  "processed_path": "",
+  "sha256": "f376b7b812395ad4f8cf83973d0db9a7145256b026f6479b23e7887922829205"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "THADDEUS CHARPENTIER",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "THADDEUS CHARPENTIER"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     277,
+     289,
+     643,
+     312
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "07/11/1932",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "07/11/1932"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     218,
+     338,
+     366,
+     360
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Methotrexate",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Methotrexate"
+    },
+    {
+     "source": "secondary",
+     "value": "methotrexate"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     599,
+     501,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "2.5mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2.5 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "2.5mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     640,
+     399,
+     664
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     410,
+     640,
+     464,
+     664
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qd",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qd"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     861,
+     599,
+     1035,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1354,
+     599,
+     1386,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1493,
+     599,
+     1511,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "DORIAN VASQUEZ-THORNE, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "DORIAN VASQUEZ-THORNE, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     607,
+     394,
+     972,
+     416
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     933,
+     1684,
+     1074,
+     1706
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/07/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     218,
+     599,
+     281,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     312,
+     1661,
+     862,
+     1712
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "THADDEUS CHARPENTIER"
+ ],
+ "patient_dob_occurrences": [
+  "07/11/1932"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-07-2026 13:22 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "ALLERGIES: NKDA",
+  "ROOM/BED: 336-A",
+  "MRN: 194421",
+  "Noted by (nurse): T Brannigan RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Written order checkbox marked"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

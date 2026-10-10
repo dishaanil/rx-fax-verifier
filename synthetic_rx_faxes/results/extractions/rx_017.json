@@ -1,0 +1,284 @@
+{
+ "prescription_id": "rx_017",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_017.png",
+  "processed_path": "",
+  "sha256": "209c2a9ef5659a975c0528f1c8c68871de1d1bc7ab5682c149b913649ec4de0b"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Leilani Boateng",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Leilani Boateng"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     471,
+     548,
+     804,
+     584
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "09-17-1960",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "09-17-1960"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1093,
+     548,
+     1326,
+     584
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Atorvastatin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Atorvastatin"
+    },
+    {
+     "source": "secondary",
+     "value": "Atorvastatin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     505,
+     915,
+     742,
+     958
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "20 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "20 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "20 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     935,
+     915,
+     1028,
+     958
+    ]
+   },
+   "alterations": [
+    "40"
+   ]
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1066,
+     915,
+     1136,
+     958
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qhs",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qhs"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     505,
+     1032,
+     904,
+     1074
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "#90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     618,
+     1151,
+     726,
+     1193
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     453,
+     1468,
+     479,
+     1496
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Mei-Lin Castellanos, PA-C",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Mei-Lin Castellanos, PA-C"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     564,
+     275,
+     1105,
+     314
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1423667124",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1423667124"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     349,
+     463,
+     502,
+     488
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1097,
+     633,
+     1267,
+     667
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     873,
+     1522,
+     1360,
+     1576
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Leilani Boateng"
+ ],
+ "patient_dob_occurrences": [
+  "09-17-1960"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-07-2026 16:28 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0199 P.001/001",
+  "State Lic. 571007",
+  "Dispense as written (checkbox, unchecked)",
+  "Substitution permissible (checkbox, unchecked)",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Sig: 1 tab po qhs",
+  "Disp: #90",
+  "Refills 1"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

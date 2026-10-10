@@ -1,0 +1,303 @@
+{
+ "prescription_id": "rx_038",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_038.png",
+  "processed_path": "",
+  "sha256": "0033a6929c36073a6c547d3fdd71306d8cc2bc04ddb3d98d4926ccfd022701b2"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Hollis Featherstone",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hollis Featherstone"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     130,
+     457,
+     464,
+     482
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "12/17/1993",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "12/17/1993"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     935,
+     457,
+     1097,
+     482
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "OHEPRAZOLE",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "omeprazole"
+    },
+    {
+     "source": "secondary",
+     "value": "OMEPRAZOLE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     130,
+     783,
+     366,
+     808
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": null,
+   "source_quality": "UNREADABLE",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    },
+    {
+     "source": "secondary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     366,
+     772,
+     456,
+     819
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "CAPSULE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "capsule"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     464,
+     783,
+     634,
+     808
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "Take 1 capsule by mouth every morning before breakfast",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 capsule by mouth every morning before breakfast"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     130,
+     919,
+     995,
+     944
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     130,
+     1032,
+     162,
+     1057
+    ]
+   },
+   "alterations": []
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1253,
+     1032,
+     1283,
+     1057
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "0",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "0"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     485,
+     1032,
+     510,
+     1057
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Linnea Hargreave, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Linnea Hargreave, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     130,
+     1454,
+     448,
+     1479
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1632122333",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1632122333"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     935,
+     1454,
+     1082,
+     1479
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/07/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/07/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1476,
+     286,
+     1592,
+     307
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     1522,
+     610,
+     1591
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Hollis Featherstone"
+ ],
+ "patient_dob_occurrences": [
+  "12/17/1993"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-07-2026 08:31 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "Rx ref: 2222845",
+  "NKDA",
+  "Substitution: Permitted",
+  "Pharmacy: Corner Test Pharmacy Fax (212) 555-0199",
+  "License: 112649",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Take 1 capsule by mouth every morning before breakfast"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

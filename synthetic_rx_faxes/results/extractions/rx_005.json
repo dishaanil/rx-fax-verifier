@@ -1,0 +1,282 @@
+{
+ "prescription_id": "rx_005",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_005.png",
+  "processed_path": "",
+  "sha256": "c91fa829545a5def72db6cf923f68c871474b36a4d2f3acc6d0628f5f5ae53a4"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Clement Wetherby",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Clement Wetherby"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     471,
+     544,
+     974,
+     584
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "08-09-1976",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "08-09-1976"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1069,
+     544,
+     1329,
+     584
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Azithromycin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Azithromycin"
+    },
+    {
+     "source": "secondary",
+     "value": "Azithromycin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     524,
+     908,
+     804,
+     949
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "250 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "250 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "250 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     804,
+     908,
+     935,
+     949
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     935,
+     908,
+     1020,
+     949
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "2 tabs po day 1, then 1 tab qd x 4 days",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2 tabs po day 1, then 1 tab qd x 4 days"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     524,
+     1024,
+     1275,
+     1139
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     524,
+     1217,
+     773,
+     1258
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "none",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "none"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     453,
+     1462,
+     618,
+     1502
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Renata Okafor-Lindh, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Renata Okafor-Lindh, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     559,
+     278,
+     1105,
+     314
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1276018953",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1276018953"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     343,
+     459,
+     533,
+     488
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/10/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1035,
+     613,
+     1290,
+     649
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     927,
+     1545,
+     1360,
+     1599
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Clement Wetherby"
+ ],
+ "patient_dob_occurrences": [
+  "08-09-1976"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-10-2026 17:54 FROM: TAMSIN RIDGE FAMILY MEDICI (212) 555-0144 TO: (212) 555-0199 P.001/001",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "State Lic. 456644",
+  "Dispense as written (checkbox, unchecked)",
+  "Substitution permissible (checkbox, unchecked)",
+  "Sig: 2 tabs po day 1, then 1 tab qd x 4 days",
+  "Refills none",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

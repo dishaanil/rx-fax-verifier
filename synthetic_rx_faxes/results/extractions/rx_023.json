@@ -1,0 +1,278 @@
+{
+ "prescription_id": "rx_023",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_023.png",
+  "processed_path": "",
+  "sha256": "20a23221b37ae1ed924ac75ab0a822142a0543458d3610304b25a028f1c4a80e"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Rafael Haddadin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Rafael Haddadin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     280,
+     491,
+     518,
+     533
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "5/15/1964",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5/15/1964"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     924,
+     491,
+     1028,
+     533
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Amlodipine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Amlodipine"
+    },
+    {
+     "source": "secondary",
+     "value": "Amlodipine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     765,
+     502,
+     806
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "5 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "5 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1051,
+     765,
+     1182,
+     806
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     847,
+     402,
+     888
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po daily",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po daily"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     924,
+     618,
+     966
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     927,
+     847,
+     1005,
+     888
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     680,
+     1151,
+     726,
+     1187
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Dorian Vasquez-Thorne, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dorian Vasquez-Thorne, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     1387,
+     665,
+     1424
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1082,
+     1387,
+     1275,
+     1424
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     201,
+     348,
+     309,
+     383
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     1460,
+     495,
+     1511
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Rafael Haddadin"
+ ],
+ "patient_dob_occurrences": [
+  "5/15/1964"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-09-2026 07:50 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -1,0 +1,280 @@
+{
+ "prescription_id": "rx_013",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_013.png",
+  "processed_path": "",
+  "sha256": "8a481c8e33f6c81bdde60c2070e43e0601263661fbe7c1467b172451aae9a814"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Odalys Hjelmstad",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Odalys Hjelmstad"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     541,
+     896,
+     579
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "9/7/1974",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "9/7/1974"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1066,
+     541,
+     1221,
+     579
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Levothyroxine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Levothyroxine"
+    },
+    {
+     "source": "secondary",
+     "value": "Levothyroxine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     533,
+     904,
+     881,
+     950
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "25mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "25mcg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     881,
+     904,
+     1005,
+     950
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1005,
+     904,
+     1082,
+     950
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qam on empty stomach",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qam on empty stomach"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     533,
+     1027,
+     1175,
+     1136
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "#90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     618,
+     1213,
+     742,
+     1259
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     440,
+     1506,
+     479,
+     1545
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Augustin Belrose, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Augustin Belrose, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     603,
+     270,
+     1113,
+     317
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     348,
+     460,
+     510,
+     491
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/6/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1066,
+     626,
+     1205,
+     664
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     912,
+     1537,
+     1221,
+     1591
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Odalys Hjelmstad"
+ ],
+ "patient_dob_occurrences": [
+  "9/7/1974"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-06-2026 17:28 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "State Lic. 905550",
+  "Sig. 1 tab po qam on empty stomach",
+  "Disp. #90",
+  "Refills 3"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

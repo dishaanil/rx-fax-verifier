@@ -1,0 +1,612 @@
+{
+ "rx_001": {
+  "patient_name": "Kwame Raghunathan",
+  "patient_dob": "1953-06-20",
+  "drug": "Prednisone",
+  "strength": "10 mg",
+  "sig": "2 tabs po qd x 5 days",
+  "quantity": "#10",
+  "refills": "0",
+  "prescriber_name": "Shirin Talebpour, NP",
+  "npi": "1104974658",
+  "date_written": "2026-10-06",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_002": {
+  "patient_name": "Ambrose Sorensen",
+  "patient_dob": "2003-08-16",
+  "drug": "FUROSEMIDE",
+  "strength": "40 MG",
+  "sig": "Take 1 tablet by mouth every morning",
+  "quantity": "30",
+  "refills": "2",
+  "prescriber_name": "Gideon Praetorius, DO",
+  "npi": "1597971146",
+  "date_written": "2026-10-10",
+  "flags": []
+ },
+ "rx_003": {
+  "patient_name": "Beatrix Oosterhuis",
+  "patient_dob": "1987-03-23",
+  "drug": "Hydralazine",
+  "strength": "50 mg",
+  "sig": "Take 1 tablet by mouth three times daily",
+  "quantity": "90",
+  "refills": "2",
+  "prescriber_name": "Augustin Belrose, MD",
+  "npi": "1752917033",
+  "date_written": "2026-10-06",
+  "flags": []
+ },
+ "rx_004": {
+  "patient_name": "IMANI ASANTE",
+  "patient_dob": "1949-09-25",
+  "drug": "Metronidazole",
+  "strength": "500 mg",
+  "sig": "1 tab po bid x 7 days",
+  "quantity": "14",
+  "refills": "0",
+  "prescriber_name": "BARTHOLOMEW NKEMELU, MD",
+  "npi": "1684268463",
+  "date_written": "2026-10-09",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_005": {
+  "patient_name": "Clement Wetherby",
+  "patient_dob": "1976-08-09",
+  "drug": "Azithromycin",
+  "strength": "250 mg",
+  "sig": "2 tabs po day 1, then 1 tab qd x 4 days",
+  "quantity": null,
+  "refills": "0",
+  "prescriber_name": "Renata Okafor-Lindh, MD",
+  "npi": "1276018953",
+  "date_written": "2026-10-10",
+  "flags": [
+   "quantity",
+   "sig"
+  ]
+ },
+ "rx_006": {
+  "patient_name": "Yasmin Quintanilla",
+  "patient_dob": "1970-08-07",
+  "drug": "LEVOTHYROXINE",
+  "strength": "100 MCG",
+  "sig": "Take 1 tablet by mouth every morning on an empty stomach",
+  "quantity": "90",
+  "refills": "1",
+  "prescriber_name": "Augustin Belrose, MD",
+  "npi": "1752917033",
+  "date_written": "2026-10-10",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_007": {
+  "patient_name": "Winifred Larkspur",
+  "patient_dob": "2002-03-14",
+  "drug": "Hydralazine",
+  "strength": "50mg",
+  "sig": "1 tab po tid",
+  "quantity": "90",
+  "refills": "2",
+  "prescriber_name": "Linnea Hargreave, MD",
+  "npi": "1632122333",
+  "date_written": "2026-10-09",
+  "flags": [
+   "npi"
+  ]
+ },
+ "rx_008": {
+  "patient_name": "CORMAC STAVROS",
+  "patient_dob": "1937-03-01",
+  "drug": "Metformin",
+  "strength": "1000mg",
+  "sig": "1 tab po bid w/ meals",
+  "quantity": "180",
+  "refills": "5",
+  "prescriber_name": "Gideon Praetorius, DO",
+  "npi": "1597971146",
+  "date_written": "2026-10-09",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_009": {
+  "patient_name": "Ingrid Wojcik",
+  "patient_dob": "1965-04-04",
+  "drug": "Montelukast",
+  "strength": "???",
+  "sig": "1 tab po qhs",
+  "quantity": "30",
+  "refills": "5",
+  "prescriber_name": "Shirin Talebpour, NP",
+  "npi": "110497858",
+  "date_written": "2026-10-07",
+  "flags": [
+   "npi",
+   "strength"
+  ]
+ },
+ "rx_010": {
+  "patient_name": "Dmitri Gallagher",
+  "patient_dob": "2007-07-27",
+  "drug": "ALBUTEROL HFA",
+  "strength": "90 MCG",
+  "sig": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "quantity": "1",
+  "refills": "1",
+  "prescriber_name": "Bartholomew Nkemelu, MD",
+  "npi": "1684268463",
+  "date_written": "2026-10-07",
+  "flags": [
+   "drug",
+   "sig",
+   "signature"
+  ]
+ },
+ "rx_011": {
+  "patient_name": "Evander Villaverde",
+  "patient_dob": "1959-08-20",
+  "drug": "Sertraline",
+  "strength": "50 mg",
+  "sig": "1 tab po qd",
+  "quantity": "30",
+  "refills": "1",
+  "prescriber_name": "Shirin Talebpour, NP",
+  "npi": "1104974658",
+  "date_written": "10/?/2026",
+  "flags": [
+   "date_written",
+   "npi"
+  ]
+ },
+ "rx_012": {
+  "patient_name": "MARISOL LINDQVIST",
+  "patient_dob": null,
+  "drug": "Glipizide",
+  "strength": "10 mg",
+  "sig": "1 tab po qam ac",
+  "quantity": "30",
+  "refills": "3",
+  "prescriber_name": "AUGUSTIN BELROSE, MD",
+  "npi": "1752917033",
+  "date_written": "2026-10-09",
+  "flags": [
+   "drug",
+   "patient_dob"
+  ]
+ },
+ "rx_013": {
+  "patient_name": "Odalys Hjelmstad",
+  "patient_dob": "1974-09-07",
+  "drug": "Levothyroxine",
+  "strength": "25mg",
+  "sig": "1 tab po qam on empty stomach",
+  "quantity": "#90",
+  "refills": "3",
+  "prescriber_name": "Augustin Belrose, MD",
+  "npi": "1752917033",
+  "date_written": "2026-10-06",
+  "flags": [
+   "sig",
+   "strength"
+  ]
+ },
+ "rx_014": {
+  "patient_name": "Noor Mbeki",
+  "patient_dob": "1956-03-23",
+  "drug": "METRONIDAZOLE",
+  "strength": "500 MG",
+  "sig": "Take 1 tablet by mouth twice daily for 7 days",
+  "quantity": "14",
+  "refills": "0",
+  "prescriber_name": "Augustin Belrose, MD",
+  "npi": "1752917033",
+  "date_written": "2026-10-08",
+  "flags": []
+ },
+ "rx_015": {
+  "patient_name": "Calista Ashgrove",
+  "patient_dob": "1969-03-23",
+  "drug": "Metoprolol succinate ER",
+  "strength": "25mg",
+  "sig": "1 tab po qd",
+  "quantity": "30",
+  "refills": "3",
+  "prescriber_name": "Dorian Vasquez-Thorne, DO",
+  "npi": "1792440269",
+  "date_written": "2024-10-09",
+  "flags": [
+   "drug"
+  ]
+ },
+ "rx_016": {
+  "patient_name": "THADDEUS CHARPENTIER",
+  "patient_dob": "1932-07-11",
+  "drug": "Methotrexate",
+  "strength": "2.5mg",
+  "sig": "1 tab po qd",
+  "quantity": "30",
+  "refills": "2",
+  "prescriber_name": "DORIAN VASQUEZ-THORNE, DO",
+  "npi": "1792440269",
+  "date_written": "2026-10-07",
+  "flags": []
+ },
+ "rx_017": {
+  "patient_name": "Leilani Boateng",
+  "patient_dob": "1960-09-17",
+  "drug": "Atorvastatin",
+  "strength": "20 mg",
+  "sig": "1 tab po qhs",
+  "quantity": "#90",
+  "refills": "1",
+  "prescriber_name": "Mei-Lin Castellanos, PA-C",
+  "npi": "1423667124",
+  "date_written": "2026-10-07",
+  "flags": [
+   "strength"
+  ]
+ },
+ "rx_018": {
+  "patient_name": "Kofi Echeverria",
+  "patient_dob": "1952-05-03",
+  "drug": "LAMOTRIGINE",
+  "strength": "25 MG",
+  "sig": "Take 1 tablet by mouth twice daily",
+  "quantity": "60",
+  "refills": "2",
+  "prescriber_name": "Mei-Lin Castellanos, PA-C",
+  "npi": "1423667124",
+  "date_written": "2026-10-10",
+  "flags": []
+ },
+ "rx_019": {
+  "patient_name": "Ezekiel Okonkwo",
+  "patient_dob": "2008-12-08",
+  "drug": "Losartan",
+  "strength": "100mg",
+  "sig": "1 tab po qd",
+  "quantity": null,
+  "refills": "3",
+  "prescriber_name": "Shirin Talebpour, NP",
+  "npi": "1104974658",
+  "date_written": "2026-10-10",
+  "flags": [
+   "quantity"
+  ]
+ },
+ "rx_020": {
+  "patient_name": "FARAH MARCHETTI",
+  "patient_dob": "1937-05-12",
+  "drug": "Hydroxyzine",
+  "strength": "50 mg",
+  "sig": "1 tab po tid prn itching",
+  "quantity": "30",
+  "refills": "1",
+  "prescriber_name": "DORIAN VASQUEZ-THORNE, DO",
+  "npi": "1792440269",
+  "date_written": "2026-10-06",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_021": {
+  "patient_name": "Jun Kahananui",
+  "patient_dob": "1980-12-07",
+  "drug": "Lisinopril",
+  "strength": "40mg",
+  "sig": "1 tab po qd",
+  "quantity": "#90",
+  "refills": "5",
+  "prescriber_name": "Linnea Hargreave, MD",
+  "npi": "1632122333",
+  "date_written": "2026-10-06",
+  "flags": [
+   "patient_dob",
+   "patient_name",
+   "strength"
+  ]
+ },
+ "rx_022": {
+  "patient_name": "Sunniva Birdwhistle",
+  "patient_dob": "1973-07-06",
+  "drug": "METFORMIN",
+  "strength": "5000 MG",
+  "sig": "Take 1 tablet by mouth twice daily with meals",
+  "quantity": "60",
+  "refills": "1",
+  "prescriber_name": "Renata Okafor-Lindh, MD",
+  "npi": "1276018953",
+  "date_written": "2026-10-10",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_023": {
+  "patient_name": "Rafael Haddadin",
+  "patient_dob": "1964-05-15",
+  "drug": "Amlodipine",
+  "strength": "5 mg",
+  "sig": "1 tab po daily",
+  "quantity": "90",
+  "refills": "2",
+  "prescriber_name": "Dorian Vasquez-Thorne, DO",
+  "npi": "1792440269",
+  "date_written": "2026-10-09",
+  "flags": [
+   "patient_dob"
+  ]
+ },
+ "rx_024": {
+  "patient_name": "MIREILLE DARWISH",
+  "patient_dob": "1942-07-03",
+  "drug": "Hydrochlorothiazide",
+  "strength": "25 mg",
+  "sig": "1 tab po qam",
+  "quantity": "30",
+  "refills": "5",
+  "prescriber_name": "SHIRIN TALEBPOUR, NP",
+  "npi": "1104974658",
+  "date_written": "2026-10-01",
+  "flags": [
+   "signature"
+  ]
+ },
+ "rx_025": {
+  "patient_name": "Hartley Sabbagh",
+  "patient_dob": "1970-02-19",
+  "drug": "Methotrexate",
+  "strength": "2.5 mg",
+  "sig": "3 tabs po once weekly",
+  "quantity": "#12",
+  "refills": "2",
+  "prescriber_name": "Mei-Lin Castellanos, PA-C",
+  "npi": "1423667124",
+  "date_written": "2026-10-08",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_026": {
+  "patient_name": "Osvaldo Zaragoza",
+  "patient_dob": "1950-01-27",
+  "drug": "CEPHALEXIN",
+  "strength": "500 MG",
+  "sig": "Take 1 capsule by mouth four times daily for 7 days",
+  "quantity": "28",
+  "refills": "0",
+  "prescriber_name": "Mei-Lin Castellanos, PA-C",
+  "npi": "1423667124",
+  "date_written": "2026-10-06",
+  "flags": [
+   "signature"
+  ]
+ },
+ "rx_027": {
+  "patient_name": "Priya Nakashima",
+  "patient_dob": "1946-03-21",
+  "drug": "Omeprazole",
+  "strength": "?",
+  "sig": "1 cap po qam ac",
+  "quantity": "30",
+  "refills": "0",
+  "prescriber_name": "Gideon Praetorius, DO",
+  "npi": "1597971196",
+  "date_written": "2026-10-10",
+  "flags": [
+   "npi",
+   "strength"
+  ]
+ },
+ "rx_028": {
+  "patient_name": "DEVON FITZWILLIAM",
+  "patient_dob": null,
+  "drug": "Amoxicillin",
+  "strength": "500mg",
+  "sig": "1 cap po tid x 10 days",
+  "quantity": "30",
+  "refills": "0",
+  "prescriber_name": "RENATA OKAFOR-LINDH, MD",
+  "npi": "1276018953",
+  "date_written": "2026-10-07",
+  "flags": [
+   "patient_dob",
+   "sig"
+  ]
+ },
+ "rx_029": {
+  "patient_name": "Lazaro Thistlewood",
+  "patient_dob": "1950-08-22",
+  "drug": "Lamotrigine",
+  "strength": "25 mg",
+  "sig": "1 tab po bid",
+  "quantity": "*60",
+  "refills": "2",
+  "prescriber_name": "Dorian Vasquez-Thorne, DO",
+  "npi": "1792440269",
+  "date_written": "2026-10-07",
+  "flags": [
+   "quantity"
+  ]
+ },
+ "rx_030": {
+  "patient_name": "Saoirse Montenegro",
+  "patient_dob": "2002-01-16",
+  "drug": "WARFARIN",
+  "strength": "5 MG",
+  "sig": "Take 1 tablet by mouth every evening",
+  "quantity": "30",
+  "refills": "1",
+  "prescriber_name": "Shirin Talebpour, NP",
+  "npi": "1104974658",
+  "date_written": "2026-10-10",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_031": {
+  "patient_name": "Bram Adebayo",
+  "patient_dob": "1956-09-07",
+  "drug": "Lisinopril",
+  "strength": "400mg",
+  "sig": "1 tab po qd",
+  "quantity": "90",
+  "refills": "5",
+  "prescriber_name": "Dorian Vasquez-Thorne, DO",
+  "npi": "792440269",
+  "date_written": "2026-10-07",
+  "flags": [
+   "npi",
+   "strength"
+  ]
+ },
+ "rx_032": {
+  "patient_name": "ZAINAB VANDERMEER",
+  "patient_dob": "1934-10-03",
+  "drug": "Atorvastatin",
+  "strength": "80mg",
+  "sig": "1 tab po qhs",
+  "quantity": "90",
+  "refills": "3",
+  "prescriber_name": "AUGUSTIN BELROSE, MD",
+  "npi": "1752917033",
+  "date_written": "2026-10-09",
+  "flags": []
+ },
+ "rx_033": {
+  "patient_name": "Anselm Holloway",
+  "patient_dob": "1991-07-28",
+  "drug": "Hydroxyzine",
+  "strength": "25 mg",
+  "sig": "1 tab po tid prn itching",
+  "quantity": "#30",
+  "refills": "1",
+  "prescriber_name": "Bartholomew Nkemelu, MD",
+  "npi": "1684268463",
+  "date_written": "2026-10-10",
+  "flags": [
+   "sig"
+  ]
+ },
+ "rx_034": {
+  "patient_name": "Lucinda Underhill",
+  "patient_dob": "1975-07-17",
+  "drug": "ALBUTEROL HFA",
+  "strength": "90 MCG",
+  "sig": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "quantity": "1",
+  "refills": null,
+  "prescriber_name": "Shirin Talebpour, NP",
+  "npi": "1104974658",
+  "date_written": "2026-10-09",
+  "flags": [
+   "refills",
+   "sig",
+   "signature"
+  ]
+ },
+ "rx_035": {
+  "patient_name": "Petra Drummond",
+  "patient_dob": "1958-11-28",
+  "drug": "Sertraline",
+  "strength": "50 mg",
+  "sig": "Take 1 tablet by mouth once daily",
+  "quantity": "30",
+  "refills": "1",
+  "prescriber_name": "Linnea Hargreave, MD",
+  "npi": "1632122333",
+  "date_written": "2026-10-07",
+  "flags": [
+   "npi",
+   "strength"
+  ]
+ },
+ "rx_036": {
+  "patient_name": "ANNELIESE PEMBERTON",
+  "patient_dob": "1939-05-16",
+  "drug": "Lisinopril",
+  "strength": "20 mg",
+  "sig": "1 tab po qd",
+  "quantity": "90",
+  "refills": "3",
+  "prescriber_name": "MEI-LIN CASTELLANOS, PA-C",
+  "npi": "1423667124",
+  "date_written": "2026-10-07",
+  "flags": []
+ },
+ "rx_037": {
+  "patient_name": "Tobias Rahimzadeh",
+  "patient_dob": "1951-09-07",
+  "drug": "Hyd????e",
+  "strength": "25mg",
+  "sig": "1 tab po tid prn itching",
+  "quantity": "#30",
+  "refills": "1",
+  "prescriber_name": "Dorian Vasquez-Thorne, DO",
+  "npi": "1792440269",
+  "date_written": "2024-10-07",
+  "flags": [
+   "drug",
+   "patient_dob",
+   "patient_name",
+   "sig"
+  ]
+ },
+ "rx_038": {
+  "patient_name": "Hollis Featherstone",
+  "patient_dob": "1993-12-17",
+  "drug": "OHEPRAZOLE",
+  "strength": null,
+  "sig": "Take 1 capsule by mouth every morning before breakfast",
+  "quantity": "30",
+  "refills": "0",
+  "prescriber_name": "Linnea Hargreave, MD",
+  "npi": "1632122333",
+  "date_written": "2026-10-07",
+  "flags": [
+   "drug",
+   "sig",
+   "strength"
+  ]
+ },
+ "rx_039": {
+  "patient_name": "Malcolm Volkonsky",
+  "patient_dob": "07-15-197?",
+  "drug": "Glipizide",
+  "strength": "10 mg",
+  "sig": "Take 1 tablet by mouth every morning before breakfast",
+  "quantity": "30",
+  "refills": "3",
+  "prescriber_name": "Gideon Praetorius, DO",
+  "npi": "1697971144",
+  "date_written": "2026-10-08",
+  "flags": [
+   "npi",
+   "patient_dob",
+   "sig"
+  ]
+ },
+ "rx_040": {
+  "patient_name": "GRETA CASTELLANE",
+  "patient_dob": "1947-01-03",
+  "drug": "Methotrexate",
+  "strength": "2.5 mg",
+  "sig": "3 tabs po once weekly",
+  "quantity": "12",
+  "refills": "2",
+  "prescriber_name": "DORIAN VASQUEZ-THORNE, DO",
+  "npi": "1792440269",
+  "date_written": "2016-10-26",
+  "flags": [
+   "drug",
+   "sig",
+   "strength"
+  ]
+ }
+}

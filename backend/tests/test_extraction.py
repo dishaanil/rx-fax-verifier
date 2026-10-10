@@ -51,7 +51,7 @@ class FakeGateway(NicrronGateway):
         self.calls: list[tuple[str, str, str]] = []
         self.tracer = None
 
-    def call(self, step, prescription_id, model, messages, max_tokens=2000):
+    def call(self, step, prescription_id, model, messages, max_tokens=8000):
         self.calls.append((step, prescription_id, model))
         reply = self.replies[step]
         if isinstance(reply, Exception):
@@ -168,7 +168,7 @@ def test_malformed_json_is_retried_once(fax):
     replies = iter(["{broken", json.dumps(primary_reply())])
 
     class Flaky(FakeGateway):
-        def call(self, step, prescription_id, model, messages, max_tokens=2000):
+        def call(self, step, prescription_id, model, messages, max_tokens=8000):
             return next(replies) if step == "extract_primary" else json.dumps(SECONDARY)
 
     rx = extract(fax, "rx_test", gateway=Flaky({}))

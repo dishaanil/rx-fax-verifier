@@ -1,0 +1,280 @@
+{
+ "prescription_id": "rx_037",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_037.png",
+  "processed_path": "",
+  "sha256": "8b8a1c2dadd52410c6c5702db2fe926da449e5e8f7271cd15372323371a33787"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Tobias Rahimzadeh",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Tobias Rahimzadeh"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     371,
+     510,
+     835,
+     556
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "9/7/1951",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "9/7/1951"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     665,
+     510,
+     835,
+     553
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Hyd????e",
+   "source_quality": "UNREADABLE",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hydroxyzine"
+    },
+    {
+     "source": "secondary",
+     "value": "Hyd????????"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     461,
+     857,
+     773,
+     927
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "25mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "25mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     773,
+     865,
+     865,
+     919
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     865,
+     865,
+     943,
+     919
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po tid prn itching",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po tid prn itching"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     461,
+     1004,
+     1005,
+     1058
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "#30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     461,
+     1136,
+     618,
+     1182
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     368,
+     1445,
+     417,
+     1491
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Dorian Vasquez-Thorne, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dorian Vasquez-Thorne, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     519,
+     247,
+     1144,
+     294
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     317,
+     405,
+     464,
+     433
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/7/24",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/24"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     924,
+     603,
+     1051,
+     641
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     946,
+     1491,
+     1422,
+     1560
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Tobias Rahimzadeh"
+ ],
+ "patient_dob_occurrences": [
+  "9/7/1951"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "Header fax line text: 'PELHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001'",
+  "Footer text: 'SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION'",
+  "State Lic. 660559 printed near prescriber header",
+  "Checkboxes for 'Dispense as written' and 'Substitution permissible' both unchecked",
+  "Sig 1 tab po tid prn itching",
+  "Disp 90"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

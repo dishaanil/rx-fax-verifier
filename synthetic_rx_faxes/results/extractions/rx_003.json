@@ -1,0 +1,277 @@
+{
+ "prescription_id": "rx_003",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_003.png",
+  "processed_path": "",
+  "sha256": "8a856c5ed3cb8423e1f0d2022ee96382cc434f70d2bd5e82a1e481c234d1d458"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Beatrix Oosterhuis",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Beatrix Oosterhuis"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     366,
+     460,
+     759,
+     502
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "03-23-1987",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "03-23-1987"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     975,
+     460,
+     1209,
+     496
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Hydralazine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hydralazine"
+    },
+    {
+     "source": "secondary",
+     "value": "Hydralazine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     352,
+     729,
+     649,
+     772
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "50 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "50 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "50 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1147,
+     734,
+     1267,
+     768
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     363,
+     853,
+     510,
+     891
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth three times daily",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth three times daily"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     365,
+     942,
+     1209,
+     986
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1113,
+     854,
+     1175,
+     888
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     624,
+     1126,
+     660,
+     1160
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Augustin Belrose, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Augustin Belrose, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     346,
+     1267,
+     723,
+     1302
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     988,
+     1270,
+     1209,
+     1302
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/6/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     240,
+     341,
+     416,
+     375
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     278,
+     1358,
+     533,
+     1409
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Beatrix Oosterhuis"
+ ],
+ "patient_dob_occurrences": [
+  "03-23-1987"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-06-2026 08:49 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

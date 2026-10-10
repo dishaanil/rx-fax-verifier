@@ -1,0 +1,284 @@
+{
+ "prescription_id": "rx_008",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_008.png",
+  "processed_path": "",
+  "sha256": "5fc5c819ee7ed4055f1251264265c06b267281d81341a91c38309eb62172cc0a"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "CORMAC STAVROS",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "CORMAC STAVROS"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     193,
+     295,
+     495,
+     318
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "03/01/1937",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "03/01/1937"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     343,
+     263,
+     365
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Metformin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Metformin"
+    },
+    {
+     "source": "secondary",
+     "value": "Metformin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     303,
+     569,
+     448,
+     595
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "1000mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1000 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "1000mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     303,
+     626,
+     402,
+     652
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     405,
+     626,
+     456,
+     652
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po bid w/ meals",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po bid w/ meals"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     943,
+     569,
+     1128,
+     652
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "180",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "180"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1309,
+     610,
+     1360,
+     637
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "5",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1450,
+     610,
+     1476,
+     637
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Gideon Praetorius, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Gideon Praetorius, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     513,
+     383,
+     896,
+     405
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1597971146",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1597971146"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1205,
+     1672,
+     1360,
+     1693
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     85,
+     573,
+     170,
+     595
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     371,
+     1645,
+     649,
+     1692
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "CORMAC STAVROS"
+ ],
+ "patient_dob_occurrences": [
+  "03/01/1937"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "CT-09-2026 15:48 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED: 312-B",
+  "MRN: 456481",
+  "ALLERGIES: NKDA",
+  "ATTENDING: GIDEON PRAETORIUS, DO",
+  "Written order (checked)",
+  "Noted by (nurse): S. Dellacroce RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

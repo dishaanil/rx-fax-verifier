@@ -1,0 +1,278 @@
+{
+ "prescription_id": "rx_031",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_031.png",
+  "processed_path": "",
+  "sha256": "581521c248e7ee682aa3414c1d24c05bd81625d5e706d0c2645c0cb7e1db10e5"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Bram Adebayo",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Bram Adebayo"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     352,
+     491,
+     634,
+     533
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "09-07-1956",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "09-07-1956"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1020,
+     494,
+     1221,
+     533
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Lisinopril",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Lisinopril"
+    },
+    {
+     "source": "secondary",
+     "value": "Lisinopril"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     266,
+     726,
+     572,
+     772
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "400mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "400 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "400mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1113,
+     734,
+     1267,
+     772
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     847,
+     479,
+     888
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qd",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qd"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     321,
+     927,
+     618,
+     973
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1028,
+     847,
+     1113,
+     888
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "5",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     935,
+     1151,
+     974,
+     1190
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Dorian Vasquez-Thorne, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dorian Vasquez-Thorne, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     376,
+     1264,
+     835,
+     1305
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "I792440269",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1028,
+     1264,
+     1221,
+     1305
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     185,
+     351,
+     340,
+     386
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     379,
+     1418,
+     773,
+     1475
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Bram Adebayo"
+ ],
+ "patient_dob_occurrences": [
+  "09-07-1956"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-07-2026 09:19 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Allergies: NKDA"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

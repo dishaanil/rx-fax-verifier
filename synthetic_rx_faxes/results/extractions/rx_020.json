@@ -1,0 +1,284 @@
+{
+ "prescription_id": "rx_020",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_020.png",
+  "processed_path": "",
+  "sha256": "ec4bf6579ac88224af52469a1c0c5b065158cd17b19258c315b56f2cd23cee3f"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "FARAH MARCHETTI",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "FARAH MARCHETTI"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     312,
+     289,
+     603,
+     312
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "05/12/1937",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "05/12/1937"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     199,
+     329,
+     365,
+     351
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Hydroxyzine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hydroxyzine"
+    },
+    {
+     "source": "secondary",
+     "value": "Hydroxyzine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     582,
+     495,
+     618
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "50 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "50 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "50 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     633,
+     433,
+     664
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     433,
+     633,
+     495,
+     664
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po tid prn itching",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po tid prn itching"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     958,
+     582,
+     1267,
+     618
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1332,
+     599,
+     1375,
+     633
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1502,
+     599,
+     1530,
+     633
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "DORIAN VASQUEZ-THORNE, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "DORIAN VASQUEZ-THORNE, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     657,
+     385,
+     1221,
+     406
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1193,
+     1684,
+     1337,
+     1707
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/6/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     102,
+     582,
+     193,
+     606
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     541,
+     1661,
+     966,
+     1715
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "FARAH MARCHETTI"
+ ],
+ "patient_dob_occurrences": [
+  "05/12/1937"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-06-2026 09:50 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED: 105-A",
+  "MRN: 661292",
+  "ALLERGIES: NKDA",
+  "Noted by (nurse): T. Brannigan RN",
+  "Written order (checkbox marked)",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po tid prn itching"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

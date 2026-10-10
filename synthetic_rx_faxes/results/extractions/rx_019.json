@@ -1,0 +1,278 @@
+{
+ "prescription_id": "rx_019",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_019.png",
+  "processed_path": "",
+  "sha256": "0275070524462719c8843c8805663d01a01893a886f28372ce4529683fdb1451"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "Ezekiel Okonkwo",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Ezekiel Okonkwo"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     479,
+     638,
+     507
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": "12-08-2008",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "12-08-2008"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1204,
+     479,
+     1423,
+     507
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Losartan",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Losartan"
+    },
+    {
+     "source": "secondary",
+     "value": "Losartan"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     742,
+     533,
+     772
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "100mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "100 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "100mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1193,
+     742,
+     1337,
+     772
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     834,
+     464,
+     865
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qd",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qd"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     312,
+     924,
+     603,
+     955
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     875,
+     834,
+     1576,
+     865
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     793,
+     1131,
+     827,
+     1165
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "Shirin Talebpour, NP",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Shirin Talebpour, NP"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     1298,
+     624,
+     1326
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1104974658",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1104974658"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1116,
+     1298,
+     1345,
+     1326
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/10/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     185,
+     343,
+     332,
+     371
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     1421,
+     649,
+     1468
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "Ezekiel Okonkwo"
+ ],
+ "patient_dob_occurrences": [
+  "12-08-2008"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-10-2026 15:34 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Allergies: NKDA"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

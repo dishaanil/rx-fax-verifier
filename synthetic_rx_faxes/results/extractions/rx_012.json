@@ -1,0 +1,287 @@
+{
+ "prescription_id": "rx_012",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_012.png",
+  "processed_path": "",
+  "sha256": "bceadb8f78ed76c5381cc262ae709200b0945440a3d55f18f293980a13a93fee"
+ },
+ "is_prescription": true,
+ "fields": {
+  "patient": {
+   "raw_value": "MARISOL LINDQVIST",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "MARISOL LINDQVIST"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     161,
+     284,
+     603,
+     309
+    ]
+   },
+   "alterations": []
+  },
+  "patient_dob": {
+   "raw_value": null,
+   "source_quality": "UNREADABLE",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     161,
+     328,
+     402,
+     365
+    ]
+   },
+   "alterations": []
+  },
+  "drug": {
+   "raw_value": "Glipizide",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Glipizide"
+    },
+    {
+     "source": "secondary",
+     "value": "Cefprozil"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     235,
+     593,
+     402,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "strength": {
+   "raw_value": "10 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "10 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     235,
+     655,
+     355,
+     686
+    ]
+   },
+   "alterations": []
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     355,
+     655,
+     425,
+     686
+    ]
+   },
+   "alterations": []
+  },
+  "sig": {
+   "raw_value": "1 tab po qam ac",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qam ac"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     873,
+     593,
+     1175,
+     624
+    ]
+   },
+   "alterations": []
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1345,
+     612,
+     1399,
+     646
+    ]
+   },
+   "alterations": []
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1491,
+     612,
+     1522,
+     646
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber": {
+   "raw_value": "AUGUSTIN BELROSE, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "AUGUSTIN BELROSE, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     638,
+     388,
+     1151,
+     411
+    ]
+   },
+   "alterations": []
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1314,
+     1696,
+     1484,
+     1720
+    ]
+   },
+   "alterations": []
+  },
+  "date_written": {
+   "raw_value": "10/9/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     93,
+     595,
+     201,
+     623
+    ]
+   },
+   "alterations": []
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     1630,
+     734,
+     1692
+    ]
+   },
+   "alterations": []
+  }
+ },
+ "patient_name_occurrences": [
+  "MARISOL LINDQVIST"
+ ],
+ "patient_dob_occurrences": [
+  "illegible (redacted with black marker)"
+ ],
+ "prescription_block_count": 1,
+ "untrusted_text": [
+  "OCT-09-2026 11:08 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ALLERGIES: NKDA",
+  "ROOM/BED: 214-B",
+  "MRN: 120773",
+  "Telephone order / Verbal order / Written order (Written order checked)",
+  "Noted by (nurse): T. Brannagan RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po qam ac",
+  "30",
+  "3",
+  "Written order"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}
