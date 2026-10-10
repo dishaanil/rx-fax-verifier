@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getPrescription, getPrescriptions, intakePrescription } from './api/prescriptions'
 import { IntakeQueuePage } from './pages/IntakeQueuePage'
 import { PrescriptionReviewPage } from './pages/PrescriptionReviewPage'
@@ -12,11 +12,8 @@ export default function App() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
-  const [images, setImages] = useState<Record<string, string>>({})
-  const urls = useRef<string[]>([])
   useEffect(() => {
     getPrescriptions().then(({ data, live }) => { setPrescriptions(data); setLive(live) }).catch((e) => setError(e.message)).finally(() => setLoading(false))
-    return () => urls.current.forEach(URL.revokeObjectURL)
   }, [])
   function update(item: Prescription) {
     setActive(item)
@@ -41,8 +38,6 @@ export default function App() {
     setBusy(true); setError(null); setNotice('Uploading prescription and extracting fields…')
     try {
       const item = await intakePrescription(file)
-      const url = URL.createObjectURL(file); urls.current.push(url)
-      setImages((old) => ({ ...old, [item.prescription_id]: url }))
       if (!live) setPrescriptions([])
       setLive(true); update(item)
       setNotice(item.status === 'PROCESSING' ? 'Upload received. Extraction is processing…' : 'Prescription uploaded. Extracted result is ready to review.')
@@ -59,7 +54,7 @@ export default function App() {
     <nav className="app-nav" aria-label="Main navigation"><button type="button" className="brand" onClick={() => { setActive(null); setNotice(null) }}><span className="brand-icon"><img src={brandIcon} alt="" /></span><span>RxBridge</span></button><span className="nav-caption">Evidence first. Pharmacist approved.</span><span className={`connection-label${live ? ' connection-label--live' : ''}`}>{live ? 'Service connected' : 'Preview workspace'}</span></nav>
     {error && <p className="error-banner" role="alert">{error}</p>}
     {notice && <p className="notice-banner" role="status">{notice}</p>}
-    {active ? <PrescriptionReviewPage key={active.prescription_id} prescription={active} apiReady={live} imageUrl={images[active.prescription_id]} onRefresh={update} onBack={() => { setActive(null); setNotice(null) }} />
+    {active ? <PrescriptionReviewPage key={active.prescription_id} prescription={active} apiReady={live} onRefresh={update} onBack={() => { setActive(null); setNotice(null) }} />
       : <IntakeQueuePage prescriptions={prescriptions} onOpen={open} onUpload={upload} busy={busy} live={live} />}
   </>
 }
