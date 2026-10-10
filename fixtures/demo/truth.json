@@ -337,7 +337,7 @@
    "strength": "25 mg",
    "form": "tablet"
   },
-  "sig_as_written": "1 tab po tid prn itching",
+  "sig_as_written": "1 TAB PO TID",
   "sig_normalized": null,
   "quantity": 30,
   "refills": 0,
@@ -365,75 +365,75 @@
   },
   "case": "D",
   "title": "Hydroxyzine / hydralazine ambiguity",
-  "expected": "REVIEW_REQUIRED: cross-pass disagreement + LASA pair + ambiguous reference",
+  "expected": "REVIEW_REQUIRED: AMBIGUOUS_DRUG only (hydroxyzine vs hydralazine; everything else clean)",
   "file": "faxes/demo_D.png",
   "clean_file": "clean/demo_D.png",
   "boxes": {
    "patient_name": [
-    454,
-    517,
-    803,
-    590
+    445,
+    531,
+    794,
+    603
    ],
    "patient_dob": [
-    1101,
-    521,
-    1271,
-    576
+    1092,
+    527,
+    1262,
+    581
    ],
    "drug": [
-    524,
-    890,
-    880,
-    974
+    521,
+    903,
+    876,
+    986
    ],
    "strength": [
-    893,
-    897,
-    1044,
-    967
+    890,
+    906,
+    1040,
+    975
    ],
    "sig": [
-    613,
-    1004,
-    1066,
-    1087
+    611,
+    1017,
+    898,
+    1070
    ],
    "quantity": [
-    648,
-    1141,
-    743,
-    1184
+    645,
+    1153,
+    739,
+    1197
    ],
    "refills": [
-    460,
-    1441,
-    532,
-    1489
+    465,
+    1463,
+    536,
+    1510
    ],
    "prescriber_name": [
-    652,
-    262,
-    1086,
-    322
+    638,
+    273,
+    1072,
+    331
    ],
    "npi": [
-    399,
-    444,
-    562,
-    476
+    388,
+    460,
+    551,
+    492
    ],
    "date_written": [
-    1104,
-    610,
-    1240,
-    661
+    1096,
+    616,
+    1231,
+    667
    ],
    "signature": [
-    872,
-    1491,
-    1159,
-    1566
+    877,
+    1499,
+    1160,
+    1567
    ]
   }
  },
