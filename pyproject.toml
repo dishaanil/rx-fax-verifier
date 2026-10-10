@@ -11,6 +11,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "httpx>=0.27,<1"]
+# Real extractor (RXBRIDGE_EXTRACTOR=nicrron); the stub needs none of these.
+nicrron = ["pillow>=11", "numpy>=2", "httpx>=0.27,<1", "python-dotenv>=1"]
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests"]

@@ -1,0 +1,264 @@
+{
+ "prescription_id": "rx_013",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_013.png"
+ },
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "Odalys Hjelmstad",
+  "dob_values": [
+   "1974-09-07"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Odalys Hjelmstad",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Odalys Hjelmstad"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     457,
+     539,
+     859,
+     575
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "9/7/1974",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "9/7/1974"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1082,
+     541,
+     1213,
+     575
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Levothyroxine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Levothyroxine"
+    },
+    {
+     "source": "secondary",
+     "value": "Levothyroxine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     513,
+     893,
+     878,
+     927
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "25mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "25mcg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     879,
+     896,
+     974,
+     929
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     978,
+     896,
+     1051,
+     929
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po qam on empty stomach",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qam on empty stomach"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     524,
+     1024,
+     1170,
+     1129
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "#90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     643,
+     1216,
+     734,
+     1250
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     437,
+     1506,
+     464,
+     1539
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Augustin Belrose, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Augustin Belrose, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     621,
+     273,
+     1127,
+     311
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     402,
+     465,
+     533,
+     494
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/6/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1071,
+     630,
+     1175,
+     663
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     881,
+     1542,
+     1161,
+     1584
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-06-2026 17:28 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Sig. 1 tab po qam on empty stomach",
+  "Disp. #90",
+  "Refills 3"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

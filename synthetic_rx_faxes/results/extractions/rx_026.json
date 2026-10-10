@@ -1,0 +1,284 @@
+{
+ "prescription_id": "rx_026",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_026.png"
+ },
+ "patient_identity": {
+  "header_name": "Osvaldo Zaragoza",
+  "block_name": null,
+  "dob_values": [
+   "1950-01-27"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Osvaldo Zaragoza",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Osvaldo Zaragoza"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     148,
+     433,
+     433,
+     463
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "01/27/1950",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "01/27/1950"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     890,
+     433,
+     1066,
+     463
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "CEPHALEXIN",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "CEPHALEXIN"
+    },
+    {
+     "source": "secondary",
+     "value": "CEPHALEXIN"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     148,
+     742,
+     355,
+     772
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "500 MG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "500 MG"
+    },
+    {
+     "source": "secondary",
+     "value": "500 MG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     362,
+     742,
+     495,
+     772
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "CAPSULE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "CAPSULE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     501,
+     742,
+     649,
+     772
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 capsule by mouth four times daily for 7 days",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 capsule by mouth four times daily for 7 days"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     148,
+     868,
+     896,
+     899
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "28",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "28"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     148,
+     989,
+     201,
+     1020
+    ]
+   }
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1229,
+     989,
+     1267,
+     1020
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "0",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "0"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     470,
+     989,
+     495,
+     1020
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Mei-Lin Castellanos, PA-C",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Mei-Lin Castellanos, PA-C"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     148,
+     1298,
+     495,
+     1329
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1423667124",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1423667124"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     889,
+     1298,
+     1082,
+     1329
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/06/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/06/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1437,
+     216,
+     1592,
+     247
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     148,
+     1409,
+     1082,
+     1440
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "FAX HEADER: ... FAMILY MEDICE (212) 555 0144  TO: (212) 555 0199  P 001/001",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Electronically signed by Mei-Lin Castellanos, PA-C on 10/06/2026 09:2?",
+  "Take 1 capsule by mouth four times daily for 7 days",
+  "Electronically signed by Mae Lin Castellanos, PA-C on 10/02/2024"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

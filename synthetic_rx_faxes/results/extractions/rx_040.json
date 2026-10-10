@@ -1,0 +1,270 @@
+{
+ "prescription_id": "rx_040",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_040.png"
+ },
+ "patient_identity": {
+  "header_name": "GRETA CASTELLANE",
+  "block_name": null,
+  "dob_values": [
+   "1947-01-03"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "GRETA CASTELLANE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "GRETA CASTELLANE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     235,
+     283,
+     541,
+     306
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "01/03/1947",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "01/03/1947"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     185,
+     329,
+     340,
+     351
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Methotrexate",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Methotrexate"
+    },
+    {
+     "source": "secondary",
+     "value": "Metoprololate"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     278,
+     603,
+     448,
+     627
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "25 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "25 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     278,
+     649,
+     371,
+     674
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     371,
+     649,
+     417,
+     674
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "3 tabs po once weekly",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3 tabs po once weekly"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     893,
+     603,
+     1205,
+     627
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "12",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "12"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1329,
+     603,
+     1375,
+     627
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1468,
+     603,
+     1499,
+     627
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "DORIAN VASQUEZ-THORNE, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "DORIAN VASQUEZ-THORNE, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     665,
+     352,
+     1005,
+     374
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1702440269",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1702440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1020,
+     1630,
+     1221,
+     1653
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/6/16",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/16"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     147,
+     603,
+     232,
+     627
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     1599,
+     711,
+     1645
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "Fax header: OCT 06 2020 11:21 FROM: FENNIMORE GLEN NURSING & R (516) 555-0157 TO: (212) 555-0199 P.001/001",
+  "Fennimore Glen Nursing & Rehab, Tel (516) 555-0156 Fax (516) 555-0157",
+  "PHYSICIAN ORDER FORM, Send to: Corner Test Pharmacy (712) 555-0199",
+  "ROOM/BED: 301-A, MRN: 701316",
+  "ALLERGIES: NKDA",
+  "Checkbox marked: Written order (Telephone order and Verbal order unchecked)",
+  "Noted by (nurse): T Branagan RN",
+  "Orders must be signed by the attending physician within the period required by facility policy",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po each morning",
+  "Written order"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

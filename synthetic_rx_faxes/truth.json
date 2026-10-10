@@ -1,0 +1,4244 @@
+[
+ {
+  "id": "rx_001",
+  "template": "pad",
+  "tier": "clean",
+  "patient": {
+   "name": "Kwame Raghunathan",
+   "dob": "1953-06-20",
+   "address": "37 Quarry Bend Rd",
+   "phone": "(646) 555-0136"
+  },
+  "medication": {
+   "drug": "Prednisone",
+   "strength": "10 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "2 tabs po qd x 5 days",
+  "sig_normalized": "Take 2 tablets by mouth once daily for 5 days",
+  "quantity": 10,
+  "refills": 0,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Prednisolone",
+  "file": "faxes/rx_001.png",
+  "clean_file": "clean/rx_001.png",
+  "boxes": {
+   "patient_name": [
+    441,
+    525,
+    846,
+    599
+   ],
+   "patient_dob": [
+    1089,
+    520,
+    1261,
+    572
+   ],
+   "drug": [
+    513,
+    890,
+    760,
+    948
+   ],
+   "strength": [
+    773,
+    895,
+    905,
+    969
+   ],
+   "sig": [
+    603,
+    1004,
+    1068,
+    1080
+   ],
+   "quantity": [
+    644,
+    1139,
+    734,
+    1188
+   ],
+   "refills": [
+    461,
+    1453,
+    568,
+    1491
+   ],
+   "prescriber_name": [
+    626,
+    260,
+    1068,
+    318
+   ],
+   "npi": [
+    383,
+    449,
+    540,
+    482
+   ],
+   "date_written": [
+    1088,
+    604,
+    1223,
+    656
+   ],
+   "signature": [
+    872,
+    1480,
+    1246,
+    1582
+   ]
+  }
+ },
+ {
+  "id": "rx_002",
+  "template": "ehr",
+  "tier": "clean",
+  "patient": {
+   "name": "Ambrose Sorensen",
+   "dob": "2003-08-16",
+   "address": "506 Wren Hollow Ln",
+   "phone": "(646) 555-0120"
+  },
+  "medication": {
+   "drug": "Furosemide",
+   "strength": "40 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth every morning",
+  "sig_normalized": "Take 1 tablet by mouth every morning",
+  "quantity": 30,
+  "refills": 2,
+  "prescriber": {
+   "name": "Gideon Praetorius",
+   "credential": "DO",
+   "npi": "1597971146",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_002.png",
+  "clean_file": "clean/rx_002.png",
+  "boxes": {
+   "patient_name": [
+    148,
+    417,
+    454,
+    455
+   ],
+   "patient_dob": [
+    904,
+    423,
+    1077,
+    462
+   ],
+   "drug": [
+    145,
+    750,
+    398,
+    792
+   ],
+   "strength": [
+    409,
+    753,
+    542,
+    793
+   ],
+   "sig": [
+    144,
+    869,
+    731,
+    917
+   ],
+   "quantity": [
+    143,
+    987,
+    199,
+    1024
+   ],
+   "refills": [
+    539,
+    990,
+    574,
+    1027
+   ],
+   "prescriber_name": [
+    139,
+    1347,
+    496,
+    1391
+   ],
+   "npi": [
+    895,
+    1354,
+    1113,
+    1391
+   ],
+   "date_written": [
+    1375,
+    220,
+    1523,
+    256
+   ],
+   "signature": [
+    336,
+    1436,
+    693,
+    1508
+   ]
+  }
+ },
+ {
+  "id": "rx_003",
+  "template": "faxform",
+  "tier": "clean",
+  "patient": {
+   "name": "Beatrix Oosterhuis",
+   "dob": "1987-03-23",
+   "address": "567 Quarry Bend Rd",
+   "phone": "(646) 555-0177"
+  },
+  "medication": {
+   "drug": "Hydralazine",
+   "strength": "50 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth three times daily",
+  "sig_normalized": "Take 1 tablet by mouth three times daily",
+  "quantity": 90,
+  "refills": 2,
+  "prescriber": {
+   "name": "Augustin Belrose",
+   "credential": "MD",
+   "npi": "1752917033",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": "lookalike_risk",
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "Drug name is easily confused with Hydroxyzine. Legible here; a good system still double-checks.",
+  "lookalike_of": "Hydroxyzine",
+  "file": "faxes/rx_003.png",
+  "clean_file": "clean/rx_003.png",
+  "boxes": {
+   "patient_name": [
+    334,
+    454,
+    722,
+    511
+   ],
+   "patient_dob": [
+    1209,
+    456,
+    1432,
+    504
+   ],
+   "drug": [
+    309,
+    723,
+    601,
+    801
+   ],
+   "strength": [
+    1201,
+    721,
+    1349,
+    776
+   ],
+   "sig": [
+    362,
+    899,
+    1288,
+    978
+   ],
+   "quantity": [
+    1013,
+    810,
+    1070,
+    856
+   ],
+   "refills": [
+    615,
+    1106,
+    688,
+    1177
+   ],
+   "prescriber_name": [
+    328,
+    1290,
+    673,
+    1336
+   ],
+   "npi": [
+    1108,
+    1277,
+    1314,
+    1324
+   ],
+   "date_written": [
+    228,
+    306,
+    399,
+    356
+   ],
+   "signature": [
+    325,
+    1395,
+    595,
+    1467
+   ]
+  }
+ },
+ {
+  "id": "rx_004",
+  "template": "ltc",
+  "tier": "clean",
+  "patient": {
+   "name": "Imani Asante",
+   "dob": "1949-09-25",
+   "address": "525 Wren Hollow Ln",
+   "phone": "(646) 555-0191"
+  },
+  "medication": {
+   "drug": "Metronidazole",
+   "strength": "500 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po bid x 7 days",
+  "sig_normalized": "Take 1 tablet by mouth twice daily for 7 days",
+  "quantity": 14,
+  "refills": 0,
+  "prescriber": {
+   "name": "Bartholomew Nkemelu",
+   "credential": "MD",
+   "npi": "1684268463",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Metformin",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "308-A"
+  },
+  "file": "faxes/rx_004.png",
+  "clean_file": "clean/rx_004.png",
+  "boxes": {
+   "patient_name": [
+    289,
+    258,
+    561,
+    297
+   ],
+   "patient_dob": [
+    205,
+    319,
+    410,
+    357
+   ],
+   "drug": [
+    310,
+    575,
+    586,
+    633
+   ],
+   "strength": [
+    310,
+    662,
+    476,
+    720
+   ],
+   "sig": [
+    861,
+    571,
+    1279,
+    637
+   ],
+   "quantity": [
+    1332,
+    604,
+    1384,
+    657
+   ],
+   "refills": [
+    1484,
+    604,
+    1517,
+    653
+   ],
+   "prescriber_name": [
+    807,
+    376,
+    1206,
+    415
+   ],
+   "npi": [
+    1122,
+    1668,
+    1315,
+    1703
+   ],
+   "date_written": [
+    117,
+    586,
+    254,
+    638
+   ],
+   "signature": [
+    404,
+    1634,
+    708,
+    1704
+   ]
+  }
+ },
+ {
+  "id": "rx_005",
+  "template": "pad",
+  "tier": "moderate",
+  "patient": {
+   "name": "Clement Wetherby",
+   "dob": "1976-08-09",
+   "address": "209 Sedge Ct",
+   "phone": "(646) 555-0187"
+  },
+  "medication": {
+   "drug": "Azithromycin",
+   "strength": "250 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "2 tabs po day 1, then 1 tab qd x 4 days",
+  "sig_normalized": "Take 2 tablets by mouth on day 1, then 1 tablet once daily for 4 days",
+  "quantity": null,
+  "refills": 0,
+  "prescriber": {
+   "name": "Renata Okafor-Lindh",
+   "credential": "MD",
+   "npi": "1276018953",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": "missing_quantity",
+  "expected_flags": [
+   "quantity"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Quantity was left blank by the prescriber.",
+  "file": "faxes/rx_005.png",
+  "clean_file": "clean/rx_005.png",
+  "boxes": {
+   "patient_name": [
+    452,
+    523,
+    822,
+    590
+   ],
+   "patient_dob": [
+    1103,
+    539,
+    1326,
+    590
+   ],
+   "drug": [
+    520,
+    892,
+    816,
+    965
+   ],
+   "strength": [
+    838,
+    898,
+    1020,
+    971
+   ],
+   "sig": [
+    619,
+    1010,
+    1290,
+    1160
+   ],
+   "refills": [
+    454,
+    1459,
+    563,
+    1502
+   ],
+   "prescriber_name": [
+    595,
+    266,
+    1136,
+    324
+   ],
+   "npi": [
+    398,
+    449,
+    556,
+    481
+   ],
+   "date_written": [
+    1103,
+    617,
+    1313,
+    675
+   ],
+   "signature": [
+    866,
+    1510,
+    1308,
+    1604
+   ]
+  }
+ },
+ {
+  "id": "rx_006",
+  "template": "ehr",
+  "tier": "moderate",
+  "patient": {
+   "name": "Yasmin Quintanilla",
+   "dob": "1970-08-07",
+   "address": "356 Tallow St",
+   "phone": "(646) 555-0171"
+  },
+  "medication": {
+   "drug": "Levothyroxine",
+   "strength": "100 mcg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth every morning on an empty stomach",
+  "sig_normalized": "Take 1 tablet by mouth every morning on an empty stomach",
+  "quantity": 90,
+  "refills": 1,
+  "prescriber": {
+   "name": "Augustin Belrose",
+   "credential": "MD",
+   "npi": "1752917033",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_006.png",
+  "clean_file": "clean/rx_006.png",
+  "boxes": {
+   "patient_name": [
+    155,
+    396,
+    456,
+    447
+   ],
+   "patient_dob": [
+    911,
+    421,
+    1084,
+    463
+   ],
+   "drug": [
+    144,
+    730,
+    470,
+    779
+   ],
+   "strength": [
+    480,
+    741,
+    662,
+    785
+   ],
+   "sig": [
+    140,
+    848,
+    1066,
+    920
+   ],
+   "quantity": [
+    137,
+    966,
+    193,
+    1004
+   ],
+   "refills": [
+    532,
+    979,
+    568,
+    1016
+   ],
+   "prescriber_name": [
+    125,
+    1326,
+    470,
+    1379
+   ],
+   "npi": [
+    881,
+    1351,
+    1098,
+    1393
+   ],
+   "date_written": [
+    1387,
+    229,
+    1536,
+    267
+   ],
+   "signature": [
+    121,
+    1454,
+    966,
+    1520
+   ]
+  }
+ },
+ {
+  "id": "rx_007",
+  "template": "faxform",
+  "tier": "moderate",
+  "patient": {
+   "name": "Winifred Larkspur",
+   "dob": "2002-03-14",
+   "address": "819 Sedge Ct",
+   "phone": "(646) 555-0152"
+  },
+  "medication": {
+   "drug": "Hydralazine",
+   "strength": "50 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po tid",
+  "sig_normalized": "Take 1 tablet by mouth three times daily",
+  "quantity": 90,
+  "refills": 2,
+  "prescriber": {
+   "name": "Linnea Hargreave",
+   "credential": "MD",
+   "npi": "1632122333",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Hydroxyzine",
+  "file": "faxes/rx_007.png",
+  "clean_file": "clean/rx_007.png",
+  "boxes": {
+   "patient_name": [
+    342,
+    476,
+    724,
+    560
+   ],
+   "patient_dob": [
+    1219,
+    513,
+    1433,
+    580
+   ],
+   "drug": [
+    306,
+    740,
+    553,
+    835
+   ],
+   "strength": [
+    1200,
+    774,
+    1315,
+    858
+   ],
+   "sig": [
+    352,
+    926,
+    596,
+    1013
+   ],
+   "quantity": [
+    1008,
+    865,
+    1068,
+    922
+   ],
+   "refills": [
+    592,
+    1128,
+    672,
+    1202
+   ],
+   "prescriber_name": [
+    304,
+    1304,
+    654,
+    1358
+   ],
+   "npi": [
+    1084,
+    1323,
+    1300,
+    1387
+   ],
+   "date_written": [
+    244,
+    319,
+    421,
+    391
+   ],
+   "signature": [
+    294,
+    1400,
+    648,
+    1509
+   ]
+  }
+ },
+ {
+  "id": "rx_008",
+  "template": "ltc",
+  "tier": "moderate",
+  "patient": {
+   "name": "Cormac Stavros",
+   "dob": "1937-03-01",
+   "address": "165 Marlpit Ave",
+   "phone": "(646) 555-0169"
+  },
+  "medication": {
+   "drug": "Metformin",
+   "strength": "1000 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po bid w/ meals",
+  "sig_normalized": "Take 1 tablet by mouth twice daily with meals",
+  "quantity": 180,
+  "refills": 5,
+  "prescriber": {
+   "name": "Gideon Praetorius",
+   "credential": "DO",
+   "npi": "1597971146",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Metronidazole",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "312-B"
+  },
+  "file": "faxes/rx_008.png",
+  "clean_file": "clean/rx_008.png",
+  "boxes": {
+   "patient_name": [
+    241,
+    263,
+    558,
+    309
+   ],
+   "patient_dob": [
+    159,
+    329,
+    365,
+    371
+   ],
+   "drug": [
+    270,
+    587,
+    481,
+    644
+   ],
+   "strength": [
+    274,
+    670,
+    425,
+    734
+   ],
+   "sig": [
+    818,
+    568,
+    1126,
+    684
+   ],
+   "quantity": [
+    1292,
+    593,
+    1370,
+    645
+   ],
+   "refills": [
+    1441,
+    589,
+    1482,
+    638
+   ],
+   "prescriber_name": [
+    762,
+    368,
+    1128,
+    416
+   ],
+   "npi": [
+    1107,
+    1657,
+    1301,
+    1695
+   ],
+   "date_written": [
+    80,
+    597,
+    217,
+    653
+   ],
+   "signature": [
+    389,
+    1632,
+    762,
+    1712
+   ]
+  }
+ },
+ {
+  "id": "rx_009",
+  "template": "pad",
+  "tier": "hard",
+  "patient": {
+   "name": "Ingrid Wojcik",
+   "dob": "1965-04-01",
+   "address": "268 Tallow St",
+   "phone": "(646) 555-0147"
+  },
+  "medication": {
+   "drug": "Montelukast",
+   "strength": "10 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qhs",
+  "sig_normalized": "Take 1 tablet by mouth at bedtime",
+  "quantity": 30,
+  "refills": 5,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "smudged_strength",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [
+   "strength"
+  ],
+  "notes": "Strength digits are physically obscured. Truth holds the original value, but it cannot be read from the image.",
+  "file": "faxes/rx_009.png",
+  "clean_file": "clean/rx_009.png",
+  "boxes": {
+   "patient_name": [
+    451,
+    504,
+    697,
+    575
+   ],
+   "patient_dob": [
+    1102,
+    506,
+    1247,
+    557
+   ],
+   "drug": [
+    524,
+    879,
+    793,
+    932
+   ],
+   "strength": [
+    811,
+    883,
+    926,
+    954
+   ],
+   "sig": [
+    611,
+    994,
+    870,
+    1064
+   ],
+   "quantity": [
+    652,
+    1124,
+    747,
+    1168
+   ],
+   "refills": [
+    466,
+    1431,
+    504,
+    1478
+   ],
+   "prescriber_name": [
+    642,
+    247,
+    1084,
+    301
+   ],
+   "npi": [
+    398,
+    431,
+    554,
+    462
+   ],
+   "date_written": [
+    1101,
+    596,
+    1275,
+    649
+   ],
+   "signature": [
+    876,
+    1473,
+    1244,
+    1568
+   ]
+  }
+ },
+ {
+  "id": "rx_010",
+  "template": "ehr",
+  "tier": "hard",
+  "patient": {
+   "name": "Dmitri Gallagher",
+   "dob": "2007-07-27",
+   "address": "950 Marlpit Ave",
+   "phone": "(646) 555-0126"
+  },
+  "medication": {
+   "drug": "Albuterol HFA",
+   "strength": "90 mcg",
+   "form": "inhaler"
+  },
+  "sig_as_written": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "sig_normalized": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "quantity": 1,
+  "refills": 1,
+  "prescriber": {
+   "name": "Bartholomew Nkemelu",
+   "credential": "MD",
+   "npi": "1684268463",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-07",
+  "signed": false,
+  "challenge": "missing_signature",
+  "expected_flags": [
+   "signature"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Prescription is not signed.",
+  "file": "faxes/rx_010.png",
+  "clean_file": "clean/rx_010.png",
+  "boxes": {
+   "patient_name": [
+    87,
+    470,
+    350,
+    524
+   ],
+   "patient_dob": [
+    842,
+    441,
+    1016,
+    485
+   ],
+   "drug": [
+    101,
+    801,
+    427,
+    854
+   ],
+   "strength": [
+    437,
+    794,
+    595,
+    839
+   ],
+   "sig": [
+    107,
+    895,
+    979,
+    976
+   ],
+   "quantity": [
+    112,
+    1050,
+    148,
+    1087
+   ],
+   "refills": [
+    507,
+    1032,
+    543,
+    1070
+   ],
+   "prescriber_name": [
+    127,
+    1392,
+    554,
+    1451
+   ],
+   "npi": [
+    883,
+    1369,
+    1101,
+    1413
+   ],
+   "date_written": [
+    1302,
+    214,
+    1451,
+    254
+   ]
+  }
+ },
+ {
+  "id": "rx_011",
+  "template": "faxform",
+  "tier": "hard",
+  "patient": {
+   "name": "Evander Villaverde",
+   "dob": "1959-08-20",
+   "address": "753 Quarry Bend Rd",
+   "phone": "(646) 555-0181"
+  },
+  "medication": {
+   "drug": "Sertraline",
+   "strength": "50 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 30,
+  "refills": 1,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_011.png",
+  "clean_file": "clean/rx_011.png",
+  "boxes": {
+   "patient_name": [
+    353,
+    441,
+    721,
+    511
+   ],
+   "patient_dob": [
+    1224,
+    481,
+    1404,
+    542
+   ],
+   "drug": [
+    312,
+    702,
+    526,
+    764
+   ],
+   "strength": [
+    1205,
+    738,
+    1346,
+    817
+   ],
+   "sig": [
+    356,
+    892,
+    596,
+    970
+   ],
+   "quantity": [
+    1011,
+    837,
+    1068,
+    885
+   ],
+   "refills": [
+    489,
+    1099,
+    567,
+    1169
+   ],
+   "prescriber_name": [
+    302,
+    1273,
+    628,
+    1329
+   ],
+   "npi": [
+    1084,
+    1297,
+    1281,
+    1353
+   ],
+   "date_written": [
+    253,
+    280,
+    431,
+    339
+   ],
+   "signature": [
+    291,
+    1365,
+    667,
+    1469
+   ]
+  }
+ },
+ {
+  "id": "rx_012",
+  "template": "ltc",
+  "tier": "hard",
+  "patient": {
+   "name": "Marisol Lindqvist",
+   "dob": "1940-01-25",
+   "address": "111 Marlpit Ave",
+   "phone": "(646) 555-0167"
+  },
+  "medication": {
+   "drug": "Glipizide",
+   "strength": "10 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qam ac",
+  "sig_normalized": "Take 1 tablet by mouth every morning before breakfast",
+  "quantity": 30,
+  "refills": 3,
+  "prescriber": {
+   "name": "Augustin Belrose",
+   "credential": "MD",
+   "npi": "1752917033",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": "smudged_dob",
+  "expected_flags": [
+   "patient_dob"
+  ],
+  "unreadable_in_image": [
+   "patient_dob"
+  ],
+  "notes": "Date of birth is physically obscured. Truth holds the original value, but it cannot be read from the image.",
+  "lookalike_of": "Glyburide",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "214-B"
+  },
+  "file": "faxes/rx_012.png",
+  "clean_file": "clean/rx_012.png",
+  "boxes": {
+   "patient_name": [
+    285,
+    259,
+    665,
+    303
+   ],
+   "patient_dob": [
+    201,
+    319,
+    406,
+    355
+   ],
+   "drug": [
+    303,
+    591,
+    450,
+    646
+   ],
+   "strength": [
+    300,
+    670,
+    416,
+    729
+   ],
+   "sig": [
+    851,
+    592,
+    1134,
+    643
+   ],
+   "quantity": [
+    1321,
+    623,
+    1379,
+    669
+   ],
+   "refills": [
+    1473,
+    619,
+    1506,
+    663
+   ],
+   "prescriber_name": [
+    801,
+    383,
+    1151,
+    419
+   ],
+   "npi": [
+    1105,
+    1676,
+    1298,
+    1709
+   ],
+   "date_written": [
+    108,
+    588,
+    264,
+    631
+   ],
+   "signature": [
+    389,
+    1631,
+    699,
+    1713
+   ]
+  }
+ },
+ {
+  "id": "rx_013",
+  "template": "pad",
+  "tier": "moderate",
+  "patient": {
+   "name": "Odalys Hjelmstad",
+   "dob": "1974-09-07",
+   "address": "871 Old Ferry Rd",
+   "phone": "(646) 555-0127"
+  },
+  "medication": {
+   "drug": "Levothyroxine",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qam on empty stomach",
+  "sig_normalized": "Take 1 tablet by mouth every morning on an empty stomach",
+  "quantity": 90,
+  "refills": 3,
+  "prescriber": {
+   "name": "Augustin Belrose",
+   "credential": "MD",
+   "npi": "1752917033",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": "dose_unit_error",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Written as 25 mg; levothyroxine is dosed in mcg. Truth records what is on the page.",
+  "file": "faxes/rx_013.png",
+  "clean_file": "clean/rx_013.png",
+  "boxes": {
+   "patient_name": [
+    441,
+    524,
+    793,
+    600
+   ],
+   "patient_dob": [
+    1093,
+    525,
+    1234,
+    571
+   ],
+   "drug": [
+    518,
+    904,
+    833,
+    980
+   ],
+   "strength": [
+    859,
+    900,
+    982,
+    958
+   ],
+   "sig": [
+    613,
+    1016,
+    1148,
+    1146
+   ],
+   "quantity": [
+    653,
+    1214,
+    741,
+    1261
+   ],
+   "refills": [
+    464,
+    1458,
+    501,
+    1501
+   ],
+   "prescriber_name": [
+    616,
+    270,
+    1086,
+    329
+   ],
+   "npi": [
+    388,
+    460,
+    546,
+    492
+   ],
+   "date_written": [
+    1092,
+    614,
+    1214,
+    660
+   ],
+   "signature": [
+    879,
+    1511,
+    1143,
+    1577
+   ]
+  }
+ },
+ {
+  "id": "rx_014",
+  "template": "ehr",
+  "tier": "moderate",
+  "patient": {
+   "name": "Noor Mbeki",
+   "dob": "1956-03-23",
+   "address": "669 Sedge Ct",
+   "phone": "(646) 555-0156"
+  },
+  "medication": {
+   "drug": "Metronidazole",
+   "strength": "500 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth twice daily for 7 days",
+  "sig_normalized": "Take 1 tablet by mouth twice daily for 7 days",
+  "quantity": 14,
+  "refills": 0,
+  "prescriber": {
+   "name": "Augustin Belrose",
+   "credential": "MD",
+   "npi": "1752917033",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-08",
+  "signed": true,
+  "challenge": "lookalike_risk",
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "Drug name is easily confused with Metformin. Legible here; a good system still double-checks.",
+  "lookalike_of": "Metformin",
+  "file": "faxes/rx_014.png",
+  "clean_file": "clean/rx_014.png",
+  "boxes": {
+   "patient_name": [
+    158,
+    411,
+    345,
+    451
+   ],
+   "patient_dob": [
+    913,
+    429,
+    1087,
+    470
+   ],
+   "drug": [
+    149,
+    744,
+    475,
+    791
+   ],
+   "strength": [
+    485,
+    753,
+    643,
+    795
+   ],
+   "sig": [
+    147,
+    863,
+    835,
+    922
+   ],
+   "quantity": [
+    144,
+    981,
+    200,
+    1019
+   ],
+   "refills": [
+    540,
+    990,
+    575,
+    1028
+   ],
+   "prescriber_name": [
+    135,
+    1341,
+    481,
+    1392
+   ],
+   "npi": [
+    891,
+    1360,
+    1108,
+    1400
+   ],
+   "date_written": [
+    1388,
+    234,
+    1537,
+    271
+   ],
+   "signature": [
+    132,
+    1469,
+    977,
+    1528
+   ]
+  }
+ },
+ {
+  "id": "rx_015",
+  "template": "faxform",
+  "tier": "moderate",
+  "patient": {
+   "name": "Calista Ashgrove",
+   "dob": "1969-03-23",
+   "address": "452 Marlpit Ave",
+   "phone": "(646) 555-0161"
+  },
+  "medication": {
+   "drug": "Metoprolol succinate ER",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 30,
+  "refills": 3,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_015.png",
+  "clean_file": "clean/rx_015.png",
+  "boxes": {
+   "patient_name": [
+    346,
+    462,
+    684,
+    544
+   ],
+   "patient_dob": [
+    1222,
+    465,
+    1392,
+    538
+   ],
+   "drug": [
+    315,
+    718,
+    846,
+    804
+   ],
+   "strength": [
+    1205,
+    753,
+    1328,
+    816
+   ],
+   "sig": [
+    363,
+    913,
+    621,
+    989
+   ],
+   "quantity": [
+    1016,
+    839,
+    1074,
+    886
+   ],
+   "refills": [
+    707,
+    1116,
+    788,
+    1186
+   ],
+   "prescriber_name": [
+    319,
+    1291,
+    755,
+    1342
+   ],
+   "npi": [
+    1101,
+    1304,
+    1296,
+    1365
+   ],
+   "date_written": [
+    246,
+    297,
+    369,
+    369
+   ],
+   "signature": [
+    312,
+    1398,
+    789,
+    1498
+   ]
+  }
+ },
+ {
+  "id": "rx_016",
+  "template": "ltc",
+  "tier": "moderate",
+  "patient": {
+   "name": "Thaddeus Charpentier",
+   "dob": "1932-07-11",
+   "address": "540 Marlpit Ave",
+   "phone": "(646) 555-0147"
+  },
+  "medication": {
+   "drug": "Methotrexate",
+   "strength": "2.5 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 30,
+  "refills": 2,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "frequency_error",
+  "expected_flags": [
+   "sig"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Methotrexate written as daily; it is normally weekly. Truth records what is on the page.",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "336-A"
+  },
+  "file": "faxes/rx_016.png",
+  "clean_file": "clean/rx_016.png",
+  "boxes": {
+   "patient_name": [
+    265,
+    266,
+    712,
+    315
+   ],
+   "patient_dob": [
+    183,
+    335,
+    389,
+    377
+   ],
+   "drug": [
+    292,
+    602,
+    557,
+    662
+   ],
+   "strength": [
+    293,
+    681,
+    411,
+    746
+   ],
+   "sig": [
+    841,
+    589,
+    1047,
+    644
+   ],
+   "quantity": [
+    1311,
+    609,
+    1370,
+    657
+   ],
+   "refills": [
+    1463,
+    611,
+    1503,
+    651
+   ],
+   "prescriber_name": [
+    786,
+    376,
+    1219,
+    424
+   ],
+   "npi": [
+    1126,
+    1666,
+    1319,
+    1704
+   ],
+   "date_written": [
+    100,
+    613,
+    221,
+    658
+   ],
+   "signature": [
+    407,
+    1642,
+    887,
+    1745
+   ]
+  }
+ },
+ {
+  "id": "rx_017",
+  "template": "pad",
+  "tier": "clean",
+  "patient": {
+   "name": "Leilani Boateng",
+   "dob": "1960-09-17",
+   "address": "595 Old Ferry Rd",
+   "phone": "(646) 555-0199"
+  },
+  "medication": {
+   "drug": "Atorvastatin",
+   "strength": "20 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qhs",
+  "sig_normalized": "Take 1 tablet by mouth at bedtime",
+  "quantity": 90,
+  "refills": 1,
+  "prescriber": {
+   "name": "Mei-Lin Castellanos",
+   "credential": "PA-C",
+   "npi": "1423667124",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "correction",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Prescriber crossed out one strength and wrote another. Truth is the corrected value; alterations should be verified.",
+  "file": "faxes/rx_017.png",
+  "clean_file": "clean/rx_017.png",
+  "boxes": {
+   "patient_name": [
+    449,
+    535,
+    749,
+    602
+   ],
+   "patient_dob": [
+    1102,
+    543,
+    1334,
+    591
+   ],
+   "drug": [
+    518,
+    906,
+    799,
+    978
+   ],
+   "strength": [
+    914,
+    917,
+    1059,
+    976
+   ],
+   "sig": [
+    626,
+    1025,
+    890,
+    1093
+   ],
+   "quantity": [
+    647,
+    1134,
+    748,
+    1206
+   ],
+   "refills": [
+    462,
+    1461,
+    496,
+    1509
+   ],
+   "prescriber_name": [
+    580,
+    272,
+    1135,
+    326
+   ],
+   "npi": [
+    391,
+    455,
+    549,
+    487
+   ],
+   "date_written": [
+    1102,
+    622,
+    1261,
+    680
+   ],
+   "signature": [
+    866,
+    1504,
+    1275,
+    1576
+   ]
+  }
+ },
+ {
+  "id": "rx_018",
+  "template": "ehr",
+  "tier": "clean",
+  "patient": {
+   "name": "Kofi Echeverria",
+   "dob": "1952-05-03",
+   "address": "633 Tallow St",
+   "phone": "(646) 555-0118"
+  },
+  "medication": {
+   "drug": "Lamotrigine",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth twice daily",
+  "sig_normalized": "Take 1 tablet by mouth twice daily",
+  "quantity": 60,
+  "refills": 2,
+  "prescriber": {
+   "name": "Mei-Lin Castellanos",
+   "credential": "PA-C",
+   "npi": "1423667124",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Lamivudine",
+  "file": "faxes/rx_018.png",
+  "clean_file": "clean/rx_018.png",
+  "boxes": {
+   "patient_name": [
+    136,
+    410,
+    384,
+    448
+   ],
+   "patient_dob": [
+    892,
+    417,
+    1065,
+    456
+   ],
+   "drug": [
+    132,
+    744,
+    409,
+    785
+   ],
+   "strength": [
+    420,
+    747,
+    553,
+    787
+   ],
+   "sig": [
+    131,
+    862,
+    659,
+    910
+   ],
+   "quantity": [
+    130,
+    980,
+    186,
+    1017
+   ],
+   "refills": [
+    526,
+    984,
+    561,
+    1021
+   ],
+   "prescriber_name": [
+    126,
+    1340,
+    533,
+    1385
+   ],
+   "npi": [
+    882,
+    1348,
+    1099,
+    1386
+   ],
+   "date_written": [
+    1364,
+    215,
+    1512,
+    251
+   ],
+   "signature": [
+    125,
+    1468,
+    1027,
+    1516
+   ]
+  }
+ },
+ {
+  "id": "rx_019",
+  "template": "faxform",
+  "tier": "clean",
+  "patient": {
+   "name": "Ezekiel Okonkwo",
+   "dob": "2008-12-08",
+   "address": "971 Quarry Bend Rd",
+   "phone": "(646) 555-0130"
+  },
+  "medication": {
+   "drug": "Losartan",
+   "strength": "100 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": null,
+  "refills": 3,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": "missing_quantity",
+  "expected_flags": [
+   "quantity"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Quantity was left blank by the prescriber.",
+  "file": "faxes/rx_019.png",
+  "clean_file": "clean/rx_019.png",
+  "boxes": {
+   "patient_name": [
+    318,
+    466,
+    651,
+    518
+   ],
+   "patient_dob": [
+    1193,
+    467,
+    1402,
+    517
+   ],
+   "drug": [
+    291,
+    723,
+    490,
+    778
+   ],
+   "strength": [
+    1182,
+    731,
+    1316,
+    800
+   ],
+   "sig": [
+    343,
+    911,
+    571,
+    983
+   ],
+   "refills": [
+    698,
+    1110,
+    771,
+    1180
+   ],
+   "prescriber_name": [
+    305,
+    1294,
+    630,
+    1338
+   ],
+   "npi": [
+    1087,
+    1283,
+    1283,
+    1336
+   ],
+   "date_written": [
+    214,
+    307,
+    366,
+    363
+   ],
+   "signature": [
+    302,
+    1388,
+    640,
+    1482
+   ]
+  }
+ },
+ {
+  "id": "rx_020",
+  "template": "ltc",
+  "tier": "clean",
+  "patient": {
+   "name": "Farah Marchetti",
+   "dob": "1937-05-12",
+   "address": "833 Quarry Bend Rd",
+   "phone": "(646) 555-0142"
+  },
+  "medication": {
+   "drug": "Hydroxyzine",
+   "strength": "50 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po tid prn itching",
+  "sig_normalized": "Take 1 tablet by mouth three times daily as needed for itching",
+  "quantity": 30,
+  "refills": 1,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Hydralazine",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "105-A"
+  },
+  "file": "faxes/rx_020.png",
+  "clean_file": "clean/rx_020.png",
+  "boxes": {
+   "patient_name": [
+    288,
+    259,
+    625,
+    297
+   ],
+   "patient_dob": [
+    204,
+    320,
+    409,
+    356
+   ],
+   "drug": [
+    305,
+    598,
+    518,
+    656
+   ],
+   "strength": [
+    304,
+    666,
+    433,
+    730
+   ],
+   "sig": [
+    855,
+    585,
+    1255,
+    653
+   ],
+   "quantity": [
+    1325,
+    622,
+    1382,
+    668
+   ],
+   "refills": [
+    1476,
+    624,
+    1500,
+    664
+   ],
+   "prescriber_name": [
+    805,
+    383,
+    1238,
+    419
+   ],
+   "npi": [
+    1111,
+    1676,
+    1304,
+    1709
+   ],
+   "date_written": [
+    112,
+    586,
+    228,
+    627
+   ],
+   "signature": [
+    394,
+    1630,
+    928,
+    1721
+   ]
+  }
+ },
+ {
+  "id": "rx_021",
+  "template": "pad",
+  "tier": "moderate",
+  "patient": {
+   "name": "Jun Kahananui",
+   "dob": "1980-12-07",
+   "address": "246 Wren Hollow Ln",
+   "phone": "(646) 555-0135"
+  },
+  "medication": {
+   "drug": "Lisinopril",
+   "strength": "40 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 90,
+  "refills": 5,
+  "prescriber": {
+   "name": "Linnea Hargreave",
+   "credential": "MD",
+   "npi": "1632122333",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_021.png",
+  "clean_file": "clean/rx_021.png",
+  "boxes": {
+   "patient_name": [
+    431,
+    520,
+    716,
+    579
+   ],
+   "patient_dob": [
+    1083,
+    524,
+    1238,
+    581
+   ],
+   "drug": [
+    503,
+    887,
+    691,
+    967
+   ],
+   "strength": [
+    722,
+    888,
+    840,
+    977
+   ],
+   "sig": [
+    600,
+    1002,
+    846,
+    1080
+   ],
+   "quantity": [
+    632,
+    1134,
+    713,
+    1188
+   ],
+   "refills": [
+    443,
+    1446,
+    483,
+    1497
+   ],
+   "prescriber_name": [
+    607,
+    252,
+    1082,
+    306
+   ],
+   "npi": [
+    379,
+    436,
+    537,
+    467
+   ],
+   "date_written": [
+    1081,
+    607,
+    1246,
+    667
+   ],
+   "signature": [
+    858,
+    1479,
+    1246,
+    1560
+   ]
+  }
+ },
+ {
+  "id": "rx_022",
+  "template": "ehr",
+  "tier": "moderate",
+  "patient": {
+   "name": "Sunniva Birdwhistle",
+   "dob": "1973-07-06",
+   "address": "67 Quarry Bend Rd",
+   "phone": "(646) 555-0195"
+  },
+  "medication": {
+   "drug": "Metformin",
+   "strength": "5000 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth twice daily with meals",
+  "sig_normalized": "Take 1 tablet by mouth twice daily with meals",
+  "quantity": 60,
+  "refills": 1,
+  "prescriber": {
+   "name": "Renata Okafor-Lindh",
+   "credential": "MD",
+   "npi": "1276018953",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": "dose_out_of_range",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Strength as written is far above any marketed strength. Truth records what is on the page.",
+  "lookalike_of": "Metronidazole",
+  "file": "faxes/rx_022.png",
+  "clean_file": "clean/rx_022.png",
+  "boxes": {
+   "patient_name": [
+    136,
+    435,
+    455,
+    472
+   ],
+   "patient_dob": [
+    892,
+    436,
+    1065,
+    473
+   ],
+   "drug": [
+    135,
+    769,
+    364,
+    809
+   ],
+   "strength": [
+    375,
+    770,
+    556,
+    809
+   ],
+   "sig": [
+    135,
+    887,
+    836,
+    931
+   ],
+   "quantity": [
+    135,
+    1005,
+    191,
+    1042
+   ],
+   "refills": [
+    531,
+    1006,
+    566,
+    1043
+   ],
+   "prescriber_name": [
+    135,
+    1365,
+    532,
+    1407
+   ],
+   "npi": [
+    891,
+    1367,
+    1108,
+    1402
+   ],
+   "date_written": [
+    1362,
+    229,
+    1510,
+    264
+   ],
+   "signature": [
+    135,
+    1493,
+    1032,
+    1533
+   ]
+  }
+ },
+ {
+  "id": "rx_023",
+  "template": "faxform",
+  "tier": "moderate",
+  "patient": {
+   "name": "Rafael Haddadin",
+   "dob": "1961-05-15",
+   "address": "14 Wren Hollow Ln",
+   "phone": "(646) 555-0156"
+  },
+  "medication": {
+   "drug": "Amlodipine",
+   "strength": "5 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po daily",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 90,
+  "refills": 2,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_023.png",
+  "clean_file": "clean/rx_023.png",
+  "boxes": {
+   "patient_name": [
+    320,
+    484,
+    652,
+    552
+   ],
+   "patient_dob": [
+    1196,
+    472,
+    1341,
+    544
+   ],
+   "drug": [
+    294,
+    743,
+    515,
+    820
+   ],
+   "strength": [
+    1188,
+    756,
+    1300,
+    820
+   ],
+   "sig": [
+    348,
+    931,
+    626,
+    1007
+   ],
+   "quantity": [
+    1001,
+    842,
+    1051,
+    897
+   ],
+   "refills": [
+    600,
+    1135,
+    672,
+    1201
+   ],
+   "prescriber_name": [
+    312,
+    1315,
+    748,
+    1360
+   ],
+   "npi": [
+    1094,
+    1309,
+    1288,
+    1368
+   ],
+   "date_written": [
+    215,
+    321,
+    336,
+    390
+   ],
+   "signature": [
+    309,
+    1422,
+    796,
+    1518
+   ]
+  }
+ },
+ {
+  "id": "rx_024",
+  "template": "ltc",
+  "tier": "moderate",
+  "patient": {
+   "name": "Mireille Darwish",
+   "dob": "1942-07-03",
+   "address": "497 Wren Hollow Ln",
+   "phone": "(646) 555-0174"
+  },
+  "medication": {
+   "drug": "Hydrochlorothiazide",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qam",
+  "sig_normalized": "Take 1 tablet by mouth every morning",
+  "quantity": 30,
+  "refills": 5,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-10",
+  "signed": false,
+  "challenge": "missing_signature",
+  "expected_flags": [
+   "signature"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Prescription is not signed.",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "230-A"
+  },
+  "file": "faxes/rx_024.png",
+  "clean_file": "clean/rx_024.png",
+  "boxes": {
+   "patient_name": [
+    312,
+    221,
+    672,
+    269
+   ],
+   "patient_dob": [
+    227,
+    279,
+    432,
+    321
+   ],
+   "drug": [
+    321,
+    558,
+    665,
+    625
+   ],
+   "strength": [
+    315,
+    632,
+    445,
+    700
+   ],
+   "sig": [
+    868,
+    565,
+    1105,
+    623
+   ],
+   "quantity": [
+    1337,
+    616,
+    1396,
+    663
+   ],
+   "refills": [
+    1489,
+    623,
+    1520,
+    666
+   ],
+   "prescriber_name": [
+    825,
+    361,
+    1175,
+    407
+   ],
+   "npi": [
+    1090,
+    1663,
+    1283,
+    1701
+   ],
+   "date_written": [
+    126,
+    543,
+    294,
+    588
+   ]
+  }
+ },
+ {
+  "id": "rx_025",
+  "template": "pad",
+  "tier": "hard",
+  "patient": {
+   "name": "Hartley Sabbagh",
+   "dob": "1970-02-19",
+   "address": "552 Tallow St",
+   "phone": "(646) 555-0194"
+  },
+  "medication": {
+   "drug": "Methotrexate",
+   "strength": "2.5 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "3 tabs po once weekly",
+  "sig_normalized": "Take 3 tablets by mouth once weekly",
+  "quantity": 12,
+  "refills": 2,
+  "prescriber": {
+   "name": "Mei-Lin Castellanos",
+   "credential": "PA-C",
+   "npi": "1423667124",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-08",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_025.png",
+  "clean_file": "clean/rx_025.png",
+  "boxes": {
+   "patient_name": [
+    418,
+    510,
+    754,
+    583
+   ],
+   "patient_dob": [
+    1071,
+    498,
+    1282,
+    563
+   ],
+   "drug": [
+    497,
+    873,
+    800,
+    939
+   ],
+   "strength": [
+    821,
+    876,
+    978,
+    942
+   ],
+   "sig": [
+    605,
+    991,
+    1048,
+    1067
+   ],
+   "quantity": [
+    634,
+    1111,
+    737,
+    1184
+   ],
+   "refills": [
+    454,
+    1446,
+    493,
+    1490
+   ],
+   "prescriber_name": [
+    544,
+    237,
+    1100,
+    301
+   ],
+   "npi": [
+    360,
+    434,
+    518,
+    468
+   ],
+   "date_written": [
+    1075,
+    578,
+    1282,
+    642
+   ],
+   "signature": [
+    862,
+    1456,
+    1303,
+    1536
+   ]
+  }
+ },
+ {
+  "id": "rx_026",
+  "template": "ehr",
+  "tier": "hard",
+  "patient": {
+   "name": "Osvaldo Zaragoza",
+   "dob": "1959-01-27",
+   "address": "866 Sedge Ct",
+   "phone": "(646) 555-0175"
+  },
+  "medication": {
+   "drug": "Cephalexin",
+   "strength": "500 mg",
+   "form": "capsule"
+  },
+  "sig_as_written": "Take 1 capsule by mouth four times daily for 7 days",
+  "sig_normalized": "Take 1 capsule by mouth four times daily for 7 days",
+  "quantity": 28,
+  "refills": 0,
+  "prescriber": {
+   "name": "Mei-Lin Castellanos",
+   "credential": "PA-C",
+   "npi": "1423667124",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_026.png",
+  "clean_file": "clean/rx_026.png",
+  "boxes": {
+   "patient_name": [
+    173,
+    379,
+    463,
+    437
+   ],
+   "patient_dob": [
+    929,
+    419,
+    1103,
+    464
+   ],
+   "drug": [
+    156,
+    713,
+    410,
+    764
+   ],
+   "strength": [
+    419,
+    727,
+    578,
+    773
+   ],
+   "sig": [
+    149,
+    831,
+    947,
+    915
+   ],
+   "quantity": [
+    144,
+    948,
+    201,
+    988
+   ],
+   "refills": [
+    539,
+    969,
+    575,
+    1007
+   ],
+   "prescriber_name": [
+    124,
+    1308,
+    532,
+    1370
+   ],
+   "npi": [
+    880,
+    1349,
+    1097,
+    1394
+   ],
+   "date_written": [
+    1409,
+    237,
+    1558,
+    278
+   ],
+   "signature": [
+    118,
+    1436,
+    1023,
+    1522
+   ]
+  }
+ },
+ {
+  "id": "rx_027",
+  "template": "faxform",
+  "tier": "hard",
+  "patient": {
+   "name": "Priya Nakashima",
+   "dob": "1946-03-21",
+   "address": "380 Quarry Bend Rd",
+   "phone": "(646) 555-0158"
+  },
+  "medication": {
+   "drug": "Omeprazole",
+   "strength": "20 mg",
+   "form": "capsule"
+  },
+  "sig_as_written": "1 cap po qam ac",
+  "sig_normalized": "Take 1 capsule by mouth every morning before breakfast",
+  "quantity": 30,
+  "refills": 0,
+  "prescriber": {
+   "name": "Gideon Praetorius",
+   "credential": "DO",
+   "npi": "1597971146",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": "smudged_strength",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [
+   "strength"
+  ],
+  "notes": "Strength digits are physically obscured. Truth holds the original value, but it cannot be read from the image.",
+  "file": "faxes/rx_027.png",
+  "clean_file": "clean/rx_027.png",
+  "boxes": {
+   "patient_name": [
+    347,
+    435,
+    743,
+    528
+   ],
+   "patient_dob": [
+    1227,
+    492,
+    1431,
+    556
+   ],
+   "drug": [
+    312,
+    702,
+    586,
+    789
+   ],
+   "strength": [
+    1205,
+    751,
+    1327,
+    815
+   ],
+   "sig": [
+    355,
+    909,
+    763,
+    985
+   ],
+   "quantity": [
+    1015,
+    843,
+    1078,
+    888
+   ],
+   "refills": [
+    381,
+    1100,
+    463,
+    1169
+   ],
+   "prescriber_name": [
+    303,
+    1277,
+    660,
+    1333
+   ],
+   "npi": [
+    1084,
+    1308,
+    1313,
+    1369
+   ],
+   "date_written": [
+    254,
+    291,
+    426,
+    349
+   ],
+   "signature": [
+    294,
+    1374,
+    663,
+    1462
+   ]
+  }
+ },
+ {
+  "id": "rx_028",
+  "template": "ltc",
+  "tier": "hard",
+  "patient": {
+   "name": "Devon Fitzwilliam",
+   "dob": null,
+   "address": "930 Marlpit Ave",
+   "phone": "(646) 555-0121"
+  },
+  "medication": {
+   "drug": "Amoxicillin",
+   "strength": "500 mg",
+   "form": "capsule"
+  },
+  "sig_as_written": "1 cap po tid x 10 days",
+  "sig_normalized": "Take 1 capsule by mouth three times daily for 10 days",
+  "quantity": 30,
+  "refills": 0,
+  "prescriber": {
+   "name": "Renata Okafor-Lindh",
+   "credential": "MD",
+   "npi": "1276018953",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "missing_dob",
+  "expected_flags": [
+   "patient_dob"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Date of birth was left blank.",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "289-B"
+  },
+  "file": "faxes/rx_028.png",
+  "clean_file": "clean/rx_028.png",
+  "boxes": {
+   "patient_name": [
+    270,
+    239,
+    651,
+    284
+   ],
+   "drug": [
+    296,
+    563,
+    514,
+    624
+   ],
+   "strength": [
+    298,
+    643,
+    438,
+    703
+   ],
+   "sig": [
+    844,
+    546,
+    1163,
+    676
+   ],
+   "quantity": [
+    1316,
+    581,
+    1380,
+    631
+   ],
+   "refills": [
+    1469,
+    578,
+    1502,
+    626
+   ],
+   "prescriber_name": [
+    790,
+    352,
+    1189,
+    396
+   ],
+   "npi": [
+    1121,
+    1643,
+    1314,
+    1679
+   ],
+   "date_written": [
+    103,
+    566,
+    239,
+    618
+   ],
+   "signature": [
+    404,
+    1629,
+    857,
+    1733
+   ]
+  }
+ },
+ {
+  "id": "rx_029",
+  "template": "pad",
+  "tier": "moderate",
+  "patient": {
+   "name": "Lazaro Thistlewood",
+   "dob": "1950-08-22",
+   "address": "305 Quarry Bend Rd",
+   "phone": "(646) 555-0188"
+  },
+  "medication": {
+   "drug": "Lamotrigine",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po bid",
+  "sig_normalized": "Take 1 tablet by mouth twice daily",
+  "quantity": 60,
+  "refills": 2,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "lookalike_risk",
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "Drug name is easily confused with Lamivudine. Legible here; a good system still double-checks.",
+  "lookalike_of": "Lamivudine",
+  "file": "faxes/rx_029.png",
+  "clean_file": "clean/rx_029.png",
+  "boxes": {
+   "patient_name": [
+    439,
+    535,
+    815,
+    608
+   ],
+   "patient_dob": [
+    1092,
+    520,
+    1253,
+    588
+   ],
+   "drug": [
+    520,
+    909,
+    775,
+    996
+   ],
+   "strength": [
+    800,
+    919,
+    949,
+    989
+   ],
+   "sig": [
+    625,
+    1023,
+    888,
+    1101
+   ],
+   "quantity": [
+    649,
+    1154,
+    725,
+    1213
+   ],
+   "refills": [
+    472,
+    1477,
+    511,
+    1519
+   ],
+   "prescriber_name": [
+    548,
+    270,
+    1144,
+    336
+   ],
+   "npi": [
+    384,
+    467,
+    542,
+    501
+   ],
+   "date_written": [
+    1091,
+    610,
+    1210,
+    679
+   ],
+   "signature": [
+    887,
+    1490,
+    1410,
+    1586
+   ]
+  }
+ },
+ {
+  "id": "rx_030",
+  "template": "ehr",
+  "tier": "moderate",
+  "patient": {
+   "name": "Saoirse Montenegro",
+   "dob": "2002-01-16",
+   "address": "286 Sedge Ct",
+   "phone": "(646) 555-0122"
+  },
+  "medication": {
+   "drug": "Warfarin",
+   "strength": "5 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth every evening",
+  "sig_normalized": "Take 1 tablet by mouth every evening",
+  "quantity": 30,
+  "refills": 1,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "file": "faxes/rx_030.png",
+  "clean_file": "clean/rx_030.png",
+  "boxes": {
+   "patient_name": [
+    132,
+    445,
+    454,
+    493
+   ],
+   "patient_dob": [
+    888,
+    436,
+    1061,
+    475
+   ],
+   "drug": [
+    137,
+    781,
+    343,
+    823
+   ],
+   "strength": [
+    353,
+    779,
+    463,
+    819
+   ],
+   "sig": [
+    139,
+    893,
+    719,
+    945
+   ],
+   "quantity": [
+    141,
+    1019,
+    197,
+    1057
+   ],
+   "refills": [
+    537,
+    1013,
+    572,
+    1051
+   ],
+   "prescriber_name": [
+    146,
+    1375,
+    472,
+    1423
+   ],
+   "npi": [
+    902,
+    1366,
+    1119,
+    1404
+   ],
+   "date_written": [
+    1355,
+    222,
+    1503,
+    258
+   ],
+   "signature": [
+    344,
+    1454,
+    703,
+    1547
+   ]
+  }
+ },
+ {
+  "id": "rx_031",
+  "template": "faxform",
+  "tier": "moderate",
+  "patient": {
+   "name": "Bram Adebayo",
+   "dob": "1956-09-07",
+   "address": "330 Quarry Bend Rd",
+   "phone": "(646) 555-0170"
+  },
+  "medication": {
+   "drug": "Lisinopril",
+   "strength": "400 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 90,
+  "refills": 5,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "dose_out_of_range",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Strength as written is far above any marketed strength. Truth records what is on the page.",
+  "file": "faxes/rx_031.png",
+  "clean_file": "clean/rx_031.png",
+  "boxes": {
+   "patient_name": [
+    333,
+    485,
+    627,
+    563
+   ],
+   "patient_dob": [
+    1211,
+    494,
+    1407,
+    552
+   ],
+   "drug": [
+    305,
+    740,
+    494,
+    818
+   ],
+   "strength": [
+    1198,
+    758,
+    1327,
+    829
+   ],
+   "sig": [
+    356,
+    930,
+    600,
+    1003
+   ],
+   "quantity": [
+    1010,
+    843,
+    1061,
+    898
+   ],
+   "refills": [
+    912,
+    1134,
+    993,
+    1202
+   ],
+   "prescriber_name": [
+    315,
+    1310,
+    751,
+    1357
+   ],
+   "npi": [
+    1097,
+    1307,
+    1292,
+    1368
+   ],
+   "date_written": [
+    232,
+    309,
+    356,
+    380
+   ],
+   "signature": [
+    308,
+    1403,
+    781,
+    1496
+   ]
+  }
+ },
+ {
+  "id": "rx_032",
+  "template": "ltc",
+  "tier": "moderate",
+  "patient": {
+   "name": "Zainab Vandermeer",
+   "dob": "1934-10-03",
+   "address": "156 Sedge Ct",
+   "phone": "(646) 555-0177"
+  },
+  "medication": {
+   "drug": "Atorvastatin",
+   "strength": "80 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qhs",
+  "sig_normalized": "Take 1 tablet by mouth at bedtime",
+  "quantity": 90,
+  "refills": 3,
+  "prescriber": {
+   "name": "Augustin Belrose",
+   "credential": "MD",
+   "npi": "1752917033",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "facility": {
+   "name": "Fennimore Glen Nursing & Rehab",
+   "phone": "(516) 555-0156",
+   "fax": "(516) 555-0157",
+   "room": "134-B"
+  },
+  "file": "faxes/rx_032.png",
+  "clean_file": "clean/rx_032.png",
+  "boxes": {
+   "patient_name": [
+    292,
+    247,
+    673,
+    287
+   ],
+   "patient_dob": [
+    207,
+    306,
+    413,
+    344
+   ],
+   "drug": [
+    308,
+    570,
+    554,
+    623
+   ],
+   "strength": [
+    306,
+    647,
+    412,
+    713
+   ],
+   "sig": [
+    857,
+    574,
+    1076,
+    638
+   ],
+   "quantity": [
+    1325,
+    611,
+    1373,
+    655
+   ],
+   "refills": [
+    1478,
+    617,
+    1510,
+    659
+   ],
+   "prescriber_name": [
+    808,
+    375,
+    1157,
+    413
+   ],
+   "npi": [
+    1103,
+    1670,
+    1296,
+    1704
+   ],
+   "date_written": [
+    116,
+    563,
+    233,
+    611
+   ],
+   "signature": [
+    387,
+    1627,
+    673,
+    1698
+   ]
+  }
+ },
+ {
+  "id": "rx_033",
+  "template": "pad",
+  "tier": "clean",
+  "patient": {
+   "name": "Anselm Holloway",
+   "dob": "1991-07-28",
+   "address": "614 Quarry Bend Rd",
+   "phone": "(646) 555-0156"
+  },
+  "medication": {
+   "drug": "Hydroxyzine",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po tid prn itching",
+  "sig_normalized": "Take 1 tablet by mouth three times daily as needed for itching",
+  "quantity": 30,
+  "refills": 1,
+  "prescriber": {
+   "name": "Bartholomew Nkemelu",
+   "credential": "MD",
+   "npi": "1684268463",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-10",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Hydralazine",
+  "file": "faxes/rx_033.png",
+  "clean_file": "clean/rx_033.png",
+  "boxes": {
+   "patient_name": [
+    445,
+    509,
+    775,
+    577
+   ],
+   "patient_dob": [
+    1096,
+    508,
+    1252,
+    559
+   ],
+   "drug": [
+    513,
+    875,
+    789,
+    951
+   ],
+   "strength": [
+    810,
+    887,
+    949,
+    956
+   ],
+   "sig": [
+    626,
+    996,
+    1134,
+    1069
+   ],
+   "quantity": [
+    629,
+    1120,
+    727,
+    1173
+   ],
+   "refills": [
+    451,
+    1433,
+    473,
+    1482
+   ],
+   "prescriber_name": [
+    570,
+    243,
+    1150,
+    300
+   ],
+   "npi": [
+    394,
+    425,
+    552,
+    457
+   ],
+   "date_written": [
+    1095,
+    600,
+    1244,
+    652
+   ],
+   "signature": [
+    863,
+    1487,
+    1177,
+    1558
+   ]
+  }
+ },
+ {
+  "id": "rx_034",
+  "template": "ehr",
+  "tier": "clean",
+  "patient": {
+   "name": "Lucinda Underhill",
+   "dob": "1975-07-17",
+   "address": "334 Tallow St",
+   "phone": "(646) 555-0157"
+  },
+  "medication": {
+   "drug": "Albuterol HFA",
+   "strength": "90 mcg",
+   "form": "inhaler"
+  },
+  "sig_as_written": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "sig_normalized": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "quantity": 1,
+  "refills": null,
+  "prescriber": {
+   "name": "Shirin Talebpour",
+   "credential": "NP",
+   "npi": "1104974658",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-09",
+  "signed": true,
+  "challenge": "missing_refills",
+  "expected_flags": [
+   "refills"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Refills field was left blank.",
+  "file": "faxes/rx_034.png",
+  "clean_file": "clean/rx_034.png",
+  "boxes": {
+   "patient_name": [
+    129,
+    425,
+    412,
+    462
+   ],
+   "patient_dob": [
+    885,
+    427,
+    1058,
+    465
+   ],
+   "drug": [
+    128,
+    759,
+    453,
+    799
+   ],
+   "strength": [
+    464,
+    760,
+    621,
+    799
+   ],
+   "sig": [
+    127,
+    877,
+    1000,
+    922
+   ],
+   "quantity": [
+    127,
+    995,
+    162,
+    1032
+   ],
+   "prescriber_name": [
+    126,
+    1355,
+    451,
+    1399
+   ],
+   "npi": [
+    882,
+    1358,
+    1099,
+    1394
+   ],
+   "date_written": [
+    1355,
+    221,
+    1503,
+    256
+   ],
+   "signature": [
+    126,
+    1483,
+    959,
+    1524
+   ]
+  }
+ },
+ {
+  "id": "rx_035",
+  "template": "faxform",
+  "tier": "clean",
+  "patient": {
+   "name": "Petra Drummond",
+   "dob": "1958-11-28",
+   "address": "304 Old Ferry Rd",
+   "phone": "(646) 555-0116"
+  },
+  "medication": {
+   "drug": "Sertraline",
+   "strength": "50 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth once daily",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 30,
+  "refills": 1,
+  "prescriber": {
+   "name": "Linnea Hargreave",
+   "credential": "MD",
+   "npi": "1632122333",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "correction",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [],
+  "notes": "Prescriber crossed out one strength and wrote another. Truth is the corrected value; alterations should be verified.",
+  "file": "faxes/rx_035.png",
+  "clean_file": "clean/rx_035.png",
+  "boxes": {
+   "patient_name": [
+    327,
+    487,
+    654,
+    562
+   ],
+   "patient_dob": [
+    1204,
+    492,
+    1380,
+    551
+   ],
+   "drug": [
+    303,
+    747,
+    525,
+    814
+   ],
+   "strength": [
+    1295,
+    744,
+    1407,
+    823
+   ],
+   "sig": [
+    356,
+    932,
+    1046,
+    1019
+   ],
+   "quantity": [
+    1011,
+    849,
+    1068,
+    906
+   ],
+   "refills": [
+    504,
+    1131,
+    578,
+    1199
+   ],
+   "prescriber_name": [
+    322,
+    1312,
+    671,
+    1357
+   ],
+   "npi": [
+    1103,
+    1306,
+    1318,
+    1366
+   ],
+   "date_written": [
+    223,
+    333,
+    357,
+    395
+   ],
+   "signature": [
+    318,
+    1402,
+    709,
+    1487
+   ]
+  }
+ },
+ {
+  "id": "rx_036",
+  "template": "ltc",
+  "tier": "clean",
+  "patient": {
+   "name": "Anneliese Pemberton",
+   "dob": "1939-05-16",
+   "address": "581 Sedge Ct",
+   "phone": "(646) 555-0160"
+  },
+  "medication": {
+   "drug": "Lisinopril",
+   "strength": "20 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po qd",
+  "sig_normalized": "Take 1 tablet by mouth once daily",
+  "quantity": 90,
+  "refills": 3,
+  "prescriber": {
+   "name": "Mei-Lin Castellanos",
+   "credential": "PA-C",
+   "npi": "1423667124",
+   "clinic": "Tamsin Ridge Family Medicine",
+   "phone": "(212) 555-0143",
+   "fax": "(212) 555-0144"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "facility": {
+   "name": "Alderwick Care Center",
+   "phone": "(914) 555-0131",
+   "fax": "(914) 555-0132",
+   "room": "265-A"
+  },
+  "file": "faxes/rx_036.png",
+  "clean_file": "clean/rx_036.png",
+  "boxes": {
+   "patient_name": [
+    293,
+    252,
+    717,
+    293
+   ],
+   "patient_dob": [
+    208,
+    311,
+    413,
+    349
+   ],
+   "drug": [
+    305,
+    585,
+    464,
+    640
+   ],
+   "strength": [
+    305,
+    664,
+    439,
+    727
+   ],
+   "sig": [
+    855,
+    590,
+    1057,
+    641
+   ],
+   "quantity": [
+    1326,
+    623,
+    1380,
+    670
+   ],
+   "refills": [
+    1477,
+    623,
+    1512,
+    668
+   ],
+   "prescriber_name": [
+    808,
+    382,
+    1241,
+    422
+   ],
+   "npi": [
+    1099,
+    1678,
+    1292,
+    1712
+   ],
+   "date_written": [
+    113,
+    584,
+    272,
+    626
+   ],
+   "signature": [
+    383,
+    1629,
+    772,
+    1700
+   ]
+  }
+ },
+ {
+  "id": "rx_037",
+  "template": "pad",
+  "tier": "hard",
+  "patient": {
+   "name": "Tobias Rahimzadeh",
+   "dob": "1958-09-07",
+   "address": "260 Quarry Bend Rd",
+   "phone": "(646) 555-0132"
+  },
+  "medication": {
+   "drug": "Hydroxyzine",
+   "strength": "25 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "1 tab po tid prn itching",
+  "sig_normalized": "Take 1 tablet by mouth three times daily as needed for itching",
+  "quantity": 30,
+  "refills": 1,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "smudged_drug",
+  "expected_flags": [
+   "drug"
+  ],
+  "unreadable_in_image": [
+   "drug"
+  ],
+  "notes": "Middle of the drug name is obscured, leaving Hydr___ine: Hydroxyzine or Hydralazine. It cannot be resolved from the image.",
+  "lookalike_of": "Hydralazine",
+  "file": "faxes/rx_037.png",
+  "clean_file": "clean/rx_037.png",
+  "boxes": {
+   "patient_name": [
+    455,
+    488,
+    842,
+    568
+   ],
+   "patient_dob": [
+    1106,
+    508,
+    1240,
+    576
+   ],
+   "drug": [
+    514,
+    859,
+    781,
+    949
+   ],
+   "strength": [
+    804,
+    889,
+    929,
+    956
+   ],
+   "sig": [
+    610,
+    978,
+    1098,
+    1075
+   ],
+   "quantity": [
+    633,
+    1109,
+    713,
+    1163
+   ],
+   "refills": [
+    436,
+    1422,
+    458,
+    1469
+   ],
+   "prescriber_name": [
+    578,
+    234,
+    1174,
+    307
+   ],
+   "npi": [
+    405,
+    412,
+    563,
+    448
+   ],
+   "date_written": [
+    1101,
+    587,
+    1222,
+    655
+   ],
+   "signature": [
+    848,
+    1481,
+    1324,
+    1588
+   ]
+  }
+ },
+ {
+  "id": "rx_038",
+  "template": "ehr",
+  "tier": "hard",
+  "patient": {
+   "name": "Hollis Featherstone",
+   "dob": "1993-12-17",
+   "address": "226 Old Ferry Rd",
+   "phone": "(646) 555-0144"
+  },
+  "medication": {
+   "drug": "Omeprazole",
+   "strength": "40 mg",
+   "form": "capsule"
+  },
+  "sig_as_written": "Take 1 capsule by mouth every morning before breakfast",
+  "sig_normalized": "Take 1 capsule by mouth every morning before breakfast",
+  "quantity": 30,
+  "refills": 0,
+  "prescriber": {
+   "name": "Linnea Hargreave",
+   "credential": "MD",
+   "npi": "1632122333",
+   "clinic": "Kestrel Row Medical Group",
+   "phone": "(718) 555-0177",
+   "fax": "(718) 555-0178"
+  },
+  "date_written": "2026-10-07",
+  "signed": true,
+  "challenge": "smudged_strength",
+  "expected_flags": [
+   "strength"
+  ],
+  "unreadable_in_image": [
+   "strength"
+  ],
+  "notes": "Strength digits are physically obscured. Truth holds the original value, but it cannot be read from the image.",
+  "file": "faxes/rx_038.png",
+  "clean_file": "clean/rx_038.png",
+  "boxes": {
+   "patient_name": [
+    110,
+    466,
+    421,
+    513
+   ],
+   "patient_dob": [
+    865,
+    443,
+    1039,
+    486
+   ],
+   "drug": [
+    122,
+    802,
+    376,
+    850
+   ],
+   "strength": [
+    386,
+    797,
+    520,
+    840
+   ],
+   "sig": [
+    127,
+    897,
+    1006,
+    972
+   ],
+   "quantity": [
+    131,
+    1045,
+    188,
+    1084
+   ],
+   "refills": [
+    527,
+    1031,
+    563,
+    1069
+   ],
+   "prescriber_name": [
+    144,
+    1394,
+    494,
+    1449
+   ],
+   "npi": [
+    900,
+    1372,
+    1118,
+    1414
+   ],
+   "date_written": [
+    1327,
+    220,
+    1476,
+    259
+   ],
+   "signature": [
+    345,
+    1484,
+    696,
+    1591
+   ]
+  }
+ },
+ {
+  "id": "rx_039",
+  "template": "faxform",
+  "tier": "hard",
+  "patient": {
+   "name": "Malcolm Volkonsky",
+   "dob": "1972-07-13",
+   "address": "672 Old Ferry Rd",
+   "phone": "(646) 555-0165"
+  },
+  "medication": {
+   "drug": "Glipizide",
+   "strength": "10 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "Take 1 tablet by mouth every morning before breakfast",
+  "sig_normalized": "Take 1 tablet by mouth every morning before breakfast",
+  "quantity": 30,
+  "refills": 3,
+  "prescriber": {
+   "name": "Gideon Praetorius",
+   "credential": "DO",
+   "npi": "1597971146",
+   "clinic": "Orrin Vale Internal Medicine",
+   "phone": "(201) 555-0118",
+   "fax": "(201) 555-0119"
+  },
+  "date_written": "2026-10-08",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "lookalike_of": "Glyburide",
+  "file": "faxes/rx_039.png",
+  "clean_file": "clean/rx_039.png",
+  "boxes": {
+   "patient_name": [
+    346,
+    450,
+    740,
+    521
+   ],
+   "patient_dob": [
+    1222,
+    477,
+    1448,
+    527
+   ],
+   "drug": [
+    316,
+    701,
+    513,
+    784
+   ],
+   "strength": [
+    1209,
+    731,
+    1356,
+    793
+   ],
+   "sig": [
+    155,
+    888,
+    922,
+    1065
+   ],
+   "quantity": [
+    1021,
+    824,
+    1083,
+    867
+   ],
+   "refills": [
+    719,
+    1108,
+    792,
+    1175
+   ],
+   "prescriber_name": [
+    323,
+    1283,
+    679,
+    1329
+   ],
+   "npi": [
+    1105,
+    1295,
+    1333,
+    1351
+   ],
+   "date_written": [
+    244,
+    299,
+    447,
+    355
+   ],
+   "signature": [
+    316,
+    1385,
+    689,
+    1457
+   ]
+  }
+ },
+ {
+  "id": "rx_040",
+  "template": "ltc",
+  "tier": "hard",
+  "patient": {
+   "name": "Greta Castellane",
+   "dob": "1947-01-03",
+   "address": "411 Marlpit Ave",
+   "phone": "(646) 555-0169"
+  },
+  "medication": {
+   "drug": "Methotrexate",
+   "strength": "2.5 mg",
+   "form": "tablet"
+  },
+  "sig_as_written": "3 tabs po once weekly",
+  "sig_normalized": "Take 3 tablets by mouth once weekly",
+  "quantity": 12,
+  "refills": 2,
+  "prescriber": {
+   "name": "Dorian Vasquez-Thorne",
+   "credential": "DO",
+   "npi": "1792440269",
+   "clinic": "Pellham Marsh Primary Care",
+   "phone": "(203) 555-0162",
+   "fax": "(203) 555-0163"
+  },
+  "date_written": "2026-10-06",
+  "signed": true,
+  "challenge": null,
+  "expected_flags": [],
+  "unreadable_in_image": [],
+  "notes": "",
+  "facility": {
+   "name": "Fennimore Glen Nursing & Rehab",
+   "phone": "(516) 555-0156",
+   "fax": "(516) 555-0157",
+   "room": "301-A"
+  },
+  "file": "faxes/rx_040.png",
+  "clean_file": "clean/rx_040.png",
+  "boxes": {
+   "patient_name": [
+    260,
+    257,
+    619,
+    308
+   ],
+   "patient_dob": [
+    178,
+    327,
+    384,
+    370
+   ],
+   "drug": [
+    290,
+    593,
+    553,
+    651
+   ],
+   "strength": [
+    292,
+    671,
+    427,
+    742
+   ],
+   "sig": [
+    838,
+    560,
+    1225,
+    629
+   ],
+   "quantity": [
+    1309,
+    592,
+    1360,
+    637
+   ],
+   "refills": [
+    1462,
+    591,
+    1501,
+    631
+   ],
+   "prescriber_name": [
+    781,
+    358,
+    1215,
+    410
+   ],
+   "npi": [
+    1136,
+    1647,
+    1330,
+    1687
+   ],
+   "date_written": [
+    98,
+    606,
+    213,
+    652
+   ],
+   "signature": [
+    420,
+    1626,
+    894,
+    1738
+   ]
+  }
+ }
+]

@@ -1,0 +1,268 @@
+{
+ "rx_001": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_002": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_003": {
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ },
+ "rx_004": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_005": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "quantity": [
+   "MISSING: No usable value for this critical field was found on the source."
+  ]
+ },
+ "rx_006": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_007": {},
+ "rx_008": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_009": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "strength": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ },
+ "rx_010": {
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "signature_present": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_011": {
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ },
+ "rx_012": {
+  "patient_dob": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ],
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ]
+ },
+ "rx_013": {
+  "strength": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_014": {
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_015": {
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ]
+ },
+ "rx_016": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ]
+ },
+ "rx_017": {
+  "strength": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ]
+ },
+ "rx_018": {
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_019": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "quantity": [
+   "MISSING: No usable value for this critical field was found on the source."
+  ]
+ },
+ "rx_020": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_021": {},
+ "rx_022": {
+  "strength": [
+   "INVALID: This strength is not a marketed strength for this drug."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_023": {},
+ "rx_024": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "signature_present": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_025": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_026": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_027": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "strength": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ },
+ "rx_028": {
+  "patient_dob": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_029": {},
+ "rx_030": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_031": {
+  "strength": [
+   "INVALID: This strength is not a marketed strength for this drug."
+  ]
+ },
+ "rx_032": {},
+ "rx_033": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_034": {
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ],
+  "refills": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_035": {
+  "strength": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ]
+ },
+ "rx_036": {},
+ "rx_037": {
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ]
+ },
+ "rx_038": {
+  "drug": [
+   "REVIEW_REQUIRED: The drug name could not be matched to the reference catalog, so its identity is not independently supported."
+  ],
+  "strength": [
+   "REVIEW_REQUIRED: The source for this critical field is unreadable."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "days_supply": [
+   "MISSING: Optional field missing; shown as a warning and does not block approval."
+  ]
+ },
+ "rx_039": {
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ },
+ "rx_040": {
+  "drug": [
+   "REVIEW_REQUIRED: Independent reads of this field disagree."
+  ],
+  "sig": [
+   "REVIEW_REQUIRED: The directions contain a term outside the supported vocabulary."
+  ],
+  "prescriber_identifier": [
+   "REVIEW_REQUIRED: The prescriber identifier fails its checksum."
+  ]
+ }
+}

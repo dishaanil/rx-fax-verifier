@@ -1,0 +1,265 @@
+{
+ "prescription_id": "rx_039",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_039.png"
+ },
+ "patient_identity": {
+  "header_name": "Malcolm Volkonsky",
+  "block_name": null,
+  "dob_values": [
+   "1972-07-15"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Malcolm Volkonsky",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Malcolm Volkonsky"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     185,
+     471,
+     618,
+     510
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "07-15-1972",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "07-15-1972"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1020,
+     471,
+     1267,
+     510
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Glipizide",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Glipizide"
+    },
+    {
+     "source": "secondary",
+     "value": "Glipizide"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     711,
+     541,
+     757
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "10 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "10 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1159,
+     711,
+     1314,
+     757
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     294,
+     827,
+     464,
+     865
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth every morning before breakfast",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth every morning before breakfast"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     185,
+     904,
+     1005,
+     1020
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     943,
+     834,
+     1005,
+     865
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     680,
+     1136,
+     726,
+     1174
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Gideon Praetorius, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Gideon Praetorius, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     240,
+     1326,
+     680,
+     1360
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1697971146",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1697971146"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1159,
+     1326,
+     1391,
+     1360
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/8/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/8/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     224,
+     343,
+     386,
+     379
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     247,
+     1414,
+     695,
+     1460
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Fax header: FROM: Omin Vale Internal Medicine (201) 555-0119 TO: (212) 555-0199 P.001/001",
+  "Take 1 tablet by mouth every morning before breakfast",
+  "Quantity: 30",
+  "Refills: 3"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -1,0 +1,263 @@
+{
+ "prescription_id": "rx_007",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_007.png"
+ },
+ "patient_identity": {
+  "header_name": "Winifred Larkspur",
+  "block_name": null,
+  "dob_values": [
+   "2002-03-14"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Winifred Larkspur",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Winifred Larkspur"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     502,
+     618,
+     541
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "03-14-2002",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "03-14-2002"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1080,
+     502,
+     1267,
+     538
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Hydralazine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hydralazine"
+    },
+    {
+     "source": "secondary",
+     "value": "Hydralazine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     260,
+     772,
+     533,
+     819
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "50mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "50 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "50mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1171,
+     772,
+     1283,
+     811
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     260,
+     878,
+     394,
+     915
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po tid",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po tid"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     961,
+     618,
+     1001
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1026,
+     878,
+     1097,
+     915
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     725,
+     1162,
+     768,
+     1197
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Linnea Hargreave, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Linnea Hargreave, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     334,
+     1332,
+     688,
+     1369
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1632122333",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1632122333"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1137,
+     1329,
+     1360,
+     1367
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/9/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     235,
+     355,
+     448,
+     394
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     255,
+     1437,
+     649,
+     1499
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-09-2026 09:14 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

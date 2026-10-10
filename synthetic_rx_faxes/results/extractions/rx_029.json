@@ -1,0 +1,268 @@
+{
+ "prescription_id": "rx_029",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_029.png"
+ },
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "LAZARO Thistlewood",
+  "dob_values": [
+   "1950-08-22"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "LAZARO Thistlewood",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Lazaro Thistlewood"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     437,
+     550,
+     869,
+     590
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "8/22/1950",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "8/22/1950"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1023,
+     552,
+     1236,
+     589
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Lamotrigine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Lamotrigine"
+    },
+    {
+     "source": "secondary",
+     "value": "Lamotrigine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     552,
+     915,
+     754,
+     958
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "25 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "25 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     773,
+     915,
+     889,
+     958
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     899,
+     915,
+     966,
+     958
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po bid",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po bid"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     549,
+     1038,
+     884,
+     1081
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "#60",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#60"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     603,
+     1151,
+     672,
+     1193
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     495,
+     1475,
+     525,
+     1509
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Dorian Vasquez-Thorne, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dorian Vasquez-Thorne, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     273,
+     1224,
+     314
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     355,
+     471,
+     513,
+     494
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1051,
+     627,
+     1178,
+     661
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     958,
+     1522,
+     1391,
+     1573
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-07-2026 17:20 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "State Lic: 660559",
+  "Dispense as written (checkbox unchecked)",
+  "Substitution permissible (checkbox unchecked)",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Sig. 1 tab po bid",
+  "Disp. #60",
+  "Refills 2",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -1,0 +1,267 @@
+{
+ "prescription_id": "rx_012",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_012.png"
+ },
+ "patient_identity": {
+  "header_name": "MARISOL LINDQVIST",
+  "block_name": null,
+  "dob_values": []
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "MARISOL LINDQVIST",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "MARISOL LINDQVIST"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     189,
+     306,
+     610,
+     332
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": null,
+   "source_quality": "UNREADABLE",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     147,
+     332,
+     425,
+     363
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Glipizide",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Glipizide"
+    },
+    {
+     "source": "secondary",
+     "value": "Cipralex"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     314,
+     598,
+     448,
+     626
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "10 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "10 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     314,
+     649,
+     417,
+     677
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     425,
+     649,
+     495,
+     677
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po qam ac",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qam ac"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     865,
+     595,
+     1144,
+     624
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1352,
+     610,
+     1399,
+     641
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1491,
+     610,
+     1522,
+     641
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "AUGUSTIN BELROSE, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "AUGUSTIN BELROSE, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     665,
+     391,
+     1167,
+     411
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1360,
+     1687,
+     1545,
+     1712
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/9/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     144,
+     599,
+     240,
+     624
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     471,
+     1630,
+     711,
+     1684
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-09-2026 11:08 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Comer Test Pharmacy (212) 555-0199",
+  "ALLERGIES: NKDA",
+  "ROOM/BED: 214-B",
+  "MRN: 120773",
+  "Written order (checkbox marked)",
+  "Noted by (nurse): T Brannagan RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA. NOT A VALID PRESCRIPTION",
+  "1 tab po qam ac"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

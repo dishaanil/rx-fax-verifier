@@ -1,0 +1,270 @@
+{
+ "prescription_id": "rx_028",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_028.png"
+ },
+ "patient_identity": {
+  "header_name": "DEVON FITZWILLIAM",
+  "block_name": null,
+  "dob_values": []
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "DEVON FITZWILLIAM",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "DEVON FITZWILLIAM"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     252,
+     603,
+     273
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     298,
+     309,
+     320
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Amoxicillin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Amoxicillin"
+    },
+    {
+     "source": "secondary",
+     "value": "Amoxicillin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     291,
+     569,
+     464,
+     592
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "500mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "500mg"
+    },
+    {
+     "source": "secondary",
+     "value": "500mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     291,
+     618,
+     394,
+     640
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "cap",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "cap"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     399,
+     618,
+     464,
+     640
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 cap po tid x 10 days",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 cap po tid x 10 days"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     855,
+     562,
+     1020,
+     649
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1328,
+     610,
+     1357,
+     633
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "0",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "0"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1476,
+     610,
+     1491,
+     633
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "RENATA OKAFOR-LINDH, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "RENATA OKAFOR-LINDH, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     634,
+     343,
+     967,
+     365
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1276018953",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1276018953"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1022,
+     1665,
+     1175,
+     1684
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     569,
+     198,
+     590
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     260,
+     1645,
+     556,
+     1684
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT 07 2026 14:05 FROM ALDERWICK CARE CENTER (914) 555-0132 TO (212) 555-0199 P.001/001",
+  "Alderwick Care Center Tel (914) 555-0131 Fax (914) 555-0132",
+  "PHYSICIAN ORDER FORM Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED 289 B",
+  "MRN 837844",
+  "ALLERGIES: NKDA",
+  "X Written order (checkbox marked)",
+  "Noted by (nurse): S. Dellacroce RN",
+  "Orders must be signed by the attending physician within the period required by facility policy",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 cap po tid x 10 days",
+  "30",
+  "0"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

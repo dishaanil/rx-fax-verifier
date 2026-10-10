@@ -1,0 +1,263 @@
+{
+ "prescription_id": "rx_019",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_019.png"
+ },
+ "patient_identity": {
+  "header_name": "Ezekiel Okonkwo",
+  "block_name": null,
+  "dob_values": [
+   "2008-12-08"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Ezekiel Okonkwo",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Ezekiel Okonkwo"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     317,
+     477,
+     640,
+     507
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "12-08-2008",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "12-08-2008"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1125,
+     477,
+     1388,
+     507
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Losartan",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Losartan"
+    },
+    {
+     "source": "secondary",
+     "value": "Losartan"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     738,
+     498,
+     768
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "100mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "100mg"
+    },
+    {
+     "source": "secondary",
+     "value": "100mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1182,
+     738,
+     1326,
+     768
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     834,
+     464,
+     864
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po qd",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qd"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     924,
+     564,
+     953
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1028,
+     834,
+     1576,
+     864
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     745,
+     1151,
+     777,
+     1180
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Shirin Talebpour, NP",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Shirin Talebpour, NP"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     278,
+     1299,
+     643,
+     1329
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1104974658",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1104974658"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1093,
+     1299,
+     1314,
+     1329
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/10/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     196,
+     348,
+     329,
+     377
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     267,
+     1421,
+     665,
+     1475
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-10-2026 15:34 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Allergies: NKDA"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

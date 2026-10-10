@@ -1,0 +1,278 @@
+{
+ "prescription_id": "rx_002",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_002.png"
+ },
+ "patient_identity": {
+  "header_name": "Ambrose Sorensen",
+  "block_name": null,
+  "dob_values": [
+   "2003-08-16"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Ambrose Sorensen",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Ambrose Sorensen"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     433,
+     417,
+     457
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "08/16/2003",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "08/16/2003"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     909,
+     433,
+     1082,
+     457
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "FUROSEMIDE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "FUROSEMIDE"
+    },
+    {
+     "source": "secondary",
+     "value": "FUROSEMIDE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     763,
+     286,
+     788
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "40 MG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "40 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "40 MG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     763,
+     402,
+     788
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "TABLET",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     417,
+     763,
+     541,
+     788
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth every morning",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth every morning"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     878,
+     695,
+     902
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     996,
+     155,
+     1021
+    ]
+   }
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1275,
+     996,
+     1306,
+     1021
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     516,
+     996,
+     541,
+     1021
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Gideon Praetorius, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Gideon Praetorius, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     1278,
+     402,
+     1302
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1597971146",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1597971146"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     909,
+     1278,
+     1082,
+     1302
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/10/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": null
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     240,
+     1468,
+     649,
+     1545
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-10-2026 13:02 FROM: ORRIN VALE INTERNAL MEDICI (201) 555-0119 TO: (212) 555-0199 P.001/001",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Take 1 tablet by mouth every morning",
+  "SYNTHETIC TEST DATA · NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

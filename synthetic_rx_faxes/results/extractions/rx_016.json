@@ -1,0 +1,270 @@
+{
+ "prescription_id": "rx_016",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_016.png"
+ },
+ "patient_identity": {
+  "header_name": "THADDEUS CHARPENTIER",
+  "block_name": null,
+  "dob_values": [
+   "1932-07-11"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "THADDEUS CHARPENTIER",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "THADDEUS CHARPENTIER"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     267,
+     298,
+     649,
+     324
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "07/11/1932",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "07/11/1932"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     218,
+     348,
+     399,
+     371
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Methotrexate",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Methotrexate"
+    },
+    {
+     "source": "secondary",
+     "value": "Methotrexate"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     303,
+     592,
+     522,
+     623
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "2.5mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2.5 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "2.5mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     303,
+     654,
+     402,
+     683
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     410,
+     654,
+     464,
+     683
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po qd",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qd"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     853,
+     592,
+     1051,
+     623
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1312,
+     599,
+     1360,
+     630
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1501,
+     599,
+     1530,
+     630
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "DORIAN VASQUEZ-THORNE, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "DORIAN VASQUEZ-THORNE, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     556,
+     391,
+     943,
+     414
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1005,
+     1695,
+     1144,
+     1718
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     133,
+     595,
+     216,
+     618
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     1661,
+     742,
+     1715
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-07-2026 13:22 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ALLERGIES: NKDA",
+  "ROOM/BED: 336-A",
+  "MRN: 194421",
+  "Noted by (nurse): T. Brannigan RN",
+  "Written order (checkbox checked)",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po qd",
+  "Written order"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

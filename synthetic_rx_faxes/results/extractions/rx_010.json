@@ -1,0 +1,284 @@
+{
+ "prescription_id": "rx_010",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_010.png"
+ },
+ "patient_identity": {
+  "header_name": "Dmitri Gallagher",
+  "block_name": null,
+  "dob_values": [
+   "2007-07-27"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Dmitri Gallagher",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dmitri Gallagher"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     457,
+     355,
+     482
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "07/27/2007",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "07/27/2007"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     870,
+     457,
+     1020,
+     482
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "ALBUTEROL HFA",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "albuterol HFA"
+    },
+    {
+     "source": "secondary",
+     "value": "ALBUTEROL"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     780,
+     464,
+     811
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "90 MCG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90 mcg"
+    },
+    {
+     "source": "secondary",
+     "value": "90 MCG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     464,
+     780,
+     618,
+     811
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "INHALER",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "inhaler"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     618,
+     780,
+     773,
+     811
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Inhale 2 puffs every 4 to 6 hours as needed for wheezing"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     908,
+     773,
+     933
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1032,
+     139,
+     1057
+    ]
+   }
+  },
+  "days_supply": {
+   "raw_value": "--",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "--"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1241,
+     1032,
+     1267,
+     1057
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     481,
+     1032,
+     499,
+     1057
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Bartholomew Nkemelu, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Bartholomew Nkemelu, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1372,
+     433,
+     1397
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1684268463",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1684268463"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     870,
+     1372,
+     1020,
+     1397
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/07/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/07/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1434,
+     275,
+     1561,
+     294
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "no"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1591,
+     618,
+     1616
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "T 97 2026 14 01 FROM ORRIN VALE INTERNAL MEDICI (201) 555-0119 TO: (212) 555-0199 P 001/001",
+  "Rx ref: 1992027",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA NOT A VALID PRESCRIPTION",
+  "Inhale 2 puffs every 4 to 6 hours as needed for wheezing",
+  "Permitted"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -1,0 +1,262 @@
+{
+ "prescription_id": "rx_023",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_023.png"
+ },
+ "patient_identity": {
+  "header_name": "Rafael Haddadin",
+  "block_name": null,
+  "dob_values": [
+   "5/15/19?1"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Rafael Haddadin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Rafael Haddadin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     281,
+     487,
+     680,
+     525
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "5/15/19?1",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5/15/1961"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     964,
+     488,
+     1144,
+     525
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Amlodipine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Amlodipine"
+    },
+    {
+     "source": "secondary",
+     "value": "Amlodipine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     757,
+     618,
+     796
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "5 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "5 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1171,
+     757,
+     1298,
+     796
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     850,
+     433,
+     888
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po daily",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po daily"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     935,
+     649,
+     973
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     978,
+     850,
+     1051,
+     888
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     546,
+     1149,
+     586,
+     1190
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Dorian Vasquez-Thorne, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dorian Vasquez-Thorne, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     1319,
+     773,
+     1356
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1001,
+     1319,
+     1221,
+     1356
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     201,
+     357,
+     340,
+     394
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     226,
+     1452,
+     742,
+     1506
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-09-2026 07:50  FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163  TO: (212) 555-0199  P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

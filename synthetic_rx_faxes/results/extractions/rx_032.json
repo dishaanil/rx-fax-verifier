@@ -1,0 +1,270 @@
+{
+ "prescription_id": "rx_032",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_032.png"
+ },
+ "patient_identity": {
+  "header_name": "ZAINAB VANDERMEER",
+  "block_name": null,
+  "dob_values": [
+   "1934-10-03"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "ZAINAB VANDERMEER",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "ZAINAB VANDERMEER"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     236,
+     290,
+     527,
+     312
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "10/03/1934",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/03/1934"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     168,
+     338,
+     320,
+     360
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Atorvastatin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Atorvastatin"
+    },
+    {
+     "source": "secondary",
+     "value": "Atorvastatin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     233,
+     589,
+     420,
+     613
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "80mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "80mg"
+    },
+    {
+     "source": "secondary",
+     "value": "80mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     233,
+     640,
+     328,
+     664
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     332,
+     640,
+     379,
+     664
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po qhs",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qhs"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     867,
+     589,
+     1039,
+     613
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1329,
+     604,
+     1366,
+     629
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1502,
+     604,
+     1521,
+     629
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "AUGUSTIN BELROSE, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "AUGUSTIN BELROSE, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     694,
+     362,
+     961,
+     383
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1411,
+     1682,
+     1570,
+     1704
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     99,
+     589,
+     173,
+     613
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     317,
+     1645,
+     657,
+     1699
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-09-2026 16:00 FROM: FENNIMORE GLEN NURSING & R (516) 555-0157 TO: (212) 555-0199 P.001/001",
+  "ALLERGIES: NKDA",
+  "ROOM/BED: 134-B",
+  "MRN: 129336",
+  "Noted by (nurse): O. Achterberg LPN",
+  "Orders must be signed by the attending physician within the period required by facility policy",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Written order checkbox marked",
+  "1 tab po qhs",
+  "Written order",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

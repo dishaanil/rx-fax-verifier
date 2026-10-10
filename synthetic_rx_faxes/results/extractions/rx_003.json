@@ -1,0 +1,262 @@
+{
+ "prescription_id": "rx_003",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_003.png"
+ },
+ "patient_identity": {
+  "header_name": "Beatrix Oosterhuis",
+  "block_name": null,
+  "dob_values": [
+   "1987-03-23"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Beatrix Oosterhuis",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Beatrix Oosterhuis"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     343,
+     463,
+     711,
+     502
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "03-23-1987",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "03-23-1987"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     981,
+     463,
+     1221,
+     502
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Hydralazine",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hydralazine"
+    },
+    {
+     "source": "secondary",
+     "value": "Hydralazine"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     734,
+     603,
+     772
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "50 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "50 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "50 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1213,
+     734,
+     1345,
+     769
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     834,
+     433,
+     868
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth three times daily",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth three times daily"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     343,
+     935,
+     1159,
+     973
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1012,
+     834,
+     1082,
+     868
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "2",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "2"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     632,
+     1125,
+     668,
+     1159
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Augustin Belrose, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Augustin Belrose, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     1270,
+     680,
+     1307
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "17529I7033",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     949,
+     1270,
+     1190,
+     1307
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/6/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/6/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     235,
+     338,
+     402,
+     374
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     1383,
+     572,
+     1429
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "OCT-06-2026 08:49 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

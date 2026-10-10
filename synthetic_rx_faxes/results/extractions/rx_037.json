@@ -1,0 +1,266 @@
+{
+ "prescription_id": "rx_037",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_037.png"
+ },
+ "patient_identity": {
+  "header_name": null,
+  "block_name": "Tobias R?himz-adeh",
+  "dob_values": [
+   "9/7/19?1"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Tobias R?himz-adeh",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Tobias Rahimzadeh"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     368,
+     522,
+     835,
+     559
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "9/7/19?1",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "9/7/1951"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     955,
+     522,
+     1175,
+     559
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Hyd?????e",
+   "source_quality": "UNREADABLE",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Hyd?????e"
+    },
+    {
+     "source": "secondary",
+     "value": "Hyd????????"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     865,
+     788,
+     935
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "25mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "25 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "25mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     796,
+     878,
+     889,
+     919
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     896,
+     878,
+     966,
+     919
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po tid prn itching",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po tid prn itching"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     1004,
+     1082,
+     1051
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "#30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "#30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     510,
+     1120,
+     618,
+     1159
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     386,
+     1445,
+     433,
+     1483
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Dorian Vasquez-Thorne, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Dorian Vasquez-Thorne, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     505,
+     244,
+     1236,
+     286
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1792440269",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1792440269"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     309,
+     405,
+     510,
+     436
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/7/24",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/24"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     986,
+     607,
+     1175,
+     643
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     943,
+     1499,
+     1468,
+     1560
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "PELHAM MARSH PRIMARY CARE (203) 555-0163  TO: (212) 555-0199  P.001/001",
+  "Pelham Marsh Primary Care, 22 Saltgrass Way, Pelham Marsh, CT 06099, Tel (203) 555-0162 Fax (203) 555-0163",
+  "State Lic. 060559",
+  "Dispense as written [ ]   Substitution permissible [ ]",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Sig 1 tab po tid prn itching",
+  "Disp #90"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

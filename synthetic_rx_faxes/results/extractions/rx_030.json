@@ -1,0 +1,285 @@
+{
+ "prescription_id": "rx_030",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_030.png"
+ },
+ "patient_identity": {
+  "header_name": "Saoirse Montenegro",
+  "block_name": null,
+  "dob_values": [
+   "2002-01-16"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Saoirse Montenegro",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Saoirse Montenegro"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     133,
+     453,
+     422,
+     479
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "01/16/2002",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "01/16/2002"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     924,
+     453,
+     1074,
+     479
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "WARFARIN",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "WARFARIN"
+    },
+    {
+     "source": "secondary",
+     "value": "WARFARIN"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     133,
+     780,
+     295,
+     808
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "5 MG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5 MG"
+    },
+    {
+     "source": "secondary",
+     "value": "5 MG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     297,
+     780,
+     399,
+     808
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "TABLET",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "TABLET"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     402,
+     780,
+     533,
+     808
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth every evening",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth every evening"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     133,
+     878,
+     626,
+     904
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     133,
+     1018,
+     158,
+     1043
+    ]
+   }
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1264,
+     1018,
+     1298,
+     1043
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     502,
+     1018,
+     516,
+     1043
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Shirin Talebpour, NP",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Shirin Talebpour, NP"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     133,
+     1377,
+     414,
+     1403
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1104974658",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1104974658"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     895,
+     1377,
+     1066,
+     1403
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/10/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1467,
+     294,
+     1603,
+     315
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     258,
+     1475,
+     641,
+     1534
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-10-2026 12:43 FROM: PELLHAM MARSH PRIMARY CARE (203) 555-0163 TO: (212) 555-0199 P.001/001",
+  "This prescription was generated from the electronic health record and transmitted by facsimile",
+  "If you received it in error, notify the sender and destroy all copies",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Rx ref: 3110818",
+  "Take 1 tablet by mouth every evening",
+  "This prescription was generated from the electronic health record and transmitted by faxing. If you received it in error, notify the sender and destroy all copies."
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

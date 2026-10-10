@@ -1,0 +1,269 @@
+{
+ "prescription_id": "rx_004",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_004.png"
+ },
+ "patient_identity": {
+  "header_name": "IMANI ASANTE",
+  "block_name": null,
+  "dob_values": [
+   "1949-09-25"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "IMANI ASANTE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "IMANI ASANTE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     240,
+     306,
+     456,
+     340
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "09/25/1949",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "09/25/1949"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     202,
+     352,
+     371,
+     380
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Metronidazole",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Metronidazole"
+    },
+    {
+     "source": "secondary",
+     "value": "Metronidazole"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     329,
+     590,
+     544,
+     621
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "500 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "500 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "500 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     329,
+     630,
+     451,
+     661
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     459,
+     630,
+     507,
+     661
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po bid x 7 days",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po bid x 7 days"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     896,
+     587,
+     1244,
+     621
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "14",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "14"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1348,
+     626,
+     1388,
+     657
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "0",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "0"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1519,
+     626,
+     1545,
+     657
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "BARTHOLOMEW NKEMELU, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "BARTHOLOMEW NKEMELU, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     573,
+     391,
+     955,
+     414
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1684268463",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1684268463"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1314,
+     1684,
+     1453,
+     1707
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     116,
+     592,
+     198,
+     618
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     433,
+     1653,
+     773,
+     1707
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-09-2026 10:07 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Alderwick Care Center - Tel (914) 555-0131 Fax (914) 555-0132",
+  "PHYSICIAN ORDER FORM - Send to: Corner Test Pharmacy (212) 555-0199",
+  "ALLERGIES: NKDA",
+  "ATTENDING: BARTHOLOMEW NKEMELU, MD",
+  "Written order checkbox is checked (X)",
+  "Noted by (nurse): S. Dellacroce RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po bid x 7 days"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

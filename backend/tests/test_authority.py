@@ -85,10 +85,16 @@ def test_main_routes_delegate_approval():
     assert not any(_is_approved(n) for n in ast.walk(tree))
 
 
+# The single model-call wrapper (DESIGN.md §15) is the only module allowed network access.
+MODEL_GATEWAY = BACKEND / "extraction" / "gateway.py"
+
+
 def test_no_network_or_ai_imports_anywhere():
     forbidden = {"socket", "urllib", "requests", "httpx", "aiohttp", "anthropic", "openai"}
     offenders = []
     for path in APP_FILES:
+        if path == MODEL_GATEWAY:
+            continue
         for node in ast.walk(ast.parse(path.read_text())):
             names = []
             if isinstance(node, ast.Import):

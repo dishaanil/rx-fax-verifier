@@ -1,0 +1,268 @@
+{
+ "prescription_id": "rx_035",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_035.png"
+ },
+ "patient_identity": {
+  "header_name": "Petra Drummond",
+  "block_name": null,
+  "dob_values": [
+   "1958-11-28"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Petra Drummond",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Petra Drummond"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     317,
+     510,
+     711,
+     556
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "11/28/1958",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "11/28/1958"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1012,
+     513,
+     1205,
+     553
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Sertraline",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Sertraline"
+    },
+    {
+     "source": "secondary",
+     "value": "Sertraline"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     286,
+     738,
+     610,
+     785
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "50mg",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "50 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "50mg"
+    },
+    {
+     "source": "crossed_out",
+     "value": "25"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1020,
+     738,
+     1236,
+     785
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tablet",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     294,
+     857,
+     495,
+     904
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth once daily",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth once daily"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     348,
+     939,
+     1082,
+     996
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "30",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "30"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     873,
+     857,
+     943,
+     904
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     512,
+     1146,
+     544,
+     1177
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Linnea Hargreave, MD",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Linnea Hargreave, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     289,
+     1282,
+     695,
+     1326
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1632122333",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1632122333"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     989,
+     1282,
+     1221,
+     1326
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/7/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     232,
+     358,
+     371,
+     399
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     325,
+     1398,
+     680,
+     1460
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-07-2026 14:38 FROM: KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001",
+  "CONFIDENTIALITY NOTICE: This facsimile contains protected health information intended only for the addressee. If you are not the intended recipient, any disclosure or copying is prohibited. Please notify the sender by telephone and destroy this document.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Allergies: NKDA",
+  "SYNTHETIC TEST DATA, NOT A VALID PRESCRIPTION"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

@@ -1,0 +1,271 @@
+{
+ "prescription_id": "rx_036",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_036.png"
+ },
+ "patient_identity": {
+  "header_name": "ANNELIESE PEMBERTON",
+  "block_name": null,
+  "dob_values": [
+   "1939-05-16"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "ANNELIESE PEMBERTON",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "ANNELIESE PEMBERTON"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     304,
+     618,
+     328
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "05/16/1939",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "05/16/1939"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     201,
+     352,
+     371,
+     375
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Lisinopril",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Lisinopril"
+    },
+    {
+     "source": "secondary",
+     "value": "Lisinopril"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     303,
+     603,
+     464,
+     630
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "20 mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "20 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "20 mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     303,
+     654,
+     433,
+     688
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tab"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     433,
+     654,
+     495,
+     688
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po qd",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po qd"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     935,
+     603,
+     1175,
+     630
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1352,
+     618,
+     1399,
+     649
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "3",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "3"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1507,
+     618,
+     1530,
+     649
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "MEI-LIN CASTELLANOS, PA-C",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "MEI-LIN CASTELLANOS, PA-C"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     876,
+     388,
+     1290,
+     411
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1423667124",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1423667124"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1162,
+     1681,
+     1314,
+     1704
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/7/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/7/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     105,
+     603,
+     232,
+     630
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     603,
+     1653,
+     865,
+     1699
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "OCT-07-2026 16:53 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Alderwick Care Center - Tel (914) 555-0131 Fax (914) 555-0132",
+  "PHYSICIAN ORDER FORM - Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED: 265-A",
+  "MRN: 564954",
+  "ALLERGIES: NKDA",
+  "ATTENDING: MEI-LIN CASTELLANOS, PA-C",
+  "Written order checkbox marked (X)",
+  "Noted by (nurse): T. Brannigan RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po qd"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

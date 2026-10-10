@@ -1,0 +1,291 @@
+{
+ "prescription_id": "rx_006",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_006.png"
+ },
+ "patient_identity": {
+  "header_name": "Yasmin Quintanilla",
+  "block_name": null,
+  "dob_values": [
+   "1970-08-07"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "Yasmin Quintanilla",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Yasmin Quintanilla"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     429,
+     394,
+     457
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "08/07/1970",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "08/07/1970"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     893,
+     429,
+     1069,
+     457
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "LEVOTHYROXINE",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "LEVOTHYROXINE"
+    },
+    {
+     "source": "secondary",
+     "value": "LEVOTHYROXINE"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     738,
+     425,
+     769
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "100 MCG",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "100 MCG"
+    },
+    {
+     "source": "secondary",
+     "value": "100 MCG"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     433,
+     738,
+     618,
+     769
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "TABLET",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "TABLET"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     626,
+     738,
+     773,
+     769
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "Take 1 tablet by mouth every morning on an empty stomach",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Take 1 tablet by mouth every morning on an empty stomach"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     870,
+     1012,
+     899
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "90",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "90"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1001,
+     155,
+     1027
+    ]
+   }
+  },
+  "days_supply": {
+   "raw_value": null,
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": null
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1218,
+     1001,
+     1255,
+     1027
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "1",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     301,
+     1001,
+     325,
+     1027
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "Augustin Belrose, MD",
+   "source_quality": "PARTIAL",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Augustin Belrose, MD"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     121,
+     1302,
+     394,
+     1332
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1752917033",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1752917033"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     665,
+     1302,
+     873,
+     1332
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/10/2026",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/10/2026"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1388,
+     229,
+     1553,
+     256
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     232,
+     1584,
+     618,
+     1607
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "Fax header: 'KESTREL ROW MEDICAL GROUP (718) 555-0178 TO: (212) 555-0199 P.001/001'",
+  "Rx ref: 4502949",
+  "License: 905550",
+  "Electronically signed by Augustin Belrose, MD on 10/10/2026 11:51",
+  "This prescription was generated from the electronic health record and transmitted by facsimile. If you received it in error, notify the sender and destroy all copies.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "Pharmacy: Corner Test Pharmacy Fax (212) 555-0199",
+  "Substitution: Permitted",
+  "Allergies: NKDA",
+  "Take 1 tablet by mouth every morning on an empty stomach",
+  "Substitution Permitted",
+  "This prescription was generated from the electronic health record and transmitted by facsimile.",
+  "If you received it in error, notify the sender and destroy all copies."
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}

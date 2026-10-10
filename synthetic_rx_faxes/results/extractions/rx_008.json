@@ -1,0 +1,269 @@
+{
+ "prescription_id": "rx_008",
+ "source": {
+  "type": "fax_image",
+  "original_path": "/Users/dishaanil/Desktop/Get Hired/rx-fax-verifier/synthetic_rx_faxes/faxes/rx_008.png"
+ },
+ "patient_identity": {
+  "header_name": "CORMAC STAVROS",
+  "block_name": null,
+  "dob_values": [
+   "1937-03-01"
+  ]
+ },
+ "fields": {
+  "patient": {
+   "raw_value": "CORMAC STAVROS",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "CORMAC STAVROS"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     172,
+     294,
+     448,
+     321
+    ]
+   }
+  },
+  "patient_dob": {
+   "raw_value": "03/01/1937",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "03/01/1937"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     113,
+     341,
+     247,
+     362
+    ]
+   }
+  },
+  "drug": {
+   "raw_value": "Metformin",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Metformin"
+    },
+    {
+     "source": "secondary",
+     "value": "Metformin"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     249,
+     569,
+     388,
+     593
+    ]
+   }
+  },
+  "strength": {
+   "raw_value": "1000mg",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1000 mg"
+    },
+    {
+     "source": "secondary",
+     "value": "1000mg"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     249,
+     624,
+     355,
+     649
+    ]
+   }
+  },
+  "form": {
+   "raw_value": "tab",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "tablet"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     359,
+     624,
+     405,
+     649
+    ]
+   }
+  },
+  "sig": {
+   "raw_value": "1 tab po bid w/ meals",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1 tab po bid w/ meals"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     924,
+     569,
+     1097,
+     649
+    ]
+   }
+  },
+  "quantity": {
+   "raw_value": "180",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "180"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1328,
+     592,
+     1369,
+     618
+    ]
+   }
+  },
+  "refills": {
+   "raw_value": "5",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "5"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1456,
+     592,
+     1476,
+     618
+    ]
+   }
+  },
+  "prescriber": {
+   "raw_value": "GIDEON PRAETORIUS, DO",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "Gideon Praetorius, DO"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     660,
+     388,
+     969,
+     409
+    ]
+   }
+  },
+  "prescriber_identifier": {
+   "raw_value": "1597971146",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "1597971146"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     1145,
+     1681,
+     1272,
+     1701
+    ]
+   }
+  },
+  "date_written": {
+   "raw_value": "10/9/26",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "10/9/26"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     88,
+     569,
+     167,
+     593
+    ]
+   }
+  },
+  "signature_present": {
+   "raw_value": "yes",
+   "source_quality": "CLEAR",
+   "reads": [
+    {
+     "source": "primary",
+     "value": "yes"
+    }
+   ],
+   "evidence": {
+    "page": 1,
+    "bbox": [
+     252,
+     1645,
+     533,
+     1692
+    ]
+   }
+  }
+ },
+ "untrusted_text": [
+  "CT-09-2026 15:48 FROM: ALDERWICK CARE CENTER (914) 555-0132 TO: (212) 555-0199 P.001/001",
+  "Send to: Corner Test Pharmacy (212) 555-0199",
+  "ROOM/BED: 312-B",
+  "MRN: 456481",
+  "ALLERGIES: NKDA",
+  "Telephone order / Verbal order / Written order (Written order checked)",
+  "Noted by (nurse): S. Dellacroce RN",
+  "Orders must be signed by the attending physician within the period required by facility policy.",
+  "SYNTHETIC TEST DATA - NOT A VALID PRESCRIPTION",
+  "1 tab po bid w/ meals"
+ ],
+ "models": {
+  "extract_primary": "anthropic/claude-sonnet-5",
+  "extract_secondary": "openai/gpt-5.6-terra"
+ },
+ "errors": []
+}
