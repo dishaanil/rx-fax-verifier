@@ -50,6 +50,8 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
     finally { setBusy(false) }
   }
 
+  async function handleReject() { await handleAction('REJECT') }
+
   return (
     <main className="review-page">
       <header className="review-header"><button type="button" className="back" onClick={onBack}>← Intake queue</button><div><p className="eyebrow">Prescription {prescription.prescription_id}</p><h1>Pharmacist review</h1><p className="review-subtitle">Check the source. Resolve the exceptions. Verify the prescription.</p></div><StatusBadge status={prescription.status} /></header>
@@ -61,7 +63,7 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
         <PrescriptionFields fields={prescription.fields} selectedField={selectedField} onSelect={(key) => { setSelectedField(key); setCandidate(undefined); setCorrection(''); setError(null) }} />
         <ExceptionPanel exception={exception} field={field} selectedCandidate={candidate} onCandidate={setCandidate} onAction={handleAction} apiReady={apiReady && !busy && !['PROCESSING', 'APPROVED', 'REJECTED', 'UNPROCESSABLE'].includes(prescription.status)} correction={correction} onCorrection={setCorrection} documentUrl={documentUrl} />
       </div>
-      <ApprovalBar prescription={prescription} onApprove={handleApprove} apiReady={apiReady && !busy} />
+      <ApprovalBar prescription={prescription} onApprove={handleApprove} onReject={handleReject} apiReady={apiReady && !busy} />
       {prescription.source.untrusted_text?.length ? <UntrustedTextPanel text={prescription.source.untrusted_text} /> : null}
       <PrismEvidencePanel prescriptionId={prescription.prescription_id} events={prescription.audit_events} />
       <ReviewHistory prescription={prescription} />
