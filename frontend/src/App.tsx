@@ -3,6 +3,7 @@ import { getPrescription, getPrescriptions, intakePrescription } from './api/pre
 import { IntakeQueuePage } from './pages/IntakeQueuePage'
 import { PrescriptionReviewPage } from './pages/PrescriptionReviewPage'
 import type { Prescription } from './types/prescription'
+import brandIcon from './assets/rxbridge-icon.png'
 export default function App() {
   const [prescriptions, setPrescriptions] = useState<Prescription[]>([])
   const [active, setActive] = useState<Prescription | null>(null)
@@ -55,6 +56,7 @@ export default function App() {
   }
   if (loading) return <main className="loading">Loading prescriptions…</main>
   return <>
+    <nav className="app-nav" aria-label="Main navigation"><button type="button" className="brand" onClick={() => { setActive(null); setNotice(null) }}><span className="brand-icon"><img src={brandIcon} alt="" /></span><span>RxBridge</span></button><span className="nav-caption">Evidence first. Pharmacist approved.</span><span className={`connection-label${live ? ' connection-label--live' : ''}`}>{live ? 'Service connected' : 'Preview workspace'}</span></nav>
     {error && <p className="error-banner" role="alert">{error}</p>}
     {notice && <p className="notice-banner" role="status">{notice}</p>}
     {active ? <PrescriptionReviewPage key={active.prescription_id} prescription={active} apiReady={live} imageUrl={images[active.prescription_id]} onRefresh={update} onBack={() => { setActive(null); setNotice(null) }} />

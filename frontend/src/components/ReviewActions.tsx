@@ -4,8 +4,8 @@ export function ReviewActions({ disabled, canConfirm, canCorrect, onAction }: { 
       <button type="button" disabled={disabled || !canConfirm} onClick={() => onAction('CONFIRM')}>Confirm</button>
       <button type="button" disabled={disabled || !canCorrect} onClick={() => onAction('CORRECT')}>Correct</button>
       <button type="button" disabled={disabled} onClick={() => onAction('MARK_UNREADABLE')}>Mark unreadable</button>
-      <button type="button" disabled title="Awaiting backend action contract">Request clarification</button>
-      <button type="button" className="button--quiet" disabled title="Awaiting backend action contract">Reject draft</button>
+      <button type="button" onClick={() => onAction('REQUEST_CLARIFICATION')}>Request clarification</button>
+      <button type="button" className="button--quiet" onClick={() => onAction('REJECT')}>Reject draft</button>
     </div>
   )
 }

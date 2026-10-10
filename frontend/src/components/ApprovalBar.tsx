@@ -11,7 +11,7 @@ export function ApprovalBar({ prescription, onApprove, apiReady }: { prescriptio
         {prescription.status === 'REVIEW_REQUIRED' && <strong>NOT READY — {unresolvedCritical} decisions remain</strong>}
       </div>
       <button type="button" disabled={!mayRequestApproval || !apiReady} onClick={onApprove}>
-        Request pharmacist approval
+        Approve as pharmacist
       </button>
     </footer>
   )

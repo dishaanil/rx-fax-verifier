@@ -48,8 +48,11 @@ Frontend integration expects:
 - `POST /api/prescriptions/{id}/approve`: explicit pharmacist approval, followed
   by a fresh prescription read. Backend must enforce readiness and pharmacist authority.
 
-Mutation responses accept JSON or HTTP 204. Request clarification and reject remain
-disabled until their backend contracts are defined. Source highlighting and crops
+Mutation responses accept JSON or HTTP 204. Request clarification and reject open
+local draft forms; drafts do not contact a prescriber or change prescription status,
+and are cleared when the review screen is left. Submission awaits defined backend
+contracts. The review screen displays recorded resolutions, clarifications, reviewer
+identity, and audit events. Source highlighting and crops
 use pixel bounding boxes on the original, single-page image; multipage viewing
 needs page-specific image URLs.
 

@@ -35,7 +35,7 @@ export function ExceptionPanel({ exception, field, selectedCandidate, onCandidat
       <CandidateSelector values={exception.candidate_values} selectedValue={selectedCandidate} onChange={onCandidate} />
       <label className="correction-label">Corrected value<input value={correction} disabled={!apiReady} onChange={(event) => onCorrection(event.target.value)} placeholder="Enter the value supported by the source" /></label>
       <ReviewActions disabled={!apiReady} canConfirm={Boolean(selectedCandidate || (exception.candidate_values.length <= 1 && (field.normalized_value ?? field.raw_value)))} canCorrect={Boolean(correction.trim())} onAction={onAction} />
-      <p className="fixture-note">Clarification and rejection need backend action contracts before they can be submitted.</p>
+      <p className="fixture-note">Clarification and rejection open a draft form. Submission awaits the backend action contracts.</p>
       {!apiReady && <p className="fixture-note">Fixture preview: resolution is disabled until the policy API is connected. The backend revalidates every action.</p>}
     </section>
   )
