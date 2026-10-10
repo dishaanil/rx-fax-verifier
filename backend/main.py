@@ -43,10 +43,9 @@ class QueueItem(BaseModel):
 
 def seed(store: MemoryStore) -> None:
     """Load the demo raw fixtures through the normal intake path (no files written)."""
-    extractor = StubExtractor()
     for pid in STUB_IDS:
         data = (FIXTURES_DIR / f"raw_{pid}.json").read_bytes()
-        intake(store, extractor, f"{pid}.png", data, upload_dir=None)
+        intake(store, StubExtractor, f"{pid}.png", data, upload_dir=None)
 
 
 def create_app(
@@ -90,9 +89,10 @@ def create_app(
         return JSONResponse(status_code=409, content={"detail": str(exc)})
 
     @app.post("/api/intake", response_model=Prescription)
-    async def post_intake(file: UploadFile) -> Prescription:
-        data = await file.read()
-        return intake(store, extractor_factory(), file.filename, data, upload_dir)
+    def post_intake(file: UploadFile) -> Prescription:
+        # Sync handler: FastAPI runs it in its threadpool, so a slow extraction never blocks the event loop.
+        data = file.file.read()
+        return intake(store, extractor_factory, file.filename, data, upload_dir)
 
     @app.get("/api/prescriptions", response_model=list[QueueItem])
     def list_prescriptions() -> list[QueueItem]:

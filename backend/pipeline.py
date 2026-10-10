@@ -71,10 +71,17 @@ def process(
     for name in sorted(CRITICAL_FIELDS - fields.keys()):
         fields[name] = FieldResult(source_quality=SourceQuality.UNREADABLE, decision=FieldDecision.MISSING)
 
+    source = {**raw.source, "sha256": sha256}
+    untrusted_text = getattr(raw, "untrusted_text", None)
+    if untrusted_text is not None:
+        # Non-field document text (e.g. an injected instruction), kept for PRISM/UI.
+        # Evidence only: nothing in the pipeline or policy reads it.
+        source["untrusted_text"] = list(untrusted_text)
+
     rx = Prescription(
         prescription_id=raw.prescription_id,
         status=PrescriptionStatus.PROCESSING,
-        source={**raw.source, "sha256": sha256},
+        source=source,
         fields=fields,
         exceptions=[],
         clarifications=[],
