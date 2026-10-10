@@ -23,7 +23,7 @@ from backend.models import (
     SourceQuality,
 )
 from backend.normalization import normalize_sig, render_sig
-from backend.policy import evaluate_field, route_prescription
+from backend.policy import FieldRoute, evaluate_field, route_prescription
 from backend.policy.router import latest_signals
 from backend.references.catalog import lookup_all
 from backend.references.strengths import drug_base_key, normalize_strength
@@ -45,6 +45,9 @@ Clock = Callable[[], str]
 
 HUMAN_ACTION = "HUMAN_SELECTION_OR_CLARIFICATION"
 DOCUMENT_FIELD = "document"
+# Exceptions whose condition depends on another field's value. Only these are
+# cleared or re-typed automatically when a dependency changes.
+DEPENDENCY_DRIVEN_TYPES = frozenset({"POSSIBLE_QUANTITY_CONFLICT", "INVALID_STRENGTH"})
 
 _WS_RE = re.compile(r"\s+")
 _QUANTITY_RE = re.compile(r"^(\d+(?:\.\d+)?)\s*([A-Za-z]+)?$")
@@ -103,35 +106,36 @@ def revalidate(
     clock: Clock = utc_now,
     patient_identity: PatientIdentity | None = None,
 ) -> Prescription:
-    """Re-run checks on fields that are neither HUMAN_VERIFIED nor awaiting a
-    human decision on an active exception; append new evidence, re-route,
-    raise exceptions for newly blocking fields, then route the prescription.
-    Never reopens a resolved field. Mutates and returns `rx`."""
-    pending = {e.field for e in rx.exceptions}
+    """Re-run checks on every unresolved field, append new evidence, re-route,
+    and reconcile each field's active exception with the current result; then
+    route the prescription. Mutates and returns `rx`.
+
+    Never touched: HUMAN_VERIFIED fields (never reopened) and fields a
+    pharmacist marked UNREADABLE (awaiting clarification). Fields whose active
+    exception is not dependency-driven only gain signals; the pending human
+    decision owns them. Document-level exceptions are never touched."""
+    active = {e.field: e for e in rx.exceptions if e.field in rx.fields}
     order = sorted(rx.fields, key=lambda n: _EVALUATION_PRIORITY.get(n, 1))
     for name in order:
         field = rx.fields[name]
-        if field.decision is FieldDecision.HUMAN_VERIFIED or name in pending:
+        existing = active.get(name)
+        if field.decision is FieldDecision.HUMAN_VERIFIED:
+            continue
+        if existing is not None and field.decision is FieldDecision.UNREADABLE:
             continue
         signals, candidates, normalized = _check_field(name, field, rx, patient_identity)
         _append_new(field, signals)
+        if existing is not None and existing.type not in DEPENDENCY_DRIVEN_TYPES:
+            continue
         field.candidates = _dedupe(field.candidates + candidates)
         field.normalized_value = normalized
 
         route = evaluate_field(name, field)
         field.decision = route.decision
         field.reason = route.reason
-        if route.exception_type is not None:
-            _create_exception(
-                rx,
-                clock,
-                type=route.exception_type,
-                field=name,
-                reason=route.reason,
-                source_evidence=_source_evidence(field),
-                candidate_values=_exception_candidates(name, field),
-                required_action=HUMAN_ACTION,
-            )
+        # Active choices describe current evidence, not accumulated history.
+        current = [] if route.decision is FieldDecision.MISSING else _dedupe(candidates)
+        _reconcile_exception(rx, clock, name, field, existing, route, current)
 
     rx.status = route_prescription(rx)
     return rx
@@ -314,19 +318,62 @@ def _from_raw(rf) -> FieldResult:
     )
 
 
+def _reconcile_exception(
+    rx: Prescription,
+    clock: Clock,
+    name: str,
+    field: FieldResult,
+    existing: RxException | None,
+    route: FieldRoute,
+    candidates: list[str],
+) -> None:
+    """Clear, update in place, or replace `existing` to match the current route."""
+    if route.exception_type is None:
+        if existing is not None:
+            _clear_exception(rx, clock, existing, "dependency resolved")
+        return
+
+    current = {
+        "reason": route.reason,
+        "source_evidence": _source_evidence(field),
+        "candidate_values": candidates,
+        "required_action": HUMAN_ACTION,
+    }
+    if existing is not None and existing.type == route.exception_type:
+        if any(getattr(existing, k) != v for k, v in current.items()):
+            for k, v in current.items():
+                setattr(existing, k, v)
+            append_event(rx, clock, "SYSTEM", "EXCEPTION_UPDATED", exception_id=existing.exception_id)
+        return
+    if existing is not None:
+        _clear_exception(rx, clock, existing, "blocking condition changed")
+    _create_exception(rx, clock, type=route.exception_type, field=name, **current)
+
+
+def _clear_exception(rx: Prescription, clock: Clock, exception: RxException, reason: str) -> None:
+    rx.exceptions = [e for e in rx.exceptions if e.exception_id != exception.exception_id]
+    for record in rx.clarifications:
+        if record.get("exception_id") == exception.exception_id and record.get("status") == "REQUESTED":
+            record["status"] = "WITHDRAWN"
+    append_event(rx, clock, "SYSTEM", "EXCEPTION_CLEARED", exception_id=exception.exception_id, reason=reason)
+
+
 def _create_exception(rx: Prescription, clock: Clock, **kwargs) -> RxException:
-    # Ids stay unique after resolved exceptions are removed: numbering follows creation count.
-    n = 1 + sum(1 for e in rx.audit_events if e.get("event") == "EXCEPTION_CREATED")
+    n = _next_exception_number(rx)
     exception = RxException(exception_id=f"{rx.prescription_id}__exc_{n:02d}", severity="CRITICAL", **kwargs)
     rx.exceptions.append(exception)
     append_event(rx, clock, "SYSTEM", "EXCEPTION_CREATED", exception_id=exception.exception_id)
     return exception
 
 
-def _exception_candidates(name: str, field: FieldResult) -> list[str]:
-    if field.decision is FieldDecision.MISSING:
-        return []
-    return list(field.candidates)
+def _next_exception_number(rx: Prescription) -> int:
+    """1 + the highest suffix ever issued on this prescription, so a cleared id is never reused."""
+    pattern = re.compile(rf"^{re.escape(rx.prescription_id)}__exc_(\d+)$")
+    ids = [e.exception_id for e in rx.exceptions]
+    ids += [e.get("exception_id") for e in rx.audit_events]
+    ids += [c.get("exception_id") for c in rx.clarifications]
+    numbers = [int(m.group(1)) for i in ids if isinstance(i, str) and (m := pattern.match(i))]
+    return max(numbers, default=0) + 1
 
 
 def _source_evidence(field: FieldResult) -> dict | None:
