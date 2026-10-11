@@ -39,6 +39,7 @@ from backend.validators.cross_pass import validate_cross_pass
 from backend.validators.lasa import validate_lasa
 from backend.validators.quantity import format_quantity, implied_quantity
 from backend.validators.reference import validate_reference
+from backend.validators.strength_ambiguity import validate_strength_collision
 from backend.validators.required_fields import check_required
 
 Clock = Callable[[], str]
@@ -242,25 +243,35 @@ def _check_strength(
 ) -> tuple[list[Signal], list[str], str | None]:
     read_values = [r.value for r in field.reads if r.value]
     cross = validate_cross_pass([normalize_strength(v) or _collapse(v).casefold() for v in read_values])
-    signals += [cross, _marketed_strength(value, rx)]
+    signals += [cross, _marketed_strength(value, rx), _strength_collision(value, rx)]
     candidates = _dedupe([_collapse(v) for v in read_values] + [_collapse(value)])
     return signals, candidates, None if cross.status is SignalStatus.FAIL else _collapse(value)
 
 
 def _marketed_strength(strength: str, rx: Prescription) -> Signal:
+    return _per_drug_strength_check(strength, rx, validate_marketed_strength, "MARKETED_STRENGTH", "Marketed-strength")
+
+
+def _strength_collision(strength: str, rx: Prescription) -> Signal:
+    return _per_drug_strength_check(strength, rx, validate_strength_collision, "PLAUSIBLE_STRENGTH_COLLISION", "Strength-collision")
+
+
+def _per_drug_strength_check(
+    strength: str, rx: Prescription, validate: Callable[[str, str], Signal], signal_type: str, label: str
+) -> Signal:
     """Checked against every plausible drug. PASS/FAIL only when all candidates
     agree; otherwise WARNING, re-checked once the drug is resolved."""
     drug_names = _drug_context(rx)
     form_field = rx.fields.get("form")
     form = _collapse(field_value(form_field)) if form_field and not _blank(field_value(form_field)) else None
     if not drug_names:
-        return Signal(type="MARKETED_STRENGTH", status=SignalStatus.WARNING, detail="Drug not established; strength not checked.")
+        return Signal(type=signal_type, status=SignalStatus.WARNING, detail="Drug not established; strength not checked.")
 
     results = []
     for drug in drug_names:
-        result = validate_marketed_strength(f"{drug} {form}", strength) if form else None
+        result = validate(f"{drug} {form}", strength) if form else None
         if result is None or result.status is SignalStatus.WARNING:
-            result = validate_marketed_strength(drug, strength)
+            result = validate(drug, strength)
         results.append(result)
 
     statuses = {r.status for r in results}
@@ -269,9 +280,9 @@ def _marketed_strength(strength: str, rx: Prescription) -> Signal:
     if len(results) == 1:
         return results[0]
     return Signal(
-        type="MARKETED_STRENGTH",
+        type=signal_type,
         status=SignalStatus.WARNING,
-        detail="Marketed-strength result depends on which drug candidate is meant.",
+        detail=f"{label} result depends on which drug candidate is meant.",
     )
 
 

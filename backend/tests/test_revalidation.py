@@ -111,15 +111,31 @@ def test_quantity_exception_updated_in_place(sig_case):
 # 3-5 -----------------------------------------------------------------------
 
 
-def test_drug_correction_clears_stale_invalid_strength(strength_case):
-    store, review, rx = strength_case
+def test_drug_correction_clears_stale_invalid_strength():
+    store, review, rx = setup(crafted("rx_D", strength="40 mg"))
+    assert [e.type for e in rx.exceptions] == ["AMBIGUOUS_DRUG", "INVALID_STRENGTH"]
 
-    rx = review.resolve(exc(rx, "AMBIGUOUS_DRUG").exception_id, "CORRECT", "metoprolol tartrate")
+    rx = review.resolve(exc(rx, "AMBIGUOUS_DRUG").exception_id, "CORRECT", "atorvastatin")
 
     assert rx.exceptions == []
     assert rx.fields["strength"].decision is FieldDecision.VERIFIED
     assert latest(rx, "strength", "MARKETED_STRENGTH").status is SignalStatus.PASS
     assert rx.status is PrescriptionStatus.READY_FOR_VERIFICATION
+
+
+def test_drug_correction_retypes_invalid_strength_to_collision(strength_case):
+    """75 mg is marketed for metoprolol tartrate, but so is the confusable 25 mg."""
+    store, review, rx = strength_case
+    invalid_id = exc(rx, "INVALID_STRENGTH").exception_id
+
+    rx = review.resolve(exc(rx, "AMBIGUOUS_DRUG").exception_id, "CORRECT", "metoprolol tartrate")
+
+    assert [e.type for e in rx.exceptions] == ["AMBIGUOUS_STRENGTH"]
+    assert exc(rx, "AMBIGUOUS_STRENGTH").exception_id != invalid_id
+    assert latest(rx, "strength", "MARKETED_STRENGTH").status is SignalStatus.PASS
+    assert latest(rx, "strength", "PLAUSIBLE_STRENGTH_COLLISION").status is SignalStatus.FAIL
+    assert rx.fields["strength"].decision is FieldDecision.REVIEW_REQUIRED
+    assert rx.status is PrescriptionStatus.REVIEW_REQUIRED
 
 
 def test_still_invalid_strength_keeps_one_exception(strength_case):
