@@ -29,6 +29,10 @@ REASON_LASA = "The drug name is a known look-alike and the source does not settl
 REASON_REFERENCE_AMBIGUOUS = "More than one reference drug plausibly matches the source text."
 REASON_REFERENCE_GAP = "The drug name could not be matched to the reference catalog, so its identity is not independently supported."
 REASON_INVALID_STRENGTH = "This strength is not a marketed strength for this drug."
+REASON_STRENGTH_COLLISION = (
+    "Another marketed strength is visually confusable with this reading, "
+    "so agreement between extraction passes is not sufficient."
+)
 REASON_IDENTIFIER = "The prescriber identifier fails its checksum."
 REASON_SIG = "The directions contain a term outside the supported vocabulary."
 REASON_QUANTITY = "The quantity does not match what the directions and days supply imply."
@@ -91,6 +95,10 @@ def _evaluate_critical(name: str, field: FieldResult) -> FieldRoute:
     deterministic = _deterministic_failure(latest)
     if deterministic is not None:
         return deterministic
+    # 6b. Plausible strength collision: agreeing reads of a marketed strength are
+    # not enough when a confusable marketed alternative exists (common-mode misread).
+    if failed("PLAUSIBLE_STRENGTH_COLLISION"):
+        return FieldRoute(review, REASON_STRENGTH_COLLISION, "AMBIGUOUS_STRENGTH")
     # 7. Cross-field contradiction.
     if failed("QUANTITY_SIG"):
         return FieldRoute(review, REASON_QUANTITY, "POSSIBLE_QUANTITY_CONFLICT")
