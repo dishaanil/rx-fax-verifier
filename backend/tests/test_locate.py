@@ -8,7 +8,7 @@ import pytest
 from PIL import Image, ImageDraw
 
 from backend.extraction import extractor
-from backend.extraction.locate import LocateError, Word, locate, parse_words
+from backend.extraction.locate import LocateError, Word, locate, locate_after, parse_words
 from backend.extraction.vision import GoogleVisionOCR
 from backend.preprocessing.image import ProcessedImage, to_original_bbox
 from backend.tests.test_nicrron_extraction import FakeGateway, entry, primary_reply, SECONDARY
@@ -33,6 +33,12 @@ def test_strength_box_lands_on_the_strength_not_the_drug():
 def test_multi_word_value_gets_one_box_around_its_words():
     assert locate("Metoprolol tartrate", WORDS) == (539, 904, 1010, 946)
     assert locate("1 tab po bid", WORDS) == (620, 1032, 900, 1074)
+
+
+def test_numbers_must_match_exactly():
+    assert locate("15 mg", [Word("10mg", (0, 0, 40, 20))]) is None
+    assert locate("NPI 1707981932", [Word("NPI", (0, 0, 30, 20)), Word("1707981932", (35, 0, 150, 20))])
+    assert locate("1707981932", [Word("1707981982", (0, 0, 150, 20))]) is None
 
 
 def test_ocr_misreads_still_match_but_unrelated_text_does_not():
@@ -156,3 +162,28 @@ def test_second_reading_is_tried_when_the_first_is_not_on_the_page(fax):
     gw = FakeGateway({"extract_primary": primary, "extract_secondary": secondary})
     rx = extractor.extract(fax, "rx_test", gateway=gw, locator=FakeOCR(words))
     assert rx.fields["strength"].evidence.bbox == (1045, 900, 1150, 948)
+
+
+FADED = [Word("Metoprolol", (521, 897, 747, 958)), Word("tartrate", (776, 896, 1000, 957)),
+         Word("romg", (1039, 896, 1153, 955)), Word("tab", (1201, 895, 1287, 955)),
+         Word("10mg", (1300, 1200, 1400, 1250))]  # another strength lower on the page
+
+
+def test_unreadable_strength_is_found_by_its_unit_after_the_drug():
+    # Demo B: OCR read the faded "75mg" as "romg", matching neither model reading.
+    assert locate("15 mg", FADED) is None
+    assert locate_after("15mg", FADED, (521, 896, 1000, 958)) == (1039, 896, 1153, 955)
+
+
+def test_unit_search_stays_on_the_drug_line_and_handles_split_words():
+    split = [Word("Lisinopril", (100, 100, 300, 140)), Word("2?", (320, 100, 360, 140)), Word("mg", (365, 100, 410, 140))]
+    assert locate_after("2? mg", split, (100, 100, 300, 140)) == (320, 100, 410, 140)
+    assert locate_after("15 mg", [Word("10mg", (1300, 1200, 1400, 1250))], (521, 896, 1000, 958)) is None
+    assert locate_after(None, FADED, (521, 896, 1000, 958)) is None
+
+
+def test_extractor_finds_a_faded_strength_next_to_the_drug(fax):
+    words = [Word("hydroxyzine", (500, 900, 800, 950)), Word("HCl", (810, 900, 880, 950)), Word("romg", (900, 900, 1000, 950))]
+    rx = run(fax, FakeOCR(words))
+    assert rx.fields["strength"].evidence.bbox == (900, 900, 1000, 950)
+    assert list(rx.fields) == [f for f in extractor.EXTRACTED_FIELDS if f in rx.fields]  # order kept

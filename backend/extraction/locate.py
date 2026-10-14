@@ -67,8 +67,9 @@ def locate(value: str | None, words: list[Word], hint: Box | None = None) -> Box
             run = words[start : start + length]
             if len(run) < length or not _same_line(run):
                 break
-            score = SequenceMatcher(None, target, _key("".join(w.text for w in run))).ratio()
-            if score < MIN_SIMILARITY:
+            found = _key("".join(w.text for w in run))
+            score = SequenceMatcher(None, target, found).ratio()
+            if score < MIN_SIMILARITY or not _digits_agree(target, found):
                 continue
             box = _union(w.box for w in run)
             distance = _distance(box, hint)
@@ -80,9 +81,38 @@ def locate(value: str | None, words: list[Word], hint: Box | None = None) -> Box
     return best[2] if best else None
 
 
+def locate_after(value: str | None, words: list[Word], anchor: Box) -> Box | None:
+    """Box of the first word after `anchor` on its line that ends in `value`'s unit.
+
+    For a strength whose digits OCR misreads too (a faded "75mg" read as "romg"):
+    the strength follows the drug on the same line, and the unit survives.
+    """
+    unit = re.search(r"[a-z]+$", _key(value or ""))
+    if not unit:
+        return None
+    unit = unit.group()
+    line = sorted((w for w in words if _same_line([Word("", anchor), w]) and w.box[0] >= anchor[2] - 5),
+                  key=lambda w: w.box[0])
+    for i, word in enumerate(line):
+        key = _key(word.text)
+        if key == unit and i > 0:  # "75" "mg" as two words
+            return _union([line[i - 1].box, word.box])
+        if key.endswith(unit) and len(key) > len(unit):
+            return word.box
+    return None
+
+
 def _key(text: str) -> str:
     # Spacing and punctuation vary between OCR and the models ("15 mg" vs "15mg").
     return re.sub(r"[^0-9a-z?]", "", text.casefold())
+
+
+def _digits_agree(target: str, found: str) -> bool:
+    # One digit off is a different value ("15mg" is not "10mg"): numbers must match exactly,
+    # except where the reading itself marks a character illegible.
+    if "?" in target or not re.search(r"\d", target):  # a word's "l" read as "1" is fine
+        return True
+    return re.sub(r"\D", "", target) == re.sub(r"\D", "", found)
 
 
 def _same_line(run: list[Word]) -> bool:

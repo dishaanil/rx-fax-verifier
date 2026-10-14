@@ -34,7 +34,7 @@ from PIL import Image
 
 from backend.extraction.gateway import NicrronError, NicrronGateway, image_content
 from backend.extraction.interface import ExtractionError
-from backend.extraction.locate import LocateError, Word, locate
+from backend.extraction.locate import LocateError, Word, locate, locate_after
 from backend.extraction.vision import GoogleVisionOCR
 from backend.extraction.raw import PatientIdentity, RawField, RawPrescriptionExtraction
 from backend.models import Evidence, Read, SourceQuality
@@ -264,7 +264,9 @@ def _build_fields(primary: dict, secondary: dict, model_size: tuple[int, int], o
 def _place_evidence(fields: dict[str, RawField], words: list[Word], processed: ProcessedImage) -> dict[str, RawField]:
     """Move each box onto the value's OCR words when found, then into original-image pixels."""
     placed: dict[str, RawField] = {}
-    for name, field in fields.items():
+    located: dict[str, tuple[int, int, int, int]] = {}  # OCR-confirmed boxes, primary pixels
+    # The drug first: an unreadable strength is found next to it.
+    for name, field in sorted(fields.items(), key=lambda item: item[0] != "drug"):
         hint = field.evidence.bbox if field.evidence else None
         box = None
         if words and name not in UNLOCATED_FIELDS:
@@ -273,11 +275,15 @@ def _place_evidence(fields: dict[str, RawField], words: list[Word], processed: P
             for value in _dedupe([v for v in readings if v]):
                 if box := locate(value, words, hint):
                     break
+            if box is None and name == "strength" and (drug := located.get("drug")):
+                box = locate_after(field.raw_value, words, drug)
+        if box is not None:
+            located[name] = box
         box = box or hint
         placed[name] = field.model_copy(update={
             "evidence": Evidence(page=1, bbox=to_original_bbox(box, processed) if box else None),
         })
-    return placed
+    return {name: placed[name] for name in fields}
 
 
 def _identity(value: Any) -> PatientIdentity | None:
