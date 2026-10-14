@@ -1,72 +1,99 @@
 import { useState } from 'react'
 import { approvePrescription, prescriptionSourceUrl, rejectPrescription, resolveException, type ResolutionAction } from '../api/prescriptions'
-import { ApprovalBar } from '../components/ApprovalBar'
+import { DecisionCard } from '../components/DecisionCard'
 import { DocumentViewer } from '../components/DocumentViewer'
-import { ExceptionPanel } from '../components/ExceptionPanel'
-import { PrismEvidencePanel } from '../components/PrismEvidencePanel'
-import { PrescriptionFields } from '../components/PrescriptionFields'
-import { ReviewHistory } from '../components/ReviewHistory'
+import { FieldList } from '../components/FieldList'
+import { IssuePanel } from '../components/IssuePanel'
+import { MoreDetails } from '../components/MoreDetails'
 import { StatusBadge } from '../components/StatusBadge'
-import { UntrustedTextPanel } from '../components/UntrustedTextPanel'
+import { Stepper } from '../components/Stepper'
+import { FINISHED, fieldLabel, fieldValue } from '../lib/review'
 import type { Prescription } from '../types/prescription'
 
 export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBack }: { prescription: Prescription; apiReady: boolean; onRefresh: (value: Prescription) => void; onBack: () => void }) {
-  const [selectedField, setSelectedField] = useState<string | null>(prescription.exceptions[0]?.field ?? null)
-  const [candidate, setCandidate] = useState<string | undefined>()
+  const { exceptions, fields, status } = prescription
+  const [issueId, setIssueId] = useState<string | null>(exceptions[0]?.exception_id ?? null)
+  const [selectedField, setSelectedField] = useState<string | null>(exceptions[0]?.field ?? null)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
-  const [correction, setCorrection] = useState('')
   const documentUrl = prescriptionSourceUrl(prescription.prescription_id)
-  const field = selectedField ? prescription.fields[selectedField] : undefined
-  const exception = prescription.exceptions.find((item) => item.field === selectedField)
 
-  async function handleAction(action: string) {
-    if (busy || !apiReady) return
-    if (action === 'REJECT') {
-      setBusy(true)
-      try { onRefresh(await rejectPrescription(prescription.prescription_id)); setError(null) }
-      catch (caught) { setError(caught instanceof Error ? caught.message : 'Prescription could not be rejected.') }
-      finally { setBusy(false) }
-      return
-    }
-    if (!exception) return
-    const value = action === 'CORRECT' ? correction.trim() : action === 'SELECT_VALUE' ? candidate : undefined
-    if ((action === 'CORRECT' || action === 'SELECT_VALUE') && !value) { setError(action === 'CORRECT' ? 'Enter a corrected value first.' : 'Select a candidate first.'); return }
+  const issueIndex = Math.max(0, exceptions.findIndex((item) => item.exception_id === issueId))
+  const issue = exceptions[issueIndex]
+  const locked = !apiReady || status === 'PROCESSING' || FINISHED.includes(status)
+  const field = selectedField ? fields[selectedField] : undefined
+  const issueEvidence = issue && issue.field === selectedField && issue.source_evidence?.bbox ? issue.source_evidence : null
+  const patient = fields.patient ? fieldValue(fields.patient) : null
+  const medication = [fields.drug, fields.strength].map((item) => item && fieldValue(item)).filter(Boolean).join(' ')
+
+  async function run(action: () => Promise<Prescription>, failure: string) {
+    if (busy) return
     setBusy(true)
     try {
-      const next = await resolveException(prescription.prescription_id, exception.exception_id, action as ResolutionAction, value)
-      onRefresh(next); setCandidate(undefined); setCorrection(''); setError(null)
-      setSelectedField(next.exceptions[0]?.field ?? selectedField)
+      const next = await action()
+      onRefresh(next); setError(null)
+      setIssueId(next.exceptions[0]?.exception_id ?? null)
+      setSelectedField(next.exceptions[0]?.field ?? null)
+    } catch (caught) { setError(caught instanceof Error ? caught.message : failure) }
+    finally { setBusy(false) }
+  }
+
+  function resolve(action: ResolutionAction, value?: string) {
+    if (issue) void run(() => resolveException(prescription.prescription_id, issue.exception_id, action, value), 'That decision could not be saved.')
+  }
+
+  function reject() {
+    if (window.confirm('Reject this prescription? Nothing will be dispensed from this fax.')) {
+      void run(() => rejectPrescription(prescription.prescription_id), 'The prescription could not be rejected.')
     }
-    catch (caught) { setError(caught instanceof Error ? caught.message : 'Unable to resolve exception.') }
-    finally { setBusy(false) }
   }
 
-  async function handleApprove() {
-    if (busy || !apiReady || prescription.status !== 'READY_FOR_VERIFICATION') return
-    setBusy(true)
-    try { onRefresh(await approvePrescription(prescription.prescription_id)); setError(null) }
-    catch (caught) { setError(caught instanceof Error ? caught.message : 'Approval was not permitted.') }
-    finally { setBusy(false) }
+  function selectField(key: string) {
+    setSelectedField(key)
+    const match = exceptions.find((item) => item.field === key)
+    if (match) setIssueId(match.exception_id)
   }
 
-  async function handleReject() { await handleAction('REJECT') }
+  function move(step: -1 | 1) {
+    const next = exceptions[(issueIndex + step + exceptions.length) % exceptions.length]
+    setIssueId(next.exception_id); setSelectedField(next.field)
+  }
 
   return (
-    <main className="review-page">
-      <header className="review-header"><button type="button" className="back" onClick={onBack}>← Intake queue</button><div><p className="eyebrow">Prescription {prescription.prescription_id}</p><h1>Pharmacist review</h1><p className="review-subtitle">Check the source. Resolve the exceptions. Verify the prescription.</p></div><StatusBadge status={prescription.status} /></header>
-      <div className="workflow-strip"><span className="complete">1 · Intake</span><span className="active">2 · Evidence review</span><span className={prescription.status === 'APPROVED' ? 'complete' : ''}>3 · Pharmacist approval</span></div>
-      {error && <p className="error-banner" role="alert">{error}</p>}
-      {(busy || prescription.status === 'PROCESSING') && <p role="status">{busy ? 'Saving and revalidating…' : 'Extracting prescription fields…'}</p>}
-      <div className="review-grid">
-        <DocumentViewer documentPath={documentUrl} evidence={field?.evidence} />
-        <PrescriptionFields fields={prescription.fields} selectedField={selectedField} onSelect={(key) => { setSelectedField(key); setCandidate(undefined); setCorrection(''); setError(null) }} />
-        <ExceptionPanel exception={exception} field={field} selectedCandidate={candidate} onCandidate={setCandidate} onAction={handleAction} apiReady={apiReady && !busy && !['PROCESSING', 'APPROVED', 'REJECTED', 'UNPROCESSABLE'].includes(prescription.status)} correction={correction} onCorrection={setCorrection} documentUrl={documentUrl} />
+    <main className="review">
+      <header className="review__header">
+        <button type="button" className="link-button back" onClick={onBack}>← All prescriptions</button>
+        <div className="review__title">
+          <h1>{patient ?? 'Unknown patient'}</h1>
+          <p>{medication || 'Medication not read yet'} <span className="muted">· {prescription.prescription_id}</span></p>
+        </div>
+        <StatusBadge status={status} />
+        {!FINISHED.includes(status) && apiReady && <button type="button" className="button button--quiet-danger" disabled={busy} onClick={reject}>Reject prescription</button>}
+      </header>
+
+      <Stepper prescription={prescription} />
+      {error && <p className="banner banner--error" role="alert">{error}</p>}
+      {busy && <p className="banner" role="status">Saving and re-checking…</p>}
+
+      <div className="review__grid">
+        <DocumentViewer documentPath={documentUrl} evidence={issueEvidence ?? field?.evidence} label={selectedField ? fieldLabel(selectedField).toLowerCase() : undefined} />
+        <div className="review__side">
+          {issue && !FINISHED.includes(status)
+            ? <IssuePanel key={issue.exception_id} prescription={prescription} exception={issue} position={issueIndex + 1} total={exceptions.length}
+                onMove={move} onResolve={resolve} onReject={() => void run(() => rejectPrescription(prescription.prescription_id), 'The prescription could not be rejected.')}
+                disabled={busy || locked} documentUrl={documentUrl} />
+            : <DecisionCard prescription={prescription} disabled={busy || !apiReady} onApprove={() => void run(() => approvePrescription(prescription.prescription_id), 'Approval was not permitted.')} />}
+          {issue && !FINISHED.includes(status) && (
+            // Approval stays visible but disabled while issues remain (DESIGN.md §13).
+            <button type="button" className="button button--primary button--wide" disabled>
+              Approve as pharmacist · {exceptions.length} {exceptions.length === 1 ? 'issue' : 'issues'} left
+            </button>
+          )}
+          {!apiReady && <p className="note">Preview only: connect the prescription service to make decisions.</p>}
+          <FieldList prescription={prescription} selected={selectedField} onSelect={selectField} />
+          <MoreDetails prescription={prescription} />
+        </div>
       </div>
-      <ApprovalBar prescription={prescription} onApprove={handleApprove} onReject={handleReject} apiReady={apiReady && !busy} />
-      {prescription.source.untrusted_text?.length ? <UntrustedTextPanel text={prescription.source.untrusted_text} /> : null}
-      <PrismEvidencePanel prescriptionId={prescription.prescription_id} events={prescription.audit_events} />
-      <ReviewHistory prescription={prescription} />
     </main>
   )
 }
