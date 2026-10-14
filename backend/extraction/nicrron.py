@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 
 from backend.extraction.extractor import NicrronExtraction, extract
 from backend.extraction.gateway import NicrronGateway, Tracer
+from backend.extraction.vision import GoogleVisionOCR
 from backend.prism import PrismTracer
 
 _ROOT = Path(__file__).resolve().parents[2]
@@ -23,9 +24,12 @@ class NicrronExtractor:
         self.prism = tracer if tracer is not None else PrismTracer.from_env()
         self.gateway = NicrronGateway(tracer=self.prism)  # raises if the key/base URL is not configured
         self.processed_dir = processed_dir or os.environ.get("RXBRIDGE_PROCESSED_DIR")
+        # Exact evidence boxes; the model's boxes are used when GOOGLE_VISION_API_KEY is unset.
+        self.locator = GoogleVisionOCR.from_env()
 
     def extract(self, path: str, prescription_id: str) -> NicrronExtraction:
-        result = extract(path, prescription_id, gateway=self.gateway, processed_dir=self.processed_dir)
+        result = extract(path, prescription_id, gateway=self.gateway, processed_dir=self.processed_dir,
+                         locator=self.locator)
         if isinstance(self.prism, PrismTracer):
             self.prism.screen_document_text(prescription_id, result.untrusted_text)
             result.prism_events = self.prism.pop_events(prescription_id)

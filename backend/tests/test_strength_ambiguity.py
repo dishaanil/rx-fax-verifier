@@ -162,3 +162,18 @@ def test_router_ranks_collision_before_verified():
     route = evaluate_field("strength", field)
     assert route.decision is FieldDecision.REVIEW_REQUIRED
     assert route.exception_type == "AMBIGUOUS_STRENGTH"
+
+
+def test_same_strength_spelled_differently_is_offered_once():
+    # Demo B: primary "15 mg", secondary "100mg", verbatim "15mg" -> two options, not three.
+    from backend.models import Read
+    from backend.pipeline import process
+    from backend.tests.conftest import fixed_clock
+
+    raw = crafted("rx_A", strength={
+        "raw_value": "15mg",
+        "reads": [Read(source="primary", value="15 mg"), Read(source="secondary", value="100mg")],
+    })
+    rx = process(raw, set(), "sha-dedupe", fixed_clock)
+
+    assert rx.fields["strength"].candidates == ["15 mg", "100 mg"]

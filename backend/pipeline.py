@@ -244,7 +244,8 @@ def _check_strength(
     read_values = [r.value for r in field.reads if r.value]
     cross = validate_cross_pass([normalize_strength(v) or _collapse(v).casefold() for v in read_values])
     signals += [cross, _marketed_strength(value, rx), _strength_collision(value, rx)]
-    candidates = _dedupe([_collapse(v) for v in read_values] + [_collapse(value)])
+    # Canonical spelling, so "15 mg" and "15mg" are offered once.
+    candidates = _dedupe([normalize_strength(v) or _collapse(v) for v in read_values + [value]])
     return signals, candidates, None if cross.status is SignalStatus.FAIL else _collapse(value)
 
 
