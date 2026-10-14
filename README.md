@@ -104,6 +104,7 @@ uv pip install --python .venv/bin/python -r backend/requirements.txt
 | Variable | Default | Meaning |
 |---|---|---|
 | `RXBRIDGE_EXTRACTOR` | `stub` | `stub` maps the upload's filename stem to `fixtures/raw_<stem>.json` (`rx_037`, `rx_A`, `rx_C`, `rx_D`, `rx_E`, `rx_F`). `nicrron` runs the real extractor (`backend/extraction/nicrron.py`): needs `NICRRON_API_KEY`, `NICRRON_BASE_URL` and the two model names in `.env` (see `.env.example`). |
+| `GOOGLE_VISION_API_KEY` | unset | Optional, `nicrron` only. Google Cloud Vision OCR finds where each value is written, so the highlight box lands on the right text (`backend/extraction/locate.py`). Unset, or if a value is not found, the model's estimated box is used. |
 | `RXBRIDGE_SEED` | `0` | `1` loads the six demo fixtures into the in-memory store at startup. |
 | `RXBRIDGE_UPLOAD_DIR` | `backend/uploads` | Where uploaded source files are saved (gitignored). |
 

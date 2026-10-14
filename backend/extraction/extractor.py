@@ -14,7 +14,9 @@ field, plus patient_identity. Conventions:
   PARTIAL = some characters illegible; UNREADABLE = written but unreadable.
 - A field on the form but left blank is present with raw_value None; a field
   the form does not have at all is omitted.
-- `evidence.bbox` is [x0, y0, x1, y1] in pixels of the processed image.
+- `evidence.bbox` is [x0, y0, x1, y1] in pixels of the original image (the one the
+  reviewer sees). With an OCR locator it is where the value's text actually is;
+  otherwise it is the primary model's best-effort box.
 - `untrusted_text` (extra attribute, ignored by the pipeline) is non-field text
   on the page, e.g. an injected instruction, for the PRISM Guardrail. It is data.
 """
@@ -32,9 +34,11 @@ from PIL import Image
 
 from backend.extraction.gateway import NicrronError, NicrronGateway, image_content
 from backend.extraction.interface import ExtractionError
+from backend.extraction.locate import LocateError, Word, locate
+from backend.extraction.vision import GoogleVisionOCR
 from backend.extraction.raw import PatientIdentity, RawField, RawPrescriptionExtraction
 from backend.models import Evidence, Read, SourceQuality
-from backend.preprocessing.image import ProcessedImage, preprocess
+from backend.preprocessing.image import ProcessedImage, preprocess, to_original_bbox
 
 DEFAULT_PRIMARY_MODEL = "anthropic/claude-sonnet-5"
 DEFAULT_SECONDARY_MODEL = "openai/gpt-5.6-terra"
@@ -49,6 +53,8 @@ EXTRACTED_FIELDS: tuple[str, ...] = (
     "signature_present",
 )
 DUAL_READ_FIELDS: tuple[str, ...] = ("drug", "strength")
+# "yes" is the extractor's answer, not text on the page.
+UNLOCATED_FIELDS: frozenset[str] = frozenset({"signature_present"})
 
 
 class NicrronExtraction(RawPrescriptionExtraction):
@@ -134,6 +140,7 @@ def extract(
     prescription_id: str,
     gateway: NicrronGateway | None = None,
     processed_dir: str | Path | None = None,
+    locator: GoogleVisionOCR | None = None,
 ) -> NicrronExtraction:
     """Raises ExtractionError when the document cannot be read (-> UNPROCESSABLE)."""
     document = Path(document)
@@ -147,7 +154,9 @@ def extract(
     processed_path = _save_processed(processed, prescription_id, processed_dir)
 
     errors: list[str] = []
-    with ThreadPoolExecutor(max_workers=2) as pool:
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        # OCR runs on the same image as the primary read, alongside the model calls.
+        ocr_job = pool.submit(locator.words, processed.primary) if locator else None
         primary_job = pool.submit(_read, gateway, "extract_primary", prescription_id, primary_model,
                                   PRIMARY_PROMPT, processed, use_alternate=False)
         secondary_job = pool.submit(_read, gateway, "extract_secondary", prescription_id, secondary_model,
@@ -161,6 +170,12 @@ def extract(
         except (NicrronError, ValueError) as exc:
             secondary = {}
             errors.append(f"Secondary read failed: {exc}")
+        words: list[Word] = []
+        if ocr_job:
+            try:
+                words = ocr_job.result()
+            except LocateError as exc:
+                errors.append(f"OCR failed, keeping model evidence boxes: {exc}")
 
     if primary.get("is_prescription") is False:
         raise ExtractionError("The document does not appear to be a prescription.")
@@ -170,6 +185,7 @@ def extract(
 
     fields = _build_fields(primary.get("fields") or {}, secondary.get("fields") or {},
                            model_image(processed).size, processed.primary.size, errors)
+    fields = _place_evidence(fields, words, processed)
     source = {"type": "fax_image", "original_path": str(document)}
     if processed_path:
         source["processed_path"] = str(processed_path)
@@ -180,7 +196,8 @@ def extract(
         patient_identity=_identity(primary.get("patient_identity")),
         fields=fields,
         untrusted_text=_dedupe(_str_list(primary.get("other_text")) + _str_list(secondary.get("other_text"))),
-        models={"extract_primary": primary_model, "extract_secondary": secondary_model},
+        models={"extract_primary": primary_model, "extract_secondary": secondary_model}
+        | ({"locate": locator.name} if locator else {}),
         errors=errors,
     )
 
@@ -242,6 +259,25 @@ def _build_fields(primary: dict, secondary: dict, model_size: tuple[int, int], o
             evidence=Evidence(page=1, bbox=bbox),
         )
     return fields
+
+
+def _place_evidence(fields: dict[str, RawField], words: list[Word], processed: ProcessedImage) -> dict[str, RawField]:
+    """Move each box onto the value's OCR words when found, then into original-image pixels."""
+    placed: dict[str, RawField] = {}
+    for name, field in fields.items():
+        hint = field.evidence.bbox if field.evidence else None
+        box = None
+        if words and name not in UNLOCATED_FIELDS:
+            # Readings before the verbatim value, which may contain "?" for illegible characters.
+            readings = [r.value for r in field.reads if r.source != "crossed_out"] + [field.raw_value]
+            for value in _dedupe([v for v in readings if v]):
+                if box := locate(value, words, hint):
+                    break
+        box = box or hint
+        placed[name] = field.model_copy(update={
+            "evidence": Evidence(page=1, bbox=to_original_bbox(box, processed) if box else None),
+        })
+    return placed
 
 
 def _identity(value: Any) -> PatientIdentity | None:
