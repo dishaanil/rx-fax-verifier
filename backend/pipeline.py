@@ -51,7 +51,8 @@ DOCUMENT_FIELD = "document"
 DEPENDENCY_DRIVEN_TYPES = frozenset({"POSSIBLE_QUANTITY_CONFLICT", "INVALID_STRENGTH"})
 
 _WS_RE = re.compile(r"\s+")
-_QUANTITY_RE = re.compile(r"^(\d+(?:\.\d+)?)\s*([A-Za-z]+)?$")
+# Pads write counts as "#30"; the "#" is a number sign, not part of the value.
+_QUANTITY_RE = re.compile(r"^#?\s*(\d+(?:\.\d+)?)\s*([A-Za-z]+)?$")
 _INT_RE = re.compile(r"^\d+$")
 # Drug first: strength checks read the drug's evaluated state.
 _EVALUATION_PRIORITY = {"drug": 0}
