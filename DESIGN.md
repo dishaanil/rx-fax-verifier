@@ -282,17 +282,18 @@ An exception answers: what failed, why, where the evidence is, what the candidat
 
 ## 13. Frontend — two screens
 
-**Intake queue:** patient · status · unresolved field count · received time. Keep polish minimal.
+**Intake queue:** patient · medication · status · open issues · received time, filtered by Needs review / Ready to approve / Done. Keep polish minimal.
 
-**Review workspace:** three panes — original fax with crop, structured draft with tick/warning per field, exception card showing the competing reads, candidates, one-sentence reason, and the action buttons. Footer: `NOT READY — 2 decisions remain` → `READY FOR PHARMACIST VERIFICATION` → `✓ APPROVED BY PHARMACIST`.
+**Review workspace:** the original fax on the left (highlight on the selected value); on the right, one step at a time. Step bar `Intake → Resolve issues → Pharmacist approval`, derived from the backend status. While issues remain: one issue card at a time — a question ("What strength is written on the fax?"), a plain-language reason, a close-up crop, the readers' values, the candidate options plus "Something else", one primary "Use this value" and secondary "Can't read it" / "Ask prescriber". When none remain: a final-check summary and "Approve as pharmacist". Below: every field with its state, then collapsed history, PRISM evidence and untrusted page text. Reject lives once, in the page header.
 
-Submit is visibly disabled with the outstanding count, never hidden. No percentages anywhere.
+Approve is visibly disabled with the outstanding count (`Approve as pharmacist · 1 issue left`), never hidden. No percentages anywhere.
 
 ```
 frontend/src/
-  pages/      IntakeQueue.tsx · PrescriptionReview.tsx
-  components/ DocumentViewer · PrescriptionFields · FieldRow · StatusBadge
-              ExceptionPanel · SourceCrop · CandidateSelector · ReviewActions · ApprovalBar
+  pages/      IntakeQueuePage.tsx · PrescriptionReviewPage.tsx
+  components/ DocumentViewer · SourceCrop · Stepper · IssuePanel · DecisionCard
+              FieldList · MoreDetails · StatusBadge
+  lib/        review.ts (labels, steps, plain-language reasons)
 ```
 
 ---
