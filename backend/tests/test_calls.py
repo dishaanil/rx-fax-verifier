@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from backend.calls import CallError, CallRequest, CallResult, Turn, to_e164
+from backend.calls import CallError, CallRequest, CallResult, Correction, Turn, to_e164
 from backend.calls.charts import chart_for
 from backend.calls.elevenlabs import ElevenLabsCaller
 from backend.calls.script import question_for
@@ -119,7 +119,8 @@ def _request(source_name="demo_B"):
     return CallRequest(call_id="c1", prescription_id="demo_B", exception_id="e1", to_number=PHONE,
                        prescriber="Gideon Praetorius, DO", patient="Leilani Holloway", patient_dob="2000-10-20",
                        field="strength", field_label="Strength", question="What strength did you prescribe?",
-                       context={}, source_name=source_name)
+                       context={}, source_name=source_name,
+                       on_record={"patient_dob": "1-06-1966", "strength": "15 mg", "drug": "Metoprolol tartrate"})
 
 
 def test_simulated_call_answered_after_read_back():
@@ -135,6 +136,24 @@ def test_simulated_call_answered_after_read_back():
     assert gateway.steps == ["simulate_prescriber", "analyze_call", "simulate_prescriber", "analyze_call"]
     assert [t.role for t in result.transcript] == ["agent", "prescriber", "agent", "prescriber", "agent"]
     assert "75 mg" in result.transcript[2].text  # read back before it counts
+
+
+def test_simulated_call_keeps_corrections_to_other_fields():
+    gateway = FakeGateway([
+        "Quick correction, her date of birth is November 6, 1966. The strength is 75 mg.",
+        '{"value": "75 mg", "confirmed": false, "summary": "s", "corrections": ['
+        '{"field": "patient_dob", "value": "11-06-1966", "quote": "her date of birth is November 6, 1966"},'
+        '{"field": "strength", "value": "75 mg", "quote": "75 mg"},'
+        '{"field": "not_a_field", "value": "x", "quote": ""}]}',
+        "Yes.",
+        '{"value": "75 mg", "confirmed": true, "summary": "Confirmed 75 mg.", "corrections": ['
+        '{"field": "patient_dob", "value": "11-06-1966", "quote": "her date of birth is November 6, 1966"}]}',
+    ])
+    result = SimulatedCaller(gateway=gateway, model="m").place_call(_request())
+
+    # The asked field and unknown fields are dropped; the DOB correction is kept and acknowledged on the call.
+    assert result.corrections == [Correction("patient_dob", "11-06-1966", "her date of birth is November 6, 1966")]
+    assert "I've noted that the date of birth is 11-06-1966" in result.transcript[2].text
 
 
 def test_simulated_call_unclear_when_prescriber_defers():
@@ -194,6 +213,13 @@ def test_elevenlabs_result_needs_a_confirmed_value():
     result = ElevenLabsCaller._result(conversation, "conv_1")
     assert (result.outcome, result.answer, result.transcript[1].role) == ("ANSWERED", "75 mg", "prescriber")
 
+    assert result.corrections == []
+
+    conversation["analysis"]["data_collection_results"]["prescriber_corrections"] = {
+        "value": '[{"field": "patient_dob", "value": "11-06-1966", "quote": "November 6"}, {"bad": 1}]'}
+    assert ElevenLabsCaller._result(conversation, "conv_1").corrections == [
+        Correction("patient_dob", "11-06-1966", "November 6")]
+
     conversation["analysis"]["data_collection_results"]["value_confirmed"]["value"] = False
     assert ElevenLabsCaller._result(conversation, "conv_1").outcome == "UNCLEAR"
     assert ElevenLabsCaller._result({"status": "failed"}, "conv_1").outcome == "FAILED"
@@ -247,6 +273,63 @@ def test_answer_is_evidence_until_the_pharmacist_uses_it(store, review):
     assert field.resolution.evidence["call_id"] == request.call_id
     assert field.resolution.confirmed_by == {"name": "Demo Pharmacist", "role": "PHARMACIST"}
     assert rx.clarifications[-1]["applied"] is True
+
+
+def test_prescriber_correction_becomes_a_pharmacist_decision(store, review):
+    exc = _exc(store, "POSSIBLE_QUANTITY_CONFLICT")
+    _, request = review.start_call(exc.exception_id, simulated=True)
+    assert request.on_record["patient"] == "James Peterson"
+
+    result = _answered("90")
+    result.corrections = [Correction("patient", "James Patterson", "it's Patterson, not Peterson")]
+    rx = review.finish_call("rx_037", request.call_id, result)
+
+    raised = next(e for e in rx.exceptions if e.type == "PRESCRIBER_CORRECTION")
+    assert raised.field == "patient"
+    assert raised.candidate_values == ["James Peterson", "James Patterson"]
+    assert "Patterson" in raised.reason and "fax reads James Peterson" in raised.reason
+    assert rx.fields["patient"].raw_value == "James Peterson"  # nothing changed, only flagged
+    assert rx.fields["patient"].decision is FieldDecision.REVIEW_REQUIRED
+    assert rx.clarifications[-1]["corrections"][0]["exception_id"] == raised.exception_id
+    assert rx.status is PrescriptionStatus.REVIEW_REQUIRED
+
+    # Applying the answer to the asked issue doesn't clear the correction: it needs its own decision.
+    review.resolve(exc.exception_id, "USE_PRESCRIBER_ANSWER")
+    review.resolve(_exc(store, "AMBIGUOUS_DRUG").exception_id, "SELECT_VALUE", "hydroxyzine HCl")
+    with pytest.raises(ConflictError):
+        review.approve("rx_037")
+    rx = review.resolve(raised.exception_id, "SELECT_VALUE", "James Patterson")
+    assert rx.fields["patient"].normalized_value == "James Patterson"
+    assert rx.status is PrescriptionStatus.READY_FOR_VERIFICATION
+
+
+@pytest.mark.parametrize("correction", [
+    Correction("patient", "james  peterson", ""),          # same as the fax, ignoring case and spacing
+    Correction("quantity", "120", ""),                      # the asked field: that's the answer, not a correction
+    Correction("drug", "hydralazine HCl", ""),               # already has an open issue
+    Correction("not_a_field", "x", ""),
+])
+def test_corrections_that_need_no_new_issue(store, review, correction):
+    exc = _exc(store, "POSSIBLE_QUANTITY_CONFLICT")
+    _, request = review.start_call(exc.exception_id, simulated=True)
+    result = _answered("90")
+    result.corrections = [correction]
+    rx = review.finish_call("rx_037", request.call_id, result)
+
+    assert not any(e.type == "PRESCRIBER_CORRECTION" for e in rx.exceptions)
+    assert rx.clarifications[-1]["corrections"][0]["exception_id"] is None  # still recorded
+
+
+def test_correction_after_rejection_is_recorded_not_raised(store, review):
+    exc = _exc(store, "POSSIBLE_QUANTITY_CONFLICT")
+    _, request = review.start_call(exc.exception_id, simulated=True)
+    review.reject("rx_037")
+    result = _answered("90")
+    result.corrections = [Correction("patient", "James Patterson", "")]
+    rx = review.finish_call("rx_037", request.call_id, result)
+
+    assert rx.status is PrescriptionStatus.REJECTED
+    assert not any(e.type == "PRESCRIBER_CORRECTION" for e in rx.exceptions)
 
 
 @pytest.mark.parametrize("outcome", ["UNCLEAR", "FAILED"])

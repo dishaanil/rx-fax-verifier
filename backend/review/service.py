@@ -4,6 +4,7 @@
 PrescriptionStatus.APPROVED. That is the pharmacist authority boundary.
 """
 
+import re
 from dataclasses import asdict
 from enum import StrEnum
 from pathlib import Path
@@ -11,12 +12,14 @@ from pathlib import Path
 from backend.calls import CallRequest, CallResult, to_e164
 from backend.calls.script import field_label, question_for
 from backend.models import FieldDecision, Prescription, PrescriptionStatus, Resolution, RxException
-from backend.pipeline import Clock, append_event, field_value, revalidate, utc_now
+from backend.pipeline import Clock, append_event, field_value, raise_field_exception, revalidate, utc_now
 from backend.policy.router import TERMINAL_STATUSES, route_prescription
 from backend.storage import MemoryStore
 
 DEMO_PHARMACIST = "Demo Pharmacist"
 CONFIRMABLE_TYPES = frozenset({"POSSIBLE_QUANTITY_CONFLICT", "IDENTIFIER_INVALID", "INVALID_STRENGTH"})
+# The prescriber said on a call that another value on the prescription is wrong.
+PRESCRIBER_CORRECTION = "PRESCRIBER_CORRECTION"
 
 
 class ReviewError(Exception):
@@ -131,6 +134,7 @@ class ReviewService:
                 question=question_for(exc.field, label, context),
                 context=context,
                 source_name=Path(rx.source.get("original_path") or "").stem or None,
+                on_record={k: v for k in rx.fields if k != "signature_present" and (v := _value(rx, k))},
             )
             rx.clarifications.append({
                 "exception_id": exception_id, "status": "CALLING", "channel": "PHONE", "call_id": request.call_id,
@@ -157,6 +161,7 @@ class ReviewService:
                 transcript=[asdict(t) for t in result.transcript],
                 provider_call_id=result.provider_call_id,
                 ended_at=self.clock(),
+                corrections=self._raise_corrections(rx, record, result),
             )
             rx.audit_events.extend(result.prism_events)
             append_event(rx, self.clock, "SYSTEM", "PRESCRIBER_CALL_ENDED", exception_id=record["exception_id"],
@@ -225,6 +230,32 @@ class ReviewService:
             raise DomainError("The current value contains an unreadable character; use SELECT_VALUE or CORRECT.")
         return confirmed
 
+    def _raise_corrections(self, rx: Prescription, call: dict, result: CallResult) -> list[dict]:
+        """Each value the prescriber corrected becomes a pharmacist decision on that field; nothing is changed.
+        Skipped: values that match what we have, fields with an open issue already, fields a pharmacist set."""
+        asked = next((e.field for e in rx.exceptions if e.exception_id == call["exception_id"]), None)
+        open_fields = {e.field for e in rx.exceptions}
+        raised = []
+        for correction in result.corrections:
+            field = rx.fields.get(correction.field)
+            current = _value(rx, correction.field)
+            record = {"field": correction.field, "value": correction.value, "quote": correction.quote, "exception_id": None}
+            if (rx.status in TERMINAL_STATUSES or field is None or correction.field == asked or correction.field in open_fields
+                    or field.decision is FieldDecision.HUMAN_VERIFIED or _same(current, correction.value)):
+                raised.append(record)
+                continue
+            label = field_label(correction.field).lower()
+            said = f' ("{correction.quote}")' if correction.quote else ""
+            exc = raise_field_exception(
+                rx, self.clock, correction.field, PRESCRIBER_CORRECTION,
+                f"On the call, {call['prescriber']} said the {label} is {correction.value}{said}; the fax reads {current}.",
+                [current, correction.value] if current else [correction.value],
+            )
+            open_fields.add(correction.field)
+            record["exception_id"] = exc.exception_id
+            raised.append(record)
+        return raised
+
     def _answered_call(self, rx: Prescription, exc: RxException) -> dict:
         answered = [c for c in rx.clarifications
                     if c.get("exception_id") == exc.exception_id and c.get("status") == "ANSWERED" and c.get("answer")]
@@ -262,6 +293,12 @@ class ReviewService:
             return
         rx.clarifications.append({"exception_id": exc.exception_id, "status": "REQUESTED"})
         append_event(rx, self.clock, "PHARMACIST", "CLARIFICATION_REQUESTED", exception_id=exc.exception_id)
+
+
+def _same(a: str | None, b: str | None) -> bool:
+    """Equal ignoring case, spacing and punctuation ("11/06/1966" == "11-06-1966")."""
+    key = lambda v: re.sub(r"[\W_]", "", (v or "").lower())  # noqa: E731
+    return key(a) == key(b)
 
 
 def _verified(rx: Prescription, name: str) -> bool:

@@ -14,17 +14,20 @@ The agent itself (prompt, voice, the "clarified_value" data-collection item and
 the phone number) is configured in the ElevenLabs dashboard; see the README.
 """
 
+import json
 import os
 import time
 
 import httpx
 
 from backend.calls import script
-from backend.calls.interface import CallError, CallRequest, CallResult, Turn, to_e164
+from backend.calls.interface import CallError, CallRequest, CallResult, Correction, Turn, to_e164
 
 API = "https://api.elevenlabs.io/v1/convai"
 DATA_COLLECTION_ID = "clarified_value"
 CONFIRMED_ID = "value_confirmed"
+# JSON list of {"field", "value", "quote"}: other values the prescriber said are wrong.
+CORRECTIONS_ID = "prescriber_corrections"
 _POLL_S = 3.0
 _MAX_WAIT_S = 300.0
 
@@ -96,11 +99,12 @@ class ElevenLabsCaller:
         collected = (conversation.get("analysis") or {}).get("data_collection_results") or {}
         value = (collected.get(DATA_COLLECTION_ID) or {}).get("value")
         confirmed = (collected.get(CONFIRMED_ID) or {}).get("value") is True
+        corrections = _corrections((collected.get(CORRECTIONS_ID) or {}).get("value"))
         if isinstance(value, str) and value.strip() and confirmed:
             return CallResult("ANSWERED", value.strip(), f"Prescriber confirmed {value.strip()}.", transcript,
-                              conversation_id)
+                              conversation_id, corrections=corrections)
         reason = (collected.get(DATA_COLLECTION_ID) or {}).get("rationale") or "The prescriber did not confirm a value."
-        return CallResult("UNCLEAR", None, reason, transcript, conversation_id)
+        return CallResult("UNCLEAR", None, reason, transcript, conversation_id, corrections=corrections)
 
     def _post(self, path: str, body: dict) -> dict:
         return self._send("POST", path, body)
@@ -116,3 +120,12 @@ class ElevenLabsCaller:
         except (httpx.HTTPError, ValueError) as exc:
             raise CallError(f"ElevenLabs request failed: {exc}") from exc
 
+
+def _corrections(raw: object) -> list[Correction]:
+    """The agent returns the list as a JSON string; anything malformed is dropped (the transcript still shows it)."""
+    try:
+        items = json.loads(raw) if isinstance(raw, str) else raw
+    except ValueError:
+        return []
+    return [Correction(str(i["field"]), str(i["value"]).strip(), str(i.get("quote") or ""))
+            for i in items or [] if isinstance(i, dict) and i.get("field") and str(i.get("value") or "").strip()]

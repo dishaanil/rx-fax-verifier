@@ -46,6 +46,14 @@ def opening(request_patient: str, patient_dob: str | None) -> str:
             f"clarify one detail on a faxed prescription for {request_patient}{dob}.")
 
 
+def noted(corrections) -> str:
+    """Acknowledge corrections the prescriber volunteered; the pharmacist decides on them."""
+    if not corrections:
+        return ""
+    items = " and ".join(f"the {field_label(c.field).lower()} is {c.value}" for c in corrections)
+    return f"I've noted that {items}; the pharmacist will review that. "
+
+
 def read_back(label: str, value: str) -> str:
     return f"Thank you. To confirm, the {label.lower()} is {value}. Is that correct?"
 

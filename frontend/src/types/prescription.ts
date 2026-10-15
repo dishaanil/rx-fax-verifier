@@ -82,7 +82,11 @@ export type PhoneCall = {
   transcript?: CallTurn[]
   ended_at?: string
   applied?: boolean
+  // Other values the prescriber said are wrong; exception_id is the issue opened for each (null if none was needed).
+  corrections?: CallCorrection[]
 }
+
+export type CallCorrection = { field: string; value: string; quote: string; exception_id: string | null }
 
 /**
  * Backend-owned operational evidence. PRISM results are asynchronous and are

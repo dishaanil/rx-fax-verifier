@@ -137,6 +137,9 @@ optional field that never blocks approval).
   only when the pharmacist clicks "Use 75 mg" (`USE_PRESCRIBER_ANSWER`), and the field's resolution records
   the call. If there is no clear answer, the pharmacist chooses a value, calls the prescriber themselves, or
   rejects.
+- If the prescriber corrects something else on the call ("her date of birth is November 6, not January 6"),
+  the assistant acknowledges it and that field gets its own issue (`PRESCRIBER_CORRECTION`) with both values,
+  so approval stays blocked until the pharmacist decides. Nothing is changed automatically.
 - **The demo uses `RXBRIDGE_CALLER=simulated`** (the default). A model plays the prescriber, answering from
   the demo faxes' ground truth (`backend/calls/charts.py`, which only the simulation may import). For any
   other upload it has no chart and defers, which shows the "couldn't clarify" path. The model calls go

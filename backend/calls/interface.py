@@ -27,12 +27,23 @@ class CallRequest:
     context: dict[str, str]
     # Upload file stem; the simulation uses it to find the demo prescriber's chart.
     source_name: str | None = None
+    # Every value RxBridge currently holds, so the call's analysis can spot a prescriber correcting one.
+    # Internal only: the agent never reads these out.
+    on_record: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
 class Turn:
     role: Literal["agent", "prescriber"]
     text: str
+
+
+@dataclass(frozen=True)
+class Correction:
+    """The prescriber said another value on the prescription is wrong (e.g. the date of birth)."""
+    field: str
+    value: str
+    quote: str = ""
 
 
 @dataclass
@@ -43,6 +54,8 @@ class CallResult:
     summary: str
     transcript: list[Turn] = field(default_factory=list)
     provider_call_id: str | None = None
+    # Values the prescriber corrected besides the one asked about. Each becomes a pharmacist decision.
+    corrections: list[Correction] = field(default_factory=list)
     # PRISM audit events for the call's model calls (simulation only).
     prism_events: list[dict] = field(default_factory=list)
 

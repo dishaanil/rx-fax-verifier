@@ -10,7 +10,7 @@ ReviewService records it, and only the pharmacist can apply the answer.
 
 import os
 
-from backend.calls.interface import Caller, CallError, CallRequest, CallResult, Turn, to_e164
+from backend.calls.interface import Caller, CallError, CallRequest, CallResult, Correction, Turn, to_e164
 
 
 def calls_are_simulated() -> bool:
@@ -27,4 +27,4 @@ def get_caller() -> Caller:
     return SimulatedCaller()
 
 
-__all__ = ["CallError", "CallRequest", "CallResult", "Caller", "Turn", "calls_are_simulated", "get_caller", "to_e164"]
+__all__ = ["CallError", "CallRequest", "CallResult", "Caller", "Correction", "Turn", "calls_are_simulated", "get_caller", "to_e164"]

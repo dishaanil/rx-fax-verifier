@@ -1,3 +1,4 @@
+import { fieldLabel } from '../lib/review'
 import type { PhoneCall } from '../types/prescription'
 
 /** "Augustin Belrose, MD" -> "Dr. Belrose" */
@@ -23,6 +24,7 @@ export function PrescriberCall({ call, disabled, onUse, onCallAgain, onReject }:
   const doctor = doctorName(call.prescriber)
   const tel = `tel:${call.to_number.replace(/[^\d+]/g, '')}`
   const state = call.status === 'CALLING' ? 'calling' : call.status === 'ANSWERED' ? 'answered' : 'unclear'
+  const raised = (call.corrections ?? []).filter((c) => c.exception_id)
 
   return (
     <section className={`call call--${state}`} aria-live="polite">
@@ -62,19 +64,50 @@ export function PrescriberCall({ call, disabled, onUse, onCallAgain, onReject }:
         </div>
       </>}
 
-      {call.transcript && call.transcript.length > 0 && <details className="call__transcript">
-        <summary>Show conversation <span className="count">{call.transcript.length}</span></summary>
-        <ol className="transcript">
-          {call.transcript.map((turn, index) => (
-            <li key={index} className={`turn turn--${turn.role}`}>
-              <small>{turn.role === 'agent' ? 'RxBridge assistant' : doctor}</small>
-              <p>{turn.text}</p>
-            </li>
-          ))}
-        </ol>
-      </details>}
+      {raised.length > 0 && <div className="call__also">
+        <strong>{doctor} also corrected</strong>
+        <ul>{raised.map((c) => <li key={c.field}>{fieldLabel(c.field)}: <b>{c.value}</b> — added as an issue to review</li>)}</ul>
+      </div>}
+
+      <Transcript call={call} />
 
       {call.simulated && state !== 'calling' && <p className="call__note">Simulated call: no phone call was placed. The prescriber's replies come from a model.</p>}
     </section>
+  )
+}
+
+/** Shown on an issue the prescriber raised during a call about something else. */
+export function CorrectionSource({ call, value, quote }: { call: PhoneCall; value: string; quote: string }) {
+  const doctor = doctorName(call.prescriber)
+  return (
+    <section className="call call--answered" aria-label="From the call">
+      <header className="call__top">
+        <span className="call__icon"><PhoneIcon /></span>
+        <h3>{doctor} corrected this on the call</h3>
+        {call.simulated && <span className="chip call__sim" title="No phone call is placed. A model plays the prescriber.">Simulated</span>}
+      </header>
+      <p className="call__answer"><span>{doctor} said</span> <strong>{value}</strong></p>
+      {quote && <p className="call__line"><q>{quote}</q></p>}
+      <p className="call__line">Nothing has been changed. Check the fax and, if needed, the patient, then choose below.</p>
+      <Transcript call={call} />
+    </section>
+  )
+}
+
+function Transcript({ call }: { call: PhoneCall }) {
+  if (!call.transcript?.length) return null
+  const doctor = doctorName(call.prescriber)
+  return (
+    <details className="call__transcript">
+      <summary>Show conversation <span className="count">{call.transcript.length}</span></summary>
+      <ol className="transcript">
+        {call.transcript.map((turn, index) => (
+          <li key={index} className={`turn turn--${turn.role}`}>
+            <small>{turn.role === 'agent' ? 'RxBridge assistant' : doctor}</small>
+            <p>{turn.text}</p>
+          </li>
+        ))}
+      </ol>
+    </details>
   )
 }

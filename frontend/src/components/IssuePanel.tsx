@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import type { ResolutionAction } from '../api/prescriptions'
-import { clarificationRequested, fieldValue, issueExplanation, issueQuestion, latestCall, readerLabel } from '../lib/review'
+import { clarificationRequested, correctionSource, fieldLabel, fieldValue, issueExplanation, issueQuestion, latestCall, readerLabel } from '../lib/review'
 import type { Exception, Prescription } from '../types/prescription'
-import { doctorName, PrescriberCall } from './PrescriberCall'
+import { CorrectionSource, doctorName, PrescriberCall } from './PrescriberCall'
 import { SourceCrop } from './SourceCrop'
 
 const OTHER = '__other__'
@@ -27,6 +27,7 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
   const readings = field?.reads.filter((read) => read.value) ?? []
   const asked = clarificationRequested(prescription, exception.exception_id)
   const call = latestCall(prescription, exception.exception_id)
+  const correction = correctionSource(prescription, exception.exception_id)
   const calling = call?.status === 'CALLING'
   const phone = prescription.fields.prescriber_phone ? fieldValue(prescription.fields.prescriber_phone) : null
   const prescriber = prescription.fields.prescriber ? fieldValue(prescription.fields.prescriber) : null
@@ -58,6 +59,8 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
         {readings.map((read) => <span key={`${read.source}-${read.value}`} className="chip"><small>{readerLabel(read.source)}</small> {read.value}</span>)}
       </p>}
 
+      {correction && <CorrectionSource {...correction} />}
+
       {call && <PrescriberCall call={call} disabled={disabled || calling} onUse={() => onResolve('USE_PRESCRIBER_ANSWER')}
         onCallAgain={onCall} onReject={onReject} />}
 
@@ -69,11 +72,12 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
         <form onSubmit={submit}>
           {asked && <p className="note">You asked the prescriber to clarify. Enter the value here once they reply.</p>}
           <fieldset className="options" disabled={disabled}>
-            <legend>Choose what the fax says</legend>
+            <legend>{correction ? `Choose the correct ${fieldLabel(exception.field).toLowerCase()}` : 'Choose what the fax says'}</legend>
             {options.map((option) => (
               <label key={option} className={`option${choice === option ? ' option--selected' : ''}`}>
                 <input type="radio" name="value" checked={choice === option} onChange={() => setChoice(option)} />
                 <span>{option}</span>
+                {correction && <small className="option__source">{option === correction.value ? `said by ${doctorName(correction.call.prescriber)}` : 'read from the fax'}</small>}
               </label>
             ))}
             <label className={`option option--other${choice === OTHER ? ' option--selected' : ''}`}>
