@@ -1,21 +1,23 @@
-"""RxBridge FastAPI app: seven routes over the deterministic pipeline.
+"""RxBridge FastAPI app: eight routes over the deterministic pipeline.
 
 Run: uvicorn backend.main:app --reload --port 8000
 Importing this module creates an empty app; seeding happens only at startup
 when RXBRIDGE_SEED=1.
 """
 
+import logging
 import os
 from collections.abc import Callable
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, Request, UploadFile
+from fastapi import BackgroundTasks, FastAPI, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, ConfigDict
 
+from backend.calls import Caller, CallError, CallRequest, CallResult, calls_are_simulated, get_caller
 from backend.extraction import ExtractionProvider, get_extractor
 from backend.extraction.stub import FIXTURES_DIR, STUB_IDS, StubExtractor
 from backend.intake import intake
@@ -24,6 +26,8 @@ from backend.review import ConflictError, DomainError, NotFoundError, ReviewServ
 from backend.storage import MemoryStore
 
 DEFAULT_UPLOAD_DIR = Path(__file__).resolve().parent / "uploads"
+
+log = logging.getLogger(__name__)
 
 
 class ResolveRequest(BaseModel):
@@ -52,6 +56,7 @@ def create_app(
     store: MemoryStore | None = None,
     upload_dir: Path | None = None,
     extractor_factory: Callable[[], ExtractionProvider] = get_extractor,
+    caller_factory: Callable[[], Caller] = get_caller,
 ) -> FastAPI:
     store = store or MemoryStore()
     upload_dir = (upload_dir or Path(os.environ.get("RXBRIDGE_UPLOAD_DIR", DEFAULT_UPLOAD_DIR))).resolve()
@@ -109,6 +114,14 @@ def create_app(
     def resolve_exception(exception_id: str, body: ResolveRequest) -> Prescription:
         return review.resolve(exception_id, body.action, body.value)
 
+    @app.post("/api/exceptions/{exception_id}/call", response_model=Prescription)
+    def call_prescriber(exception_id: str, tasks: BackgroundTasks) -> Prescription:
+        """Start a call to the prescriber about one exception. Returns at once with the call CALLING;
+        the result is recorded when the call ends (poll the prescription)."""
+        rx, request = review.start_call(exception_id, simulated=calls_are_simulated())
+        tasks.add_task(_run_call, review, caller_factory, request)
+        return rx
+
     @app.post("/api/prescriptions/{prescription_id}/approve", response_model=Prescription)
     def approve(prescription_id: str) -> Prescription:
         return review.approve(prescription_id)
@@ -132,6 +145,18 @@ def create_app(
         return FileResponse(path)
 
     return app
+
+
+def _run_call(review: ReviewService, caller_factory: Callable[[], Caller], request: CallRequest) -> None:
+    """Runs after the response (FastAPI's threadpool). Any failure is recorded as FAILED, never lost."""
+    try:
+        result = caller_factory().place_call(request)
+    except CallError as exc:
+        result = CallResult("FAILED", None, str(exc))
+    except Exception as exc:  # the call must always end in a recorded outcome
+        log.exception("Prescriber call %s crashed", request.call_id)
+        result = CallResult("FAILED", None, f"The call could not be completed: {exc}")
+    review.finish_call(request.prescription_id, request.call_id, result)
 
 
 def jsonable_errors(exc: RequestValidationError) -> list[dict]:

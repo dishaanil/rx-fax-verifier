@@ -150,7 +150,9 @@ def route_prescription(prescription: Prescription) -> PrescriptionStatus:
         return status
 
     active = {e.exception_id for e in prescription.exceptions}
-    if any(c.get("status") == "REQUESTED" and c.get("exception_id") in active for c in prescription.clarifications):
+    # REQUESTED: asked by any channel; CALLING: a prescriber call is in progress.
+    if any(c.get("status") in ("REQUESTED", "CALLING") and c.get("exception_id") in active
+           for c in prescription.clarifications):
         return PrescriptionStatus.AWAITING_CLARIFICATION
     if active:
         return PrescriptionStatus.REVIEW_REQUIRED

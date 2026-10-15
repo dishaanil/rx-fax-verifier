@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import type { ResolutionAction } from '../api/prescriptions'
-import { clarificationRequested, issueExplanation, issueQuestion, readerLabel } from '../lib/review'
+import { clarificationRequested, fieldValue, issueExplanation, issueQuestion, latestCall, readerLabel } from '../lib/review'
 import type { Exception, Prescription } from '../types/prescription'
+import { doctorName, PrescriberCall } from './PrescriberCall'
 import { SourceCrop } from './SourceCrop'
 
 const OTHER = '__other__'
 
-export function IssuePanel({ prescription, exception, position, total, onMove, onResolve, onReject, disabled, documentUrl }: {
+export function IssuePanel({ prescription, exception, position, total, onMove, onResolve, onCall, onReject, disabled, documentUrl }: {
   prescription: Prescription
   exception: Exception
   position: number
   total: number
   onMove: (step: -1 | 1) => void
   onResolve: (action: ResolutionAction, value?: string) => void
+  onCall: () => void
   onReject: () => void
   disabled: boolean
   documentUrl: string
@@ -24,6 +26,10 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
   const options = [...new Set(exception.candidate_values)]
   const readings = field?.reads.filter((read) => read.value) ?? []
   const asked = clarificationRequested(prescription, exception.exception_id)
+  const call = latestCall(prescription, exception.exception_id)
+  const calling = call?.status === 'CALLING'
+  const phone = prescription.fields.prescriber_phone ? fieldValue(prescription.fields.prescriber_phone) : null
+  const prescriber = prescription.fields.prescriber ? fieldValue(prescription.fields.prescriber) : null
   const value = choice === OTHER ? other.trim() : choice
   const { reason, detail } = issueExplanation(exception, field)
 
@@ -51,6 +57,9 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
         <span>The readers saw</span>
         {readings.map((read) => <span key={`${read.source}-${read.value}`} className="chip"><small>{readerLabel(read.source)}</small> {read.value}</span>)}
       </p>}
+
+      {call && <PrescriberCall call={call} disabled={disabled || calling} onUse={() => onResolve('USE_PRESCRIBER_ANSWER')}
+        onCallAgain={onCall} onReject={onReject} />}
 
       {exception.required_action === 'REJECT' ? (
         <div className="issue__actions">
@@ -85,7 +94,9 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
             <button type="submit" className="button button--primary" disabled={disabled || !value}>Use this value</button>
             <span className="issue__secondary">
               <button type="button" className="link-button" disabled={disabled} onClick={() => onResolve('MARK_UNREADABLE')}>Can't read it</button>
-              {!asked && <button type="button" className="link-button" disabled={disabled} onClick={() => onResolve('REQUEST_CLARIFICATION')}>Ask prescriber</button>}
+              {phone && !call && <button type="button" className="link-button" disabled={disabled} onClick={onCall}
+                title={`An AI assistant calls ${phone} and asks what was prescribed`}>Call {prescriber ? doctorName(prescriber) : 'prescriber'}</button>}
+              {!phone && !asked && <button type="button" className="link-button" disabled={disabled} onClick={() => onResolve('REQUEST_CLARIFICATION')}>Ask prescriber</button>}
             </span>
           </div>
         </form>

@@ -49,7 +49,7 @@ MODEL_IMAGE_WIDTH = 1100
 
 EXTRACTED_FIELDS: tuple[str, ...] = (
     "patient", "patient_dob", "drug", "strength", "form", "sig", "quantity",
-    "days_supply", "refills", "prescriber", "prescriber_identifier", "date_written",
+    "days_supply", "refills", "prescriber", "prescriber_identifier", "prescriber_phone", "date_written",
     "signature_present",
 )
 DUAL_READ_FIELDS: tuple[str, ...] = ("drug", "strength")
@@ -80,6 +80,7 @@ days_supply: days supply, only if the form has a separate field for it
 refills: number of refills
 prescriber: prescriber full name as printed in the header or stamp (not the signature), with credential if printed
 prescriber_identifier: NPI or DEA number
+prescriber_phone: the prescriber's office telephone number (labelled Tel or Phone), never the fax number
 date_written: date the prescription was written
 signature_present: "yes" if a prescriber signature is present"""
 

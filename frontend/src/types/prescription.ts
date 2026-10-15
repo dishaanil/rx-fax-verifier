@@ -50,9 +50,38 @@ export type Prescription = {
   source: { type: string; original_path: string; processed_path: string; sha256: string; untrusted_text?: string[] }
   fields: Record<string, FieldResult>
   exceptions: Exception[]
-  clarifications: unknown[]
+  clarifications: Clarification[]
   approved_by: string | null
   audit_events: AuditEvent[]
+}
+
+/** A request for the prescriber to clarify one exception: by any channel, or a phone call. */
+export type Clarification = {
+  exception_id: string
+  status: 'REQUESTED' | 'RESOLVED' | CallStatus
+  channel?: 'PHONE'
+} & Partial<Omit<PhoneCall, 'exception_id' | 'status' | 'channel'>>
+
+export type CallStatus = 'CALLING' | 'ANSWERED' | 'UNCLEAR' | 'FAILED'
+export type CallTurn = { role: 'agent' | 'prescriber'; text: string }
+
+/** A call to the prescriber. Its answer is evidence: only the pharmacist can apply it. */
+export type PhoneCall = {
+  exception_id: string
+  status: CallStatus
+  channel: 'PHONE'
+  call_id: string
+  simulated: boolean
+  to_number: string
+  prescriber: string
+  field_label: string
+  question: string
+  started_at: string
+  answer?: string | null
+  summary?: string
+  transcript?: CallTurn[]
+  ended_at?: string
+  applied?: boolean
 }
 
 /**

@@ -105,6 +105,7 @@ uv pip install --python .venv/bin/python -r backend/requirements.txt
 |---|---|---|
 | `RXBRIDGE_EXTRACTOR` | `stub` | `stub` maps the upload's filename stem to `fixtures/raw_<stem>.json` (`rx_037`, `rx_A`, `rx_C`, `rx_D`, `rx_E`, `rx_F`). `nicrron` runs the real extractor (`backend/extraction/nicrron.py`): needs `NICRRON_API_KEY`, `NICRRON_BASE_URL` and the two model names in `.env` (see `.env.example`). |
 | `GOOGLE_VISION_API_KEY` | unset | Optional, `nicrron` only. Google Cloud Vision OCR finds where each value is written, so the highlight box lands on the right text (`backend/extraction/locate.py`). Unset, or if a value is not found, the model's estimated box is used. |
+| `RXBRIDGE_CALLER` | `simulated` | Who places "Call prescriber" calls. `simulated`: a scripted assistant talks to a model playing the prescriber; nothing is dialled and ElevenLabs is never contacted. `elevenlabs`: real calls (see below). |
 | `RXBRIDGE_SEED` | `0` | `1` loads the six demo fixtures into the in-memory store at startup. |
 | `RXBRIDGE_UPLOAD_DIR` | `backend/uploads` | Where uploaded source files are saved (gitignored). |
 
@@ -117,10 +118,34 @@ State is in memory and is lost on restart.
 | `POST` | `/api/intake` | Multipart `file`. SHA-256 → save → extract → validate → route. Extractor failure yields `UNPROCESSABLE`. |
 | `GET` | `/api/prescriptions` | Queue: `prescription_id`, `patient`, `status`, `unresolved_count`, `received_at`. |
 | `GET` | `/api/prescriptions/{id}` | Full canonical `Prescription`. |
-| `POST` | `/api/exceptions/{exception_id}/resolve` | `{"action": ..., "value": ...}`; actions `CONFIRM`, `CORRECT`, `SELECT_VALUE`, `MARK_UNREADABLE`, `REQUEST_CLARIFICATION`, `REJECT`. Always revalidates. |
+| `POST` | `/api/exceptions/{exception_id}/resolve` | `{"action": ..., "value": ...}`; actions `CONFIRM`, `CORRECT`, `SELECT_VALUE`, `MARK_UNREADABLE`, `REQUEST_CLARIFICATION`, `USE_PRESCRIBER_ANSWER`, `REJECT`. Always revalidates. |
+| `POST` | `/api/exceptions/{exception_id}/call` | Calls the prescriber about this exception. Returns at once with the call `CALLING`; the result (`ANSWERED`, `UNCLEAR` or `FAILED`, with the transcript) appears in `clarifications` when the call ends. |
 | `POST` | `/api/prescriptions/{id}/approve` | Pharmacist approval; only from `READY_FOR_VERIFICATION`, else 409. |
 | `POST` | `/api/prescriptions/{id}/reject` | Rejects; 409 if already approved. |
 | `GET` | `/api/prescriptions/{id}/source` | The uploaded source file, or 404. |
+
+### Call prescriber
+
+When an issue can't be settled from the fax, the pharmacist can have an AI assistant call the prescriber
+(`backend/calls/`). The number is the prescriber's office phone read from the fax (`prescriber_phone`, an
+optional field that never blocks approval).
+
+- The assistant says it is an AI, identifies the patient, asks one open question ("What strength did you
+  prescribe?") and never suggests the value that was read. It only mentions other values, such as the drug,
+  once they are verified. It reads the answer back and asks the prescriber to confirm.
+- A confirmed answer is shown as evidence ("Dr. Praetorius said 75 mg") with the transcript. It is applied
+  only when the pharmacist clicks "Use 75 mg" (`USE_PRESCRIBER_ANSWER`), and the field's resolution records
+  the call. If there is no clear answer, the pharmacist chooses a value, calls the prescriber themselves, or
+  rejects.
+- **The demo uses `RXBRIDGE_CALLER=simulated`** (the default). A model plays the prescriber, answering from
+  the demo faxes' ground truth (`backend/calls/charts.py`, which only the simulation may import). For any
+  other upload it has no chart and defers, which shows the "couldn't clarify" path. The model calls go
+  through the Nicrron gateway and are traced in PRISM.
+- `backend/calls/elevenlabs.py` places real calls through an ElevenLabs agent (outbound call, then the
+  transcript and the agent's data-collection results). It is off unless `RXBRIDGE_CALLER=elevenlabs`, refuses
+  any number not in `RXBRIDGE_CALL_ALLOWLIST`, and has not yet been run against the live API. Before calling
+  real prescribers: check the number against the NPI Registry (a forged fax can list a fake number), have a
+  BAA with ElevenLabs, and follow call-recording consent rules.
 
 ## Invariants
 

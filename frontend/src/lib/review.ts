@@ -1,4 +1,4 @@
-import type { Exception, FieldResult, Prescription, PrescriptionStatus } from '../types/prescription'
+import type { Exception, FieldResult, PhoneCall, Prescription, PrescriptionStatus } from '../types/prescription'
 
 const FIELD_LABELS: Record<string, string> = {
   patient: 'Patient',
@@ -12,6 +12,7 @@ const FIELD_LABELS: Record<string, string> = {
   refills: 'Refills',
   prescriber: 'Prescriber',
   prescriber_identifier: 'Prescriber ID',
+  prescriber_phone: 'Prescriber phone',
   date_written: 'Date written',
   signature_present: 'Signature',
   document: 'Document',
@@ -107,10 +108,17 @@ export function reviewSteps(prescription: Prescription): Step[] {
 }
 
 export function clarificationRequested(prescription: Prescription, exceptionId: string): boolean {
-  return prescription.clarifications.some((item) => {
-    const record = item as { exception_id?: string; status?: string }
-    return record.exception_id === exceptionId && record.status === 'REQUESTED'
-  })
+  return prescription.clarifications.some((item) => item.exception_id === exceptionId && item.status === 'REQUESTED')
+}
+
+/** The most recent call about this exception, if any. */
+export function latestCall(prescription: Prescription, exceptionId: string): PhoneCall | null {
+  const calls = prescription.clarifications.filter((item) => item.channel === 'PHONE' && item.exception_id === exceptionId)
+  return (calls.at(-1) as PhoneCall | undefined) ?? null
+}
+
+export function callInProgress(prescription: Prescription | null): boolean {
+  return Boolean(prescription?.clarifications.some((item) => item.status === 'CALLING'))
 }
 
 export function receivedAt(prescription: Prescription): string {
