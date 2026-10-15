@@ -95,6 +95,20 @@ def test_quantity_conflict_c():
     assert rx.fields["quantity"].raw_value == "50 mL"
 
 
+@pytest.mark.parametrize(("quantity", "status"), [("#10", SignalStatus.FAIL), ("#30", SignalStatus.PASS), ("# 30", SignalStatus.PASS)])
+def test_quantity_written_with_number_sign_is_checked(quantity, status):
+    raw = raw_fixture("rx_A")
+    fields = {
+        **{k: v for k, v in raw.fields.items() if k != "days_supply"},
+        "sig": raw.fields["sig"].model_copy(update={"raw_value": "1 tab po tid for 10 days"}),
+        "quantity": raw.fields["quantity"].model_copy(update={"raw_value": quantity}),
+    }
+    rx = process(raw.model_copy(update={"fields": fields}), set(), "h", fixed_clock)
+
+    assert _signal(rx, "quantity", "QUANTITY_SIG").status is status
+    assert rx.fields["quantity"].raw_value == quantity
+
+
 def test_drug_ambiguity_d():
     rx = processed("rx_D")
 
