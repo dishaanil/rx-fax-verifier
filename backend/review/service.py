@@ -131,7 +131,7 @@ class ReviewService:
                 patient_dob=_value(rx, "patient_dob"),
                 field=exc.field,
                 field_label=label,
-                question=question_for(exc.field, label, context),
+                question=question_for(exc.field, label, context, _quantity_conflict(rx, exc)),
                 context=context,
                 source_name=Path(rx.source.get("original_path") or "").stem or None,
                 on_record={k: v for k in rx.fields if k != "signature_present" and (v := _value(rx, k))},
@@ -293,6 +293,15 @@ class ReviewService:
             return
         rx.clarifications.append({"exception_id": exc.exception_id, "status": "REQUESTED"})
         append_event(rx, self.clock, "PHARMACIST", "CLARIFICATION_REQUESTED", exception_id=exc.exception_id)
+
+
+def _quantity_conflict(rx: Prescription, exc: RxException) -> tuple[str, str] | None:
+    """(written, implied by the directions) for a quantity conflict, else None."""
+    if exc.type != "POSSIBLE_QUANTITY_CONFLICT":
+        return None
+    written = rx.fields["quantity"].raw_value if "quantity" in rx.fields else None
+    implied = next((c for c in exc.candidate_values if not _same(c, written)), None)
+    return (written, implied) if written and implied else None
 
 
 def _same(a: str | None, b: str | None) -> bool:

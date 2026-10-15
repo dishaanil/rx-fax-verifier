@@ -76,6 +76,15 @@ def test_questions_are_open_and_never_suggest_the_value_read():
     assert question_for("strength", "Strength", {"drug": "Hyd???ne HCl"}) == "What strength did you prescribe?"
 
 
+def test_quantity_conflict_question_states_both_numbers():
+    question = question_for("quantity", "Quantity", {"sig": "Take 10 mL by mouth three times daily for 10 days."},
+                            conflict=("50 mL", "300 mL"))
+    assert question == ('The directions, "Take 10 mL by mouth three times daily for 10 days", work out to 300 mL, '
+                        "but the fax says to dispense 50 mL. What quantity did you intend?")
+    # Other quantity questions stay open.
+    assert "50" not in question_for("quantity", "Quantity", {"sig": "1 tab po tid"})
+
+
 def test_demo_charts_hold_what_the_prescriber_wrote():
     assert chart_for("demo_B")["strength"] == "75 mg"
     assert chart_for("rx_unknown") is None and chart_for(None) is None
@@ -245,6 +254,11 @@ def test_calling_waits_on_the_prescriber_and_blocks_a_second_call(store, review)
     assert rx.clarifications[-1]["status"] == "CALLING" and rx.clarifications[-1]["simulated"] is True
     with pytest.raises(ConflictError):
         review.start_call(exc.exception_id, simulated=True)
+
+
+def test_call_about_a_quantity_conflict_names_the_mismatch(store, review):
+    _, request = review.start_call(_exc(store, "POSSIBLE_QUANTITY_CONFLICT").exception_id, simulated=True)
+    assert "work out to 90, but the fax says to dispense 30" in request.question
 
 
 def test_question_never_names_an_unverified_drug(store, review):

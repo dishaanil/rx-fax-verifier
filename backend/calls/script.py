@@ -3,6 +3,10 @@
 The agent asks one open question and never suggests a value: "What strength
 did you prescribe?", not "Is it 15 mg?". Suggesting the value we read would
 invite the prescriber to agree with our misreading.
+
+The exception is a quantity conflict: both numbers really are on the fax (one
+written, one implied by the directions), so the agent states the mismatch.
+Without it the prescriber has no reason to reconsider the quantity.
 """
 
 PHARMACY = "RxBridge Pharmacy"
@@ -32,12 +36,19 @@ _QUESTIONS = {
 }
 
 
-def question_for(field: str, label: str, context: dict[str, str]) -> str:
+def question_for(field: str, label: str, context: dict[str, str], conflict: tuple[str, str] | None = None) -> str:
+    """`conflict` is (written, implied) for a quantity that doesn't match the directions."""
     drug = context.get("drug")
     # Only name the drug when it isn't the thing being asked about and was read cleanly.
     for_drug = f" for the {drug}" if drug and field != "drug" and "?" not in drug else ""
+    sig = context.get("sig", "").rstrip(".")
+    if field == "quantity" and conflict:
+        written, implied = conflict
+        directions = f'The directions, "{sig}", work out to' if sig else "The directions work out to"
+        return (f"{directions} {implied}, but the fax says to dispense {written}. "
+                f"What quantity did you intend{for_drug}?")
     template = _QUESTIONS.get(field, "Could you tell me the {label} you wrote?")
-    return template.format(for_drug=for_drug, sig=context.get("sig", ""), label=label.lower())
+    return template.format(for_drug=for_drug, sig=sig, label=label.lower())
 
 
 def opening(request_patient: str, patient_dob: str | None) -> str:

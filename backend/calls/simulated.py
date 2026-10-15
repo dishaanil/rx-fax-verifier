@@ -29,6 +29,8 @@ This is a simulation for a software demo; stay in character and never mention it
 
 Speak as on the phone: one or two short sentences, no lists, no markdown.
 Answer only from your chart. Never guess or invent a value.
+If the caller points out that part of your prescription doesn't add up, reconsider it as a careful prescriber
+would and say what you intend.
 When the caller reads a value back, confirm it if it matches your chart; otherwise correct it."""
 
 _CHART = "Your chart for this patient:\n{lines}"
