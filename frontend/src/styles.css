@@ -110,7 +110,7 @@ button { font: inherit; color: inherit; }
 .review__title h1 { font-size: 1.5rem; letter-spacing: -.01em; }
 .review__title p { margin-top: 2px; font-weight: 550; }
 
-.stepper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.stepper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none; }
 .step { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--faint); }
 .step__mark { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--line-strong); font-size: .85rem; font-weight: 700; flex: none; }
 .step__text { display: grid; line-height: 1.25; }
@@ -163,6 +163,29 @@ button { font: inherit; color: inherit; }
 .issue__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 .issue__secondary { display: inline-flex; gap: 14px; margin-left: auto; }
 .issue__secondary .link-button { color: var(--muted); font-weight: 500; }
+
+/* ---- stock and fill ---- */
+.stock { display: grid; gap: 6px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); }
+.stock--fill { border-width: 1.5px; }
+.stock--ok.stock--fill { border-color: var(--ok); background: var(--ok-soft); }
+.stock--warn { border-color: var(--warn); background: var(--warn-soft); }
+.stock--danger { border-color: var(--danger); background: var(--danger-soft); }
+.stock__top { display: flex; align-items: center; gap: 8px; }
+.stock__top h3 { margin: 0; font-size: .98rem; }
+.stock__dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--faint); }
+.stock__dot--ok { background: var(--ok); }
+.stock__dot--warn { background: var(--warn); }
+.stock__dot--danger { background: var(--danger); }
+.stock__where { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.stock .stock__where span { color: var(--muted); font-size: .85rem; }
+.stock__where strong { font-size: 1.05rem; }
+.decision .stock p { margin-top: 0; color: var(--ink); }
+.stock__line { font-size: .9rem; }
+.decision .stock .stock__hint, .stock__hint { font-size: .8rem; color: var(--muted); }
+.stock__options { display: grid; gap: 8px; margin-top: 6px; }
+.stock__options .button { white-space: normal; text-align: center; }
+.stock__transfer { display: flex; flex-wrap: wrap; gap: 8px; }
+.stock__transfer .option__input { flex: 1 1 180px; height: 40px; }
 
 /* ---- prescriber call ---- */
 .call { display: grid; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid var(--info); background: var(--info-soft); }

@@ -53,6 +53,38 @@ export type Prescription = {
   clarifications: Clarification[]
   approved_by: string | null
   audit_events: AuditEvent[]
+  fulfillment?: Fulfillment | null
+}
+
+export type StockStatus = 'IN_STOCK' | 'PARTIAL' | 'OUT_OF_STOCK' | 'NOT_STOCKED' | 'NOT_CHECKED'
+export type FillAction = 'FILL' | 'PARTIAL_FILL' | 'ORDER' | 'TRANSFER'
+
+/** Shelf stock for the verified drug, strength and quantity. Information only: never affects approval. */
+export type StockCheck = {
+  status: StockStatus
+  message: string
+  product: string | null
+  location: string | null
+  on_hand: number | null
+  needed: number | null
+  unit: string | null
+  eta: string | null
+  options: FillAction[]
+}
+
+/** The pharmacist's fill decision after approval. */
+export type Fulfillment = {
+  action: FillAction
+  product: string | null
+  unit: string | null
+  location: string | null
+  needed: number | null
+  dispensed: number
+  owed: number
+  eta: string | null
+  pharmacy: string | null
+  by: string
+  at: string
 }
 
 /** A request for the prescriber to clarify one exception: by any channel, or a phone call. */

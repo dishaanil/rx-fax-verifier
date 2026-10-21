@@ -1,0 +1,15 @@
+{
+  "_about": "Demo pharmacy stock for RxBridge. Invented; loaded into an in-memory SQLite database at startup, so fills reset on restart. on_hand is in the product's unit (tablets, or mL for suspensions).",
+  "products": [
+    {"drug": "Atorvastatin", "strength": "20 mg", "form": "tablet", "unit": "tablets", "on_hand": 480, "location": "Aisle 1, Bay A, Shelf 3", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Atorvastatin", "strength": "40 mg", "form": "tablet", "unit": "tablets", "on_hand": 300, "location": "Aisle 1, Bay A, Shelf 4", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Metoprolol tartrate", "strength": "25 mg", "form": "tablet", "unit": "tablets", "on_hand": 500, "location": "Aisle 3, Bay B, Shelf 1", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Metoprolol tartrate", "strength": "75 mg", "form": "tablet", "unit": "tablets", "on_hand": 240, "location": "Aisle 3, Bay B, Shelf 2", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Amoxicillin", "strength": "250 mg/5 mL", "form": "suspension", "unit": "mL", "on_hand": 0, "location": "Antibiotics, Bay D, Shelf 2", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Amoxicillin", "strength": "400 mg/5 mL", "form": "suspension", "unit": "mL", "on_hand": 600, "location": "Antibiotics, Bay D, Shelf 3", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Hydroxyzine HCl", "strength": "25 mg", "form": "tablet", "unit": "tablets", "on_hand": 12, "location": "Aisle 2, Bay C, Shelf 1", "supplier_eta": "in 2 days"},
+    {"drug": "Hydralazine HCl", "strength": "25 mg", "form": "tablet", "unit": "tablets", "on_hand": 200, "location": "Aisle 5, Bay A, Shelf 2 (kept apart from hydroxyzine)", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Lisinopril", "strength": "10 mg", "form": "tablet", "unit": "tablets", "on_hand": 900, "location": "Aisle 2, Bay A, Shelf 2", "supplier_eta": "tomorrow by 10 am"},
+    {"drug": "Sertraline", "strength": "50 mg", "form": "tablet", "unit": "tablets", "on_hand": 300, "location": "Aisle 4, Bay B, Shelf 3", "supplier_eta": "tomorrow by 10 am"}
+  ]
+}

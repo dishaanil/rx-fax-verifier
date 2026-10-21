@@ -1,10 +1,17 @@
 import { fieldLabel, fieldValue } from '../lib/review'
-import type { Prescription } from '../types/prescription'
+import type { FillAction, Prescription } from '../types/prescription'
+import { StockPanel } from './StockPanel'
 
 const SUMMARY = ['patient', 'patient_dob', 'drug', 'strength', 'form', 'sig', 'quantity', 'refills', 'prescriber']
 
 /** Step 3, and what follows it. Shown only when no issue is open. */
-export function DecisionCard({ prescription, onApprove, disabled }: { prescription: Prescription; onApprove: () => void; disabled: boolean }) {
+export function DecisionCard({ prescription, onApprove, onFulfill, disabled, live }: {
+  prescription: Prescription
+  onApprove: () => void
+  onFulfill: (action: FillAction, pharmacy?: string) => void
+  disabled: boolean
+  live: boolean
+}) {
   const { status } = prescription
   if (status === 'PROCESSING') {
     return <section className="card outcome"><span className="spinner" aria-hidden="true" /><h2>Reading the fax…</h2><p>Fields appear here in a few seconds.</p></section>
@@ -25,6 +32,7 @@ export function DecisionCard({ prescription, onApprove, disabled }: { prescripti
       <dl className="summary">
         {rows.map((key) => <div key={key}><dt>{fieldLabel(key)}</dt><dd>{fieldValue(prescription.fields[key]) ?? '—'}</dd></div>)}
       </dl>
+      {live && <StockPanel prescription={prescription} onFulfill={onFulfill} disabled={disabled} />}
       {!approved && <button type="button" className="button button--primary button--wide" disabled={disabled} onClick={onApprove}>Approve as pharmacist</button>}
     </section>
   )

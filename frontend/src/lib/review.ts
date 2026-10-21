@@ -1,4 +1,4 @@
-import type { Exception, FieldResult, PhoneCall, Prescription, PrescriptionStatus } from '../types/prescription'
+import type { Exception, FieldResult, FillAction, PhoneCall, Prescription, PrescriptionStatus } from '../types/prescription'
 
 const FIELD_LABELS: Record<string, string> = {
   patient: 'Patient',
@@ -84,27 +84,36 @@ export const FINISHED: PrescriptionStatus[] = ['APPROVED', 'REJECTED', 'UNPROCES
 export type StepState = 'done' | 'current' | 'upcoming' | 'stopped'
 export type Step = { label: string; detail: string; state: StepState }
 
-/** The three review steps, derived only from the backend status (the backend owns every transition). */
+export const FILL_LABELS: Record<FillAction, string> = {
+  FILL: 'Filled',
+  PARTIAL_FILL: 'Partly filled',
+  ORDER: 'Ordered',
+  TRANSFER: 'Sent elsewhere',
+}
+
+/** The four steps, derived only from the backend status (the backend owns every transition). */
 export function reviewSteps(prescription: Prescription): Step[] {
-  const { status } = prescription
+  const { status, fulfillment } = prescription
   const open = prescription.exceptions.length
   const intake: Step = { label: 'Intake', detail: 'Fax read', state: 'done' }
   const issues: Step = { label: 'Resolve issues', detail: open ? `${open} left` : 'All resolved', state: 'done' }
   const approval: Step = { label: 'Pharmacist approval', detail: 'Not started', state: 'upcoming' }
+  const fill: Step = { label: 'Fill', detail: '', state: 'upcoming' }
   switch (status) {
     case 'PROCESSING':
-      return [{ ...intake, detail: 'Reading fax…', state: 'current' }, { ...issues, detail: '', state: 'upcoming' }, { ...approval, detail: '' }]
+      return [{ ...intake, detail: 'Reading fax…', state: 'current' }, { ...issues, detail: '', state: 'upcoming' }, { ...approval, detail: '' }, fill]
     case 'UNPROCESSABLE':
-      return [{ ...intake, detail: "Couldn't read", state: 'stopped' }, { ...issues, detail: '', state: 'upcoming' }, { ...approval, detail: '' }]
+      return [{ ...intake, detail: "Couldn't read", state: 'stopped' }, { ...issues, detail: '', state: 'upcoming' }, { ...approval, detail: '' }, fill]
     case 'REVIEW_REQUIRED':
     case 'AWAITING_CLARIFICATION':
-      return [intake, { ...issues, state: 'current' }, approval]
+      return [intake, { ...issues, state: 'current' }, approval, fill]
     case 'READY_FOR_VERIFICATION':
-      return [intake, issues, { ...approval, detail: 'Your decision', state: 'current' }]
+      return [intake, issues, { ...approval, detail: 'Your decision', state: 'current' }, fill]
     case 'APPROVED':
-      return [intake, issues, { ...approval, detail: 'Approved', state: 'done' }]
+      return [intake, issues, { ...approval, detail: 'Approved', state: 'done' },
+        fulfillment ? { ...fill, detail: FILL_LABELS[fulfillment.action], state: 'done' } : { ...fill, detail: 'Pick or order', state: 'current' }]
     case 'REJECTED':
-      return [intake, { ...issues, state: open ? 'stopped' : 'done' }, { ...approval, detail: 'Rejected', state: 'stopped' }]
+      return [intake, { ...issues, state: open ? 'stopped' : 'done' }, { ...approval, detail: 'Rejected', state: 'stopped' }, fill]
   }
 }
 

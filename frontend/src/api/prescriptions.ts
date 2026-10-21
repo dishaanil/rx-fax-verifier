@@ -1,4 +1,4 @@
-import type { Prescription } from '../types/prescription'
+import type { FillAction, Prescription, StockCheck } from '../types/prescription'
 const base = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
 export type ResolutionAction = 'SELECT_VALUE' | 'CORRECT' | 'CONFIRM' | 'MARK_UNREADABLE' | 'REQUEST_CLARIFICATION' | 'USE_PRESCRIBER_ANSWER'
 async function request(path: string, options?: RequestInit): Promise<unknown> {
@@ -53,6 +53,14 @@ export async function approvePrescription(id: string): Promise<Prescription> {
 export async function rejectPrescription(id: string): Promise<Prescription> {
   await request(`/api/prescriptions/${encodeURIComponent(id)}/reject`, { method: 'POST' })
   return getPrescription(id)
+}
+export async function getStock(id: string): Promise<StockCheck> {
+  return await request(`/api/prescriptions/${encodeURIComponent(id)}/stock`) as StockCheck
+}
+export async function fulfillPrescription(id: string, action: FillAction, pharmacy?: string): Promise<Prescription> {
+  return prescription(await request(`/api/prescriptions/${encodeURIComponent(id)}/fulfill`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, pharmacy }),
+  }))
 }
 export function prescriptionSourceUrl(id: string): string {
   return `${base}/api/prescriptions/${encodeURIComponent(id)}/source`
