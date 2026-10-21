@@ -160,6 +160,18 @@ def field_value(field: FieldResult) -> str | None:
     return field.raw_value
 
 
+def raise_field_exception(rx: Prescription, clock: Clock, name: str, exception_type: str, reason: str,
+                          candidates: list[str]) -> RxException:
+    """Open a pharmacist decision on `name` from evidence outside the fax (e.g. a prescriber call).
+    Only ever adds review: the field's values are untouched."""
+    field = rx.fields[name]
+    field.decision = FieldDecision.REVIEW_REQUIRED
+    field.reason = reason
+    return _create_exception(rx, clock, type=exception_type, field=name, reason=reason,
+                             source_evidence=_source_evidence(field), candidate_values=_dedupe(candidates),
+                             required_action=HUMAN_ACTION)
+
+
 def append_event(rx: Prescription, clock: Clock, actor: str, event: str, **extra: object) -> None:
     rx.audit_events.append({"ts": clock(), "actor": actor, "event": event, **extra})
 

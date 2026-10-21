@@ -54,6 +54,8 @@ button { font: inherit; color: inherit; }
 .button--quiet-danger { background: transparent; border-color: var(--line-strong); color: var(--danger); }
 .button--quiet-danger:not(:disabled):hover { background: var(--danger-soft); border-color: var(--danger-soft); }
 .button--wide { width: 100%; min-height: 46px; font-size: 1rem; }
+.button--secondary { background: var(--surface); border-color: var(--line-strong); }
+.button--secondary:not(:disabled):hover { background: var(--surface-2); }
 .link-button { background: none; border: 0; padding: 4px 2px; color: var(--brand); font-weight: 600; cursor: pointer; }
 .link-button:disabled { color: var(--faint); cursor: not-allowed; }
 .link-button:not(:disabled):hover { text-decoration: underline; }
@@ -155,11 +157,46 @@ button { font: inherit; color: inherit; }
 .option--selected { border-color: var(--brand); background: var(--brand-soft); }
 .option input[type="radio"] { accent-color: var(--brand); width: 18px; height: 18px; margin: 0; flex: none; }
 .option--other { flex-wrap: wrap; font-size: .95rem; }
+.option__source { margin-left: auto; color: var(--muted); font-size: .8rem; font-weight: 500; }
 .option__input { flex: 1 1 180px; min-width: 0; height: 36px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 7px; background: #fff; font: inherit; font-weight: 500; }
 .option__input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
 .issue__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 .issue__secondary { display: inline-flex; gap: 14px; margin-left: auto; }
 .issue__secondary .link-button { color: var(--muted); font-weight: 500; }
+
+/* ---- prescriber call ---- */
+.call { display: grid; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid var(--info); background: var(--info-soft); }
+.call--answered { border-color: var(--ok); background: var(--ok-soft); }
+.call--unclear { border-color: var(--warn); background: var(--warn-soft); }
+.call__top { display: flex; align-items: center; gap: 10px; }
+.call__top h3 { margin: 0; font-size: 1rem; }
+.call__icon { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--surface); color: var(--info); flex: none; }
+.call--answered .call__icon { color: var(--ok); }
+.call--unclear .call__icon { color: var(--warn); }
+.call--calling .call__icon { animation: ring 1.4s ease-in-out infinite; }
+@keyframes ring { 0%, 100% { box-shadow: 0 0 0 0 rgb(44 95 158 / 35%); } 50% { box-shadow: 0 0 0 7px rgb(44 95 158 / 0%); } }
+.call__dots::after { content: "…"; display: inline-block; width: 1.2em; animation: dots 1.2s steps(4, end) infinite; overflow: hidden; vertical-align: bottom; }
+@keyframes dots { from { width: 0; } to { width: 1.2em; } }
+.call__sim { margin-left: auto; font-size: .75rem; padding: 1px 8px; background: var(--surface); }
+.call__line { color: var(--ink); font-size: .9rem; overflow-wrap: anywhere; }
+.call__line q { font-style: italic; }
+.call a { color: var(--brand); font-weight: 600; }
+.call__answer { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.call__answer span { color: var(--muted); }
+.call__answer strong { font-size: 1.35rem; }
+.call__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.call__hint { color: var(--muted); font-size: .85rem; }
+.call__note { color: var(--muted); font-size: .78rem; }
+.call__also { padding: 8px 12px; border-radius: 8px; background: var(--warn-soft); color: var(--warn); font-size: .88rem; }
+.call__also ul { margin: 4px 0 0; padding-left: 18px; color: var(--ink); }
+.call__transcript summary { cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--brand); }
+.transcript { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.turn { max-width: 88%; padding: 8px 12px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+.turn small { display: block; color: var(--muted); font-size: .72rem; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; }
+.turn p { font-size: .9rem; }
+.turn--agent { justify-self: start; border-bottom-left-radius: 4px; }
+.turn--prescriber { justify-self: end; background: var(--brand-soft); border-color: transparent; border-bottom-right-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .call--calling .call__icon, .call__dots::after { animation: none; } }
 
 .decision p { color: var(--muted); margin-top: -6px; }
 .decision--approved { border-color: var(--ok); }

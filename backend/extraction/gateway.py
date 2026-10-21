@@ -18,7 +18,7 @@ from PIL import Image
 
 log = logging.getLogger(__name__)
 
-STEPS = frozenset({"extract_primary", "extract_secondary", "normalize_sig"})
+STEPS = frozenset({"extract_primary", "extract_secondary", "normalize_sig", "simulate_prescriber", "analyze_call"})
 
 Tracer = Callable[[dict[str, Any]], None]
 

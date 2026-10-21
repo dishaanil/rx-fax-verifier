@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { approvePrescription, prescriptionSourceUrl, rejectPrescription, resolveException, type ResolutionAction } from '../api/prescriptions'
+import { approvePrescription, callPrescriber, prescriptionSourceUrl, rejectPrescription, resolveException, type ResolutionAction } from '../api/prescriptions'
 import { DecisionCard } from '../components/DecisionCard'
 import { DocumentViewer } from '../components/DocumentViewer'
 import { FieldList } from '../components/FieldList'
@@ -32,14 +32,21 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
     try {
       const next = await action()
       onRefresh(next); setError(null)
-      setIssueId(next.exceptions[0]?.exception_id ?? null)
-      setSelectedField(next.exceptions[0]?.field ?? null)
+      // Stay on the current issue while it is still open (e.g. after starting a call); otherwise go to the first.
+      const stay = next.exceptions.find((item) => item.exception_id === issue?.exception_id)
+      const target = stay ?? next.exceptions[0]
+      setIssueId(target?.exception_id ?? null)
+      setSelectedField(target?.field ?? selectedField)
     } catch (caught) { setError(caught instanceof Error ? caught.message : failure) }
     finally { setBusy(false) }
   }
 
   function resolve(action: ResolutionAction, value?: string) {
     if (issue) void run(() => resolveException(prescription.prescription_id, issue.exception_id, action, value), 'That decision could not be saved.')
+  }
+
+  function call() {
+    if (issue) void run(() => callPrescriber(issue.exception_id), 'The call could not be started.')
   }
 
   function reject() {
@@ -80,7 +87,7 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
         <div className="review__side">
           {issue && !FINISHED.includes(status)
             ? <IssuePanel key={issue.exception_id} prescription={prescription} exception={issue} position={issueIndex + 1} total={exceptions.length}
-                onMove={move} onResolve={resolve} onReject={() => void run(() => rejectPrescription(prescription.prescription_id), 'The prescription could not be rejected.')}
+                onMove={move} onResolve={resolve} onCall={call} onReject={reject}
                 disabled={busy || locked} documentUrl={documentUrl} />
             : <DecisionCard prescription={prescription} disabled={busy || !apiReady} onApprove={() => void run(() => approvePrescription(prescription.prescription_id), 'Approval was not permitted.')} />}
           {issue && !FINISHED.includes(status) && (

@@ -1,6 +1,6 @@
 import type { Prescription } from '../types/prescription'
 const base = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
-export type ResolutionAction = 'SELECT_VALUE' | 'CORRECT' | 'CONFIRM' | 'MARK_UNREADABLE' | 'REQUEST_CLARIFICATION'
+export type ResolutionAction = 'SELECT_VALUE' | 'CORRECT' | 'CONFIRM' | 'MARK_UNREADABLE' | 'REQUEST_CLARIFICATION' | 'USE_PRESCRIBER_ANSWER'
 async function request(path: string, options?: RequestInit): Promise<unknown> {
   const response = await fetch(`${base}${path}`, options)
   if (response.status === 204) return null
@@ -41,6 +41,10 @@ export async function resolveException(id: string, exceptionId: string, action: 
     body: JSON.stringify(action === 'SELECT_VALUE' || action === 'CORRECT' ? { action, value } : { action }),
   })
   return getPrescription(id)
+}
+/** Starts a call to the prescriber; returns at once with the call in progress (poll for the result). */
+export async function callPrescriber(exceptionId: string): Promise<Prescription> {
+  return prescription(await request(`/api/exceptions/${encodeURIComponent(exceptionId)}/call`, { method: 'POST' }))
 }
 export async function approvePrescription(id: string): Promise<Prescription> {
   await request(`/api/prescriptions/${encodeURIComponent(id)}/approve`, { method: 'POST' })

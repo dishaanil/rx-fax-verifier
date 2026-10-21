@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getPrescription, getPrescriptions, intakePrescription } from './api/prescriptions'
+import { callInProgress } from './lib/review'
 import { IntakeQueuePage } from './pages/IntakeQueuePage'
 import { PrescriptionReviewPage } from './pages/PrescriptionReviewPage'
 import type { Prescription } from './types/prescription'
@@ -40,8 +41,10 @@ export default function App() {
     return () => window.removeEventListener('hashchange', show)
   }, [loading, live])
 
+  // Poll while the fax is being read or a prescriber call is in progress.
+  const waiting = active?.status === 'PROCESSING' || callInProgress(active)
   useEffect(() => {
-    if (!live || active?.status !== 'PROCESSING') return
+    if (!live || !waiting) return
     let cancelled = false
     let timer: ReturnType<typeof setTimeout>
     async function poll() {
@@ -49,12 +52,12 @@ export default function App() {
         const next = await getPrescription(active!.prescription_id)
         if (cancelled) return
         update(next)
-        if (next.status === 'PROCESSING') timer = setTimeout(poll, 2000)
+        if (next.status === 'PROCESSING' || callInProgress(next)) timer = setTimeout(poll, 2000)
       } catch (e) { if (!cancelled) setError(e instanceof Error ? e.message : 'Unable to refresh processing status.') }
     }
     timer = setTimeout(poll, 2000)
     return () => { cancelled = true; clearTimeout(timer) }
-  }, [active?.prescription_id, active?.status, live])
+  }, [active?.prescription_id, waiting, live])
 
   async function upload(file: File) {
     setBusy(true); setError(null)
