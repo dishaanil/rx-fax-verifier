@@ -126,7 +126,7 @@ class FakeGateway:
 
 def _request(source_name="demo_B"):
     return CallRequest(call_id="c1", prescription_id="demo_B", exception_id="e1", to_number=PHONE,
-                       prescriber="Gideon Praetorius, DO", patient="Leilani Holloway", patient_dob="2000-10-20",
+                       prescriber="James Walker, DO", patient="Barney Mitchell", patient_dob="2000-10-20",
                        field="strength", field_label="Strength", question="What strength did you prescribe?",
                        context={}, source_name=source_name,
                        on_record={"patient_dob": "1-06-1966", "strength": "15 mg", "drug": "Metoprolol tartrate"})
