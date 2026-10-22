@@ -12,7 +12,15 @@ from pathlib import Path
 from backend.calls import CallRequest, CallResult, to_e164
 from backend.calls.script import field_label, question_for
 from backend.models import FieldDecision, Prescription, PrescriptionStatus, Resolution, RxException
-from backend.pipeline import Clock, append_event, field_value, raise_field_exception, revalidate, utc_now
+from backend.pipeline import (
+    DOCUMENT_INSTRUCTION,
+    Clock,
+    append_event,
+    field_value,
+    raise_field_exception,
+    revalidate,
+    utc_now,
+)
 from backend.policy.router import TERMINAL_STATUSES, route_prescription
 from backend.storage import MemoryStore
 
@@ -46,6 +54,8 @@ class Action(StrEnum):
     REQUEST_CLARIFICATION = "REQUEST_CLARIFICATION"
     # Apply the value the prescriber confirmed on a call. The pharmacist's choice, never automatic.
     USE_PRESCRIBER_ANSWER = "USE_PRESCRIBER_ANSWER"
+    # Instruction-like text on the fax: the pharmacist checked it and it isn't part of the prescription.
+    ACKNOWLEDGE = "ACKNOWLEDGE"
     REJECT = "REJECT"
 
 
@@ -69,6 +79,10 @@ class ReviewService:
 
             if exc.type == "DUPLICATE_DOCUMENT" and act is not Action.REJECT:
                 raise DomainError("A duplicate document can only be resolved with REJECT.")
+            if exc.type == DOCUMENT_INSTRUCTION and act not in (Action.ACKNOWLEDGE, Action.REJECT):
+                raise DomainError("Instruction-like text on the fax can only be acknowledged or rejected.")
+            if act is Action.ACKNOWLEDGE and exc.type != DOCUMENT_INSTRUCTION:
+                raise DomainError("Only instruction-like text on the fax can be acknowledged.")
 
             match act:
                 case Action.REJECT:
@@ -93,6 +107,10 @@ class ReviewService:
                     self._request_clarification(rx, exc)
                 case Action.REQUEST_CLARIFICATION:
                     self._request_clarification(rx, exc)
+                case Action.ACKNOWLEDGE:
+                    rx.exceptions = [e for e in rx.exceptions if e.exception_id != exc.exception_id]
+                    append_event(rx, self.clock, "PHARMACIST", "EXCEPTION_RESOLVED", exception_id=exc.exception_id,
+                                 action=act.value, reason="Pharmacist checked the text; not part of the prescription.")
 
             revalidate(rx, self.clock)
             self.store.save(rx)

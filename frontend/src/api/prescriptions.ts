@@ -1,6 +1,6 @@
 import type { FillAction, Prescription, StockCheck } from '../types/prescription'
 const base = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
-export type ResolutionAction = 'SELECT_VALUE' | 'CORRECT' | 'CONFIRM' | 'MARK_UNREADABLE' | 'REQUEST_CLARIFICATION' | 'USE_PRESCRIBER_ANSWER'
+export type ResolutionAction = 'SELECT_VALUE' | 'CORRECT' | 'CONFIRM' | 'MARK_UNREADABLE' | 'REQUEST_CLARIFICATION' | 'USE_PRESCRIBER_ANSWER' | 'ACKNOWLEDGE'
 async function request(path: string, options?: RequestInit): Promise<unknown> {
   const response = await fetch(`${base}${path}`, options)
   if (response.status === 204) return null

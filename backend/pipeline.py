@@ -36,6 +36,7 @@ from backend.validators import (
     validate_sig_tokens,
 )
 from backend.validators.cross_pass import validate_cross_pass
+from backend.validators.document_instruction import find_instructions
 from backend.validators.lasa import validate_lasa
 from backend.validators.quantity import format_quantity, implied_quantity
 from backend.validators.reference import validate_reference
@@ -46,6 +47,7 @@ Clock = Callable[[], str]
 
 HUMAN_ACTION = "HUMAN_SELECTION_OR_CLARIFICATION"
 DOCUMENT_FIELD = "document"
+DOCUMENT_INSTRUCTION = "DOCUMENT_INSTRUCTION"
 # Exceptions whose condition depends on another field's value. Only these are
 # cleared or re-typed automatically when a dependency changes.
 DEPENDENCY_DRIVEN_TYPES = frozenset({"POSSIBLE_QUANTITY_CONFLICT", "INVALID_STRENGTH"})
@@ -78,7 +80,7 @@ def process(
     untrusted_text = getattr(raw, "untrusted_text", None)
     if untrusted_text is not None:
         # Non-field document text (e.g. an injected instruction), kept for PRISM/UI.
-        # Evidence only: nothing in the pipeline or policy reads it.
+        # Never followed: it can only open a review issue (below), never clear one.
         source["untrusted_text"] = list(untrusted_text)
 
     rx = Prescription(
@@ -108,6 +110,20 @@ def process(
             source_evidence={"sha256": sha256, "detail": duplicate.detail},
             candidate_values=[],
             required_action="REJECT",
+        )
+
+    instructions = find_instructions(list(untrusted_text or []))
+    if instructions:
+        _create_exception(
+            rx,
+            clock,
+            type=DOCUMENT_INSTRUCTION,
+            field=DOCUMENT_FIELD,
+            reason="Text on the fax reads like an instruction to software. It was ignored; "
+                   "check the fax hasn't been tampered with.",
+            source_evidence={"text": instructions},
+            candidate_values=[],
+            required_action="ACKNOWLEDGE_OR_REJECT",
         )
 
     revalidate(rx, clock, patient_identity=raw.patient_identity)

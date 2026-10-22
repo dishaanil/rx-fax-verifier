@@ -39,7 +39,7 @@ export type Exception = {
   field: string
   severity: string
   reason: string
-  source_evidence: Evidence | null
+  source_evidence: (Evidence & { text?: string[] }) | null  // text: instruction-like lines found on the fax
   candidate_values: string[]
   required_action: string
 }

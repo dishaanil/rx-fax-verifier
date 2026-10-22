@@ -237,14 +237,17 @@ def test_untrusted_text_copied_to_source():
     assert rx.source["untrusted_text"] == INJECTION
 
 
-def test_untrusted_text_has_no_effect_on_policy():
-    with_text = process(nicrron_like(), set(), "h", fixed_clock).model_dump(mode="json")
-    without = process(raw_fixture("rx_A"), set(), "h", fixed_clock).model_dump(mode="json")
+def test_untrusted_text_only_adds_review():
+    with_text = process(nicrron_like(), set(), "h", fixed_clock)
+    without = process(raw_fixture("rx_A"), set(), "h", fixed_clock)
 
-    assert with_text["source"].pop("untrusted_text") == INJECTION
-    assert with_text == without
-    assert with_text["status"] == "READY_FOR_VERIFICATION"
-    assert with_text["approved_by"] is None
+    assert with_text.source["untrusted_text"] == INJECTION
+    # The fields are read and decided exactly as without the text; it is never followed.
+    assert with_text.model_dump(mode="json")["fields"] == without.model_dump(mode="json")["fields"]
+    # Its only effect is one review issue, so a clean fax is no longer ready.
+    assert [e.type for e in with_text.exceptions] == ["DOCUMENT_INSTRUCTION"]
+    assert with_text.status is PrescriptionStatus.REVIEW_REQUIRED
+    assert with_text.approved_by is None
 
 
 def test_stub_extraction_has_no_untrusted_text_key():
@@ -256,13 +259,13 @@ def test_injection_text_never_approves_or_bypasses_validation(pid):
     rx = process(nicrron_like(pid), set(), "h", fixed_clock)
     baseline = processed(pid, sha="h")
 
-    assert rx.status is baseline.status
-    assert [e.type for e in rx.exceptions] == [e.type for e in baseline.exceptions]
+    assert rx.status is PrescriptionStatus.REVIEW_REQUIRED
+    assert [e.type for e in rx.exceptions] == ["DOCUMENT_INSTRUCTION"] + [e.type for e in baseline.exceptions]
     assert rx.status is not PrescriptionStatus.APPROVED
     assert "PRESCRIPTION_APPROVED" not in [e["event"] for e in rx.audit_events]
 
 
-def test_untrusted_text_survives_intake_and_approval_still_needs_pharmacist(tmp_path):
+def test_untrusted_text_survives_intake_and_only_a_pharmacist_clears_it(tmp_path):
     class InjectedExtractor:
         def extract(self, path, prescription_id):
             return nicrron_like().model_copy(update={"prescription_id": prescription_id})
@@ -270,9 +273,12 @@ def test_untrusted_text_survives_intake_and_approval_still_needs_pharmacist(tmp_
     with TestClient(create_app(store=MemoryStore(), upload_dir=tmp_path, extractor_factory=InjectedExtractor)) as client:
         rx = client.post("/api/intake", files={"file": ("rx_A.png", b"img", "image/png")}).json()
         assert rx["source"]["untrusted_text"] == INJECTION
-        assert rx["status"] == "READY_FOR_VERIFICATION"
+        assert rx["status"] == "REVIEW_REQUIRED"
         assert rx["approved_by"] is None
+        assert client.post("/api/prescriptions/rx_A/approve").status_code == 409
 
+        [exc] = rx["exceptions"]
+        client.post(f"/api/exceptions/{exc['exception_id']}/resolve", json={"action": "ACKNOWLEDGE"})
         approved = client.post("/api/prescriptions/rx_A/approve").json()
 
     assert approved["status"] == "APPROVED"
