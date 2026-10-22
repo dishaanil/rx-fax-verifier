@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { approvePrescription, callPrescriber, prescriptionSourceUrl, rejectPrescription, resolveException, type ResolutionAction } from '../api/prescriptions'
+import { approvePrescription, callPrescriber, fulfillPrescription, prescriptionSourceUrl, rejectPrescription, resolveException, type ResolutionAction } from '../api/prescriptions'
 import { DecisionCard } from '../components/DecisionCard'
 import { DocumentViewer } from '../components/DocumentViewer'
 import { FieldList } from '../components/FieldList'
@@ -8,7 +8,7 @@ import { MoreDetails } from '../components/MoreDetails'
 import { StatusBadge } from '../components/StatusBadge'
 import { Stepper } from '../components/Stepper'
 import { FINISHED, fieldLabel, fieldValue } from '../lib/review'
-import type { Prescription } from '../types/prescription'
+import type { FillAction, Prescription } from '../types/prescription'
 
 export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBack }: { prescription: Prescription; apiReady: boolean; onRefresh: (value: Prescription) => void; onBack: () => void }) {
   const { exceptions, fields, status } = prescription
@@ -47,6 +47,10 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
 
   function call() {
     if (issue) void run(() => callPrescriber(issue.exception_id), 'The call could not be started.')
+  }
+
+  function fulfill(action: FillAction, pharmacy?: string) {
+    void run(() => fulfillPrescription(prescription.prescription_id, action, pharmacy), 'The fill decision could not be saved.')
   }
 
   function reject() {
@@ -89,7 +93,8 @@ export function PrescriptionReviewPage({ prescription, apiReady, onRefresh, onBa
             ? <IssuePanel key={issue.exception_id} prescription={prescription} exception={issue} position={issueIndex + 1} total={exceptions.length}
                 onMove={move} onResolve={resolve} onCall={call} onReject={reject}
                 disabled={busy || locked} documentUrl={documentUrl} />
-            : <DecisionCard prescription={prescription} disabled={busy || !apiReady} onApprove={() => void run(() => approvePrescription(prescription.prescription_id), 'Approval was not permitted.')} />}
+            : <DecisionCard prescription={prescription} disabled={busy || !apiReady} live={apiReady} onFulfill={fulfill}
+                onApprove={() => void run(() => approvePrescription(prescription.prescription_id), 'Approval was not permitted.')} />}
           {issue && !FINISHED.includes(status) && (
             // Approval stays visible but disabled while issues remain (DESIGN.md §13).
             <button type="button" className="button button--primary button--wide" disabled>

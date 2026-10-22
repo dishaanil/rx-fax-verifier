@@ -122,6 +122,8 @@ State is in memory and is lost on restart.
 | `POST` | `/api/exceptions/{exception_id}/call` | Calls the prescriber about this exception. Returns at once with the call `CALLING`; the result (`ANSWERED`, `UNCLEAR` or `FAILED`, with the transcript) appears in `clarifications` when the call ends. |
 | `POST` | `/api/prescriptions/{id}/approve` | Pharmacist approval; only from `READY_FOR_VERIFICATION`, else 409. |
 | `POST` | `/api/prescriptions/{id}/reject` | Rejects; 409 if already approved. |
+| `GET` | `/api/prescriptions/{id}/stock` | Shelf stock for the verified drug, strength and quantity: status, location, on hand, needed, and the fill options it allows. Information only. |
+| `POST` | `/api/prescriptions/{id}/fulfill` | After approval: `{"action": "FILL" \| "PARTIAL_FILL" \| "ORDER" \| "TRANSFER", "pharmacy": ...}`. Only the options the stock allows; one decision per prescription. |
 | `GET` | `/api/prescriptions/{id}/source` | The uploaded source file, or 404. |
 
 ### Call prescriber
@@ -149,6 +151,23 @@ optional field that never blocks approval).
   any number not in `RXBRIDGE_CALL_ALLOWLIST`, and has not yet been run against the live API. Before calling
   real prescribers: check the number against the NPI Registry (a forged fax can list a fake number), have a
   BAA with ElevenLabs, and follow call-recording consent rules.
+
+### Stock and fill
+
+Once the drug, strength and quantity are verified (or set by the pharmacist), RxBridge looks the product up
+in the pharmacy's stock (`backend/inventory/`) and shows where it is on the shelf. It never looks up a value
+that is still in question, so a misread can't show false stock or send someone to the wrong shelf.
+
+- **Before approval** the final check shows the stock (in stock, not enough, out of stock, not stocked here).
+  It is information only and never affects approval.
+- **After approval** a fourth step, **Fill**, offers only what the stock allows: *Mark filled* when there is
+  enough; *Fill what's there and owe the rest*, *Order it* or *Send to another pharmacy* when there isn't.
+  Stock never rejects a prescription: a valid order that is out of stock is still valid.
+- **Demo data:** `fixtures/inventory.json`, loaded into an in-memory SQLite database at startup (fills reset
+  on restart). Matching is by drug, strength and form after normalisation, so "Metoprolol Tartrate 75mg tab"
+  finds the 75 mg tablets, never the 25 mg. Set up for the demos: A atorvastatin in stock, B metoprolol 75 mg
+  in stock, C amoxicillin 250 mg/5 mL out of stock, D hydroxyzine 25 mg only 12 tablets. A real pharmacy
+  system or hosted database would replace `SqliteInventory` behind the same `find` / `get` / `dispense`.
 
 ## Invariants
 

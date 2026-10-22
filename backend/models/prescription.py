@@ -20,3 +20,5 @@ class Prescription(ContractModel):
     clarifications: list[dict[str, Any]] = Field(default_factory=list)
     approved_by: str | None = None
     audit_events: list[dict[str, Any]] = Field(default_factory=list)
+    # After approval: how it was filled (FILL / PARTIAL_FILL / ORDER / TRANSFER). Never affects approval.
+    fulfillment: dict[str, Any] | None = None

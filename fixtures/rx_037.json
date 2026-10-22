@@ -183,5 +183,6 @@
     { "ts": "2026-10-10T14:02:19Z", "actor": "AI", "event": "FIELDS_EXTRACTED" },
     { "ts": "2026-10-10T14:02:21Z", "actor": "SYSTEM", "event": "EXCEPTION_CREATED", "exception_id": "exc_01" },
     { "ts": "2026-10-10T14:02:21Z", "actor": "SYSTEM", "event": "EXCEPTION_CREATED", "exception_id": "exc_02" }
-  ]
+  ],
+  "fulfillment": null
 }

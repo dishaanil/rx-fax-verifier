@@ -1,4 +1,4 @@
-"""RxBridge FastAPI app: eight routes over the deterministic pipeline.
+"""RxBridge FastAPI app: ten routes over the deterministic pipeline.
 
 Run: uvicorn backend.main:app --reload --port 8000
 Importing this module creates an empty app; seeding happens only at startup
@@ -21,6 +21,7 @@ from backend.calls import Caller, CallError, CallRequest, CallResult, calls_are_
 from backend.extraction import ExtractionProvider, get_extractor
 from backend.extraction.stub import FIXTURES_DIR, STUB_IDS, StubExtractor
 from backend.intake import intake
+from backend.inventory import FulfillmentService, SqliteInventory, StockCheck
 from backend.models import Prescription, PrescriptionStatus
 from backend.review import ConflictError, DomainError, NotFoundError, ReviewService
 from backend.storage import MemoryStore
@@ -35,6 +36,13 @@ class ResolveRequest(BaseModel):
 
     action: str
     value: str | None = None
+
+
+class FulfillRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    action: str
+    pharmacy: str | None = None
 
 
 class QueueItem(BaseModel):
@@ -57,10 +65,12 @@ def create_app(
     upload_dir: Path | None = None,
     extractor_factory: Callable[[], ExtractionProvider] = get_extractor,
     caller_factory: Callable[[], Caller] = get_caller,
+    inventory: SqliteInventory | None = None,
 ) -> FastAPI:
     store = store or MemoryStore()
     upload_dir = (upload_dir or Path(os.environ.get("RXBRIDGE_UPLOAD_DIR", DEFAULT_UPLOAD_DIR))).resolve()
     review = ReviewService(store)
+    fulfillment = FulfillmentService(store, inventory or SqliteInventory())
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -129,6 +139,16 @@ def create_app(
     @app.post("/api/prescriptions/{prescription_id}/reject", response_model=Prescription)
     def reject(prescription_id: str) -> Prescription:
         return review.reject(prescription_id)
+
+    @app.get("/api/prescriptions/{prescription_id}/stock", response_model=StockCheck)
+    def get_stock(prescription_id: str) -> StockCheck:
+        """Shelf stock for the verified drug, strength and quantity. Information only: never affects approval."""
+        return fulfillment.stock(prescription_id)
+
+    @app.post("/api/prescriptions/{prescription_id}/fulfill", response_model=Prescription)
+    def fulfill(prescription_id: str, body: FulfillRequest) -> Prescription:
+        """After approval: FILL, PARTIAL_FILL, ORDER or TRANSFER, whichever the stock allows."""
+        return fulfillment.fulfill(prescription_id, body.action, body.pharmacy)
 
     @app.get("/api/prescriptions/{prescription_id}/source")
     def get_source(prescription_id: str) -> FileResponse:
