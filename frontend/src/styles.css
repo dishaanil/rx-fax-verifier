@@ -65,6 +65,8 @@ button { font: inherit; color: inherit; }
 .count { display: inline-block; min-width: 20px; padding: 0 6px; border-radius: 10px; background: var(--line); color: var(--muted); font-size: .75rem; font-weight: 650; text-align: center; }
 .banner { padding: 10px 14px; border-radius: 8px; background: var(--info-soft); color: var(--info); font-size: .9rem; }
 .banner--error { background: var(--danger-soft); color: var(--danger); }
+.banner--action { display: flex; align-items: center; gap: 12px; }
+.banner--action span { margin-right: auto; }
 .page-banner { max-width: 1440px; margin: 16px auto 0; width: calc(100% - 32px); }
 .note { padding: 10px 12px; border-radius: 8px; background: var(--surface-2); border: 1px dashed var(--line-strong); color: var(--muted); font-size: .85rem; }
 .chip { display: inline-flex; align-items: baseline; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-weight: 600; }

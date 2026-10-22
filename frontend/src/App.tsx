@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getPrescription, getPrescriptions, intakePrescription } from './api/prescriptions'
-import { callInProgress } from './lib/review'
+import { callInProgress, fieldValue } from './lib/review'
 import { IntakeQueuePage } from './pages/IntakeQueuePage'
 import { PrescriptionReviewPage } from './pages/PrescriptionReviewPage'
 import type { Prescription } from './types/prescription'
@@ -17,6 +17,7 @@ export default function App() {
   const [loading, setLoading] = useState(true)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [ready, setReady] = useState<Prescription | null>(null)  // a fax read while the pharmacist was elsewhere
 
   useEffect(() => {
     getPrescriptions().then(({ data, live }) => { setPrescriptions(data); setLive(live) }).catch((e) => setError(e.message)).finally(() => setLoading(false))
@@ -41,6 +42,8 @@ export default function App() {
     return () => window.removeEventListener('hashchange', show)
   }, [loading, live])
 
+  useEffect(() => { if (ready && active?.prescription_id === ready.prescription_id) setReady(null) }, [active, ready])
+
   // Poll while the fax is being read or a prescriber call is in progress.
   const waiting = active?.status === 'PROCESSING' || callInProgress(active)
   useEffect(() => {
@@ -64,7 +67,12 @@ export default function App() {
     try {
       const item = await intakePrescription(file)
       if (!live) setPrescriptions([])
-      setLive(true); update(item); go(item.prescription_id)
+      setLive(true)
+      // Reading takes a while; only open the new fax if the pharmacist is still on the queue.
+      if (routeId()) {
+        setPrescriptions((old) => [item, ...old.filter((p) => p.prescription_id !== item.prescription_id)])
+        setReady(item)
+      } else { update(item); go(item.prescription_id) }
     } catch (e) { setError(e instanceof Error ? e.message : 'Upload failed.') }
     finally { setBusy(false) }
   }
@@ -76,6 +84,11 @@ export default function App() {
       <span className={`connection${live ? ' connection--live' : ''}`}>{live ? 'Connected' : 'Preview'}</span>
     </nav>
     {error && <p className="banner banner--error page-banner" role="alert">{error}</p>}
+    {ready && <p className="banner page-banner banner--action" role="status">
+      <span>{ready.fields.patient && fieldValue(ready.fields.patient) ? `${fieldValue(ready.fields.patient)}'s fax` : 'A new fax'} has been read.</span>
+      <button type="button" className="link-button" onClick={() => { go(ready.prescription_id); setReady(null) }}>Open</button>
+      <button type="button" className="link-button" onClick={() => setReady(null)}>Dismiss</button>
+    </p>}
     {active ? <PrescriptionReviewPage key={active.prescription_id} prescription={active} apiReady={live} onRefresh={update} onBack={() => go(null)} />
       : <IntakeQueuePage prescriptions={prescriptions} onOpen={go} onUpload={upload} busy={busy} live={live} />}
   </>

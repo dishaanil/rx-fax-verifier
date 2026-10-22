@@ -1,7 +1,7 @@
 import { fieldLabel } from '../lib/review'
 import type { PhoneCall } from '../types/prescription'
 
-/** "Augustin Belrose, MD" -> "Dr. Belrose" */
+/** "Robert Hughes, MD" -> "Dr. Hughes" */
 export function doctorName(prescriber: string): string {
   const last = prescriber.split(',')[0].trim().split(/\s+/).at(-1)
   return last ? `Dr. ${last}` : 'the prescriber'

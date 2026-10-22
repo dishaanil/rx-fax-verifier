@@ -135,7 +135,7 @@ optional field that never blocks approval).
 - The assistant says it is an AI, identifies the patient, asks one open question ("What strength did you
   prescribe?") and never suggests the value that was read. It only mentions other values, such as the drug,
   once they are verified. It reads the answer back and asks the prescriber to confirm.
-- A confirmed answer is shown as evidence ("Dr. Praetorius said 75 mg") with the transcript. It is applied
+- A confirmed answer is shown as evidence ("Dr. Walker said 75 mg") with the transcript. It is applied
   only when the pharmacist clicks "Use 75 mg" (`USE_PRESCRIBER_ANSWER`), and the field's resolution records
   the call. If there is no clear answer, the pharmacist chooses a value, calls the prescriber themselves, or
   rejects.
