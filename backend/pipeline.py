@@ -54,6 +54,7 @@ _WS_RE = re.compile(r"\s+")
 # Pads write counts as "#30"; the "#" is a number sign, not part of the value.
 _QUANTITY_RE = re.compile(r"^#?\s*(\d+(?:\.\d+)?)\s*([A-Za-z]+)?$")
 _INT_RE = re.compile(r"^\d+$")
+_NPI_LABEL_RE = re.compile(r"^NPI\b\W*", re.IGNORECASE)  # "NPI 1234567893", "NPI#: 1234567893"
 # Drug first: strength checks read the drug's evaluated state.
 _EVALUATION_PRIORITY = {"drug": 0}
 
@@ -229,8 +230,10 @@ def _check_field(
                     candidates.append(implied)
             return signals, candidates, collapsed
         case "prescriber_identifier":
-            signals.append(validate_npi(value.strip()))
-            return signals, [collapsed], collapsed
+            # Drop a copied "NPI" label only; the digits themselves are never repaired.
+            npi = _NPI_LABEL_RE.sub("", collapsed)
+            signals.append(validate_npi(npi))
+            return signals, [npi], npi
         case _:
             return signals, [collapsed], collapsed
 

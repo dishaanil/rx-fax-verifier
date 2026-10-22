@@ -129,6 +129,26 @@ def test_identifier_e():
     assert all(rx.fields[n].decision is FieldDecision.VERIFIED for n in CRITICAL_FIELDS)
 
 
+@pytest.mark.parametrize("written", ["NPI 1234567893", "npi: 1234567893", "NPI# 1234567893"])
+def test_npi_label_copied_with_the_number_is_ignored(written):
+    raw = raw_fixture("rx_A")
+    fields = {**raw.fields, "prescriber_identifier": raw.fields["prescriber_identifier"].model_copy(update={"raw_value": written})}
+    rx = process(raw.model_copy(update={"fields": fields}), set(), "h", fixed_clock)
+
+    assert _signal(rx, "prescriber_identifier", "IDENTIFIER_CHECKSUM").status is SignalStatus.PASS
+    assert rx.fields["prescriber_identifier"].normalized_value == "1234567893"
+    assert rx.fields["prescriber_identifier"].raw_value == written
+    assert rx.status is PrescriptionStatus.READY_FOR_VERIFICATION
+
+
+def test_npi_label_with_a_bad_number_still_fails():
+    raw = raw_fixture("rx_A")
+    fields = {**raw.fields, "prescriber_identifier": raw.fields["prescriber_identifier"].model_copy(update={"raw_value": "NPI 1234567393"})}
+    rx = process(raw.model_copy(update={"fields": fields}), set(), "h", fixed_clock)
+
+    assert _signal(rx, "prescriber_identifier", "IDENTIFIER_CHECKSUM").status is SignalStatus.FAIL
+
+
 def test_injection_f_routes_like_any_drug_string():
     rx = processed("rx_F")
 
