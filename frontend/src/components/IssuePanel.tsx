@@ -64,7 +64,19 @@ export function IssuePanel({ prescription, exception, position, total, onMove, o
       {call && <PrescriberCall call={call} disabled={disabled || calling} onUse={() => onResolve('USE_PRESCRIBER_ANSWER')}
         onCallAgain={onCall} onReject={onReject} />}
 
-      {exception.required_action === 'REJECT' ? (
+      {exception.type === 'DOCUMENT_INSTRUCTION' ? (
+        <>
+          <ul className="quoted" aria-label="Text found on the fax">
+            {(exception.source_evidence?.text ?? []).map((line) => <li key={line}>{line}</li>)}
+          </ul>
+          <div className="issue__actions">
+            <button type="button" className="button button--danger" disabled={disabled} onClick={onReject}>Reject</button>
+            <span className="issue__secondary">
+              <button type="button" className="link-button" disabled={disabled} onClick={() => onResolve('ACKNOWLEDGE')}>Reviewed — not part of the prescription</button>
+            </span>
+          </div>
+        </>
+      ) : exception.required_action === 'REJECT' ? (
         <div className="issue__actions">
           <button type="button" className="button button--danger" disabled={disabled} onClick={onReject}>Reject duplicate</button>
         </div>

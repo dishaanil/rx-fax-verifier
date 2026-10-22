@@ -27,6 +27,7 @@ export function fieldLabel(key: string): string {
 
 export function issueQuestion(exception: Exception): string {
   if (exception.required_action === 'REJECT') return 'This fax was already received'
+  if (exception.type === 'DOCUMENT_INSTRUCTION') return 'Text on the fax reads like an instruction'
   if (exception.type === 'PRESCRIBER_CORRECTION') return `Which ${fieldLabel(exception.field).toLowerCase()} is right?`
   return `What ${fieldLabel(exception.field).toLowerCase()} is written on the fax?`
 }
@@ -159,6 +160,7 @@ const ISSUE_REASONS: Record<string, string> = {
   UNSUPPORTED_SIG: "The directions use wording that couldn't be interpreted.",
   MISSING_EVIDENCE: "We couldn't find where this is written on the fax.",
   DUPLICATE_DOCUMENT: 'The same fax was uploaded before. Reject this copy.',
+  DOCUMENT_INSTRUCTION: "A real prescription doesn't give instructions to software. RxBridge ignored it, but check the fax hasn't been tampered with.",
   PRESCRIBER_CORRECTION: 'The prescriber said on the call that this is different from what was read from the fax.',
 }
 

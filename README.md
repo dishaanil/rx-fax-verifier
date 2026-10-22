@@ -118,7 +118,7 @@ State is in memory and is lost on restart.
 | `POST` | `/api/intake` | Multipart `file`. SHA-256 → save → extract → validate → route. Extractor failure yields `UNPROCESSABLE`. |
 | `GET` | `/api/prescriptions` | Queue: `prescription_id`, `patient`, `status`, `unresolved_count`, `received_at`. |
 | `GET` | `/api/prescriptions/{id}` | Full canonical `Prescription`. |
-| `POST` | `/api/exceptions/{exception_id}/resolve` | `{"action": ..., "value": ...}`; actions `CONFIRM`, `CORRECT`, `SELECT_VALUE`, `MARK_UNREADABLE`, `REQUEST_CLARIFICATION`, `USE_PRESCRIBER_ANSWER`, `REJECT`. Always revalidates. |
+| `POST` | `/api/exceptions/{exception_id}/resolve` | `{"action": ..., "value": ...}`; actions `CONFIRM`, `CORRECT`, `SELECT_VALUE`, `MARK_UNREADABLE`, `REQUEST_CLARIFICATION`, `USE_PRESCRIBER_ANSWER`, `ACKNOWLEDGE` (instruction-like text on the fax was checked; only for `DOCUMENT_INSTRUCTION`), `REJECT`. Always revalidates. |
 | `POST` | `/api/exceptions/{exception_id}/call` | Calls the prescriber about this exception. Returns at once with the call `CALLING`; the result (`ANSWERED`, `UNCLEAR` or `FAILED`, with the transcript) appears in `clarifications` when the call ends. |
 | `POST` | `/api/prescriptions/{id}/approve` | Pharmacist approval; only from `READY_FOR_VERIFICATION`, else 409. |
 | `POST` | `/api/prescriptions/{id}/reject` | Rejects; 409 if already approved. |
@@ -183,3 +183,4 @@ that is still in question, so a misread can't show false stock or send someone t
 10. Resolving an exception always triggers revalidation.
 11. Fields belonging to incompatible patient identities are never merged automatically.
 12. Unreadable evidence never becomes `VERIFIED` because a model produced a plausible value.
+13. Text on the fax is never followed. Instruction-like text only opens a review issue; it never clears one or changes a field.

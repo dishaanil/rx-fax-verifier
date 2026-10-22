@@ -17,8 +17,9 @@ field, plus patient_identity. Conventions:
 - `evidence.bbox` is [x0, y0, x1, y1] in pixels of the original image (the one the
   reviewer sees). With an OCR locator it is where the value's text actually is;
   otherwise it is the primary model's best-effort box.
-- `untrusted_text` (extra attribute, ignored by the pipeline) is non-field text
-  on the page, e.g. an injected instruction, for the PRISM Guardrail. It is data.
+- `untrusted_text` (extra attribute) is non-field text on the page, e.g. an
+  injected instruction, for the PRISM Guardrail. It is data: never followed, and
+  instruction-like text only ever opens a review issue.
 """
 
 import datetime as dt
@@ -58,7 +59,7 @@ UNLOCATED_FIELDS: frozenset[str] = frozenset({"signature_present"})
 
 
 class NicrronExtraction(RawPrescriptionExtraction):
-    """The raw contract plus extractor-side context the pipeline ignores."""
+    """The raw contract plus extractor-side context. The pipeline only uses untrusted_text to add review."""
 
     untrusted_text: list[str] = Field(default_factory=list)
     models: dict[str, str] = Field(default_factory=dict)
