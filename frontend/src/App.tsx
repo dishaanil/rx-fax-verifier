@@ -85,7 +85,7 @@ export default function App() {
     </nav>
     {error && <p className="banner banner--error page-banner" role="alert">{error}</p>}
     {ready && <p className="banner page-banner banner--action" role="status">
-      <span>{(ready.fields.patient && fieldValue(ready.fields.patient)) ?? 'A new'} fax has been read.</span>
+      <span>{ready.fields.patient && fieldValue(ready.fields.patient) ? `${fieldValue(ready.fields.patient)}'s fax` : 'A new fax'} has been read.</span>
       <button type="button" className="link-button" onClick={() => { go(ready.prescription_id); setReady(null) }}>Open</button>
       <button type="button" className="link-button" onClick={() => setReady(null)}>Dismiss</button>
     </p>}
